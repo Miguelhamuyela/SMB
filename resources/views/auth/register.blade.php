@@ -4,7 +4,7 @@
 
     <div class="card shadow">
         <div class="card-body">
-            <h2 class="my-5 text-center">Criar conta no Portal da CNE</h2>
+            <h2 class="my-5 text-center">Criar conta no Portal da Gestão do Digital.ao</h2>
 
             <!-- Validation Errors -->
             <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />

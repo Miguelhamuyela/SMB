@@ -17,6 +17,8 @@ class CreateScheldulesTable extends Migration
 
 
             $table->id();
+
+            $table->softDeletes();
             $table->timestamps();
             
         });
