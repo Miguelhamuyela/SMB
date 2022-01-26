@@ -9,8 +9,7 @@ use App\Http\Middleware\Administrador;
 /* Grupo de rotas autenticadas */
 Route::middleware(['auth'])->group(function () {
     
-    route::get('admin/dashboard', ['as' => 'admin.home', 'uses' => 'Admin\DashboardController@index']);
-    route::get('/', ['as' => 'site.home', 'uses' => 'Site\SiteController@index']);
+    route::get('/', ['as' => 'admin.home', 'uses' => 'Admin\DashboardController@index']);
 
 
     Route::middleware([Administrador::class])->group(function () {

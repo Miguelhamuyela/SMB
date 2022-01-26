@@ -1,33 +1,24 @@
-<!--
-<a class="dropdown-item" href="{{ route('admin.user.show', Auth::User()->id) }}">Perfil</a>
-<a class="dropdown-item" href="{{ route('admin.user.edit', Auth::user()->id) }}">Configurações</a>
-<a class="nav-link text-danger" href="{{ route('logout') }}"
-onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-Terminar a Sessão
 
-<form id="logout-form" action="{{ route('logout') }}" method="POST">
-@csrf
-</form> -->
     
 @if (null !== Auth::user())
 
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
       <li class="nav-item nav-profile">
-        <a href="#" class="nav-link">
+        <a href="{{ route('admin.user.show', Auth::User()->id) }}" class="nav-link">
           <div class="profile-image">
-            <img class="img-xs rounded-circle" src="/dashboard/images/faces/face8.jpg" alt="profile image">
+            <img class="img-xs rounded-circle" src="/storage/{{ Auth::User()->photo }}" alt="{{ Auth::User()->name }}">
             <div class="dot-indicator bg-success"></div>
           </div>
           <div class="text-wrapper">
-            <p class="profile-name">Allen Moreno</p>
-            <p class="designation">Premium user</p>
+            <p class="profile-name">{{ Auth::User()->name }}</p>
+            <p class="designation">{{ Auth::User()->level }}</p>
           </div>
         </a>
       </li>
       <li class="nav-item nav-category">Main Menu</li>
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('admin.home')}}">
           <i class="menu-icon typcn typcn-document-text"></i>
           <span class="menu-title">Dashboard</span>
         </a>

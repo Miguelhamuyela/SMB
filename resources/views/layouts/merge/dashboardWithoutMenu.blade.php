@@ -8,7 +8,7 @@
     <meta name="description" content="sistema de gestão do digital.ao">
     <meta name="author" content="Developers infosi">
 
-    <title>Gestão do Digital - @yield('titulo')</title>
+    <title>@yield('titulo') - {{env('APP_NAME')}}</title>
    
 
     <!-- plugins:css -->

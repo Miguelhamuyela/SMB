@@ -14,17 +14,18 @@ class CreateStartupsTable extends Migration
     public function up()
     {
         Schema::create('startups', function (Blueprint $table) {
-
-            $table->string('name', 255);
-            $table->string('roomName', 255);
-            $table->string('site', 255);
-            $table->string('email', 255);
-            $table->string('tel', 255);
-            $table->string('nif', 255);
-           
-            $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules')->onDelete('CASCADE')->onUpgrade('CASCADE');
-
-            $table->foreign('fk_Payments_id')->references('id')->on('payments')->onDelete('CASCADE')->onUpgrade('CASCADE');
+            $table->id();
+            $table->string('name');
+            $table->string('roomName');
+            $table->string('site');
+            $table->string('email');
+            $table->string('tel');
+            $table->string('nif');
+            $table->unsignedBigInteger('fk_Scheldules_id');
+            $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules');
+            
+            $table->unsignedBigInteger('fk_Payments_id');
+            $table->foreign('fk_Payments_id')->references('id')->on('payments');
 
             $table->softDeletes();
             $table->timestamps();
