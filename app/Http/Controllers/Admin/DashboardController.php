@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Gallery;
-use App\Models\News;
-use App\Models\Video;
+
 use App\Models\User;
 
 class DashboardController extends Controller
@@ -19,10 +17,7 @@ class DashboardController extends Controller
     {
 
         /* Counts */
-        $response['count_news'] = News::count();
-        $response['count_gallery'] = Gallery::count();
-        $response['count_video'] = Video::count();
-        $response['count_user'] = User::count();
+
         /* lasted */
         $response['reports'] = null;
 

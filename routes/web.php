@@ -10,7 +10,7 @@ use App\Http\Middleware\Administrador;
 Route::middleware(['auth'])->group(function () {
     
     route::get('admin/dashboard', ['as' => 'admin.home', 'uses' => 'Admin\DashboardController@index']);
-    route::get('/', ['as' => 'site.home', 'uses' => 'Admin\SiteController@index']);
+    route::get('/', ['as' => 'site.home', 'uses' => 'Site\SiteController@index']);
 
 
     Route::middleware([Administrador::class])->group(function () {
