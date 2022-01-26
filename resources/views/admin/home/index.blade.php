@@ -408,45 +408,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-12 grid-margin">
-                    <div class="card">
-                      <div class="card-body">
-                        <h4 class="card-title mb-0">Top Performer</h4>
-                        <div class="d-flex mt-3 py-2 border-bottom">
-                          <img class="img-sm rounded-circle" src="assets/images/faces/face3.jpg" alt="profile image">
-                          <div class="wrapper ml-2">
-                            <p class="mb-n1 font-weight-semibold">Ray Douglas</p>
-                            <small>162543</small>
-                          </div>
-                          <small class="text-muted ml-auto">1 Hours ago</small>
-                        </div>
-                        <div class="d-flex py-2 border-bottom">
-                          <span class="img-sm rounded-circle bg-warning text-white text-avatar">OH</span>
-                          <div class="wrapper ml-2">
-                            <p class="mb-n1 font-weight-semibold">Ora Hill</p>
-                            <small>162543</small>
-                          </div>
-                          <small class="text-muted ml-auto">4 Hours ago</small>
-                        </div>
-                        <div class="d-flex py-2 border-bottom">
-                          <img class="img-sm rounded-circle" src="assets/images/faces/face4.jpg" alt="profile image">
-                          <div class="wrapper ml-2">
-                            <p class="mb-n1 font-weight-semibold">Brian Dean</p>
-                            <small>162543</small>
-                          </div>
-                          <small class="text-muted ml-auto">4 Hours ago</small>
-                        </div>
-                        <div class="d-flex pt-2">
-                          <span class="img-sm rounded-circle bg-success text-white text-avatar">OB</span>
-                          <div class="wrapper ml-2">
-                            <p class="mb-n1 font-weight-semibold">Olive Bridges</p>
-                            <small>162543</small>
-                          </div>
-                          <small class="text-muted ml-auto">7 Hours ago</small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+               
                 </div>
               </div>
             </div>
