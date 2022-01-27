@@ -15,9 +15,9 @@ class CreateLogsTable extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-   
+
             $table->unsignedBigInteger('fk_idUser');
-            $table->foreign('fk_idUser')->references('id')->on('users')->onDelete('CASCADE')->onUpgrade('CASCADE');
+            $table->foreign('fk_idUser')->references('id')->on('users');
             $table->longText('description');
             $table->timestamps();
             $table->softDeletes();
