@@ -21,6 +21,7 @@ class CreateStartupsTable extends Migration
             $table->string('email');
             $table->string('tel');
             $table->string('nif');
+
             $table->unsignedBigInteger('fk_Scheldules_id');
             $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules');
 

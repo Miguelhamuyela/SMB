@@ -4,25 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Startups extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
-    protected $table = "startups";
+    use HasFactory, SoftDeletes;
+    protected $table = "Startups";
 
-    public $fillable = [
-        'name',
-        'roomName',
-        "email",
-        "tel",
-        "nif",
-        "Scheldules_id",
-        "Payments_id"
+    protected $guarded = ['id'];
 
-
-
-    ];
-
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
     protected $dates = ['deleted_at'];
 }

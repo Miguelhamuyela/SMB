@@ -4,22 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Auditoriums extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
     protected $table = "auditoriums";
 
-    public $fillable = [
-        'Scheldules_id',
-        'Clients_id',
-        "titleConference",
-        "Payments_id"
-      
+    protected $guarded = ['id'];
 
 
-    ];
-
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
     protected $dates = ['deleted_at'];
 }

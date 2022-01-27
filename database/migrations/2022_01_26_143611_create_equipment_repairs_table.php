@@ -14,7 +14,7 @@ class CreateEquipmentRepairsTable extends Migration
     public function up()
     {
         Schema::create('equipment_repairs', function (Blueprint $table) {
-
+            $table->id();
             $table->string('equipmentName');
             $table->string('model');
             $table->string('image',);
@@ -22,15 +22,17 @@ class CreateEquipmentRepairsTable extends Migration
             $table->string('reference');
             $table->string('color');
 
-            $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules')->onDelete('CASCADE')->onUpgrade('CASCADE');
 
-            $table->foreign('fk_Payments_id')->references('id')->on('payments')->onDelete('CASCADE')->onUpgrade('CASCADE');
+            $table->unsignedBigInteger('fk_Scheldules_id');
+            $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules');
+
+            $table->unsignedBigInteger('fk_Payments_id');
+            $table->foreign('fk_Payments_id')->references('id')->on('payments');
 
 
-            $table->foreign('fk_Employees_id')->references('id')->on('equipmentRepairs')->onDelete('CASCADE')->onUpgrade('CASCADE');
+            $table->unsignedBigInteger('fk_Employees_id');
+            $table->foreign('fk_Employees_id')->references('id')->on('employees');
 
-
-            $table->id();
             $table->softDeletes();
             $table->timestamps();
 
