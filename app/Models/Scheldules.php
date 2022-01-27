@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Payments extends Model
+class Scheldules extends Model
 {
-
     use HasFactory, SoftDeletes;
-    protected $table = "Payments";
+    protected $table = "Scheldules";
 
     protected $guarded = ['id'];
 
@@ -20,6 +19,4 @@ class Payments extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-
 }
-

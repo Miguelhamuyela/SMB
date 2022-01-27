@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLogsTable extends Migration
+class CreateEmployeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,18 @@ class CreateLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('logs', function (Blueprint $table) {
-            $table->id();
+        Schema::create('employees', function (Blueprint $table) {
 
-            $table->unsignedBigInteger('fk_idUser');
-            $table->foreign('fk_idUser')->references('id')->on('users');
-            $table->longText('description');
-            $table->timestamps();
+            $table->id();
+            $table->string('name');
+            $table->string('tel',20);
+            $table->string('email',30);
+            $table->string('nif');
+
+
+
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -31,6 +35,6 @@ class CreateLogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logs');
+        Schema::dropIfExists('employees');
     }
 }
