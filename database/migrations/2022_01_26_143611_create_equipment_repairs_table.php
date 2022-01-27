@@ -17,10 +17,10 @@ class CreateEquipmentRepairsTable extends Migration
             $table->id();
             $table->string('equipmentName');
             $table->string('model');
-            $table->string('image',);
-            $table->string('problemDetails');
+            $table->string('image');
+            $table->longText('problemDetails');
             $table->string('reference');
-            $table->string('color');
+            $table->string('color', 50);
 
 
             $table->unsignedBigInteger('fk_Scheldules_id');

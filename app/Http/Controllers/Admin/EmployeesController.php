@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
-class StartupsController extends Controller
+class EmployeesController extends Controller
 {
     /**
      * Display a listing of the resource.
