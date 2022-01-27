@@ -1,4 +1,8 @@
+</div>
+<!-- page-body-wrapper ends -->
 
+</div>
+<!-- container-scroller -->
 @if (session('create'))
     <script>
         Swal.fire({
@@ -53,6 +57,7 @@
 @endif
 
 
+<script src="/js/sweetalert2.all.min.js"></script>
 <script>
     $('#dataTable-1').DataTable({
         autoWidth: true,
@@ -65,14 +70,27 @@
         ]
     });
 </script>
-<script src="/js/sweetalert2.all.min.js"></script>
-
-
-<script>
-    // Replace the <textarea id="editor1"> with a CKEditor 4
-    // instance, using default configuration.
-    CKEDITOR.replace('editor1');
-</script>
 
 
 
+<!-- plugins:js -->
+<script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
+<script src="/dashboard/vendors/js/vendor.bundle.addons.js"></script>
+<!-- endinject -->
+
+
+<!-- Plugin js for this page-->
+<!-- End plugin js for this page-->
+
+
+
+<!-- inject:js -->
+<script src="/dashboard/js/shared/off-canvas.js"></script>
+<script src="/dashboard/js/shared/misc.js"></script>
+<!-- endinject -->
+
+<!-- Custom js for this page-->
+<script src="/dashboard/js/demo_1/dashboard.js"></script>
+
+</body>
+</html>
