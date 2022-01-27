@@ -5,23 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Payments extends Model
+class Scheldules extends Model
 {
-
     use HasFactory;
     use SoftDeletes;
-    protected $table = "payments";
+    protected $table = "scheldules";
 
     public $fillable = [
-        'name',
-        'value',
-        "reference",
-        'currency',
-        'status'
+        'stared',
+        'end',
+        "prespective"
+
 
     ];
 
     protected $dates = ['deleted_at'];
-
 }
-

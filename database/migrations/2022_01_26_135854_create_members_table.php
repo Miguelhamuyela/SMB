@@ -15,18 +15,18 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
 
-            $table->string('occupation', 255);
-            $table->string('email', 255);
-            $table->string('tel', 255);
-            $table->string('name', 255);
-            $table->string('nif', 255);
+
+            $table->string('occupation');
+            $table->string('email');
+            $table->string('tel');
+            $table->string('name');
+            $table->string('tel');
+            $table->string('nif');
+
             $table->foreign('fk_startups_id')->references('id')->on('startups')->onDelete('CASCADE')->onUpgrade('CASCADE');
-            
-            $table->id();
+
+            $table->softDeletes();
             $table->timestamps();
-
-
-
         });
     }
 

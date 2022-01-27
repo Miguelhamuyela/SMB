@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScheldulesTable extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,18 @@ class CreateScheldulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('scheldules', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
+
+            $table->string('name', );
+            $table->string('value', );
+            $table->string('reference', );
+            $table->string('currency', );
+            $table->string('status', );
 
 
             $table->id();
+            $table->softDeletes();
             $table->timestamps();
-            
         });
     }
 
@@ -29,6 +35,6 @@ class CreateScheldulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('scheldules');
+        Schema::dropIfExists('payments');
     }
 }
