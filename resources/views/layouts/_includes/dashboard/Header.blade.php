@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.addons.css">
     <!-- endinject -->
     
+    <link rel="stylesheet" href="/dashboard/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     

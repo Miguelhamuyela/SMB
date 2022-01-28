@@ -58,6 +58,18 @@
 
 
 <script src="/js/sweetalert2.all.min.js"></script>
+
+
+
+<!-- plugins:js -->
+<script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
+<script src="/dashboard/vendors/js/vendor.bundle.addons.js"></script>
+<!-- endinject -->
+
+
+<script src='/js/jquery.dataTables.min.js'></script>
+<script src='/js/dataTables.bootstrap4.min.js'></script>
+
 <script>
     $('#dataTable-1').DataTable({
         autoWidth: true,
@@ -70,18 +82,6 @@
         ]
     });
 </script>
-
-
-
-<!-- plugins:js -->
-<script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
-<script src="/dashboard/vendors/js/vendor.bundle.addons.js"></script>
-<!-- endinject -->
-
-
-<!-- Plugin js for this page-->
-<!-- End plugin js for this page-->
-
 
 
 <!-- inject:js -->
