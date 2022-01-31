@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Employees extends Model
+class Elearnings extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = "Employees";
+    protected $table = "Elearnings";
 
     protected $guarded = ['id'];
 
@@ -19,7 +19,4 @@ class Employees extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-
-
-    
 }
