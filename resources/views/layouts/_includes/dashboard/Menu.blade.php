@@ -24,6 +24,13 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.startup.index')}}">
+          <i class="menu-icon typcn typcn-shopping-bag"></i>
+          <span class="menu-title">Startups</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="menu-icon typcn typcn-coffee"></i>
           <span class="menu-title">Basic UI Elements</span>

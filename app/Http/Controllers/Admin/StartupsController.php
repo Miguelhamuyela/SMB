@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
 
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class StartupsController extends Controller
@@ -13,7 +14,7 @@ class StartupsController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.startup.index');
     }
 
     /**
