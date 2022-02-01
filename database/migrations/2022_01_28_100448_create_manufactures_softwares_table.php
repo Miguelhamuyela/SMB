@@ -20,7 +20,7 @@ class CreateManufacturesSoftwaresTable extends Migration
             $table->string('category');
             $table->longText('description');
             $table->string('file');
-            
+
             $table->unsignedBigInteger('fk_Scheldules_id');
             $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules');
 
@@ -33,6 +33,7 @@ class CreateManufacturesSoftwaresTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+        
     }
 
     /**
