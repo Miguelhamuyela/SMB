@@ -1,7 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
 
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use App\Models\Payment;
+use App\Models\Scheldule;
+use App\Models\Startup;
 use Illuminate\Http\Request;
 
 class StartupsController extends Controller
@@ -13,7 +17,7 @@ class StartupsController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.startup.index');
     }
 
     /**
@@ -34,7 +38,25 @@ class StartupsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $payment = Payment::create($request->all());
+        $schedule = Scheldule::create($request->all());
+
+        $startup = Startup::create(
+            [
+                'name',
+                'roomName',
+                'site',
+                'email',
+                'tel',
+                'nif',
+                'fk_Payments_id' => $payment->id,
+                'fk_Scheldules_id' => $schedule->id
+
+            ]
+        );
+
+  
     }
 
     /**

@@ -46,6 +46,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/configuration/edit/{id}', ['as' => 'admin.configuration.edit', 'uses' => 'Admin\ConfigurationController@edit']);
     Route::put('admin/configuration/update/{id}', ['as' => 'admin.configuration.update', 'uses' => 'Admin\ConfigurationController@update']);
     /* end configuration */
+
+
+    /**Startups */
+    Route::get('admin/startup/index', ['as' => 'admin.startup.index', 'uses' => 'Admin\StartupsController@index']);
+    /**End Startups */
     
 });
 
