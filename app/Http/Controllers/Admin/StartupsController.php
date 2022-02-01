@@ -3,9 +3,9 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\Payments;
-use App\Models\Scheldules;
-use App\Models\Startups;
+use App\Models\Payment;
+use App\Models\Scheldule;
+use App\Models\Startup;
 use Illuminate\Http\Request;
 
 class StartupsController extends Controller
@@ -39,26 +39,24 @@ class StartupsController extends Controller
     public function store(Request $request)
     {
 
-    
-        
+        $payment = Payment::create($request->all());
+        $schedule = Scheldule::create($request->all());
 
-        $payment = Payments::create($request->all());
-        $schedule = Scheldules::create($request->all());
-
-        $startup = Startups::create(
+        $startup = Startup::create(
             [
-
                 'name',
+                'roomName',
                 'site',
                 'email',
                 'tel',
                 'nif',
-                'fk_payment_id' => $payment->id,
+                'fk_Payments_id' => $payment->id,
+                'fk_Scheldules_id' => $schedule->id
 
             ]
         );
 
-        return ();
+  
     }
 
     /**
