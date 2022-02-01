@@ -15,7 +15,7 @@ class CreateMeetingRoomsTable extends Migration
     {
         Schema::create('meeting_rooms', function (Blueprint $table) {
             $table->id();
-            $table->string('name', );
+            $table->string('name');
 
             $table->unsignedBigInteger('fk_Scheldules_id');
             $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules');

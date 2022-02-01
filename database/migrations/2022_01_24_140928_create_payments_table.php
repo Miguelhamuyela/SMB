@@ -19,7 +19,7 @@ class CreatePaymentsTable extends Migration
             $table->double('value');
             $table->string('reference');
             $table->string('currency', 10);
-            $table->string('status', 20);
+            $table->enum('status', ['Pago', 'Não Pago', 'Em Validação', 'Negado']);
 
             $table->softDeletes();
             $table->timestamps();

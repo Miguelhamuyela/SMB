@@ -15,7 +15,7 @@ class CreateCoworksTable extends Migration
     {
         Schema::create('coworks', function (Blueprint $table) {
             $table->id();
-            $table->string('title',);
+            $table->string('title');
 
             $table->unsignedBigInteger('fk_Scheldules_id');
             $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules');

@@ -16,7 +16,7 @@ class CreateAuditoriumsTable extends Migration
         Schema::create('auditoriums', function (Blueprint $table) {
             
             $table->id();
-            $table->string('titleConference', );
+            $table->string('titleConference');
 
             $table->unsignedBigInteger('fk_Scheldules_id');
             $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules');

@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Members extends Model
+class Auditorium extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = "Members";
+    protected $table = "auditoriums";
 
     protected $guarded = ['id'];
+
 
     /**
      * The attributes that should be mutated to dates.

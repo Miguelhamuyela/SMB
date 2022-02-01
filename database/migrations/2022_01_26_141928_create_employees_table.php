@@ -19,7 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string('name');
             $table->string('tel',20);
             $table->string('email',30);
-            $table->string('nif');
+            $table->string('nif', 30);
 
 
 
