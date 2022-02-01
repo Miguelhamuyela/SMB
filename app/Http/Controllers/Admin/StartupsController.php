@@ -3,6 +3,8 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\Payments;
+use App\Models\Scheldules;
 use App\Models\Startups;
 use Illuminate\Http\Request;
 
@@ -37,26 +39,26 @@ class StartupsController extends Controller
     public function store(Request $request)
     {
 
-        $validation = $request->validate([
-            'title' => 'required|min:5|max:255',
-            'typewriter' => 'required|min:2|max:255',
-            'body' => 'required|min:5',
-            'image' => 'required|mimes:jpg,png,jpeg',
-            'date' => 'required',
+    
+        
 
-        ]);
-        $file = $request->file('image')->store('news');
-        $news = Startups::create([
-            'path' => $file,
-            'title' => $request->title,
-            'typewriter' => $request->typewriter,
-            'body' => $request->body,
-            'date' => $request->date,
-            'state' => 'Autorizada'
-        ]);
+        $payment = Payments::create($request->all());
+        $schedule = Scheldules::create($request->all());
 
-        return redirect("admin/news/show/$news->id")->with('create', '1');
-        //
+        $startup = Startups::create(
+            [
+
+                'name',
+                'site',
+                'email',
+                'tel',
+                'nif',
+                'fk_payment_id' => $payment->id,
+
+            ]
+        );
+
+        return ();
     }
 
     /**
