@@ -6,13 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Payments extends Model
+class Member extends Model
 {
-
     use HasFactory, SoftDeletes;
-    protected $table = "Payments";
+    protected $table = "Members";
 
-    protected $guarded = ['id','name','value','reference','currency','status'];
+    protected $guarded = ['id'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -20,6 +19,4 @@ class Payments extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-
 }
-
