@@ -2,6 +2,7 @@
 
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
 use App\Models\Scheldule;
@@ -17,7 +18,10 @@ class StartupsController extends Controller
      */
     public function index()
     {
-        return view('admin.startup.index');
+
+        $response['startup'] = Startup::get();
+        return view('admin.startup.list.index', $response);
+       
     }
 
     /**
@@ -27,6 +31,8 @@ class StartupsController extends Controller
      */
     public function create()
     {
+
+        return view('admin.startup.create.index');
         //
     }
 
@@ -39,24 +45,56 @@ class StartupsController extends Controller
     public function store(Request $request)
     {
 
-        $payment = Payment::create($request->all());
-        $schedule = Scheldule::create($request->all());
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'roomName' => 'required|string|max:255',
+            'site' => 'required|string|max:255',
+            'email' => 'required|string|max:50',
+            'tel' => 'max:50',
+            'nif' => 'required|string|max:50',
+            'type' => 'required|string|max:255',
+            'value' =>  'required|numeric|min:2',
+            'reference'  => 'required|string|max:255',
+            'currency' => 'required|string|max:255', 
+            'status' => 'required|string|max:255',
+            'started' => 'required|string|max:255',
+            'end' => 'required|string|max:255',
+            'prespective'=> 'required|string|max:255'
+        ]);
+
+        $payment = Payment::create([
+
+            'type' => $request->type,
+            'value' => $request->value,
+            'reference'  => $request->reference,
+            'currency' => $request->currency,
+            'status' => $request->status
+    
+        ]);
+
+
+        $schedule = Scheldule::create([
+
+            'started' => $request->started,
+            'end' => $request->end,
+            'prespective'  => $request->prespective
+        ]);
 
         $startup = Startup::create(
             [
-                'name',
-                'roomName',
-                'site',
-                'email',
-                'tel',
-                'nif',
+                'name' => $request->name,
+                'roomName' => $request->roomName,
+                'site' => $request->site,
+                'email' => $request->email,
+                'tel' => $request->tel,
+                'nif' => $request->nif,
                 'fk_Payments_id' => $payment->id,
                 'fk_Scheldules_id' => $schedule->id
 
             ]
         );
 
-  
+        return redirect()->back()->with('create', '1');
     }
 
     /**
@@ -67,7 +105,9 @@ class StartupsController extends Controller
      */
     public function show($id)
     {
-        //
+        $response['startup'] = Startup::find($id);
+
+        return view('admin.startup.details.index', $response);
     }
 
     /**
@@ -78,6 +118,10 @@ class StartupsController extends Controller
      */
     public function edit($id)
     {
+
+        $response['startup'] = Startup::find($id);
+
+        return view('admin.startup.edit.index', $response);
         //
     }
 
@@ -88,10 +132,50 @@ class StartupsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+
+
+        public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'roomName' => 'required|string|max:255',
+            'site' => 'required|string|max:255',
+            'email' => 'required|string|max:50',
+            'tel' => 'max:50',
+            'nif' => 'required|string|max:50',
+            'type' => 'required|string|max:255',
+            'value' =>  'required|numeric|min:2',
+            'reference'  => 'required|string|max:255',
+            'currency' => 'required|string|max:255', 
+            'status' => 'required|string|max:255',
+            'started' => 'required|string|max:255',
+            'end' => 'required|string|max:255',
+            'prespective'=> 'required|string|max:255'
+        ]);
+
+
+         Payment::find($id)->update($request->all());
+
+        Scheldule::find($id)->update($request->all());
+
+
+        Startup::find($id)->update(
+            [
+                'name' => $request->name,
+                'roomName' => $request->roomName,
+                'site' => $request->site,
+                'email' => $request->email,
+                'tel' => $request->tel,
+                'nif' => $request->nif
+            ]
+        );
+
+            return redirect()->route('admin.startup.list.index')->with('edit', '1');
     }
+
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -99,8 +183,13 @@ class StartupsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+   
+
     public function destroy($id)
     {
-        //
+        Startup::find($id)->delete();
+        return redirect()->back()->with('destroy', '1');        
     }
+
+
 }

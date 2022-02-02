@@ -23,11 +23,28 @@
                 </a>
             </li>
 
+
+
+
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.startup.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
+                <a class="nav-link" data-toggle="collapse" href="#startups" aria-expanded="false"
+                    aria-controls="users">
+                    <i class="menu-icon typcn typcn-document-add"></i>
                     <span class="menu-title">Startups</span>
+                    <i class="menu-arrow"></i>
                 </a>
+                <div class="collapse" id="startups">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.startup.create.index') }}">Cadastrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.startup.list.index') }}">Listar</a>
+                        </li>
+
+
+                    </ul>
+                </div>
             </li>
 
             <li class="nav-item">

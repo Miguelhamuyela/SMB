@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Startup extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = "Startups";
+    protected $table = "startups";
 
     protected $guarded = ['id'];
 
@@ -18,6 +18,22 @@ class Startup extends Model
      *
      * @var array
      */
+
+    
+    public function Scheldules()
+    {
+        return $this->belongsTo(Scheldule::class, 'fk_Scheldules_id');
+    }
+
+    public function Payments()
+    {
+        return $this->belongsTo(Payment::class, 'fk_Payments_id');
+    }
+
+
+
+
+
     protected $dates = ['deleted_at'];
 
 }
