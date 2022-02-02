@@ -12,7 +12,7 @@ class Payment extends Model
     use HasFactory, SoftDeletes;
     protected $table = "Payments";
 
-    protected $guarded = ['id','name','value','reference','currency','status'];
+    protected $guarded = ['id'];
 
     /**
      * The attributes that should be mutated to dates.

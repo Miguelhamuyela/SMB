@@ -11,7 +11,7 @@ class Scheldule extends Model
     use HasFactory, SoftDeletes;
     protected $table = "Scheldules";
 
-    protected $guarded = ['id','started','end','prespective'];
+    protected $guarded = ['id'];
     
     /**
      * The attributes that should be mutated to dates.

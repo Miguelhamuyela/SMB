@@ -6,7 +6,8 @@
 
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
-                <form action="">
+                <form  method="POST" action="{{ route('admin.startup.store') }}">
+                    @csrf
                 <div class="card-body">
                     <h4 class="card-title"><b>Startups</b></h4>
                     <hr>
