@@ -1,17 +1,21 @@
 <div class="row mb-2">
-    <div class="col-md-4">
-        <label class="text-muted form-label" for="startup">Inicio do Contrato</label>
-      <input type="datetime-local" value="{{ isset($startup->started) ? $startup->started: old('started') }}" name="started" class="form-control bg-secondary border border-secondary  rounded" placeholder="Inicio *">
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="started">Inicio do Contrato <small class="text-danger">*</small></label>
+            <input type="datetime-local" name="started" id="started"
+                value="{{ isset($scheldule->started) ?date('Y-m-d\TH:i:s', strtotime($scheldule->started)) : old('started') }}"
+                class="form-control border rounded" placeholder="Inicio do contracto" required>
+        </div>
     </div>
 
-    <div class="col-md-4">
-        <label class="text-muted form-label" for="nif">Fim do Contrato</label>
-        <input type="datetime-local" value="{{ isset($startup->end) ? $startup->end: old('end') }}" name="end" class="form-control bg-secondary border border-secondary rounded" placeholder="Fim *" aria-label="Last name">
-      </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="end">Fim do Contrato <small class="text-danger">*</small></label>
+            <input type="datetime-local" name="end" id="end"
+                value="{{ isset($scheldule->end) ? date('Y-m-d\TH:i:s', strtotime($scheldule->end)) : old('end') }}" class="form-control border rounded"
+                placeholder="Inicio do contracto" required>
+        </div>
+    </div>
 
-      <div class="col-md-4">
-        <label class="text-muted form-label" for="nif">Perspectiva</label>
-        <input type="datetime-local" name="prespective" value="{{ isset($startup->prespective) ? $startup->prespective: old('prespective') }}" class="form-control bg-secondary border border-secondary rounded" placeholder="perespectiva  *">
-      </div>
 </div>
-

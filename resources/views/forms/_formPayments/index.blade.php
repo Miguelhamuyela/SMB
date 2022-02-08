@@ -1,44 +1,85 @@
 <div class="row mb-2">
     <div class="col-md-5">
-        <label class="text-muted form-label" for="type">Tipo</label>
-      <input type="text" value="{{ isset($startup->type) ? $startup->type : old('type') }}" name="type" class="form-control bg-secondary border border-secondary  rounded" placeholder="Ex: Express , Transferencia, Voucher  *">
+        <div class="form-group">
+            <label for="type">Tipo de Pagamento <small class="text-danger">*</small></label>
+            <input type="text" name="type" id="type"
+                value="{{ isset($payment->type) ? $payment->type : old('type') }}" class="form-control border rounded"
+                placeholder="Ex: Express , Transferencia, Voucher" required>
+        </div>
     </div>
 
     <div class="col-md-4">
-        <label class="text-muted form-label" for="value">Valor</label>
-        <input type="text" value="{{ isset($startup->value) ? $startup->value : old('value') }}" name="value" class="form-control bg-secondary border border-secondary rounded" placeholder="Valor *" >
-      </div>
+        <div class="form-group">
+            <label for="type">Valores a Pagar <small class="text-danger">*</small></label>
+            <input type="text" name="value" id="value"
+                value="{{ isset($payment->value) ? $payment->value : old('value') }}"
+                class="form-control border rounded" placeholder="0,00">
+        </div>
+    </div>
 
-      <div class="col-md-3">
-        <label class="text-muted form-label" for="currency">Moeda</label>
-        <select  name="currency" class="form-control bg-secondary border border-secondary rounded" id="">
-          <option>Kwanza</option>
-          <option>Dollar</option>
-          <option>Euro</option>
-        </select>
-      </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="type">Referencia </label>
+            <input type="text" name="reference" id="reference"
+                value="{{ isset($payment->reference) ? $payment->reference : old('reference') }}"
+                class="form-control border rounded" placeholder="Referencia" required>
+        </div>
+    </div>
+
+
 
 
 </div>
 
 <div class="row mb-2">
-    <div class="col-md-6">
-        <label class="text-muted form-label" for="nif">Referencia</label>
-        <input value="{{ isset($startup->reference) ? $startup->reference : old('reference') }}" type="text" name="reference" class="form-control bg-secondary border border-secondary rounded" placeholder="Referencia  *">
-      </div>
 
-      <div class="col-md-6">
-          <label class="text-muted form-label" for="status">Status</label>
-          <select name="status" class="form-control bg-secondary border border-secondary rounded" id="">
-          <option>Pago</option>
-          <option>Não Pago</option>
-          <option>Em Validação</option>
-          <option>Negado</option>
-        </select>
-      </div> 
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="currency">Moeda <small class="text-danger">*</small></label>
+            <select type="text" name="currency" id="currency" class="form-control border rounded" required>
+
+                @if (isset($payment->currency))
+                    <option value="{{ $payment->currency }}" class="text-primary h6 bg-primary text-white" selected>
+                        {{ $payment->currency }}
+                    </option>
+                @else
+                    <option disabled selected>selecione uma outra moeda</option>
+                @endif
+
+                <option>Kwanza</option>
+                <option>Dollar</option>
+                <option>Euro</option>
+
+            </select>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="status">Status <small class="text-danger">*</small></label>
+            <select type="text" name="status" id="status" class="form-control border rounded" required>
+
+                @if (isset($payment->status))
+                    <option value="{{ $payment->status }}" class="text-primary h6 bg-primary text-white" selected>
+                        {{ $payment->status }}
+                    </option>
+                @else
+                    <option disabled selected>selecione uma opção de pagamento</option>
+                @endif
+
+                <option>Pago</option>
+                <option>Não Pago</option>
+                <option>Em Validação</option>
+                <option>Negado</option>
+
+            </select>
+        </div>
+    </div>
+
+
+
+
 
 </div>
-
-
-
-

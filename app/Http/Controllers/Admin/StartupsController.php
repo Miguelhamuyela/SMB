@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
 use App\Models\Scheldule;
@@ -21,7 +22,6 @@ class StartupsController extends Controller
 
         $response['startup'] = Startup::get();
         return view('admin.startup.list.index', $response);
-       
     }
 
     /**
@@ -46,39 +46,29 @@ class StartupsController extends Controller
     {
 
         $request->validate([
+            /**Startup informatio */
             'name' => 'required|string|max:255',
             'roomName' => 'required|string|max:255',
             'site' => 'required|string|max:255',
             'email' => 'required|string|max:50',
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
+
+            /***Payment Information */
             'type' => 'required|string|max:255',
             'value' =>  'required|numeric|min:2',
-            'reference'  => 'required|string|max:255',
-            'currency' => 'required|string|max:255', 
+            'reference'  => 'string|max:255',
+            'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
+
+            /**Scheldules Information */
             'started' => 'required|string|max:255',
             'end' => 'required|string|max:255',
-            'prespective'=> 'required|string|max:255'
+
         ]);
 
-        $payment = Payment::create([
-
-            'type' => $request->type,
-            'value' => $request->value,
-            'reference'  => $request->reference,
-            'currency' => $request->currency,
-            'status' => $request->status
-    
-        ]);
-
-
-        $schedule = Scheldule::create([
-
-            'started' => $request->started,
-            'end' => $request->end,
-            'prespective'  => $request->prespective
-        ]);
+        $payment = Payment::create($request->all());
+        $schedule = Scheldule::create($request->all());
 
         $startup = Startup::create(
             [
@@ -94,7 +84,7 @@ class StartupsController extends Controller
             ]
         );
 
-        return redirect()->back()->with('create', '1');
+        return redirect()->back("admin/startup/show/$startup->id")->with('create', '1');
     }
 
     /**
@@ -105,8 +95,8 @@ class StartupsController extends Controller
      */
     public function show($id)
     {
-        $response['startup'] = Startup::find($id);
 
+        $response['startup'] = Startup::with('payments', 'scheldules')->find($id);
         return view('admin.startup.details.index', $response);
     }
 
@@ -118,9 +108,12 @@ class StartupsController extends Controller
      */
     public function edit($id)
     {
+        $middle = Startup::find($id);
+        $response['startup'] = $middle;
 
-        $response['startup'] = Startup::find($id);
-
+        $response['scheldule'] =  Helper::scheldule($middle->fk_Scheldules_id);
+        $response['payment'] =  Helper::payment($middle->fk_Payments_id);
+        
         return view('admin.startup.edit.index', $response);
         //
     }
@@ -135,7 +128,7 @@ class StartupsController extends Controller
 
 
 
-        public function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -146,16 +139,16 @@ class StartupsController extends Controller
             'nif' => 'required|string|max:50',
             'type' => 'required|string|max:255',
             'value' =>  'required|numeric|min:2',
-            'reference'  => 'required|string|max:255',
-            'currency' => 'required|string|max:255', 
+            'reference'  => 'string|max:255',
+            'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
             'started' => 'required|string|max:255',
             'end' => 'required|string|max:255',
-            'prespective'=> 'required|string|max:255'
+
         ]);
 
 
-         Payment::find($id)->update($request->all());
+        Payment::find($id)->update($request->all());
 
         Scheldule::find($id)->update($request->all());
 
@@ -171,7 +164,7 @@ class StartupsController extends Controller
             ]
         );
 
-            return redirect()->route('admin.startup.list.index')->with('edit', '1');
+        return redirect()->route('admin.startup.list.index')->with('edit', '1');
     }
 
 
@@ -183,13 +176,11 @@ class StartupsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   
+
 
     public function destroy($id)
     {
         Startup::find($id)->delete();
-        return redirect()->back()->with('destroy', '1');        
+        return redirect()->back()->with('destroy', '1');
     }
-
-
 }

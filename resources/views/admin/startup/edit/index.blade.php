@@ -14,30 +14,33 @@
                     @csrf
                     @method('PUT')
 
-                    <div class="card-body">
-                        <h4 class="card-title"><b>Startups</b></h4>
+                    <div class="card-body bg-light">
+                        <h4 class="card-title "><b>Startups</b></h4>
                         <hr>
                         @include('forms._formStartups.index')
                     </div>
 
-                    <div class="card-body">
-                        <h4 class="card-title"><b>Horário</b></h4>
+                    <div class="card-body bg-light">
+                        <h4 class="card-title "><b>Horário</b></h4>
                         <hr>
                         @include('forms._formScheldules.index')
                     </div>
 
-                    <div class="card-body">
-                        <h4 class="card-title"><b>Pagamentos</b></h4>
+                    <div class="card-body bg-light">
+                        <h4 class="card-title "><b>Pagamentos</b></h4>
                         <hr>
                         @include('forms._formPayments.index')
                     </div>
 
                     
                     
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button class="btn btn-primary btn sm">Salvar Alterações</button>
+                    <div class="card-body bg-light">
+                        <div class="col-md-12">
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn px-5 col-md-4 btn-primary">
+                                    Salvar Alterações
+                                </button>
+    
                             </div>
                         </div>
                     </div>
