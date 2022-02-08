@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
-class PaymentsController extends Controller
+class ElearningsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,6 @@ class PaymentsController extends Controller
     {
         //
     }
-
 
     /**
      * Store a newly created resource in storage.
