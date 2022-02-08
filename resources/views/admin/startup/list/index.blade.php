@@ -37,10 +37,7 @@
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a href='{{ url("admin/startup/show/{$item->id}") }}'
                                                     class="dropdown-item">Detalhes</a>
-                                                <a href='{{ url("admin/startup/edit/{$item->id}") }}'
-                                                    class="dropdown-item">Editar</a>
-                                                <a href='{{ url("admin/startup/delete/{$item->id}") }}'
-                                                    class="dropdown-item">Eliminar</a>
+                                               
                                             </div>
                                         </div>
                                     </td>
