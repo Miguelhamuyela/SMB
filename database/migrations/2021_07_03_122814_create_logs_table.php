@@ -15,10 +15,13 @@ class CreateLogsTable extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-
-            $table->unsignedBigInteger('fk_idUser');
-            $table->foreign('fk_idUser')->references('id')->on('users');
-            $table->longText('description');
+            $table->enum('level', ['emergency', 'alert', 'critical', 'error', 'warning', 'notice', 'info', 'debug']);
+            $table->string('REMOTE_ADDR')->nullable();
+            $table->string('PATH_INFO')->nullable();
+            $table->string('USER_NAME')->nullable();
+            $table->string('USER_ID')->nullable();
+            $table->string('HTTP_USER_AGENT')->nullable();
+            $table->longText('message')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
