@@ -5,18 +5,19 @@
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title">
-                
+
                 Detalhes da Startup #{{ $startup->name }}
             </h2>
         </div>
     </div>
-    <div class="card shadow ">
+
+    <div class="card shadow mb-2">
         <div class="card-body">
 
             <div class="">
                 <div class="row justify-content-center">
                     <div class="col-12">
-                        
+
                         <div class="row  align-items-center">
 
 
@@ -38,7 +39,7 @@
                                             <small> {{ $startup->nif }}</small>
                                         </p>
                                     </div>
-                                
+
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Email</b><br>
@@ -51,7 +52,7 @@
                                             <small> {{ $startup->tel }}</small>
                                         </p>
                                     </div>
-                                  
+
                                 </div>
                             </div>
 
@@ -74,9 +75,9 @@
                                             <small> {{ $startup->scheldules->end }}</small>
                                         </p>
                                     </div>
-                                
-                            
-                                  
+
+
+
                                 </div>
                             </div>
 
@@ -104,7 +105,7 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Referencia</b><br>
-                                            <small> {{ $startup->payments->referency }}</small>
+                                            <small> {{ $startup->payments->reference }}</small>
                                         </p>
                                     </div>
 
@@ -121,13 +122,13 @@
                                             <small> {{ $startup->payments->status }}</small>
                                         </p>
                                     </div>
-                                
-                                  
+
+
                                 </div>
                             </div>
 
 
-   
+
                             <div class="col-12 my-5">
                                 <hr>
                                 <div class="row">
@@ -164,18 +165,73 @@
                         </div>
                     </div>
 
-                        </div>
+                </div>
+
+                
 
 
 
-                    </div> <!-- /.col-12 -->
-                </div> <!-- .row -->
-            </div> <!-- .container-fluid -->
+            </div> <!-- /.col-12 -->
+        </div> <!-- .row -->
+    </div> <!-- .container-fluid -->
 
 
-        </div>
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="row align-items-center my-4">
+                <div class="col">
+                    <h2 class="page-title h4">Membros</h2>
+                </div>
+                <div class="col-auto">
+                    <a type="button" class="btn btn-lg btn-primary text-white"
+                        href="{{ url("admin/member/create/{$startup->id}") }}">
+                        <span class="fa fa-plus fa-16 mr-3"></span>Novo Membro
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="page-category pb-5">
+                    <table class="table table-hover" id="dataTable-1">
+                        <thead>
+                            <tr class="text-center">
+                  
+                                <th>NOME DO MEMBRO</th>
+                                <th>EMAIL</th>
+                                <th>TELEFONE</th>
+                                <th class="text-left">ACÇÕES</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            @foreach ($startup->members as $item)
+                                <tr class="text-center text-dark">
+                                    <td class="text-left">{{ $item->name }}</td>      
+                                    <td class="text-left">{{ $item->email }}</td>
+                                    <td class="text-left">{{ $item->tel }}</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-dark text-white dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                <i class="fa fa-navicon fa-sm" aria-hidden="true"></i>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a href='{{ url("admin/member/delete/$item->id") }}'
+                                                    class="dropdown-item">Eliminar</a>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                        </tbody>
+                    </table>
+         
+            </div>
+
     </div>
 
-
-
+        
+ 
 @endsection

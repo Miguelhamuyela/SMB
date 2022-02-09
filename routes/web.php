@@ -7,8 +7,9 @@ use App\Http\Middleware\Administrador;
 
 
 /* Grupo de rotas autenticadas */
+
 Route::middleware(['auth'])->group(function () {
-    
+
     route::get('/', ['as' => 'admin.home', 'uses' => 'Admin\DashboardController@index']);
 
 
@@ -24,8 +25,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/user/delete/{id}', ['as' => 'admin.user.delete', 'uses' => 'Admin\UserController@destroy']);
         /* end user */
     });
-  
-    
+
+
     /* news */
     Route::get('admin/news/index', ['as' => 'admin.news.index', 'uses' => 'Admin\NewsController@list']);
     Route::get('admin/news/show/{id}', ['as' => 'admin.news.show', 'uses' => 'Admin\NewsController@show']);
@@ -49,7 +50,7 @@ Route::middleware(['auth'])->group(function () {
 
 
     /**Startups */
-   
+
     Route::get('admin/startup/index', ['as' => 'admin.startup.create.index', 'uses' => 'Admin\StartupsController@create']);
     Route::get('admin/startup/list', ['as' => 'admin.startup.list.index', 'uses' => 'Admin\StartupsController@index']);
     Route::post('admin/startup/store', ['as' => 'admin.startup.store', 'uses' => 'Admin\StartupsController@store']);
@@ -58,7 +59,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/startup/delete/{id}', ['as' => 'admin.startup.delete', 'uses' => 'Admin\StartupsController@destroy']);
     Route::get('admin/startup/show/{id}', ['as' => 'admin.startup.show', 'uses' => 'Admin\StartupsController@show']);
     /**End Startups */
-    
+
+
+    /***
+     * Member
+     */
+
+    Route::get('admin/member/create/{id}', ['as' => 'admin.member.create', 'uses' => 'Admin\MembersController@create']);
+    Route::post('admin/member/store/{id}', ['as' => 'admin.member.store', 'uses' => 'Admin\MembersController@store']); 
+    Route::get('admin/member/delete/{id}', ['as' => 'admin.member.delete', 'uses' => 'Admin\MembersController@destroy']);
+    /** */
 });
 
 
