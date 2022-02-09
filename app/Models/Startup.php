@@ -26,6 +26,12 @@ class Startup extends Model
     public function scheldules(){
         return $this->belongsTo(Scheldule::class, 'fk_Scheldules_id', 'id');
     }
+
+
+    public function members(){
+
+        return $this->hasMany(Member::class, 'fk_startups_id');
+    }
     
     protected $dates = ['deleted_at'];
 

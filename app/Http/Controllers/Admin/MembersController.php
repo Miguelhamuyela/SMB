@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Models\Member;
+use App\Http\Controllers\Controller;
+use App\Models\Startup;
 
 class MembersController extends Controller
 {
@@ -13,7 +16,7 @@ class MembersController extends Controller
      */
     public function index()
     {
-        //
+      
     }
 
     /**
@@ -21,9 +24,10 @@ class MembersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $response['startup']=Startup::find($id);
+        return view('admin.member.create.index',$response);
     }
 
     /**
@@ -32,9 +36,31 @@ class MembersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
-        //
+        $request->validate([
+            /**Member Information */
+            'name' => 'required|string|max:255',
+            'occupation' => '|string|max:255',
+            'email' => 'required|string|max:50',
+            'tel' => 'max:50',
+            'nif' => 'required|string|max:50',
+
+        ]);
+
+        $member = Member::create(
+            [
+                'name' => $request->name,
+                'occupation' => $request->occupation,
+                'email' => $request->email,
+                'tel' => $request->tel,
+                'nif' => $request->nif,
+                'fk_startups_id' =>$id
+
+            ]
+        );
+
+        return redirect()->back()->with('create', '1');
     }
 
     /**
@@ -80,5 +106,7 @@ class MembersController extends Controller
     public function destroy($id)
     {
         //
+        Member::find($id)->delete();
+        return redirect()->back()->with('destroy', '1');
     }
 }

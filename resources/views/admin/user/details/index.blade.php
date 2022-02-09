@@ -9,6 +9,7 @@
             </h2>
         </div>
     </div>
+
     <div class="card shadow mb-4">
         <div class="card-body">
 
@@ -35,7 +36,7 @@
                                     <div class="col-md-12">
                                         <h4 class="mb-1">
                                             <b>Nivel de Acesso:</b>
-                                            {{$user->level }}
+                                            {{ $user->level }}
 
                                         </h4>
                                     </div>
@@ -57,6 +58,9 @@
 
         </div>
     </div>
+
+
+  
 
 
 

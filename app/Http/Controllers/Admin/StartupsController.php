@@ -96,7 +96,7 @@ class StartupsController extends Controller
     public function show($id)
     {
 
-        $response['startup'] = Startup::with('payments', 'scheldules')->find($id);
+        $response['startup'] = Startup::with('payments', 'scheldules','members')->find($id);
         return view('admin.startup.details.index', $response);
     }
 
