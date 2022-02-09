@@ -68,7 +68,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/member/create/{id}', ['as' => 'admin.member.create', 'uses' => 'Admin\MembersController@create']);
     Route::post('admin/member/store/{id}', ['as' => 'admin.member.store', 'uses' => 'Admin\MembersController@store']); 
     Route::get('admin/member/delete/{id}', ['as' => 'admin.member.delete', 'uses' => 'Admin\MembersController@destroy']);
-    /** */
+    /**End Member */
+
+
+    /**
+     *  ManufacturesSoftwares
+     */
+    Route::get('admin/manufactures/index', ['as' => 'admin.manufactures.create.index', 'uses' => 'Admin\ManufacturesSoftwaresController@create']);
+     /**End ManufacturesSoftware */
 });
 
 

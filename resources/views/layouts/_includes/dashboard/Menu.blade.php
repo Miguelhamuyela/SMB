@@ -48,6 +48,27 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#fabrica" aria-expanded="false"
+                    aria-controls="users">
+                    <i class="menu-icon typcn typcn-document-add"></i>
+                    <span class="menu-title">Fabrica de Software</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="fabrica">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.manufactures.create.index') }}">Cadastrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.startup.list.index') }}">Listar</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
                     aria-controls="ui-basic">
                     <i class="menu-icon typcn typcn-coffee"></i>
