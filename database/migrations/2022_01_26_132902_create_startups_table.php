@@ -17,7 +17,7 @@ class CreateStartupsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('roomName');
-            $table->string('site');
+            $table->string('site')->nullable();
             $table->string('email');
             $table->string('tel');
             $table->string('nif');

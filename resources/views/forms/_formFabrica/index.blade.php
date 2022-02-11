@@ -25,8 +25,15 @@
   <div class="col-md-12">
     <div class="form-group">
         <label for="file">Arquivo <small class="text-danger">*</small></label>
-        <input type="file" name="file" id="file" value="{{ isset($manufacture->file) ? $manufacture->file: old('file') }}"
-            class="form-control border " placeholder="file" required>
+        
+        <div class="input-group col-xs-12">
+          <input type="text" name="file" id="file"
+           value="{{ isset($manufacture->file) ? $manufacture->file: old('file') }}"
+            class="form-control file-upload-info" disabled="" placeholder="Arquivo">
+          <span class="input-group-append">
+            <button class="file-upload-browse btn btn-info" type="button">Upload</button>
+          </span>
+        </div>
     </div>
   </div>
 

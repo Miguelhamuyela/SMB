@@ -49,7 +49,7 @@ class StartupsController extends Controller
             /**Startup informatio */
             'name' => 'required|string|max:255',
             'roomName' => 'required|string|max:255',
-            'site' => 'required|string|max:255',
+            'site' => 'max:255',
             'email' => 'required|string|max:50',
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
@@ -67,9 +67,12 @@ class StartupsController extends Controller
 
         ]);
 
+      
+        
         $payment = Payment::create($request->all());
+       
         $schedule = Scheldule::create($request->all());
-
+     
         $startup = Startup::create(
             [
                 'name' => $request->name,
@@ -83,8 +86,8 @@ class StartupsController extends Controller
 
             ]
         );
-
-        return redirect()->back("admin/startup/show/$startup->id")->with('create', '1');
+        return redirect()->route('admin.startup.show',$startup->id)->with('create', '1');
+   
     }
 
     /**
@@ -96,7 +99,7 @@ class StartupsController extends Controller
     public function show($id)
     {
 
-        $response['startup'] = Startup::with('payments', 'scheldules','members')->find($id);
+        $response['startup'] = Startup::with('payments', 'scheldules', 'members')->find($id);
         return view('admin.startup.details.index', $response);
     }
 
@@ -113,7 +116,7 @@ class StartupsController extends Controller
 
         $response['scheldule'] =  Helper::scheldule($middle->fk_Scheldules_id);
         $response['payment'] =  Helper::payment($middle->fk_Payments_id);
-        
+
         return view('admin.startup.edit.index', $response);
         //
     }
@@ -133,7 +136,7 @@ class StartupsController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'roomName' => 'required|string|max:255',
-            'site' => 'required|string|max:255',
+            'site' => 'max:255',
             'email' => 'required|string|max:50',
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
@@ -147,22 +150,12 @@ class StartupsController extends Controller
 
         ]);
 
+        Startup::find($id)->update($request->all());
+        $startup = Startup::find($id);
+       
+        Payment::find($startup->fk_Payments_id)->update($request->all());
+        Scheldule::find($startup->fk_Scheldules_id)->update($request->all());
 
-        Payment::find($id)->update($request->all());
-
-        Scheldule::find($id)->update($request->all());
-
-
-        Startup::find($id)->update(
-            [
-                'name' => $request->name,
-                'roomName' => $request->roomName,
-                'site' => $request->site,
-                'email' => $request->email,
-                'tel' => $request->tel,
-                'nif' => $request->nif
-            ]
-        );
 
         return redirect()->route('admin.startup.list.index')->with('edit', '1');
     }

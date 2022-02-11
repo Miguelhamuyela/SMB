@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use App\Models\Client;
 use App\Models\Payment;
 use App\Models\Scheldule;
 
@@ -16,6 +17,12 @@ class Helper
     public static function payment($fk_Payments_id)
     {
         $payment= Payment::find($fk_Payments_id);
+        return $payment;
+    }
+
+    public static function client($fk_Clients_id)
+    {
+        $payment= Client::find($fk_Clients_id);
         return $payment;
     }
 }

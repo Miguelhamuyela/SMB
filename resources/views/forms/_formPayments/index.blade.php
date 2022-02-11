@@ -2,9 +2,22 @@
     <div class="col-md-5">
         <div class="form-group">
             <label for="type">Tipo de Pagamento <small class="text-danger">*</small></label>
-            <input type="text" name="type" id="type"
-                value="{{ isset($payment->type) ? $payment->type : old('type') }}" class="form-control border rounded"
-                placeholder="Ex: Express , Transferencia, Voucher" required>
+           
+                <select type="text" name="type" id="type" class="form-control border rounded" required>
+
+                    @if (isset($payment->type))
+                        <option value="{{ $payment->type }}" class="text-primary h6 bg-primary text-white" selected>
+                            {{ $payment->type }}
+                        </option>
+                    @else
+                        <option disabled selected>selecione um tipo de pagamento</option>
+                    @endif
+
+                    <option>Dinheiro</option>
+                    <option>Transferência</option>
+                    <option>Rupe</option>
+    
+                </select>
         </div>
     </div>
 
@@ -43,7 +56,7 @@
                         {{ $payment->currency }}
                     </option>
                 @else
-                    <option disabled selected>selecione uma outra moeda</option>
+                    <option disabled selected>selecione uma  moeda</option>
                 @endif
 
                 <option>Kwanza</option>
