@@ -48,9 +48,9 @@
 
 <div class="col-md-3">
   <div class="form-group">
-      <label for="tel">Site da Startup <small class="text-danger">*</small></label>
+      <label for="site">Site da Startup </label>
       <input type="text" name="site" id="site" value="{{ isset($startup->site) ? $startup->site: old('site') }}"
-          class="form-control border rounded" placeholder="Site da Startup" required>
+          class="form-control border rounded" placeholder="Site da Startup">
   </div>
 </div>
 </div>

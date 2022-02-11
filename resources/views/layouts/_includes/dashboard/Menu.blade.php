@@ -72,16 +72,16 @@
                 <a class="nav-link" data-toggle="collapse" href="#fabrica" aria-expanded="false"
                     aria-controls="users">
                     <i class="menu-icon typcn typcn-document-add"></i>
-                    <span class="menu-title">Clientes</span>
+                    <span class="menu-title">Cowork</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="fabrica">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.client.create.index') }}">Cadastrar</a>
+                            <a class="nav-link" href="{{ route('admin.coworks.create.index') }}">Cadastrar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.client.list.index') }}">Listar</a>
+                            <a class="nav-link" href="{{ route('admin.coworks.list.index') }}">Listar</a>
                         </li>
 
 
