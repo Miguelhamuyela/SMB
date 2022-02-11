@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Models\Client;
+use App\Http\Controllers\Controller;
 
 class ClientsController extends Controller
 {
@@ -14,6 +16,9 @@ class ClientsController extends Controller
     public function index()
     {
         //
+
+        $response['client'] = Client::get();
+        return view('admin.clients.list.index', $response);
     }
 
     /**
@@ -24,7 +29,9 @@ class ClientsController extends Controller
     public function create()
     {
         //
+        return view('admin.clients.create.index');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +41,20 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            /**Clients informatio */
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:50',
+            'tel' => 'max:50',
+            'nif' => 'required|string|max:50',
+            'address' => 'required|string|max:50'
+           
+        ]);
+
+        $client = Client::create($request->all());
+
+        return redirect()->back()->with('create', '1');
     }
 
     /**
@@ -46,6 +66,9 @@ class ClientsController extends Controller
     public function show($id)
     {
         //
+        $response['client'] = Client::find($id);
+        return view('admin.clients.details.index', $response);
+    
     }
 
     /**
@@ -57,6 +80,10 @@ class ClientsController extends Controller
     public function edit($id)
     {
         //
+
+        $response['client'] = Client::find($id);
+        return view('admin.clients.edit.index', $response);
+
     }
 
     /**
@@ -68,7 +95,19 @@ class ClientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            /**Clients informatio */
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:50',
+            'tel' => 'max:50',
+            'nif' => 'required|string|max:50',
+            'address' => 'required|string|max:50'
+
+        ]);
+
+        Client::find($id)->update($request->all());
+
+        return redirect()->route('admin.client.list.index')->with('edit', '1');
     }
 
     /**
@@ -79,6 +118,7 @@ class ClientsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Client::find($id)->delete();
+        return redirect()->route('admin.client.list.index')->with('destroy', '1');
     }
 }

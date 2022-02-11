@@ -1,17 +1,17 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', 'Fábrica de Softwares')
+@section('titulo', 'Lista de Clientes')
 
 @section('content')
     <div class="row">
 
         <div class="col-lg-12 grid-margin stretch-card ">
             <div class="card">
-                <form  method="POST" action="{{ route('admin.manufactures.store') }}" >
+                <form  method="POST" action="{{ route('admin.client.store') }}" >
                     @csrf
                 <div class="card-body bg-light">
-                    <h4 class="card-title"><b>Fábrica de Software</b></h4>
+                    <h4 class="card-title"><b>Lista de Clientes</b></h4>
                     <hr>
-                    @include('forms._formFabrica.index')
+                    @include('forms._formClients.index')
                 </div>
 
                
