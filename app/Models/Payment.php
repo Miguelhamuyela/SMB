@@ -10,7 +10,7 @@ class Payment extends Model
 {
 
     use HasFactory, SoftDeletes;
-    protected $table = "Payments";
+    protected $table = "payments";
 
     protected $guarded = ['id'];
 

@@ -172,9 +172,12 @@
 
 
             </div> <!-- /.col-12 -->
-        </div> <!-- .row -->
-    </div> <!-- .container-fluid -->
 
+            
+        </div> <!-- .row -->
+
+        
+    </div> <!-- .container-fluid -->
 
     <div class="card mb-2">
         <div class="card-body">
@@ -231,6 +234,9 @@
             </div>
 
     </div>
+
+
+    
 
         
  

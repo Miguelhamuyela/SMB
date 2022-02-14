@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ManufacturesSoftware extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = "ManufacturesSoftwares";
+    protected $table = "manufacturesSoftwares";
 
     protected $guarded = ['id'];
 
@@ -18,6 +18,7 @@ class ManufacturesSoftware extends Model
      *
      * @var array
      */
+    protected $dates = ['deleted_at'];
 
     public function payments(){
         return $this->belongsTo(Payment::class, 'fk_Payments_id', 'id');
@@ -33,5 +34,5 @@ class ManufacturesSoftware extends Model
 
     
 
-    protected $dates = ['deleted_at'];
+    
 }

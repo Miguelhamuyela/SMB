@@ -34,9 +34,6 @@
                     @include('forms._formPayments.index')
                 </div>
 
-                
-
-
                 <div class="card-body bg-light">
                     <div class="col-md-12">
                         <div class="form-group text-center">
