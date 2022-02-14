@@ -57,7 +57,7 @@ class StartupsController extends Controller
             /***Payment Information */
             'type' => 'required|string|max:255',
             'value' =>  'required|numeric|min:2',
-            'reference'  => 'string|max:255',
+            'reference'  => 'max:255',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
 
@@ -72,6 +72,7 @@ class StartupsController extends Controller
         $payment = Payment::create($request->all());
        
         $schedule = Scheldule::create($request->all());
+      
      
         $startup = Startup::create(
             [
@@ -86,6 +87,7 @@ class StartupsController extends Controller
 
             ]
         );
+
         return redirect()->route('admin.startup.show',$startup->id)->with('create', '1');
    
     }
