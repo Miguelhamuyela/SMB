@@ -10,7 +10,7 @@
                             {{ $payment->type }}
                         </option>
                     @else
-                        <option disabled selected>selecione um tipo de pagamento</option>
+                        <option disabled selected value="">selecione um tipo de pagamento</option>
                     @endif
 
                     <option>Dinheiro</option>
@@ -26,7 +26,7 @@
             <label for="type">Valores a Pagar <small class="text-danger">*</small></label>
             <input type="text" name="value" id="value"
                 value="{{ isset($payment->value) ? $payment->value : old('value') }}"
-                class="form-control border rounded" placeholder="0,00">
+                class="form-control border rounded" placeholder="0,00"  required>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
             <label for="type">Referencia </label>
             <input type="text" name="reference" id="reference"
                 value="{{ isset($payment->reference) ? $payment->reference : old('reference') }}"
-                class="form-control border rounded" placeholder="Referencia">
+                class="form-control border rounded" placeholder="Referencia" >
         </div>
     </div>
 
@@ -56,7 +56,7 @@
                         {{ $payment->currency }}
                     </option>
                 @else
-                    <option disabled selected>selecione uma  moeda</option>
+                    <option disabled selected value="">selecione uma  moeda</option>
                 @endif
 
                 <option>Kwanza</option>
@@ -79,7 +79,7 @@
                         {{ $payment->status }}
                     </option>
                 @else
-                    <option disabled selected>selecione uma opção de pagamento</option>
+                    <option disabled selected value="">selecione uma opção de pagamento</option>
                 @endif
 
                 <option>Pago</option>
@@ -90,9 +90,5 @@
             </select>
         </div>
     </div>
-
-
-
-
 
 </div>
