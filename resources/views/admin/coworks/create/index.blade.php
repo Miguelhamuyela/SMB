@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="card-body bg-light">
-                    <h4 class="card-title"><b>Horário</b></h4>
+                    <h4 class="card-title"><b>Período do Contrato</b></h4>
                     <hr>
                     @include('forms._formScheldules.index')
                 </div>
