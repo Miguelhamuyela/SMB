@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ManufacturesSoftware;
 use App\Models\Scheldule;
 use App\Models\Client;
+use App\Models\Payment;
 
 use Illuminate\Http\Request;
 

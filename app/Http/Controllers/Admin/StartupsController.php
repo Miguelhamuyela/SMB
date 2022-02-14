@@ -20,7 +20,7 @@ class StartupsController extends Controller
     public function index()
     {
 
-        $response['startup'] = Startup::get();
+        $response['startups'] = Startup::get();
         return view('admin.startup.list.index', $response);
     }
 

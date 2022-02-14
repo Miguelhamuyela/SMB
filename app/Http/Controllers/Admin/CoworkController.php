@@ -20,7 +20,7 @@ class CoworkController extends Controller
     public function index()
     {
 
-        $response['cowork'] = Cowork::get();
+        $response['coworks'] = Cowork::get();
         return view('admin.coworks.list.index', $response);
     }
 
@@ -51,6 +51,7 @@ class CoworkController extends Controller
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
             'address' => 'required|string|max:50',
+            'clienttype' => 'required|string|max:50',
 
              /**Scheldules Information */
              'started' => 'required|string|max:255',
@@ -65,7 +66,8 @@ class CoworkController extends Controller
             'status' => 'required|string|max:255',
 
             /**Cowork Information */
-            'title'=> 'required|string|max:50'
+            'title'=> 'required|string|max:50',
+            'activities'=> 'required|string|max:50'
 
 
         ]);
@@ -76,6 +78,7 @@ class CoworkController extends Controller
 
         $cowork = Cowork::create([
             'title' => $request->title,
+            'activities' => $request->activities,
             'fk_Payments_id' => $payment->id,
             'fk_Scheldules_id' => $schedule->id,
             'fk_Clients_id' => $client->id
@@ -175,6 +178,6 @@ class CoworkController extends Controller
     {
         //
         Cowork::find($id)->delete();
-        return redirect()->back()->with('destroy', '1');
+        return redirect()->route('admin.coworks.list.index')->with('destroy', '1');
     }
 }

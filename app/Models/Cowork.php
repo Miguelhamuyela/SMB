@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Cowork extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = "Coworks";
+    protected $table = "coworks";
 
     protected $guarded = ['id'];
 

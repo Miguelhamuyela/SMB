@@ -10,7 +10,7 @@
                     @csrf
 
                     <div class="card-body bg-light">
-                        <h4 class="card-title"><b>Cowork</b></h4>
+                        <h4 class="card-title"><b>Coworks</b></h4>
                         <hr>
                         @include('forms._formCoworks.index')
                     </div>
