@@ -1,6 +1,6 @@
 <div class="row">
 
-    <div class="col-md-8">
+    <div class="col-md-5">
       <div class="form-group">
           <label for="name">Nome do Cliente <small class="text-danger">*</small></label>
           <input type="text" name="name" id="name" value="{{ isset($client->name) ? $client->name: old('name') }}"
@@ -15,6 +15,26 @@
         <input type="text" name="nif" id="nif" value="{{ isset($client->nif) ? $client->nif: old('nif') }}"
             class="form-control border rounded" placeholder="Nº de Identificação Fiscal" required>
     </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="clienttype">Tipo de Cliente <small class="text-danger">*</small></label>
+      <select type="text" name="clienttype" id="clienttype" class="form-control border rounded" required>
+
+          @if (isset($client->clienttype))
+              <option value="{{ $client->clienttype }}" class="text-primary h6 bg-primary text-white" selected>
+                  {{ $client->clienttype }}
+              </option>
+          @else
+              <option disabled selected>selecione uma outra opção</option>
+          @endif
+
+          <option>Singular</option>
+          <option>Colectivo</option>
+
+      </select>
+  </div>
   </div>
   
   </div>
