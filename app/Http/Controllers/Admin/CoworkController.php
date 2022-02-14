@@ -139,6 +139,8 @@ class CoworkController extends Controller
              'tel' => 'max:50',
              'nif' => 'required|string|max:50',
              'address' => 'required|string|max:50',
+             'clienttype' => 'required|string|max:50',
+
  
               /**Scheldules Information */
               'started' => 'required|string|max:255',
@@ -153,7 +155,8 @@ class CoworkController extends Controller
              'status' => 'required|string|max:255',
  
              /**Cowork Information */
-             'title'=> 'required|string|max:50'
+             'title'=> 'required|string|max:50',
+             'activities'=> 'required|string|max:50'
 
         ]);
 

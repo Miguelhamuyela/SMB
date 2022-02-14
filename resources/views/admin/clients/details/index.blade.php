@@ -5,7 +5,7 @@
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title">
-                Detalhes do Cliente #{{ $client->name }}
+                Detalhes do Cliente #{{ $clients->name }}
             </h2>
         </div>
     </div>
@@ -29,26 +29,26 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Nome do Cliente</b><br>
-                                            <small> {{ $client->name }}</small>
+                                            <small> {{ $clients->name }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Número de Identificação Fiscal</b><br>
-                                            <small> {{ $client->nif }}</small>
+                                            <small> {{ $clients->nif }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Email</b><br>
-                                            <small> {{ $client->email }}</small>
+                                            <small> {{ $clients->email }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Telefone</b><br>
-                                            <small> {{ $client->tel }}</small>
+                                            <small> {{ $clients->tel }}</small>
                                         </p>
                                     </div>
 
@@ -64,21 +64,21 @@
                                     <div class="col-md-8">
                                         <small class="mb-1 text-dark">
                                             <b>Data de Cadastro:</b>
-                                            {{ $client->created_at }}
+                                            {{ $clients->created_at }}
                                         </small><br>
                                         <small class="mb-1 text-dark">
                                             <b>Última Actualização:</b>
-                                            {{ $client->updated_at }}
+                                            {{ $clients->updated_at }}
                                         </small>
                                     </div>
                                     <div class="col-md-4 text-dark text-right">
-                                        <a href='{{ url("admin/client/edit/{$client->id}") }}'>
+                                        <a href='{{ url("admin/client/edit/{$clients->id}") }}'>
                                             <i class="fa fa-edit"></i>
                                             Editar
                                         </a>
                                         <br>
 
-                                        <a href='{{ url("admin/client/delete/{$client->id}") }}'
+                                        <a href='{{ url("admin/client/delete/{$clients->id}") }}'
                                             class="text-danger">
                                             <i class="fa fa-trash"></i>
                                             Eliminar

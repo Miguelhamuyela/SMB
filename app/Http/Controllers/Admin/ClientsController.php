@@ -17,7 +17,7 @@ class ClientsController extends Controller
     {
         //
 
-        $response['client'] = Client::get();
+        $response['clients'] = Client::get();
         return view('admin.clients.list.index', $response);
     }
 
