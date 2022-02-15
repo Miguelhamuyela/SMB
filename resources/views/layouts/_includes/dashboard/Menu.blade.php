@@ -60,7 +60,7 @@
                             <a class="nav-link" href="{{ route('admin.manufactures.create.index') }}">Cadastrar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.startup.list.index') }}">Listar</a>
+                            <a class="nav-link" href="{{ route('admin.manufactures.list.index') }}">Listar</a>
                         </li>
 
 

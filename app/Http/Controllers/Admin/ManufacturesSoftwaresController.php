@@ -21,7 +21,7 @@ class ManufacturesSoftwaresController extends Controller
     public function index()
     {
         //
-        $response['manufactures'] = ManufacturesSoftware::get();
+        $response['manufactures_softwares'] = ManufacturesSoftware::get();
         return view('admin.manufactures.list.index', $response);
     }
 
@@ -44,16 +44,15 @@ class ManufacturesSoftwaresController extends Controller
      */
     public function store(Request $request)
     {
+   
         //
         $request->validate([
             /**ManufactureSoftware information */
             'nameSoftware' => 'required|string|max:255',
             'category' => 'required|string|max:255',
             'description' => 'required|string|max:50',
-            'file' => '|mimes:pdf,docx,xlsx',
-            'fk_Scheldules_id' => 'required',
-            'fk_Payments_id' => 'required',
-            'fk_Clients_id' => 'required',
+            'file' => 'mimes:pdf,docx,xlsx,doc',
+            
 
              /**Clients informatio */
              'name' => 'required|string|max:255',
@@ -72,13 +71,12 @@ class ManufacturesSoftwaresController extends Controller
 
         ]);
 
-       
-
         $client = Client::create($request->all());
+   
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
 
-        $systemFile = $request->file('image')->store('manufacturesSoftwares');
+        $systemFile = $request->file('manufacturesSoftwares')->store('manufacturesSoftwares');
 
         $manufacture = ManufacturesSoftware::create(
             [
@@ -107,7 +105,7 @@ class ManufacturesSoftwaresController extends Controller
     {
         //
 
-        $response['cowork'] = ManufacturesSoftware::with('payments', 'scheldules','clients')->find($id);
+        $response['manufacture'] = ManufacturesSoftware::with('payments', 'scheldules','clients')->find($id);
         return view('admin.manufactures.details.index', $response);
 
     }
@@ -177,7 +175,6 @@ class ManufacturesSoftwaresController extends Controller
          Scheldule::find($manufacture->fk_Scheldules_id)->update($request->all());
          Payment::find($manufacture->fk_Payments_id)->update($request->all());
          
- 
          return redirect()->route('admin.manufactures.list.index')->with('edit', '1');
 
     }
