@@ -4,7 +4,7 @@
 
         <div class="form-group">
             <label for="title">Área de Actuação da Empresa <small class="text-danger">*</small></label>
-            <textarea class="form-control rounded" rows="1" name="title" style="">
+            <textarea class="form-control rounded" id="editor1" rows="1" name="title" required  style="" >
                 {{ isset($cowork->title) ? $cowork->title : old('title') }}
             </textarea>
         </div>
@@ -15,7 +15,7 @@
 
       <div class="form-group">
           <label for="activities">Actividades Realizadas no Cowork <small class="text-danger">*</small></label>
-          <textarea class="form-control rounded" rows="1" name="activities" style="">
+          <textarea class="form-control rounded" id="editor2" rows="1" name="activities" required style="">
               {{ isset($cowork->activities) ? $cowork->activities : old('activities') }}
           </textarea>
       </div>

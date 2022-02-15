@@ -1,12 +1,12 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', ' Detalhes do Startup')
+@section('titulo', ' Detalhes da Fábrica de Softwares')
 
 @section('content')
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title">
 
-                Detalhes da Startup #{{ $startup->name }}
+                Detalhes da Fábrica de Software #{{ $manufacture->nameSoftware }}
             </h2>
         </div>
     </div>
@@ -22,34 +22,34 @@
 
 
                             <div class="col-12 mt-2">
-                                <h5 class=""><b>Informações da Startup </b> </h5>
+                                <h5 class=""><b>Informações do Cliente </b> </h5>
                                 <hr>
                             </div>
                             <div class="col-12 mb-5">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Nome da Startup</b><br>
-                                            <small> {{ $startup->name }}</small>
+                                            <b>Nome do Cliente</b><br>
+                                            <small> {{ $manufacture->clients->name }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Número de Identificação Fiscal</b><br>
-                                            <small> {{ $startup->nif }}</small>
+                                            <small> {{ $manufacture->clients->nif }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Email</b><br>
-                                            <small> {{ $startup->email }}</small>
+                                            <small> {{ $manufacture->clients->email }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Telefone</b><br>
-                                            <small> {{ $startup->tel }}</small>
+                                            <small> {{ $manufacture->clients->tel }}</small>
                                         </p>
                                     </div>
 
@@ -57,22 +57,40 @@
                             </div>
 
                             <div class="col-12 mt-2">
-                                <h5 class=""><b>Informações de Horário </b> </h5>
+                                <h5 class=""><b>Fábrica de Software </b> </h5>
                                 <hr>
                             </div>
+
+                            {{--
+                                nameSoftware');
+            $table->string('category');
+            $table->longText('description');
+                                --}}
 
                             <div class="col-12 mb-5">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Inicio do Contracto</b><br>
-                                            <small> {{ $startup->scheldules->started }}</small>
+                                            <b>Nome do Software</b><br>
+                                            <small> {{ $manufacture->category }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Fim do Contracto</b><br>
-                                            <small> {{ $startup->scheldules->end }}</small>
+                                            <b>Categoria</b><br>
+                                            <small> {{ $manufacture->category }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Descrição</b><br>
+                                            <small> {{ $manufacture->description }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Documentação</b><br>
+                                            <small> <a href="{{ $manufacture->file }}">Documento</a></small>
                                         </p>
                                     </div>
 
@@ -92,34 +110,34 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Tipo de Pagamento</b><br>
-                                            <small> {{ $startup->payments->type }}</small>
+                                            <small> {{ $manufacture->payments->type }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Valores a Pagar</b><br>
-                                            <small> {{ $startup->payments->value }}</small>
+                                            <small> {{ $manufacture->payments->value }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Referencia</b><br>
-                                            <small> {{ $startup->payments->reference }}</small>
+                                            <small> {{ $manufacture->payments->reference }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Moeda</b><br>
-                                            <small> {{ $startup->payments->currency }}</small>
+                                            <small> {{ $manufacture->payments->currency }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Status</b><br>
-                                            <small> {{ $startup->payments->status }}</small>
+                                            <small> {{ $manufacture->payments->status }}</small>
                                         </p>
                                     </div>
 
@@ -137,21 +155,21 @@
                                     <div class="col-md-8">
                                         <small class="mb-1 text-dark">
                                             <b>Data de Cadastro:</b>
-                                            {{ $startup->created_at }}
+                                            {{ $manufacture->created_at }}
                                         </small><br>
                                         <small class="mb-1 text-dark">
                                             <b>Última Actualização:</b>
-                                            {{ $startup->updated_at }}
+                                            {{ $manufacture->updated_at }}
                                         </small>
                                     </div>
                                     <div class="col-md-4 text-dark text-right">
-                                        <a href='{{ url("admin/startup/edit/{$startup->id}") }}'>
+                                        <a href='{{ url("admin/manufactures/edit/{$manufacture->id}") }}'>
                                             <i class="fa fa-edit"></i>
                                             Editar
                                         </a>
                                         <br>
 
-                                        <a href='{{ url("admin/startup/delete/{$startup->id}") }}'
+                                        <a href='{{ url("admin/manufactures/delete/{$manufacture->id}") }}'
                                             class="text-danger">
                                             <i class="fa fa-trash"></i>
                                             Eliminar
@@ -172,76 +190,7 @@
 
 
             </div> <!-- /.col-12 -->
-
-            
         </div> <!-- .row -->
-
-        
     </div> <!-- .container-fluid -->
 
-    <div class="card mb-2">
-        <div class="card-body">
-            <div class="row align-items-center my-4">
-                <div class="col">
-                    <h2 class="page-title h4">Membros</h2>
-                </div>
-                <div class="col-auto">
-                    <a type="button" class="btn btn-lg btn-primary text-white"
-                        href="{{ url("admin/member/create/{$startup->id}") }}">
-                        <span class="fa fa-plus fa-16 mr-3"></span>Novo Membro
-                    </a>
-                </div>
-            </div>
-
-
-            <div class="page-category pb-5">
-                    <table class="table table-hover" id="dataTable-1">
-                        <thead>
-                            <tr class="text-center">
-                  
-                                <th>NOME DO MEMBRO</th>
-                                <th>EMAIL</th>
-                                <th>TELEFONE</th>
-                                <th>NIF</th>
-                                <th>OCUPAÇÁO</th>
-                                <th class="text-left">ACÇÕES</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white">
-                            @foreach ($startup->members as $item)
-                                <tr class="text-center text-dark">
-                                    <td class="text-left">{{ $item->name }}</td>      
-                                    <td class="text-left">{{ $item->email }}</td>
-                                    <td class="text-left">{{ $item->tel }}</td>
-                                    <td class="text-left">{{ $item->nif }}</td>
-                                    <td class="text-left">{{ $item->occupation}}</td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-dark text-white dropdown-toggle" type="button"
-                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
-                                                <i class="fa fa-navicon fa-sm" aria-hidden="true"></i>
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a href='{{ url("admin/member/delete/$item->id") }}'
-                                                    class="dropdown-item">Eliminar</a>
-
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
-         
-            </div>
-
-    </div>
-
-
-    
-
-        
- 
 @endsection
