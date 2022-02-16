@@ -122,6 +122,18 @@ Route::middleware(['auth'])->group(function () {
       Route::put('admin/elernings/update/{id}', ['as' => 'admin.elernings.update', 'uses' => 'Admin\ElearningsController@update']);
       Route::get('admin/elernings/edit/{id}', ['as' => 'admin.elernings.edit.index', 'uses' => 'Admin\ElearningsController@edit']);
       /**End Elernings */
+
+      /**Auditoriums */ 
+      Route::get('admin/auditoriums/index', ['as' => 'admin.auditoriums.create.index', 'uses' => 'Admin\AuditoriumsController@create']);
+      Route::get('admin/auditoriums/list', ['as' => 'admin.auditoriums.list.index', 'uses' => 'Admin\AuditoriumsController@index']);
+      Route::post('admin/auditoriums/store', ['as' => 'admin.auditoriums.store', 'uses' => 'Admin\AuditoriumsController@store']);
+      Route::get('admin/auditoriums/show/{id}', ['as' => 'admin.auditoriums.show', 'uses' => 'Admin\AuditoriumsController@show']);
+      Route::get('admin/auditoriums/delete/{id}', ['as' => 'admin.auditoriums.delete', 'uses' => 'Admin\AuditoriumsController@destroy']);
+      Route::put('admin/auditoriums/update/{id}', ['as' => 'admin.auditoriums.update', 'uses' => 'Admin\AuditoriumsController@update']);
+      Route::get('admin/auditoriums/edit/{id}', ['as' => 'admin.auditoriums.edit.index', 'uses' => 'Admin\AuditoriumsController@edit']);
+
+
+      /**End Auditoriums */
 });
 
 

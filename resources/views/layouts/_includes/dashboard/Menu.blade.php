@@ -48,7 +48,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#elernings" aria-expanded="false"
+                <a class="nav-link" data-toggle="collapse" href="#fabrica" aria-expanded="false"
                     aria-controls="users">
                     <i class="menu-icon typcn typcn-document-add"></i>
                     <span class="menu-title">Fabrica de Software</span>
@@ -103,6 +103,27 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.elernings.list.index') }}">Listar</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#auditoriums" aria-expanded="false"
+                    aria-controls="users">
+                    <i class="menu-icon typcn typcn-document-add"></i>
+                    <span class="menu-title">Auditorio</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="auditoriums">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.auditoriums.create.index') }}">Cadastrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">Listar</a>
                         </li>
 
 
