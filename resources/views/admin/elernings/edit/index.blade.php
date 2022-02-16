@@ -1,26 +1,18 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', 'Elernings')
-
+@section('titulo', 'Editar Elernings')
 @section('content')
-    <div class="row">
 
-        <div class="col-lg-12 grid-margin stretch-card ">
-            <div class="card">
-                <form  method="POST" action="{{route('admin.elernings.store')}}" >
+    <div class="card shadow">
+        <div class="card-body">
+            <h3 class="my-2 text-center">Editar  {{$elerning->course}} </h3>
+            
+            <div class="row align-items-center">
+
+                <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST" action="{{ route('admin.elernings.update', $elerning->id) }}">
                     @csrf
+                    @method('PUT')
 
-                    <div class="card-body bg-light">
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                     </div>
-                     @endif
-
-                        <h4 class="card-title"><b>Elernings</b></h4>
+                    <h4 class="card-title"><b>Elernings</b></h4>
                         <hr>
                         @include('forms._formElernings.index')
                     </div>
@@ -44,22 +36,20 @@
                         @include('forms._formPayments.index')
                     </div>
 
-                <div class="card-body bg-light">
+                    <div class="card-body bg-light">
                     <div class="col-md-12">
                         <div class="form-group text-center">
                             <button type="submit" class="btn px-5 col-md-4 btn-primary">
-                                Salvar
+                                Salvar Alterações
                             </button>
 
                         </div>
                     </div>
-            </div>
+                    </div>
 
-            </form>
+                </form>
             </div>
         </div>
-
-    </div>
-
+   
 
 @endsection

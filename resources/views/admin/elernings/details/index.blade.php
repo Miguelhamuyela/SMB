@@ -6,7 +6,7 @@
         <div class="card-body">
             <h2 class="h5 page-title">
 
-                Detalhes do Elernings#{{ $elernings->course }}
+                Detalhes do Elernings#{{ $elerning->course }}
             </h2>
         </div>
     </div>
@@ -30,26 +30,26 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Nome do Cliente</b><br>
-                                            <small> {{ $elernings->clients->name }}</small>
+                                            <small> {{ $elerning->clients->name }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Número de Identificação Fiscal</b><br>
-                                            <small> {{ $elernings->clients->nif }}</small>
+                                            <small> {{ $elerning->clients->nif }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Email</b><br>
-                                            <small> {{ $elernings->clients->email }}</small>
+                                            <small> {{ $elerning->clients->email }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Telefone</b><br>
-                                            <small> {{ $elernings->clients->tel }}</small>
+                                            <small> {{ $elerning->clients->tel }}</small>
                                         </p>
                                     </div>
 
@@ -68,13 +68,13 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Inicio do Contracto</b><br>
-                                            <small> {{ $elernings->scheldules->started }}</small>
+                                            <small> {{ $elerning->scheldules->started }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Fim do Contracto</b><br>
-                                            <small> {{ $elernings->scheldules->end }}</small>
+                                            <small> {{ $elerning->scheldules->end }}</small>
                                         </p>
                                     </div>
 
@@ -94,34 +94,34 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Tipo de Pagamento</b><br>
-                                            <small> {{ $elernings->payments->type }}</small>
+                                            <small> {{ $elerning->payments->type }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Valores a Pagar</b><br>
-                                            <small> {{ $elernings->payments->value }}</small>
+                                            <small> {{ $elerning->payments->value }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Referencia</b><br>
-                                            <small> {{ $elernings->payments->reference }}</small>
+                                            <small> {{ $elerning->payments->reference }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Moeda</b><br>
-                                            <small> {{ $elernings->payments->currency }}</small>
+                                            <small> {{ $elerning->payments->currency }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Status</b><br>
-                                            <small> {{ $elernings->payments->status }}</small>
+                                            <small> {{ $elerning->payments->status }}</small>
                                         </p>
                                     </div>
 
@@ -139,21 +139,21 @@
                                     <div class="col-md-8">
                                         <small class="mb-1 text-dark">
                                             <b>Data de Cadastro:</b>
-                                            {{ $elernings->created_at }}
+                                            {{ $elerning->created_at }}
                                         </small><br>
                                         <small class="mb-1 text-dark">
                                             <b>Última Actualização:</b>
-                                            {{ $elernings->updated_at }}
+                                            {{ $elerning->updated_at }}
                                         </small>
                                     </div>
                                     <div class="col-md-4 text-dark text-right">
-                                        <a href='{{ url("admin/elernings/edit/{$elernings->id}") }}'>
+                                        <a href='{{ url("admin/elernings/edit/{$elerning->id}") }}'>
                                             <i class="fa fa-edit"></i>
                                             Editar
                                         </a>
                                         <br>
 
-                                        <a href='{{ url("admin/elernings/delete/{$elernings->id}") }}'
+                                        <a href='{{ url("admin/elernings/delete/{$elerning->id}") }}'
                                             class="text-danger">
                                             <i class="fa fa-trash"></i>
                                             Eliminar

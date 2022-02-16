@@ -1,13 +1,13 @@
 <div class="row">
 
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="form-group">
             <label for="name">Curso <small class="text-danger">*</small></label>
             <select type="text" name="course" id="course" class="form-control border rounded" required>
 
-                @if (isset($course->course))
-                    <option value="{{ $course->course }}" class="text-primary h6 bg-primary text-white" selected>
-                        {{ $course->course }}
+                @if (isset($elerning->course))
+                    <option value="{{ $elerning->course }}" class="text-primary h6 bg-primary text-white" selected>
+                        {{ $elerning->course }}
                     </option>
                 @else
                     <option disabled selected value="">selecione um curso</option>
@@ -23,22 +23,30 @@
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="form-group">
-            <label for="timeCourse">Tempo do Curso <small class="text-danger"> *</small></label>
-            <input type="timeCourse" name="timeCourse" value="{{ isset($course->timeCourse) ? $course->timeCourse : old('timeCourse') }}" id="timeCourse"
-                class="form-control border">
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="form-group">
-            <label for="note">Tempo do Curso <small class="text-danger"> *</small></label>
-            <input type="note" name="note" value="{{ isset($course->note) ? $course->note : old('note') }}" id="note"
-                class="form-control border">
+            <label for="timeCourse">Período <small class="text-danger"> *</small></label>
+            <input placeholder="Período do curso" type="text" name="timeCourse" value="{{ isset($elerning->timeCourse) ? $elerning->timeCourse : old('timeCourse') }}" id="timeCourse"
+                class="form-control border" required>
         </div>
     </div>
 
 </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="note">Nota <small class="text-danger"> *</small></label>
+        <textarea name="note"  class="form-control rounded" style="min-height:50px; min-width:100%" required>
+            {{ isset($elerning->note) ? $elerning->note : old('note') }}
+        </textarea>
+        </div>
+    </div>
+
+</div>
+
+  
+
+
 
 <!-- /.col -->
