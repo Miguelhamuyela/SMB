@@ -48,7 +48,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#fabrica" aria-expanded="false"
+                <a class="nav-link" data-toggle="collapse" href="#elernings" aria-expanded="false"
                     aria-controls="users">
                     <i class="menu-icon typcn typcn-document-add"></i>
                     <span class="menu-title">Fabrica de Software</span>
@@ -69,19 +69,40 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#fabrica" aria-expanded="false"
+                <a class="nav-link" data-toggle="collapse" href="#cowork" aria-expanded="false"
                     aria-controls="users">
                     <i class="menu-icon typcn typcn-document-add"></i>
                     <span class="menu-title">Cowork</span>
                     <i class="menu-arrow"></i>
                 </a>
-                <div class="collapse" id="fabrica">
+                <div class="collapse" id="cowork">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.coworks.create.index') }}">Cadastrar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.coworks.list.index') }}">Listar</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#elernings" aria-expanded="false"
+                    aria-controls="users">
+                    <i class="menu-icon typcn typcn-document-add"></i>
+                    <span class="menu-title">Elernings</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="elernings">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.elernings.create.index') }}">Cadastrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.elernings.list.index') }}">Listar</a>
                         </li>
 
 
