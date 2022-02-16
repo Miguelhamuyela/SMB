@@ -6,7 +6,7 @@
         <div class="card-body">
             <h2 class="h5 page-title">
 
-                Detalhes do Cowork #{{ $cowork->title }}
+                Detalhes do Cowork {{ $cowork->title }}
             </h2>
         </div>
     </div>
@@ -50,6 +50,29 @@
                                         <p class="text-dark">
                                             <b>Telefone</b><br>
                                             <small> {{ $cowork->clients->tel }}</small>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-2">
+                                <h5 class=""><b>Coworks </b> </h5>
+                                <hr>
+                            </div>
+
+                            <div class="col-12 mb-5">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b> Área de Actuação da Empresa</b><br>
+                                            <small> {{ $cowork->title }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Actividades Realizadas</b><br>
+                                            <small> {{ $cowork->activities }}</small>
                                         </p>
                                     </div>
 

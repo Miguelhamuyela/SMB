@@ -6,7 +6,7 @@
         <div class="card-body">
             <h2 class="h5 page-title">
 
-                Detalhes da Startup #{{ $startup->name }}
+                Detalhes da Startup {{ $startup->name }}
             </h2>
         </div>
     </div>
