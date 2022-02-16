@@ -6,7 +6,7 @@
         <div class="card-body">
             <h2 class="h5 page-title">
 
-                Detalhes da Fábrica de Software #{{ $manufacture->nameSoftware }}
+                Detalhes da Fábrica de Software {{ $manufacture->nameSoftware }}
             </h2>
         </div>
     </div>
