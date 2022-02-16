@@ -176,6 +176,6 @@ class StartupsController extends Controller
     public function destroy($id)
     {
         Startup::find($id)->delete();
-        return redirect()->back()->with('destroy', '1');
+        return redirect()->route('admin.startup.list.index')->with('destroy', '1');
     }
 }
