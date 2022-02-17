@@ -82,6 +82,12 @@ Route::middleware(['auth'])->group(function () {
     
     /**End Member */
 
+    /**Member Cowork*/
+    Route::get('admin/memberCowork/create/{id}', ['as' => 'admin.memberCowork.create', 'uses' => 'Admin\MembersController@create']);
+    Route::post('admin/memberCowork/store/{id}', ['as' => 'admin.memberCowork.store', 'uses' => 'Admin\MembersController@store']); 
+    Route::get('admin/memberCowork/delete/{id}', ['as' => 'admin.memberCowork.delete', 'uses' => 'Admin\MembersController@destroy']);
+    /**End Member Cowork */
+
 
     /**
      *  ManufacturesSoftwares

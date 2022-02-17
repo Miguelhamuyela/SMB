@@ -2,23 +2,11 @@
 
     <div class="col-md-6">
         <div class="form-group">
-            <label for="name">Curso <small class="text-danger">*</small></label>
-            <select type="text" name="course" id="course" class="form-control border rounded" required>
+            <label for="course">Curso <small class="text-danger">*</small></label>
+            <input placeholder="Curso" type="text"  name="course" id="course"
+                value="{{ isset($elerning->course) ? $elerning->course : old('course') }}" 
+                class="form-control border" required>
 
-                @if (isset($elerning->course))
-                    <option value="{{ $elerning->course }}" class="text-primary h6 bg-primary text-white" selected>
-                        {{ $elerning->course }}
-                    </option>
-                @else
-                    <option disabled selected value="">selecione um curso</option>
-                @endif
-
-                <option>Criação de Sistema de Gestão de Empresas com Laravel 8</option>
-                <option>IT Essentials 7.0</option>
-                <option>CCNA1, CCNA2, CCNA3</option>
-                <option>CCNA Security</option>
-
-            </select>
 
         </div>
     </div>

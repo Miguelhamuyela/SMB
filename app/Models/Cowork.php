@@ -32,6 +32,11 @@ class Cowork extends Model
         return $this->belongsTo(Client::class, 'fk_Clients_id', 'id');
     }
 
+    public function members(){
+
+        return $this->hasMany(CoworkMember::class, 'fk_coworks_id');
+    }
+
     
 
 }
