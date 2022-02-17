@@ -14,15 +14,19 @@
                         <thead>
                             <tr class="text-center">
                                 <th>#</th>
-                                <th>TÍTULO DA CONFERÊNCIA</th>
-                                <th class="text-left">ACÇÕES</th>
+                                <th>NOME</th>
+                                <th>NIF</th>
+                                <th>TELEFONE</th>
+                                <th>STATUS</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach ($auditoriums as $item)
+                        <tbody> 
+                            @foreach ($auditoriums->members as $item)
                                 <tr class="text-center text-dark">
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->titleConference}} </td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->nif}} </td>
+                                    <td>{{ $item->tel }}</td>
+                                    <td>{{ $item->status}} </td>
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-dark text-white btn-sm dropdown-toggle" type="button"

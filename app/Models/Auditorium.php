@@ -32,4 +32,9 @@ class Auditorium extends Model
     public function clients(){
         return $this->belongsTo(Client::class, 'fk_Clients_id', 'id');
     }
+
+    public function members(){
+
+        return $this->hasMany(Client::class, 'fk_Clients_id');
+    }
 }

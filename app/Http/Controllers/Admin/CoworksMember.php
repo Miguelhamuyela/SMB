@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cowork;
+use App\Models\CoworkMember;
 use Illuminate\Http\Request;
 
-class CoworkMember extends Controller
+class CoworksMember extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class CoworkMember extends Controller
     {
         //
         $response['cowork']=Cowork::find($id);
-        return view('admin.member.create.index',$response);
+        return view('admin.coworkMember.create.index',$response);
     }
 
     /**
@@ -36,9 +37,33 @@ class CoworkMember extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
         //
+
+        $request->validate([
+            /**Member Information */
+            'name' => 'required|string|max:255',
+            'occupation' => '|string|max:255',
+            'email' => 'required|string|max:50',
+            'tel' => 'max:50',
+            'nif' => 'required|string|max:50',
+
+        ]);
+
+        $member = CoworkMember::create(
+            [
+                'name' => $request->name,
+                'occupation' => $request->occupation,
+                'email' => $request->email,
+                'tel' => $request->tel,
+                'nif' => $request->nif,
+                'fk_coworks_id' =>$id
+
+            ]
+        );
+
+        return redirect()->back()->with('create', '1');
     }
 
     /**
@@ -84,5 +109,8 @@ class CoworkMember extends Controller
     public function destroy($id)
     {
         //
+
+        CoworkMember::find($id)->delete();
+        return redirect()->back()->with('destroy', '1');
     }
 }
