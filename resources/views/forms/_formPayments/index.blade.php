@@ -32,7 +32,7 @@
 
     <div class="col-md-3">
         <div class="form-group">
-            <label for="type">Referncia </label>
+            <label for="type">Referência </label>
             <input type="text" name="reference" id="reference"
                 value="{{ isset($payment->reference) ? $payment->reference : old('reference') }}"
                 class="form-control border rounded" placeholder="Referencia" >
