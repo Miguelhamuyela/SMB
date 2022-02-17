@@ -209,7 +209,7 @@
                 </div>
                 <div class="col-auto">
                     <a type="button" class="btn btn-lg btn-primary text-white"
-                        href="{{ url("admin/cowork/create/{$cowork->id}") }}">
+                        href="{{ url("admin/memberCowork/create/{$cowork->id}") }}">
                         <span class="fa fa-plus fa-16 mr-3"></span>Novo Membro
                     </a>
                 </div>
@@ -230,13 +230,13 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white">
-                            @foreach ($cowork as $item)
+                            @foreach ($cowork->members as $item)
                                 <tr class="text-center text-dark">
-                                    <td class="text-left"></td>      
-                                    <td class="text-left"></td>
-                                    <td class="text-left"></td>
-                                    <td class="text-left"></td>
-                                    <td class="text-left"></td>
+                                    <td class="text-left">{{ $item->name }}</td>      
+                                    <td class="text-left">{{ $item->email }}</td>
+                                    <td class="text-left">{{ $item->tel }}</td>
+                                    <td class="text-left">{{ $item->nif }}</td>
+                                    <td class="text-left">{{ $item->occupation}}</td>
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-dark text-white dropdown-toggle" type="button"
@@ -245,7 +245,7 @@
                                                 <i class="fa fa-navicon fa-sm" aria-hidden="true"></i>
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a href='{{ url("admin/cowork/delete/$item->id") }}'
+                                                <a href='{{ url("admin/memberCowork/delete/$item->id") }}'
                                                     class="dropdown-item">Eliminar</a>
 
                                             </div>
