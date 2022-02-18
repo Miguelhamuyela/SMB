@@ -60,7 +60,47 @@
     </div>
 
 
-  
+    <div class="section-body mt-4">
+
+        <div class="card shadow mb-4">
+            <div class="card-body">
+
+                <h4 class="my-3 text-center">Registo de Actividade</h4>
+                <div class="table-responsive">
+
+
+                    <table id="dataTable-1" class="table  table-striped mb-3">
+                        <thead>
+                            <tr class="text-center">
+                                <th>ID</th>
+                                <th>CAMINHO</th>
+                                <th>IP</th>
+                                <th>MENSAGEM</th>
+                                {{-- <th>ACÇÕES</th> --}}
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+
+                            @foreach ($logs as $item)
+                                <tr class="text-center text-dark">
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->PATH_INFO }} </td>
+                                    <td>{{ $item->REMOTE_ADDR }} </td>
+                                    <td>{{ $item->message }} </td>
+
+
+
+                                </tr>
+                            @endforeach
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 
 
 
