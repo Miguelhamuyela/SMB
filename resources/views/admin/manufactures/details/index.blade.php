@@ -100,7 +100,7 @@
                             </div>
 
                             <div class="col-12 mt-2">
-                                <h5 class=""><b>Período De Desenvolvimento</b> </h5>
+                                <h5 class=""><b>Período de Desenvolvimento</b> </h5>
                                 <hr>
                             </div>
 
