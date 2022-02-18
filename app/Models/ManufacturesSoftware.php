@@ -33,6 +33,4 @@ class ManufacturesSoftware extends Model
     }
 
     
-
-    
 }

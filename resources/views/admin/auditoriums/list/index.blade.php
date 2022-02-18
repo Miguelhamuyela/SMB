@@ -25,19 +25,23 @@
                         <tbody>
                             @foreach ($auditoriums as $item)
                                 <tr class="text-center text-dark">
-                                    <td>{{  $item->id }}</td>
-                                    <td>{{  $item->titleConference }}</td>
-                                    <td>{{  $item->clientsInfo->name}} </td>
-                                    <td>{{  $item->clientsInfo->nif}} </td>
-                                    <td>{{  $item->clientsInfo->tel}} </td>
-                         
-                                        @if ($item->paymentsInfo->status == 'Pago')
-                                            <td> <button class="btn btn-success rounded text-white btn-sm">{{  $item->paymentsInfo->status}}</button></td>
-                                        @else
-                                        <td> <button class="btn btn-danger rounded text-white btn-sm">{{  $item->paymentsInfo->status}}</button></td>
-                                        @endif
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->titleConference }}</td>
+                                    <td>{{ $item->clientsInfo->name }} </td>
+                                    <td>{{ $item->clientsInfo->nif }} </td>
+                                    <td>{{ $item->clientsInfo->tel }} </td>
 
-                                          
+                                    @if ($item->paymentsInfo->status == 'Pago')
+                                        <td> <button
+                                                class="btn btn-success btn-sm  rounded text-white btn-sm">{{ $item->paymentsInfo->status }}</button>
+                                        </td>
+                                    @else
+                                        <td> <button
+                                                class="btn btn-danger btn-sm  rounded text-white btn-sm">{{ $item->paymentsInfo->status }}</button>
+                                        </td>
+                                    @endif
+
+
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-dark text-white btn-sm dropdown-toggle" type="button"
@@ -48,7 +52,7 @@
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a href='{{ url("admin/auditoriums/show/{$item->id}") }}'
                                                     class="dropdown-item">Detalhes</a>
-                                               
+
                                             </div>
                                         </div>
                                     </td>
