@@ -99,6 +99,31 @@
                                 </div>
                             </div>
 
+                            <div class="col-12 mt-2">
+                                <h5 class=""><b>Período De Desenvolvimento</b> </h5>
+                                <hr>
+                            </div>
+
+                            <div class="col-12 mb-5">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Início do Projeto</b><br>
+                                            <small> {{ $manufacture->scheldules->started }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Entrega do Projeto</b><br>
+                                            <small> {{ $manufacture->scheldules->end }}</small>
+                                        </p>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
 
                             <div class="col-12 mt-2">
                                 <h5 class=""><b>Informações de Pagamento </b> </h5>

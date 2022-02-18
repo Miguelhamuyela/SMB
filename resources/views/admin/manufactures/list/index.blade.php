@@ -15,8 +15,8 @@
                             <tr class="text-center">
                                 <th>#</th>
                                 <th>NOME DO SOFTWARE</th>
-                                <th>CATEGORIA</th>
-                                <th>DESCRIÇÃO</th>
+                                <th>NOME DO CLIENTE</th>
+                                <th>TELEFONE</th>
                                 <th>STATUS</th>
                                 <th class="text-left">ACÇÕES</th>
                             </tr>
@@ -26,8 +26,8 @@
                                 <tr class="text-center text-dark">
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->nameSoftware }} </td>
-                                    <td>{{ $item->category }} </td>
-                                    <td>{{ $item->description }} </td>
+                                    <td>{{ $item->clients->name }} </td>
+                                    <td>{{ $item->clients->tel }} </td>
                                     @if ($item->payments->status == 'Pago')
                                             <td> <button class="btn btn-success btn-sm  rounded text-white btn-sm">{{  $item->payments->status}}</button></td>
                                         @else
