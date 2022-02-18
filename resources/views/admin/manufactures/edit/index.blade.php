@@ -10,7 +10,7 @@
             <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />
             <div class="row align-items-center">
 
-                <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST" action="{{ route('admin.manufactures.update', $manufacture->id) }}">
+                <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" enctype="multipart/form-data" method="POST" action="{{ route('admin.manufactures.update', $manufacture->id) }}">
                     @csrf
                     @method('PUT')
 
@@ -24,6 +24,12 @@
                         <h4 class="card-title"><b>Cliente</b></h4>
                         <hr>
                         @include('forms._formClients.index')
+                    </div>
+
+                    <div class="card-body bg-light">
+                        <h4 class="card-title"><b>Período de Contracto</b></h4>
+                        <hr>
+                        @include('forms._formScheldules.index')
                     </div>
     
     

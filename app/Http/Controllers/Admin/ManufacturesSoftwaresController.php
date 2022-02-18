@@ -21,7 +21,7 @@ class ManufacturesSoftwaresController extends Controller
     public function index()
     {
         //
-        $response['manufactures_softwares'] = ManufacturesSoftware::get();
+        $response['manufacture'] = ManufacturesSoftware::get();
         return view('admin.manufactures.list.index', $response);
     }
 
@@ -152,10 +152,7 @@ class ManufacturesSoftwaresController extends Controller
             'nameSoftware' => 'required|string|max:255',
             'category' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            'file' => '|mimes:pdf,docx,xlsx',
-            'fk_Scheldules_id' => 'required',
-            'fk_Payments_id' => 'required',
-            'fk_Clients_id' => 'required',
+            'file' => 'mimes:pdf,docx,xlsx',
 
              /**Clients informatio */
              'name' => 'required|string|max:255',
