@@ -98,7 +98,7 @@ class AuditoriumsController extends Controller
     public function show($id)
     {
         //
-        $response['auditorium'] = Auditorium::with('payments', 'scheldules','clients','members')->find($id);
+        $response['auditorium'] = Auditorium::with('payments', 'scheldules','clients')->find($id);
         return view('admin.auditoriums.details.index', $response);
     }
 

@@ -19,6 +19,48 @@
                     <div class="col-12">
 
                         <div class="row  align-items-center">
+                            <div class="col-12 mt-2">
+                                <h5 class=""><b>Auditório </b> </h5>
+                                <hr>
+                            </div>
+                            <div class="col-12 mb-5">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Nome do Cliente</b><br>
+                                            <small> {{ $auditorium->clients->name }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Número de Identificação Fiscal</b><br>
+                                            <small> {{ $auditorium->clients->nif }}</small>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Email</b><br>
+                                            <small> {{ $auditorium->clients->email }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Telefone</b><br>
+                                            <small> {{ $auditorium->clients->tel }}</small>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Título da Conferência</b><br>
+                                            <small> {{ $auditorium->clients->clienttype}}</small>
+                                        </p>
+                                    </div>
+                                    
+
+                                </div>
+                            </div>
 
 
                             <div class="col-12 mt-2">

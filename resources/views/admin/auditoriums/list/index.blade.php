@@ -30,6 +30,7 @@
                                     <td>{{  $item->clientsInfo->name}} </td>
                                     <td>{{  $item->clientsInfo->nif}} </td>
                                     <td>{{  $item->clientsInfo->tel}} </td>
+                         
                                         @if ($item->paymentsInfo->status == 'Pago')
                                             <td> <button class="btn btn-green rounded text-white btn-sm">{{  $item->paymentsInfo->status}}</button></td>
                                         @else
