@@ -50,8 +50,8 @@ class ManufacturesSoftwaresController extends Controller
             /**ManufactureSoftware information */
             'nameSoftware' => 'required|string|max:255',
             'category' => 'required|string|max:255',
-            'description' => 'required|string|max:50',
-            'file' => 'mimes:pdf,docx,xlsx,doc',
+            'description' => 'required|string|max:255',
+            'file' => 'mimes:pdf,docx,xlsx',
             
 
              /**Clients informatio */
@@ -61,6 +61,10 @@ class ManufacturesSoftwaresController extends Controller
              'nif' => 'required|string|max:50',
              'address' => 'required|string|max:50',
              'clienttype' => 'required|string|max:50',
+
+              /**Scheldules Information */
+              'started' => 'required|string|max:255',
+              'end' => 'required|string|max:255',
 
             /***Payment Information */
             'type' => 'required|string|max:255',
@@ -72,18 +76,17 @@ class ManufacturesSoftwaresController extends Controller
         ]);
 
         $client = Client::create($request->all());
-   
+
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
-
-        $systemFile = $request->file('manufacturesSoftwares')->store('manufacturesSoftwares');
-
+        $file = $request->file('file')->store('manufacturesSoftwares');
+      
         $manufacture = ManufacturesSoftware::create(
             [
                 'nameSoftware' => $request->nameSoftware,
                 'category' => $request->category,
                 'description' => $request->description,
-                'file' => $systemFile,
+                'file' => $file,
                 'nif' => $request->nif,
                 'fk_Payments_id' => $payment->id,
                 'fk_Scheldules_id' => $schedule->id,
@@ -91,6 +94,9 @@ class ManufacturesSoftwaresController extends Controller
 
             ]
         );
+
+
+
         
         return redirect()->route('admin.manufactures.show',$manufacture->id)->with('create', '1');
     }
@@ -145,7 +151,7 @@ class ManufacturesSoftwaresController extends Controller
             /**ManufactureSoftware information */
             'nameSoftware' => 'required|string|max:255',
             'category' => 'required|string|max:255',
-            'description' => 'required|string|max:50',
+            'description' => 'required|string|max:255',
             'file' => '|mimes:pdf,docx,xlsx',
             'fk_Scheldules_id' => 'required',
             'fk_Payments_id' => 'required',
@@ -158,6 +164,10 @@ class ManufacturesSoftwaresController extends Controller
              'nif' => 'required|string|max:50',
              'address' => 'required|string|max:50',
              'clienttype' => 'required|string|max:50',
+
+             /**Scheldules Information */
+             'started' => 'required|string|max:255',
+             'end' => 'required|string|max:255',
 
             /***Payment Information */
             'type' => 'required|string|max:255',

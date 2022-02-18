@@ -4,7 +4,7 @@
 
         <div class="form-group">
             <label for="title">Área de Actuação da Empresa <small class="text-danger">*</small></label>
-            <textarea class="form-control rounded" id="editor1"  name="title" required
+            <textarea class="form-control rounded"  name="title" required
             style="min-height:70px; min-width:100%">{{ isset($cowork->title) ? $cowork->title : old('title') }}</textarea>
         </div>
 

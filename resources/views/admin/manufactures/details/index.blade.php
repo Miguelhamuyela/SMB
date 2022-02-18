@@ -90,7 +90,7 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Documentação</b><br>
-                                            <small> <a href="{{ $manufacture->file }}">Documento</a></small>
+                                            <small> <a href="/storage/{{ $manufacture->file }}">Documento</a></small>
                                         </p>
                                     </div>
 

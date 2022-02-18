@@ -27,6 +27,7 @@
                 <option>Mobile</option>
                 <option>Web</option>
                 <option>Desktop</option>
+                <option>Híbrida</option>
 
             </select>
         </div>
@@ -42,7 +43,7 @@
             <label for="file">Documentação </label>
             <input type="file" name="file"
                 value="{{ isset($manufactures_softwares->file) ? $manufactures_softwares->file : old('file') }}"
-                id="file" class="form-control border">
+                id="file" class="form-control border" required>
             <small class="text-danger">Extensões permitidas: excel, word, pdf</small>
 
         </div>
@@ -51,12 +52,10 @@
     <div class="col-md-12">
         <div class="form-group">
             <label for="file">Descrição <small class="text-danger">*</small></label>
-            <textarea name="description" class="form-control rounded" style="min-height:100px; min-width:100%"
+            <textarea name="description" class="form-control rounded"  style="min-height:100px; min-width:100%"
                 required>{{ isset($manufactures_softwares->description) ? $manufactures_softwares->description : old('description') }}</textarea>
         </div>
     </div>
-
-
 
 </div>
 <!-- /.col -->

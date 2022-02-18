@@ -52,6 +52,18 @@
                                             <small> {{ $startup->tel }}</small>
                                         </p>
                                     </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Site</b><br>
+                                            <small> {{ $startup->site }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Site</b><br>
+                                            <small> {{ $startup->site }}</small>
+                                        </p>
+                                    </div>
 
                                 </div>
                             </div>

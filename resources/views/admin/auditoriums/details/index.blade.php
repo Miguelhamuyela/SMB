@@ -6,7 +6,7 @@
         <div class="card-body">
             <h2 class="h5 page-title">
 
-                Detalhes do Auditorio {{ $auditorium->titleConference }}
+                Detalhes do Auditório {{ $auditorium->titleConference }}
             </h2>
         </div>
     </div>
