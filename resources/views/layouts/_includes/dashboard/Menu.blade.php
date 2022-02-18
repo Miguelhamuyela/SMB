@@ -133,27 +133,6 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#users" aria-expanded="false"
-                    aria-controls="users">
-                    <i class="menu-icon typcn typcn-document-add"></i>
-                    <span class="menu-title">Utilizadores</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="users">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Cadastrar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.user.index') }}">Listar</a>
-                        </li>
-
-
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#employees" aria-expanded="false"
                     aria-controls="employees">
                     <i class="menu-icon typcn typcn-document-add"></i>
@@ -167,6 +146,27 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.employees.index') }}">Listar</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#users" aria-expanded="false"
+                    aria-controls="users">
+                    <i class="menu-icon typcn typcn-document-add"></i>
+                    <span class="menu-title">Utilizadores</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="users">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">Cadastrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.user.index') }}">Listar</a>
                         </li>
 
 

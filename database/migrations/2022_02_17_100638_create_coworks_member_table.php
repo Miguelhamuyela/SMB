@@ -20,9 +20,9 @@ class CreateCoworksMemberTable extends Migration
             $table->string('tel');
             $table->string('name');
             $table->string('nif');
-            
+
             $table->unsignedBigInteger('fk_coworks_id');
-            $table->foreign('fk_coworks_id')->references('id')->on('coworks');
+            $table->foreign('fk_coworks_id')->references('id')->on('coworks')->onDelete('CASCADE')->onUpgrade('CASCADE');
 
             $table->softDeletes();
             $table->timestamps();

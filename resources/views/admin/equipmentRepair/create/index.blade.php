@@ -6,10 +6,18 @@
 
         <div class="col-lg-12 grid-margin stretch-card ">
             <div class="card">
-                <form  method="POST" action="{{ route('admin.coworks.store') }}" >
+                <form  method="POST" action="{{ route('admin.equipmentRepair.store') }}" >
                     @csrf
 
-
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="card-body bg-light">
                     <h4 class="card-title"><b>Cliente</b></h4>
                     <hr>
