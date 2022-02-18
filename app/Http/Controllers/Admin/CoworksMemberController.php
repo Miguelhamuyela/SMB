@@ -7,7 +7,7 @@ use App\Models\Cowork;
 use App\Models\CoworkMember;
 use Illuminate\Http\Request;
 
-class CoworksMember extends Controller
+class CoworksMemberController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,7 +40,6 @@ class CoworksMember extends Controller
     public function store(Request $request,$id)
     {
         //
-
         $request->validate([
             /**Member Information */
             'name' => 'required|string|max:255',
@@ -109,7 +108,6 @@ class CoworksMember extends Controller
     public function destroy($id)
     {
         //
-
         CoworkMember::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
     }
