@@ -22,7 +22,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($manufacture as $item)
+                            @foreach ($manufactures_softwares as $item)
                                 <tr class="text-center text-dark">
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->nameSoftware }} </td>

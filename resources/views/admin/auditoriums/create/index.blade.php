@@ -20,7 +20,7 @@
                      </div>
                      @endif
 
-                        <h4 class="card-title"><b>Auditorio</b></h4>
+                        <h4 class="card-title"><b>Auditório</b></h4>
                         <hr>
                         @include('forms._formAuditoriums.index')
                     </div>

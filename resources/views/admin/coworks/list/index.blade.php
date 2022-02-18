@@ -14,7 +14,6 @@
                         <thead>
                             <tr class="text-center">
                                 <th>#</th>
-                                <th>TÍTULO</th>
                                 <th>NOME DO CLIENTE</th>
                                 <th>TELEFONE</th>
                                 <th>FIM DE CONTRACTO</th>
@@ -26,7 +25,7 @@
                             @foreach ($coworks as $item)
                                 <tr class="text-center text-dark">
                                     <td>{{ $item->id }}</td>
-                                    <td>{{ $item->title }} </td>
+                    
                                     <td>{{ $item->clients->name }} </td>
                                     <td>{{ $item->clients->tel }} </td>
                                     <td>{{ $item->scheldules->end }} </td>

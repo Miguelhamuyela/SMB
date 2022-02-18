@@ -66,7 +66,7 @@ class CoworkController extends Controller
             'status' => 'required|string|max:255',
 
             /**Cowork Information */
-            'title'=> 'required|string|max:50',
+            'title'=> 'required|string|max:300',
             'activities'=> 'required|string|max:50'
 
 
@@ -155,7 +155,7 @@ class CoworkController extends Controller
              'status' => 'required|string|max:255',
  
              /**Cowork Information */
-             'title'=> 'required|string|max:50',
+             'title'=> 'required|string|max:300',
              'activities'=> 'required|string|max:50'
 
         ]);

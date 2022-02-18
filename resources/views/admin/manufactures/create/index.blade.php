@@ -6,7 +6,7 @@
 
         <div class="col-lg-12 grid-margin stretch-card ">
             <div class="card">
-                <form  method="POST" action="{{ route('admin.manufactures.store') }}" >
+                <form  method="POST" enctype="multipart/form-data" action="{{ route('admin.manufactures.store') }}" >
                     @csrf
                 <div class="card-body bg-light">
                     @if ($errors->any())
@@ -27,6 +27,12 @@
                     <h4 class="card-title"><b>Cliente</b></h4>
                     <hr>
                     @include('forms._formClients.index')
+                </div>
+
+                <div class="card-body bg-light">
+                    <h4 class="card-title"><b>Período de Contracto</b></h4>
+                    <hr>
+                    @include('forms._formScheldules.index')
                 </div>
 
                 <div class="card-body bg-light">
