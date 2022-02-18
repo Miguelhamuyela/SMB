@@ -54,8 +54,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Site</b><br>
-                                            <small> {{ $startup->site }}</small>
+                                            <b>Sala</b><br>
+                                            <small> {{ $startup->roomName }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
