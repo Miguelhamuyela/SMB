@@ -1,21 +1,21 @@
 <div class="row">
 
-    <div class="col-md-12">
+    <div class="col-md-6">
 
         <div class="form-group">
             <label for="title">Área de Actuação da Empresa <small class="text-danger">*</small></label>
-            <textarea class="form-control rounded" id="editor1" rows="1" name="title" required
-                style="">{{ isset($cowork->title) ? $cowork->title : old('title') }}</textarea>
+            <textarea class="form-control rounded" id="editor1"  name="title" required
+            style="min-height:70px; min-width:100%">{{ isset($cowork->title) ? $cowork->title : old('title') }}</textarea>
         </div>
 
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-6">
 
         <div class="form-group">
             <label for="activities">Actividades Realizadas no Cowork <small class="text-danger">*</small></label>
-            <textarea class="form-control rounded" id="editor2" rows="1" name="activities" required
-                style="">{{ isset($cowork->activities) ? $cowork->activities : old('activities') }}</textarea>
+            <textarea class="form-control rounded" id="editor2"  name="activities" required
+            style="min-height:70px; min-width:100%">{{ isset($cowork->activities) ? $cowork->activities : old('activities') }}</textarea>
         </div>
 
     </div>

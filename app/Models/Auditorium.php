@@ -32,4 +32,14 @@ class Auditorium extends Model
     public function clients(){
         return $this->belongsTo(Client::class, 'fk_Clients_id', 'id');
     }
+
+    public function clientsInfo(){
+
+        return $this->belongsTo(Client::class, 'fk_Clients_id');
+    }
+
+    public function paymentsInfo(){
+
+        return $this->belongsTo(Payment::class, 'fk_Payments_id');
+    }
 }

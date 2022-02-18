@@ -114,7 +114,7 @@
                 <a class="nav-link" data-toggle="collapse" href="#auditoriums" aria-expanded="false"
                     aria-controls="users">
                     <i class="menu-icon typcn typcn-document-add"></i>
-                    <span class="menu-title">Auditorio</span>
+                    <span class="menu-title">Auditório</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="auditoriums">

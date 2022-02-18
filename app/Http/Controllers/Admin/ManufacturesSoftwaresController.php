@@ -91,8 +91,8 @@ class ManufacturesSoftwaresController extends Controller
 
             ]
         );
-
-        return redirect()->back()->with('create', '1');
+        
+        return redirect()->route('admin.manufactures.show',$manufacture->id)->with('create', '1');
     }
 
     /**

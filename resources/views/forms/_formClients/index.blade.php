@@ -27,7 +27,7 @@
                   {{ $client->clienttype }}
               </option>
           @else
-              <option disabled selected>selecione uma outra opção</option>
+              <option disabled selected value="">selecione uma outra opção</option>
           @endif
 
           <option>Singular</option>

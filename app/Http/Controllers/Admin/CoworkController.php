@@ -84,8 +84,8 @@ class CoworkController extends Controller
             'fk_Clients_id' => $client->id
         ]
         );
-
-        return redirect()->back()->with('create', '1');
+        return redirect()->route('admin/coworks/show',$cowork->id)->with('create', '1');
+        
     }
 
     /**
