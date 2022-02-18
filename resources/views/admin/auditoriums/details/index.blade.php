@@ -19,8 +19,7 @@
                     <div class="col-12">
 
                         <div class="row  align-items-center">
-
-
+                           
                             <div class="col-12 mt-2">
                                 <h5 class=""><b>Informações do Cliente </b> </h5>
                                 <hr>
@@ -50,6 +49,19 @@
                                         <p class="text-dark">
                                             <b>Telefone</b><br>
                                             <small> {{ $auditorium->clients->tel }}</small>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Tipo de cliente</b><br>
+                                            <small> {{ $auditorium->clients->clienttype}}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Endereço</b><br>
+                                            <small> {{ $auditorium->clients->address }}</small>
                                         </p>
                                     </div>
 

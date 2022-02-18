@@ -17,6 +17,8 @@
                                 <th>NOME DA STARTUP</th>
                                 <th>NIF</th>
                                 <th>TELEFONE</th>
+                                <th>FIM DE CONTRACTO</th>
+                                <th>STATUS</th>
                                 <th class="text-left">ACÇÕES</th>
                             </tr>
                         </thead>
@@ -27,6 +29,12 @@
                                     <td>{{ $item->name }} </td>
                                     <td>{{ $item->nif }} </td>
                                     <td>{{ $item->tel }} </td>
+                                    <td>{{ $item->scheldules->end}} </td>
+                                    @if ($item->payments->status == 'Pago')
+                                            <td> <button class="btn btn-success rounded text-white btn-sm">{{  $item->payments->status}}</button></td>
+                                        @else
+                                        <td> <button class="btn btn-danger rounded text-white btn-sm">{{  $item->payments->status}}</button></td>
+                                        @endif
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-dark text-white btn-sm dropdown-toggle" type="button"

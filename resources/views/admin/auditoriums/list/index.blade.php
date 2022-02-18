@@ -14,19 +14,30 @@
                         <thead>
                             <tr class="text-center">
                                 <th>#</th>
-                                <th>NOME</th>
+                                <th>TÍTULO DA CONFERÊNCIA</th>
+                                <th>NOME DO CLIENTE</th>
                                 <th>NIF</th>
                                 <th>TELEFONE</th>
-                                <th>STATUS</th>
+                                <th>Status</th>
+                                <th class="text-left">ACÇÕES</th>
                             </tr>
                         </thead>
-                        <tbody> 
-                            @foreach ($auditoriums->members as $item)
+                        <tbody>
+                            @foreach ($auditoriums as $item)
                                 <tr class="text-center text-dark">
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->nif}} </td>
-                                    <td>{{ $item->tel }}</td>
-                                    <td>{{ $item->status}} </td>
+                                    <td>{{  $item->id }}</td>
+                                    <td>{{  $item->titleConference }}</td>
+                                    <td>{{  $item->clientsInfo->name}} </td>
+                                    <td>{{  $item->clientsInfo->nif}} </td>
+                                    <td>{{  $item->clientsInfo->tel}} </td>
+                         
+                                        @if ($item->paymentsInfo->status == 'Pago')
+                                            <td> <button class="btn btn-success rounded text-white btn-sm">{{  $item->paymentsInfo->status}}</button></td>
+                                        @else
+                                        <td> <button class="btn btn-danger rounded text-white btn-sm">{{  $item->paymentsInfo->status}}</button></td>
+                                        @endif
+
+                                          
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-dark text-white btn-sm dropdown-toggle" type="button"

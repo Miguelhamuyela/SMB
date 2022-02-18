@@ -104,7 +104,7 @@
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Referencia</b><br>
+                                            <b>Referência</b><br>
                                             <small> {{ $startup->payments->reference }}</small>
                                         </p>
                                     </div>

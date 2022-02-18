@@ -93,9 +93,9 @@ Route::middleware(['auth'])->group(function () {
     /**End Member */
 
     /**Member Cowork*/
-    Route::get('admin/memberCowork/create/{id}', ['as' => 'admin.memberCowork.create', 'uses' => 'Admin\CoworksMember@create']);
-    Route::post('admin/memberCowork/store/{id}', ['as' => 'admin.memberCowork.store', 'uses' => 'Admin\CoworksMember@store']); 
-    Route::get('admin/memberCowork/delete/{id}', ['as' => 'admin.memberCowork.delete', 'uses' => 'Admin\CoworksMember@destroy']);
+    Route::get('admin/memberCowork/create/{id}', ['as' => 'admin.memberCowork.create', 'uses' => 'Admin\CoworksMemberController@create']);
+    Route::post('admin/memberCowork/store/{id}', ['as' => 'admin.memberCowork.store', 'uses' => 'Admin\CoworksMemberController@store']); 
+    Route::get('admin/memberCowork/delete/{id}', ['as' => 'admin.memberCowork.delete', 'uses' => 'Admin\CoworksMemberController@destroy']);
     /**End Member Cowork */
 
 
