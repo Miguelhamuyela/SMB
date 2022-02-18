@@ -27,9 +27,9 @@
                     </div>
 
                     <div class="card-body bg-light">
-                        <h4 class="card-title"><b>Período de Contracto</b></h4>
+                        <h4 class="card-title"><b>Período de Desenvolvimento</b></h4>
                         <hr>
-                        @include('forms._formScheldules.index')
+                        @include('forms._formFabricaPeriodo.index')
                     </div>
     
     
