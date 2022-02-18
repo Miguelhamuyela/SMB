@@ -7,8 +7,8 @@
               class="form-control border rounded" placeholder="Nome do Cliente" required>
       </div>
   </div>
-  
-  
+
+
   <div class="col-md-4">
     <div class="form-group">
         <label for="nif">NIF <small class="text-danger">*</small></label>
@@ -36,12 +36,12 @@
       </select>
   </div>
   </div>
-  
+
   </div>
-  
-  
+
+
   <div class="row">
-  
+
   <div class="col-md-4">
     <div class="form-group">
         <label for="email">Email <small class="text-danger">*</small></label>
@@ -49,7 +49,7 @@
             class="form-control border rounded" placeholder="Email do Cliente" required>
     </div>
   </div>
-  
+
   <div class="col-md-4">
     <div class="form-group">
         <label for="tel">Telefone <small class="text-danger">*</small></label>
@@ -57,7 +57,7 @@
             class="form-control border rounded" placeholder="Telefone do Cliente" required>
     </div>
   </div>
-  
+
   <div class="col-md-4">
     <div class="form-group">
         <label for="tel">Endereço <small class="text-danger">*</small></label>
@@ -65,8 +65,7 @@
             class="form-control border rounded" placeholder="Endereço do Cliente" required>
     </div>
   </div>
-  
+
   </div>
   <!-- /.col -->
-  
-  
+

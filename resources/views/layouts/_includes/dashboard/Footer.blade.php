@@ -82,7 +82,11 @@
         ]
     });
 </script>
-
+<script>
+    function mens() {
+        confirm('Tem certeza de que deseja excluir este arquivo');
+    }
+</script>
 
 <!-- inject:js -->
 <script src="/dashboard/js/shared/off-canvas.js"></script>
