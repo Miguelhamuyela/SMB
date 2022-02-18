@@ -32,7 +32,7 @@
                                     <td>{{  $item->clientsInfo->tel}} </td>
                          
                                         @if ($item->paymentsInfo->status == 'Pago')
-                                            <td> <button class="btn btn-green rounded text-white btn-sm">{{  $item->paymentsInfo->status}}</button></td>
+                                            <td> <button class="btn btn-success rounded text-white btn-sm">{{  $item->paymentsInfo->status}}</button></td>
                                         @else
                                         <td> <button class="btn btn-danger rounded text-white btn-sm">{{  $item->paymentsInfo->status}}</button></td>
                                         @endif
