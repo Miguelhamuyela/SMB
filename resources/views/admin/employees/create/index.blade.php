@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', 'Cadastrar Funcionarios')
+@section('titulo', 'Cadastrar Funcionários')
 
 @section('content')
     <div class="row">
@@ -10,7 +10,7 @@
                     @csrf
 
                     <div class="card-body bg-light">
-                        <h4 class="card-title"><b>Cadastrar Funcionarios</b></h4>
+                        <h4 class="card-title"><b>Cadastrar Funcionários</b></h4>
                         <hr>
                         @if ($errors->any())
                         <div class="alert alert-danger">

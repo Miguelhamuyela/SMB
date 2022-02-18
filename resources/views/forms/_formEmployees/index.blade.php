@@ -3,9 +3,9 @@
 
     <div class="col-md-6">
       <div class="form-group">
-          <label for="name">Nome do Funcionario <small class="text-danger">*</small></label>
+          <label for="name">Nome do Funcionário <small class="text-danger">*</small></label>
           <input type="text" name="name" id="name" value="{{ isset($employee->name) ? $employee->name: old('name') }}"
-              class="form-control border rounded" placeholder="Nome do Funcionario" required>
+              class="form-control border rounded" placeholder="Nome do Funcionário" required>
       </div>
     </div>
 

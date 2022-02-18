@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class EquipmentRepairsController extends Controller
@@ -23,7 +25,8 @@ class EquipmentRepairsController extends Controller
      */
     public function create()
     {
-        //
+        $response['employees']=Employee::get();
+        return view('admin.equipmentRepair.create.index',$response);
     }
 
     /**

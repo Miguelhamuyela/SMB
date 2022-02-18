@@ -61,6 +61,12 @@
 
 
 
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor 4
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1');
+</script>
+
 <!-- plugins:js -->
 <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
 <script src="/dashboard/vendors/js/vendor.bundle.addons.js"></script>

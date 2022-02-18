@@ -173,6 +173,28 @@
                     </ul>
                 </div>
             </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#equipmentRepair" aria-expanded="false"
+                    aria-controls="employees">
+                    <i class="menu-icon typcn typcn-document-add"></i>
+                    <span class="menu-title">Reparação de Equipamentos</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="equipmentRepair">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.equipmentRepair.create.index')}}">Cadastrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.equipmentRepair.list.index') }}">Listar</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </li>
         </ul>
     </nav>
 @endif
