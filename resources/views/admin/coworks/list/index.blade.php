@@ -27,14 +27,18 @@
                                 <tr class="text-center text-dark">
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->title }} </td>
-                                    <td>{{ $item->clients->name}} </td>
-                                    <td>{{ $item->clients->tel}} </td>
-                                    <td>{{ $item->scheldules->end}} </td>
+                                    <td>{{ $item->clients->name }} </td>
+                                    <td>{{ $item->clients->tel }} </td>
+                                    <td>{{ $item->scheldules->end }} </td>
                                     @if ($item->payments->status == 'Pago')
-                                            <td> <button class="btn btn-success rounded text-white btn-sm">{{  $item->payments->status}}</button></td>
-                                        @else
-                                        <td> <button class="btn btn-danger rounded text-white btn-sm">{{  $item->payments->status}}</button></td>
-                                        @endif
+                                        <td> <button
+                                                class="btn btn-success btn-sm  rounded text-white btn-sm">{{ $item->payments->status }}</button>
+                                        </td>
+                                    @else
+                                        <td> <button
+                                                class="btn btn-danger rounded btn-sm  text-white btn-sm">{{ $item->payments->status }}</button>
+                                        </td>
+                                    @endif
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-dark text-white btn-sm dropdown-toggle" type="button"
@@ -45,7 +49,7 @@
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a href='{{ url("admin/cowork/show/{$item->id}") }}'
                                                     class="dropdown-item">Detalhes</a>
-                                               
+
                                             </div>
                                         </div>
                                     </td>
@@ -59,7 +63,7 @@
 
 
 
-                  
+
                 </div>
             </div>
         </div>

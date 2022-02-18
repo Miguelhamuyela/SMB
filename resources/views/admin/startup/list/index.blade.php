@@ -15,7 +15,6 @@
                             <tr class="text-center">
                                 <th>#</th>
                                 <th>NOME DA STARTUP</th>
-                                <th>NIF</th>
                                 <th>TELEFONE</th>
                                 <th>FIM DE CONTRACTO</th>
                                 <th>STATUS</th>
@@ -27,13 +26,12 @@
                                 <tr class="text-center text-dark">
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }} </td>
-                                    <td>{{ $item->nif }} </td>
                                     <td>{{ $item->tel }} </td>
                                     <td>{{ $item->scheldules->end}} </td>
                                     @if ($item->payments->status == 'Pago')
-                                            <td> <button class="btn btn-success rounded text-white btn-sm">{{  $item->payments->status}}</button></td>
+                                            <td> <button class="btn btn-success btn-sm rounded text-white btn-sm">{{  $item->payments->status}}</button></td>
                                         @else
-                                        <td> <button class="btn btn-danger rounded text-white btn-sm">{{  $item->payments->status}}</button></td>
+                                        <td> <button class="btn btn-danger btn-sm  rounded text-white btn-sm">{{  $item->payments->status}}</button></td>
                                         @endif
                                     <td>
                                         <div class="dropdown">
