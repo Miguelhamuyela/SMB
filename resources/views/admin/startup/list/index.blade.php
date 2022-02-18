@@ -17,6 +17,7 @@
                                 <th>NOME DA STARTUP</th>
                                 <th>NIF</th>
                                 <th>TELEFONE</th>
+                                <th>STATUS</th>
                                 <th class="text-left">ACÇÕES</th>
                             </tr>
                         </thead>
@@ -27,6 +28,7 @@
                                     <td>{{ $item->name }} </td>
                                     <td>{{ $item->nif }} </td>
                                     <td>{{ $item->tel }} </td>
+                                    <td>{{ $item->status }} </td>
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-dark text-white btn-sm dropdown-toggle" type="button"

@@ -52,6 +52,18 @@
                                             <small> {{ $cowork->clients->tel }}</small>
                                         </p>
                                     </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Tipo de cliente</b><br>
+                                            <small> {{ $cowork->clients->clienttype}}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Endereço</b><br>
+                                            <small> {{ $cowork->clients->address }}</small>
+                                        </p>
+                                    </div>
 
                                 </div>
                             </div>

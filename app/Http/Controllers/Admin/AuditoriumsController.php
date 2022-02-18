@@ -20,7 +20,7 @@ class AuditoriumsController extends Controller
     public function index()
     {
         //
-        $response['auditoriums'] = Auditorium::get();
+        $response['auditoriums'] = Auditorium::with('clientsInfo')->get();
         return view('admin.auditoriums.list.index', $response);
     }
 
@@ -85,7 +85,7 @@ class AuditoriumsController extends Controller
         ]
         );
 
-        return redirect()->back()->with('create', '1');
+        return redirect()->route('admin.auditoriums.show',$auditorium->id)->with('create', '1');
 
     }
 
@@ -98,7 +98,7 @@ class AuditoriumsController extends Controller
     public function show($id)
     {
         //
-        $response['auditorium'] = Auditorium::with('payments', 'scheldules','clients')->find($id);
+        $response['auditorium'] = Auditorium::with('payments', 'scheldules','clients','members')->find($id);
         return view('admin.auditoriums.details.index', $response);
     }
 
