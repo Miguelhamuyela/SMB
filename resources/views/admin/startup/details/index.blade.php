@@ -208,7 +208,7 @@
 
             <div class="page-category pb-5">
                     <table class="table table-hover" id="dataTable-1">
-                        <thead>
+                      <thead class="bg-primary thead-dark">
                             <tr class="text-center">
                   
                                 <th>NOME DO MEMBRO</th>

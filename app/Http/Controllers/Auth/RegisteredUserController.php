@@ -40,10 +40,17 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        if ($request->file('photo')) {
+            $photo = '/storage/' . $request->file('photo')->store('users/employeers/photos');
+        } else {
+            $photo = '/dashboard/images/user.png';
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'level' => $request->level,
+            'photo' => $photo,
             'password' => Hash::make($request->password),
         ]);
 

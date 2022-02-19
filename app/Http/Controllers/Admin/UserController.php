@@ -112,13 +112,11 @@ class UserController extends Controller
             ]);
 
 
-
-            if ($middle = $request->file('photo')) {
-                $file = $middle->store('photos');
+            if ($request->file('photo')) {
+                $photo = '/storage/' . $request->file('photo')->store('users/employeers/photos');
             } else {
-                $file = User::find($id)->photo;
+                $photo = User::find($id)->photo;
             }
-
 
             $user = User::find($id)->update([
                 'name' => $request->name,
@@ -129,7 +127,7 @@ class UserController extends Controller
                 'phone' => $request->phone,
                 'genre' => $request->genre,
                 'additionalInformation' => $request->additionalInformation,
-                'photo' => $file,
+                'photo' => $photo,
 
             ]);
 

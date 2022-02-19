@@ -3,14 +3,24 @@
 
 @section('content')
     <div class="row">
-
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body row">
+                    <div class="col-md-10">
+                        <h5><b>Lista de Utilizadores</b></h5>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <a href="{{ route('register') }}" class="btn btn-primary">Cadastrar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title"><b>Lista de Utilizadores</b></h4>
 
                     <table class="table table-striped my-5" id="dataTable-1">
-                        <thead>
+                        <thead class="bg-primary thead-dark">
                             <tr class="text-center">
                                 <th>#</th>
                                 <th>NOME</th>

@@ -11,7 +11,7 @@
 
 
                     <table class="table table-striped my-5" id="dataTable-1">
-                        <thead>
+                      <thead class="bg-primary thead-dark">
                             <tr class="text-center">
                                 <th>#</th>
                                 <th>NOME DO CLIENTE</th>
