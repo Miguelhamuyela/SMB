@@ -65,6 +65,30 @@ class UserController extends Controller
         }
     }
 
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function activity($id)
+    {
+
+        if (Auth::user()->level != 'Administrador' && Auth::user()->id != $id) {
+            return redirect()->route('admin.home')->with('NoAuth', '1');
+        } else {
+
+            $response['logs'] = Log::where('USER_ID', $id)->orderBy('id', 'desc')->get();
+  
+            //Logger
+            $this->Logger->log('info', 'Visualizou as suas próprias actividades');
+
+            return view('admin.user.activity.index', $response);
+        }
+    }
+
+    
     /**
      * Show the form for editing the specified resource.
      *

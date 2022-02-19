@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', 'Elerning')
+@section('titulo', 'E-lerning')
 
 @section('content')
     <div class="row">
@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-body row">
                     <div class="col-md-10">
-                        <h5><b>Elerning</b></h5>
+                        <h5><b>E-lerning</b></h5>
                     </div>
                     <div class="col-md-2 text-center">
                         <a href="{{ route('admin.elernings.create.index') }}" class="btn btn-primary">Cadastrar</a>

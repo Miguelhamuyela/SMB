@@ -11,7 +11,7 @@ use App\Models\Log;
 use App\Models\ManufacturesSoftware;
 use App\Models\Startup;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -24,50 +24,50 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $response['reports'] = null;
-
-$response['user'] = User::count();
-$response['startup'] = Startup::count();
-$response['employee'] = Employee::count();
-$response['client'] = Client::count();
-
-$response['manufacturesSoftware'] = ManufacturesSoftware::count();
-$response['equipmentRepair'] = EquipmentRepair::count();
-
-        $jan=Log::whereMonth('created_at', '=',01)->count();
-        $response['jan']= json_encode($jan);
+        /* contadores */
+        $response['user'] = User::count();
+        $response['startup'] = Startup::count();
+        $response['employee'] = Employee::count();
+        $response['client'] = Client::count();
+        $response['manufacturesSoftware'] = ManufacturesSoftware::count();
+        $response['equipmentRepair'] = EquipmentRepair::count();
+        /* fim contadores */
 
 
-        $fev=Log::whereMonth('created_at', '=',02)->count();
+        $jan = Log::where('USER_ID', Auth::user()->id)->whereMonth('created_at', '=', 01)->count();
+        $response['jan'] = json_encode($jan);
 
-        $response['fev']= json_encode($fev);
 
-        $mar=Log::whereMonth('created_at', '=',03)->count();
-        $response['mar']= json_encode($mar);
+        $fev = Log::where('USER_ID', Auth::user()->id)->whereMonth('created_at', '=', 02)->count();
 
-        $abr=Log::whereMonth('created_at', '=',04)->count();
-        $response['abr']= json_encode($abr);
-        $maio=Log::whereMonth('created_at', '=',05)->count();
-        $response['maio']= json_encode($maio);
+        $response['fev'] = json_encode($fev);
 
-        $jun=Log::whereMonth('created_at', '=',06)->count();
-        $response['jun']= json_encode($jun);
-        $jul=Log::whereMonth('created_at', '=',07)->count();
-        $response['jul']= json_encode($jul);
-        $ago=Log::whereMonth('created_at', '=','08')->count();
-        $response['ago']= json_encode($ago);
+        $mar = Log::where('USER_ID', Auth::user()->id)->whereMonth('created_at', '=', 03)->count();
+        $response['mar'] = json_encode($mar);
+
+        $abr = Log::where('USER_ID', Auth::user()->id)->whereMonth('created_at', '=', 04)->count();
+        $response['abr'] = json_encode($abr);
+        $maio = Log::where('USER_ID', Auth::user()->id)->whereMonth('created_at', '=', 05)->count();
+        $response['maio'] = json_encode($maio);
+
+        $jun = Log::where('USER_ID', Auth::user()->id)->whereMonth('created_at', '=', 06)->count();
+        $response['jun'] = json_encode($jun);
+        $jul = Log::where('USER_ID', Auth::user()->id)->whereMonth('created_at', '=', 07)->count();
+        $response['jul'] = json_encode($jul);
+        $ago = Log::where('USER_ID', Auth::user()->id)->whereMonth('created_at', '=', '08')->count();
+        $response['ago'] = json_encode($ago);
         /**d */
-        $set=Log::whereMonth('created_at', '=','09')->count();
-        $response['set']= json_encode($set);
+        $set = Log::where('USER_ID', Auth::user()->id)->whereMonth('created_at', '=', '09')->count();
+        $response['set'] = json_encode($set);
 
-        $out=Log::whereMonth('created_at', '=','10')->count();
-        $response['out']= json_encode($out);
-        $nov=Log::whereMonth('created_at', '=',11)->count();
-        $response['nov']= json_encode($nov);
+        $out = Log::where('USER_ID', Auth::user()->id)->whereMonth('created_at', '=', '10')->count();
+        $response['out'] = json_encode($out);
+        $nov = Log::where('USER_ID', Auth::user()->id)->whereMonth('created_at', '=', 11)->count();
+        $response['nov'] = json_encode($nov);
 
 
-        $dez=Log::whereMonth('created_at', '=',12)->count();
-        $response['dez']= json_encode($dez);
+        $dez = Log::where('USER_ID', Auth::user()->id)->whereMonth('created_at', '=', 12)->count();
+        $response['dez'] = json_encode($dez);
         return view('admin.home.index', $response);
     }
 }

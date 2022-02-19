@@ -80,8 +80,8 @@
     $('#dataTable-1').DataTable({
         autoWidth: true,
         "lengthMenu": [
-            [16, 32, 64, -1],
-            [16, 32, 64, "All"]
+            [8, 16, 32, 64, -1],
+            [8, 16, 32, 64, "All"]
         ],
         "order": [
             [0, 'desc']
@@ -103,4 +103,5 @@
 <script src="/dashboard/js/demo_1/dashboard.js"></script>
 
 </body>
+
 </html>

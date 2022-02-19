@@ -115,7 +115,7 @@
                         <i class="dropdown-item-icon ti-dashboard"></i>
                     </a>
                     <a class="dropdown-item" href="">Mensagens</a>
-                    <a class="dropdown-item" href="">Actividades</a>
+                    <a class="dropdown-item" href="{{ route('admin.user.activity', Auth::User()->id) }}">Actividades</a>
                     <a class="dropdown-item" href="">FAQ</a>
                     <a class="dropdown-item"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

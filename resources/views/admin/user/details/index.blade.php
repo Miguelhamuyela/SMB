@@ -58,10 +58,10 @@
         <div class="card shadow mb-4">
             <div class="card-body">
 
-                <h4 class="my-3 text-center">Registo de Actividade</h4>
+                <h4 class="mt-3 mb-5 text-left"><b>Registo de Actividades</b></h4>
 
 
-                <table id="dataTable-1" class="table  table-striped mb-3">
+                <table id="dataTable-1" class="table table-striped table-bordered mb-3">
                     <thead class="bg-primary thead-dark">
                         <tr class="text-center">
                             <th>ID</th>
