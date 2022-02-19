@@ -133,6 +133,27 @@
 
 
             <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#employees" aria-expanded="false"
+                    aria-controls="employees">
+                    <i class="menu-icon typcn typcn-document-add"></i>
+                    <span class="menu-title">Funcionáros</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="employees">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.employees.create')}}">Cadastrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.employees.index') }}">Listar</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#users" aria-expanded="false"
                     aria-controls="users">
                     <i class="menu-icon typcn typcn-document-add"></i>
@@ -153,20 +174,21 @@
                 </div>
             </li>
 
+
             <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#employees" aria-expanded="false"
+                <a class="nav-link" data-toggle="collapse" href="#equipmentRepair" aria-expanded="false"
                     aria-controls="employees">
                     <i class="menu-icon typcn typcn-document-add"></i>
-                    <span class="menu-title">Funcionáros</span>
+                    <span class="menu-title">Reparação de Equipamentos</span>
                     <i class="menu-arrow"></i>
                 </a>
-                <div class="collapse" id="employees">
+                <div class="collapse" id="equipmentRepair">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.employees.create')}}">Cadastrar</a>
+                            <a class="nav-link" href="{{ route('admin.equipmentRepair.create.index')}}">Cadastrar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.employees.index') }}">Listar</a>
+                            <a class="nav-link" href="{{ route('admin.equipmentRepair.list.index') }}">Listar</a>
                         </li>
 
 

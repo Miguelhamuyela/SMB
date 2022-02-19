@@ -20,9 +20,9 @@ class CreateMembersTable extends Migration
             $table->string('tel');
             $table->string('name');
             $table->string('nif');
-            
+
             $table->unsignedBigInteger('fk_startups_id');
-            $table->foreign('fk_startups_id')->references('id')->on('startups');
+            $table->foreign('fk_startups_id')->references('id')->on('startups')->onDelete('CASCADE')->onUpgrade('CASCADE');
 
             $table->softDeletes();
             $table->timestamps();

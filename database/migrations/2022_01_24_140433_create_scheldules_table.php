@@ -18,7 +18,7 @@ class CreateScheldulesTable extends Migration
             $table->id();
             $table->dateTime('started');
             $table->dateTime('end');
-
+            $table->dateTime('prespective')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

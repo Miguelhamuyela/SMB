@@ -19,4 +19,22 @@ class EquipmentRepair extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function payments(){
+        return $this->belongsTo(Payment::class, 'fk_Payments_id', 'id');
+    }
+
+    public function scheldules(){
+        return $this->belongsTo(Scheldule::class, 'fk_Scheldules_id', 'id');
+    }
+
+    public function clients(){
+        return $this->belongsTo(Client::class, 'fk_Clients_id', 'id');
+    }
+
+
+    public function employees(){
+
+        return $this->belongsTo(Employee::class, 'fk_Employees_id');
+    }
 }

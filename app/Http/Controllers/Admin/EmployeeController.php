@@ -18,8 +18,8 @@ class EmployeeController extends Controller
     public function index()
     {
         $response['employees'] =  Employee::get();
-          //Logger
-          $this->Logger->log('info', 'Listou de Funcionários');
+        //Logger
+        $this->Logger->log('info', 'Listou de Funcionários');
         return view('admin.employees.list.index', $response);
     }
 
@@ -30,6 +30,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
+        //Logger
+        $this->Logger->log('info', 'Entrou em  Criar Funcionários');
         return view('admin.employees.create.index');
     }
 
