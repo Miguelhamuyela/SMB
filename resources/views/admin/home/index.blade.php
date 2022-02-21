@@ -11,7 +11,7 @@
                             <div class="d-flex">
                                 <div class="wrapper">
                                     <h3 class="mb-0 font-weight-semibold">{{ $user }}</h3>
-                                    <h5 class="mb-0 font-weight-medium text-primary">Usuarios</h5>
+                                    <h5 class="mb-0 font-weight-medium text-primary">Utilizadores</h5>
                                     <p class="mb-0 text-muted">{{ $user/100 }}%</p>
                                 </div>
                                 <div class="wrapper my-auto ml-auto ml-lg-4">
