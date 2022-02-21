@@ -29,7 +29,6 @@ class EquipmentRepairsController extends Controller
         return view('admin.equipmentRepair.list.index', $response);
     }
 
-
     public function create()
     {
         $response['employees'] = Employee::get();
