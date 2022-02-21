@@ -25,9 +25,7 @@
                             <tr class="text-center ">
                                 <th>#</th>
                                 <th>NOME</th>
-                                <th>EMAIL</th>
-
-                                <th>NIF</th>
+                                <th>DEPARTAMENTO</th>
                                 <th>TELEFONE</th>
                                 <th class="text-left">ACÇÕES</th>
                             </tr>
@@ -37,9 +35,9 @@
                                 <tr class="text-center text-dark">
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }} </td>
-                                    <td>{{ $item->email }} </td>
+                                    <td>{{ $item->departament }} </td>
 
-                                    <td>{{ $item->nif }} </td>
+
                                     <td>{{ $item->tel }} </td>
                                     <td>
                                         <div class="dropdown">
@@ -50,11 +48,9 @@
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                                <a href='{{ url("admin/funcionários/edit/{$item->id}") }}'
-                                                    class="dropdown-item">Editar</a>
-                                                <a onclick="mens()"
-                                                    href='{{ url("admin/funcionários/delete/{$item->id}") }}'
-                                                    class="dropdown-item">Eliminar</a>
+                                                <a href='{{ url("admin/funcionários/show/{$item->id}") }}'
+                                                    class="dropdown-item">Detalhes</a>
+
                                             </div>
                                         </div>
                                     </td>

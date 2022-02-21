@@ -20,9 +20,9 @@ class CreateEmployeesTable extends Migration
             $table->string('tel',20);
             $table->string('email',30);
             $table->string('nif', 30);
-
-
-
+            $table->string('photoEmployee', 255)->nullable();
+            $table->string('departament', 255);
+            $table->longText('occupation', 255);
             $table->softDeletes();
             $table->timestamps();
         });
