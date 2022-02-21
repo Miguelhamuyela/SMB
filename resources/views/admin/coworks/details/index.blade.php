@@ -100,13 +100,13 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Inicio do Contracto</b><br>
+                                            <b>Inicio do Contrato</b><br>
                                             <small> {{ $cowork->scheldules->started }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Fim do Contracto</b><br>
+                                            <b>Fim do Contrato</b><br>
                                             <small> {{ $cowork->scheldules->end }}</small>
                                         </p>
                                     </div>
@@ -139,7 +139,7 @@
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Referencia</b><br>
+                                            <b>Referência</b><br>
                                             <small> {{ $cowork->payments->reference }}</small>
                                         </p>
                                     </div>
