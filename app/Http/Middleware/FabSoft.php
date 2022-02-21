@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Editor
+class FabSoft
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class Editor
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->level != 'Editor' && Auth::user()->level != 'Administrador'){
+        if(Auth::user()->level != 'Fábrica de Software' && Auth::user()->level != 'Administrador'){
             return redirect()->back()->with('NoAuth', '1');
         }
         return $next($request);
