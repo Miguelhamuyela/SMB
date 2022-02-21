@@ -10,8 +10,8 @@
                     <h4 class="card-title"><b>Lista de Clientes</b></h4>
 
 
-                    <table class="table table-striped my-5" id="dataTable-1">
-                        <thead>
+                  <table id="dataTable-1" class="table table-striped table-bordered mb-3">
+                      <thead class="bg-primary thead-dark">
                             <tr class="text-center">
                                 <th>#</th>
                                 <th>NOME DO CLIENTE</th>

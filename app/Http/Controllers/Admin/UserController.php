@@ -65,6 +65,30 @@ class UserController extends Controller
         }
     }
 
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function activity($id)
+    {
+
+        if (Auth::user()->level != 'Administrador' && Auth::user()->id != $id) {
+            return redirect()->route('admin.home')->with('NoAuth', '1');
+        } else {
+
+            $response['logs'] = Log::where('USER_ID', $id)->orderBy('id', 'desc')->get();
+  
+            //Logger
+            $this->Logger->log('info', 'Visualizou as suas próprias actividades');
+
+            return view('admin.user.activity.index', $response);
+        }
+    }
+
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -112,13 +136,11 @@ class UserController extends Controller
             ]);
 
 
-
-            if ($middle = $request->file('photo')) {
-                $file = $middle->store('photos');
+            if ($request->file('photo')) {
+                $photo = '/storage/' . $request->file('photo')->store('users/employeers/photos');
             } else {
-                $file = User::find($id)->photo;
+                $photo = User::find($id)->photo;
             }
-
 
             $user = User::find($id)->update([
                 'name' => $request->name,
@@ -129,7 +151,7 @@ class UserController extends Controller
                 'phone' => $request->phone,
                 'genre' => $request->genre,
                 'additionalInformation' => $request->additionalInformation,
-                'photo' => $file,
+                'photo' => $photo,
 
             ]);
 

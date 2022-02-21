@@ -52,6 +52,18 @@
                                             <small> {{ $startup->tel }}</small>
                                         </p>
                                     </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Sala</b><br>
+                                            <small> {{ $startup->roomName }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Site</b><br>
+                                            <small> {{ $startup->site }}</small>
+                                        </p>
+                                    </div>
 
                                 </div>
                             </div>
@@ -196,7 +208,7 @@
 
             <div class="page-category pb-5">
                     <table class="table table-hover" id="dataTable-1">
-                        <thead>
+                      <thead class="bg-primary thead-dark">
                             <tr class="text-center">
                   
                                 <th>NOME DO MEMBRO</th>

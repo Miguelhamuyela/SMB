@@ -3,21 +3,32 @@
 
 @section('content')
     <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body row">
+                    <div class="col-md-10">
+                        <h5><b>Lista de Funcionários</b></h5>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <a href="{{ route('admin.employees.create') }}" class="btn btn-primary">Cadastrar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title"><b>Lista de Funcionários </b></h4>
 
-                    <table class="table table-striped my-5" id="dataTable-1">
-                        <thead>
-                            <tr class="text-center">
+                  <table id="dataTable-1" class="table table-striped table-bordered mb-3">
+                         <thead class="bg-primary thead-dark">
+                            <tr class="text-center ">
                                 <th>#</th>
                                 <th>NOME</th>
                                 <th>EMAIL</th>
 
                                 <th>NIF</th>
-                                <th>Telefone</th>
+                                <th>TELEFONE</th>
                                 <th class="text-left">ACÇÕES</th>
                             </tr>
                         </thead>
@@ -41,7 +52,8 @@
 
                                                 <a href='{{ url("admin/funcionários/edit/{$item->id}") }}'
                                                     class="dropdown-item">Editar</a>
-                                                <a onclick="mens()" href='{{ url("admin/funcionários/delete/{$item->id}") }}'
+                                                <a onclick="mens()"
+                                                    href='{{ url("admin/funcionários/delete/{$item->id}") }}'
                                                     class="dropdown-item">Eliminar</a>
                                             </div>
                                         </div>

@@ -73,7 +73,7 @@
                             </div>
                             <h3 class="font-weight-medium mb-4">{{ $manufacturesSoftware }}</h3>
                         </div>
-                        <canvas class="mt-n4" height="90" id="total-revenue"></canva>
+                        <canvas class="mt-n4" height="90" id="total-revenue"></canvas>
                     </div>
                 </div>
                 <div class="col-md-6 grid-margin stretch-card">
@@ -85,7 +85,7 @@
                             </div>
                             <h3 class="font-weight-medium">{{ $equipmentRepair }}</h3>
                         </div>
-                        <canvas class="mt-n3" height="90" id="total-transaction"></canva>
+                        <canvas class="mt-n3" height="90" id="total-transaction"></canvas>
                     </div>
                 </div>
 
@@ -99,7 +99,7 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-0">Log de Actividades</h4>
+                    <h4 class="card-title mb-0">Registo de Actividades</h4>
                     <div class="d-flex flex-column flex-lg-row">
 
 

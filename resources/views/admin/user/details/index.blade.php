@@ -2,13 +2,6 @@
 @section('titulo', ' Detalhes do Utilizador')
 
 @section('content')
-    <div class="card mb-2">
-        <div class="card-body">
-            <h2 class="h5 page-title">
-                Detalhes do Utilizador {{ $user->id }}
-            </h2>
-        </div>
-    </div>
 
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -19,8 +12,8 @@
                         <h2 class="h3 mb-4 page-title">{{ $user->name }}</h2>
                         <div class="row mt-5 align-items-center">
                             <div class="col-md-3 text-center mb-5">
-                                <div class=" rounded-circle ml-5 bg-primary" style="height: 150px; width:150px;">
-                                    <h1 class="text-white p-5 " style="font-size: 65px">{{ $user->name[0] }}</h1>
+                                <div class=" ml-5" style="height: 150px; width:150px;">
+                                    <img src="{{ $user->photo }}" alt="">
                                 </div>
                             </div>
                             <div class="col">
@@ -65,37 +58,34 @@
         <div class="card shadow mb-4">
             <div class="card-body">
 
-                <h4 class="my-3 text-center">Registo de Actividade</h4>
-                <div class="table-responsive">
+                <h4 class="mt-3 mb-5 text-left"><b>Registo de Actividades</b></h4>
 
 
-                    <table id="dataTable-1" class="table  table-striped mb-3">
-                        <thead>
-                            <tr class="text-center">
-                                <th>ID</th>
-                                <th>CAMINHO</th>
-                                <th>IP</th>
-                                <th>MENSAGEM</th>
-                                {{-- <th>ACÇÕES</th> --}}
+                <table id="dataTable-1" class="table table-striped table-bordered mb-3">
+                    <thead class="bg-primary thead-dark">
+                        <tr class="text-center">
+                            <th>ID</th>
+                            <th class="text-left">CAMINHO</th>
+                            <th>IP</th>
+                            <th class="text-left">MENSAGEM</th>
+                            {{-- <th>ACÇÕES</th> --}}
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+
+                        @foreach ($logs as $item)
+                            <tr class="text-center text-dark">
+                                <td>{{ $item->id }}</td>
+                                <td class="text-left">{{ $item->PATH_INFO }} </td>
+                                <td>{{ $item->REMOTE_ADDR }} </td>
+                                <td class="text-left">{{ $item->message }} </td>
+
                             </tr>
-                        </thead>
-                        <tbody class="bg-white">
+                        @endforeach
 
-                            @foreach ($logs as $item)
-                                <tr class="text-center text-dark">
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->PATH_INFO }} </td>
-                                    <td>{{ $item->REMOTE_ADDR }} </td>
-                                    <td>{{ $item->message }} </td>
+                    </tbody>
+                </table>
 
-
-
-                                </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
 

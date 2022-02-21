@@ -90,7 +90,32 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Documentação</b><br>
-                                            <small> <a href="{{ $manufacture->file }}">Documento</a></small>
+                                            <small> <a href="/storage/{{ $manufacture->file }}">Documento</a></small>
+                                        </p>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-2">
+                                <h5 class=""><b>Período de Desenvolvimento</b> </h5>
+                                <hr>
+                            </div>
+
+                            <div class="col-12 mb-5">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Início do Projeto</b><br>
+                                            <small> {{ $manufacture->scheldules->started }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Entrega do Projeto</b><br>
+                                            <small> {{ $manufacture->scheldules->end }}</small>
                                         </p>
                                     </div>
 

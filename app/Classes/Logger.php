@@ -4,6 +4,8 @@ namespace App\Classes;
 
 use App\Models\Log as ModelsLog;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
+ 
 
 class Logger
 {
@@ -13,7 +15,7 @@ class Logger
 
         ModelsLog::create([
             'REMOTE_ADDR' => $_SERVER['REMOTE_ADDR'],
-            'PATH_INFO' =>  $_SERVER['PATH_INFO'],
+            'PATH_INFO' =>  URL::current(),
             'USER_ID' => Auth::user()->id,
             'USER_NAME' => Auth::user()->name,
             'HTTP_USER_AGENT' => $_SERVER['HTTP_USER_AGENT'],
