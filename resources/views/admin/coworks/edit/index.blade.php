@@ -22,6 +22,16 @@
                     @method('PUT')
 
                     <div class="card-body bg-light">
+                        @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                     </div>
+                     @endif
+                     
                         <h4 class="card-title"><b>Coworks</b></h4>
                         <hr>
                         @include('forms._formCoworks.index')
@@ -47,9 +57,6 @@
                     </div>
     
                    
-
-                    
-                    
                     <div class="card-body bg-light">
                         <div class="col-md-12">
                             <div class="form-group text-center">
