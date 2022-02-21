@@ -18,15 +18,6 @@ class MembersController extends Controller
         $this->Logger = new Logger;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -35,9 +26,9 @@ class MembersController extends Controller
      */
     public function create($id)
     {
-        $response['startup']=Startup::find($id);
+        $response['startup'] = Startup::find($id);
         $this->Logger->log('info', 'Cadastrar membros da Startup');
-        return view('admin.member.create.index',$response);
+        return view('admin.member.create.index', $response);
     }
 
     /**
@@ -46,7 +37,7 @@ class MembersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request, $id)
     {
         $request->validate([
             /**Member Information */
@@ -65,12 +56,12 @@ class MembersController extends Controller
                 'email' => $request->email,
                 'tel' => $request->tel,
                 'nif' => $request->nif,
-                'fk_startups_id' =>$id
+                'fk_startups_id' => $id
 
             ]
         );
         $this->Logger->log('info', 'Cadastrou membros da Startup');
-        return redirect()->back()->with('create', '1');
+        return redirect("admin/startup/show/$id")->with('create', '1');
     }
 
     /**

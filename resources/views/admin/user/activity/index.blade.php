@@ -5,9 +5,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-
                 <h5><b>Registo de Actividades</b></h5>
-
             </div>
         </div>
     </div>
