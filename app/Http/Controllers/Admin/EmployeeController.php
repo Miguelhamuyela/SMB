@@ -35,12 +35,7 @@ class EmployeeController extends Controller
         return view('admin.employees.create.index');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -52,8 +47,12 @@ class EmployeeController extends Controller
             'occupation' => 'required|string|max:50',
             'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS', ]);
 
-            $file = $request->file('photoEmployee')->store('employees');
 
+        if ($middle = $request->file('photoEmployee')) {
+            $file = $middle->storeAs('photoEmployee', 'photoEmployee-' . uniqid(rand(1, 5)) . "." . $middle->extension());
+        } else {
+            $file = null;
+        }
             $employee = Employee::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -78,8 +77,6 @@ class EmployeeController extends Controller
         return view('admin.employees.details.index', $response);
     }
 
-
-
     public function edit($id)
     {
         $response['employee'] = Employee::find($id);
@@ -99,18 +96,34 @@ class EmployeeController extends Controller
             'nif' => 'required|string|max:50',
             'departament' => 'required|string|max:50',
             'occupation' => 'required|string|max:50',
-            'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS', ]);
-        Employee::find($id)->update($request->all());
+           ]);
+
+           if ($middle = $request->file('photoEmployee')) {
+            $file = $middle->storeAs('photoEmployee', 'photoEmployee-' . uniqid(rand(1, 5)) . "." . $middle->extension());
+        } else {
+            $file =  Employee::find($id)->photoEmployee;;
+        }
+
+
+        $employee = Employee::find($id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'tel' => $request->tel,
+            'photoEmployee' => $file,
+            'occupation' => $request->occupation,
+            'departament' => $request->departament,
+            'nif' => $request->nif
+
+        ]);
+
 
         //Logger
         $this->Logger->log('info', 'Editou um Funcionário  com o identificador ' . $id);
         return redirect()->route('admin.employees.index')->with('edit', '1');
     }
 
-
     public function destroy($id)
     {
-
         //Logger
         $this->Logger->log('info', 'Eliminou um Funcionário com o identificador ' . $id);
         Employee::find($id)->delete();
