@@ -1,6 +1,6 @@
 <div class="row">
 
-  <div class="col-md-8">
+  <div class="col-md-5">
     <div class="form-group">
         <label for="name">Nome da Startup <small class="text-danger">*</small></label>
         <input type="text" name="name" id="name" value="{{ isset($startup->name) ? $startup->name: old('name') }}"
@@ -13,6 +13,28 @@
       <label for="nif">NIF <small class="text-danger">*</small></label>
       <input type="text" name="nif" id="nif" value="{{ isset($startup->nif) ? $startup->nif: old('nif') }}"
           class="form-control border rounded" placeholder="Nº de Identificação Fiscal" required>
+  </div>
+</div>
+
+<div class="col-md-3">
+  <div class="form-group">
+      <label for="incubatorModel">Modelo de Incubadora <small class="text-danger">*</small></label>
+
+          <select type="text" name="incubatorModel" id="incubatorModel" class="form-control border rounded" required>
+
+            @if (isset($startup->incubatorModel))
+                <option value="{{ $startup->incubatorModel }}"
+                    class="text-primary h6 bg-primary text-white" selected>
+                    {{ $startup->incubatorModel }}
+                </option>
+            @else
+                <option disabled selected value="">selecione uma categoria</option>
+            @endif
+
+            <option>Residente</option>
+            <option>Não Residente</option>
+
+        </select>
   </div>
 </div>
 

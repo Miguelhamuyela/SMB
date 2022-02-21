@@ -27,6 +27,7 @@
                                 <th>NOME DA STARTUP</th>
                                 <th>TELEFONE</th>
                                 <th>FIM DE CONTRATO</th>
+                                <th>MODELO DE INCUBADORA</th>
                                 <th>STATUS</th>
                                 <th class="text-left">ACÇÕES</th>
                             </tr>
@@ -38,6 +39,7 @@
                                     <td>{{ $item->name }} </td>
                                     <td>{{ $item->tel }} </td>
                                     <td>{{ $item->scheldules->end }} </td>
+                                    <td>{{ $item->incubatorModel }} </td>
                                     @if ($item->payments->status == 'Pago')
                                         <td> <button
                                                 class="btn btn-success btn-sm rounded text-white btn-sm">{{ $item->payments->status }}</button>
