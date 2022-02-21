@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Http\Controllers\Controller;
 use App\Models\Startup;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class MembersController extends Controller
 {
@@ -27,7 +28,7 @@ class MembersController extends Controller
     public function create($id)
     {
         $response['startup'] = Startup::find($id);
-        $this->Logger->log('info', 'Cadastrar membros da Startup');
+        $this->Logger->log('info', 'Cadastrar membros da Startup com identificador ' . $id);
         return view('admin.member.create.index', $response);
     }
 
@@ -60,7 +61,7 @@ class MembersController extends Controller
 
             ]
         );
-        $this->Logger->log('info', 'Cadastrou membros da Startup');
+        $this->Logger->log('info', 'Cadastrou membros da Startup com identificador ' . $id);
         return redirect("admin/startup/show/$id")->with('create', '1');
     }
 
@@ -106,34 +107,44 @@ class MembersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->Logger->log('info', 'Eliminou membros da Startup com identificador ' . $id);
         Member::find($id)->delete();
-        $this->Logger->log('info', 'Eliminou membros da Startup');
+
         return redirect()->back()->with('destroy', '1');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function qrcode($id)
     {
+        $this->Logger->log('info', 'Visualizou os Detalhes de um membro da startup com identificador ' . $id);
         $response['member'] = Member::with('startup')->find($id);
 
         return view('admin.member.credential.index', $response);
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function qrfind($nif)
     {
         $response['member'] = Member::where('nif', $nif)->with('startup')->first();
 
         return view('pdf.credential.index', $response);
+    }
+
+    public function print($nif)
+    {
+        $this->Logger->Log('info', 'Emitiu Uma credencial do membro com o NIF ' . $nif);
+
+        $data = Member::where('nif', $nif)->with('startup')->first();
+        $response['member'] = $data;
+        $mpdf = new \Mpdf\Mpdf([
+            'mode' => 'utf-8', 'margin_top' => 0,
+            'margin_left' => 5,
+            'margin_right' => 0, 'margin_bottom' => 0, 'format' => [54, 84]
+        ]);
+        $mpdf->SetFont("arial");
+        $mpdf->setHeader();
+
+        $html = view("pdf/qrcard/index", $response);
+        $mpdf->writeHTML($html);
+
+        $mpdf->Output('credencial de ' . $data->nif . ".pdf", "I");
     }
 }

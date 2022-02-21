@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="container-fluid w-100">
-                        <a href="#" class="btn btn-primary float-end mt-4 ms-2">
+                        <a href="{{ url('admin/member/print/' . $member->nif) }}" target="_blank" class="btn btn-primary float-end mt-4 ms-2">
                             <i class="mdi mdi-printer me-4"></i>IMPRIMIR</a>
 
                     </div>

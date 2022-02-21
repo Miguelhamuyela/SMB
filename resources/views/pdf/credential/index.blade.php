@@ -55,7 +55,7 @@
 
                 </div>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-4 text-center d-none d-lg-block">
                 <img src="/dashboard/images/banner.jpg" alt="">
             </div>
         </div>
