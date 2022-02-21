@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Classes\Logger;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Http\Controllers\Controller;
@@ -9,6 +10,14 @@ use App\Models\Startup;
 
 class MembersController extends Controller
 {
+
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,6 +36,7 @@ class MembersController extends Controller
     public function create($id)
     {
         $response['startup']=Startup::find($id);
+        $this->Logger->log('info', 'Cadastrar membros da Startup');
         return view('admin.member.create.index',$response);
     }
 
