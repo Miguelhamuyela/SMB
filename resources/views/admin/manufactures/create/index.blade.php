@@ -20,7 +20,7 @@
                 @endif
                     <h4 class="card-title"><b>Fábrica de Software</b></h4>
                     <hr>
-                    @include('forms._formFabrica.index')
+                    @include('forms._formManufacture.index')
                 </div>
 
                 <div class="card-body bg-light">
@@ -32,7 +32,7 @@
                 <div class="card-body bg-light">
                     <h4 class="card-title"><b>Período de Desenvolvimento</b></h4>
                     <hr>
-                    @include('forms._formFabricaPeriodo.index')
+                    @include('forms._formManufacturePeriodo.index')
                 </div>
 
                 <div class="card-body bg-light">
