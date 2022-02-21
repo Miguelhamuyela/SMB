@@ -88,7 +88,6 @@
 <!-- endinject -->
 
 <!-- Custom js for this page-->
-{{-- <script src="/dashboard/js/demo_1/dashboard.js"></script> --}}
 <script src="/dashboard/vendors/datatables.net/jquery.dataTables.js"></script>
 <script src="/dashboard/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
 <script src="/dashboard/vendors/datatables.net-fixedcolumns/dataTables.fixedColumns.min.js"></script>
