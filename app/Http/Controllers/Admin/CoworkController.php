@@ -194,7 +194,7 @@ class CoworkController extends Controller
     {
         //
         Cowork::find($id)->delete();
-        $this->Logger->log('info', 'Eliminar Coworks');
+        $this->Logger->log('info', 'Eliminou Coworks');
         return redirect()->route('admin.coworks.list.index')->with('destroy', '1');
     }
 }

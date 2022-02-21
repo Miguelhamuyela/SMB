@@ -69,7 +69,7 @@ class MembersController extends Controller
 
             ]
         );
-
+        $this->Logger->log('info', 'Cadastrou membros da Startup');
         return redirect()->back()->with('create', '1');
     }
 
@@ -117,6 +117,7 @@ class MembersController extends Controller
     {
         //
         Member::find($id)->delete();
+        $this->Logger->log('info', 'Eliminou membros da Startup');
         return redirect()->back()->with('destroy', '1');
     }
 }

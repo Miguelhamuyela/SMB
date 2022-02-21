@@ -224,7 +224,7 @@ class ManufacturesSoftwaresController extends Controller
     {
         //
         ManufacturesSoftware::find($id)->delete();
-        $this->Logger->log('info', 'Eliminar Fábrica de Softwares');
+        $this->Logger->log('info', 'Eliminou Fábrica de Softwares');
         return redirect()->route('admin.manufactures.list.index')->with('destroy', '1');
     }
 }

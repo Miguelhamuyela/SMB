@@ -197,7 +197,7 @@ class ElearningsController extends Controller
     {
         //
         Elearning::find($id)->delete();
-        $this->Logger->log('info', '~Eliminar Coworks');
+        $this->Logger->log('info', 'Eliminou Coworks');
         return redirect()->route('admin.elernings.list.index')->with('destroy', '1');
     }
 }

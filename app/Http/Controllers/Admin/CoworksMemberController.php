@@ -121,7 +121,7 @@ class CoworksMemberController extends Controller
     {
         //
         CoworkMember::find($id)->delete();
-        $this->Logger->log('info', 'Eliminar Coworks');
+        $this->Logger->log('info', 'Eliminou Coworks');
         return redirect()->back()->with('destroy', '1');
     }
 }
