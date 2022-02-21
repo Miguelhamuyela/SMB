@@ -111,4 +111,29 @@ class MembersController extends Controller
         $this->Logger->log('info', 'Eliminou membros da Startup');
         return redirect()->back()->with('destroy', '1');
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function qrcode($id)
+    {
+        $response['member'] = Member::with('startup')->find($id);
+
+        return view('admin.member.credential.index', $response);
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function qrfind($nif)
+    {
+        $response['member'] = Member::with('startup')->where(['nif', $nif])->first();
+
+        return view('pdf.credential.index', $response);
+    }
 }

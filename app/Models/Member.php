@@ -19,4 +19,9 @@ class Member extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function startup(){
+
+        return $this->belongsTo(Startup::class, 'fk_startups_id');
+    }
 }

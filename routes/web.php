@@ -105,6 +105,7 @@ Route::middleware(['auth'])->group(function () {
         /**End Auditoriums */
 
         /** Member */
+        Route::get('admin/member/qrcode/{id}', ['as' => 'admin.member.qrcode', 'uses' => 'Admin\MembersController@qrcode']);
         Route::get('admin/member/create/{id}', ['as' => 'admin.member.create', 'uses' => 'Admin\MembersController@create']);
         Route::post('admin/member/store/{id}', ['as' => 'admin.member.store', 'uses' => 'Admin\MembersController@store']);
         Route::get('admin/member/delete/{id}', ['as' => 'admin.member.delete', 'uses' => 'Admin\MembersController@destroy']);
@@ -138,6 +139,10 @@ Route::middleware(['auth'])->group(function () {
         /**End ManufacturesSoftware */
     });
 });
+
+
+/* QRCODE find */
+Route::get('membro/startup/{id}', ['as' => 'admin.member.qrfind', 'uses' => 'Admin\MembersController@qrfind']);
 
 
 
