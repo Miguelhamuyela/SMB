@@ -6,7 +6,7 @@
         <div class="card-body">
             <h2 class="h5 page-title">
 
-                Detalhes do Elernings {{ $elerning->course }}
+                Detalhes do E-learnings {{ $elerning->course }}
             </h2>
         </div>
     </div>

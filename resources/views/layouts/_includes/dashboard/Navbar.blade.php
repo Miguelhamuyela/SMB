@@ -7,7 +7,7 @@
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center">
         <ul class="navbar-nav">
-            <li class="nav-item font-weight-semibold d-none d-lg-block">Helpdesk : +244 000 000 000 - Developers INFOSI
+            <li class="nav-item font-weight-semibold d-none d-lg-block">Desenvolvimento@infosi.gov.ao
             </li>
 
         </ul>

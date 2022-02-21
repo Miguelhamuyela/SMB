@@ -69,7 +69,7 @@
                             </div>
 
                             <div class="col-12 mt-2">
-                                <h5 class=""><b>Informações de Horário </b> </h5>
+                                <h5 class=""><b>Período Do Contrato </b> </h5>
                                 <hr>
                             </div>
 

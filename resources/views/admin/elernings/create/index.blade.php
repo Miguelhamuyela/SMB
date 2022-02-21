@@ -20,7 +20,7 @@
                      </div>
                      @endif
 
-                        <h4 class="card-title"><b>Elernings</b></h4>
+                        <h4 class="card-title"><b>E-learnings</b></h4>
                         <hr>
                         @include('forms._formElernings.index')
                     </div>
