@@ -9,7 +9,7 @@
     <meta name="author" content="Developers infosi">
 
     <title>@yield('titulo') - Gestão do Digital.ao</title>
-   
+
     {{-- sweetalert --}}
     <link rel="stylesheet" href="/css/sweetalert2.css">
     <script src="/js/sweetalert2.all.min.js"></script>
@@ -25,11 +25,13 @@
     <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.addons.css">
     <!-- endinject -->
-    
+
     <link rel="stylesheet" href="/dashboard/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
     <!-- plugin css for this page -->
+    <link rel="stylesheet" href="/dashboard/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="/dashboard/vendors/datatables.net-fixedcolumns-bs4/fixedColumns.bootstrap4.min.css">
     <!-- End plugin css for this page -->
-    
+
     <!-- inject:css -->
     <link rel="stylesheet" href="/dashboard/css/shared/style.css">
     <!-- endinject -->
@@ -37,14 +39,15 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="/dashboard/css/demo_1/style.css">
     <!-- End Layout styles -->
-    
+
     <link rel="shortcut icon" href="/dashboard/images/favicon.ico" />
 
 </head>
+
 <body>
-  
-<div class="container-scroller">    
-    
-    @include('layouts._includes.dashboard.Navbar')
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
+
+    <div class="container-scroller">
+
+        @include('layouts._includes.dashboard.Navbar')
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
