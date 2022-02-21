@@ -17,10 +17,9 @@ class CreateEquipmentRepairsTable extends Migration
             $table->id();
             $table->string('equipmentName');
             $table->string('model');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->longText('problemDetails');
-            $table->string('color', 50);
-
+            $table->string('referenceEquipment', 255);
 
             $table->unsignedBigInteger('fk_Clients_id');
             $table->foreign('fk_Clients_id')->references('id')->on('clients')->onDelete('CASCADE')->onUpgrade('CASCADE');
