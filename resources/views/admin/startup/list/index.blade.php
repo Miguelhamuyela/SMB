@@ -27,7 +27,7 @@
                                 <th>NOME DA STARTUP</th>
                                 <th>TELEFONE</th>
                                 <th>FIM DE CONTRATO</th>
-                                <th>MODELO DE INCUBADORA</th>
+                                <th>MODELO DE INCUBAÇÃO</th>
                                 <th>STATUS</th>
                                 <th class="text-left">ACÇÕES</th>
                             </tr>
