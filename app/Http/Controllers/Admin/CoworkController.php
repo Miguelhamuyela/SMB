@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Classes\Logger;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Helpers\Helper;
@@ -12,6 +13,13 @@ use App\Models\Cowork;
 
 class CoworkController extends Controller
 {
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,6 +29,7 @@ class CoworkController extends Controller
     {
 
         $response['coworks'] = Cowork::get();
+        $this->Logger->log('info', 'Lista de Coworks');
         return view('admin.coworks.list.index', $response);
     }
 
@@ -31,8 +40,9 @@ class CoworkController extends Controller
      */
     public function create()
     {
-
+        $this->Logger->log('info', 'Criar Coworks');
         return view('admin.coworks.create.index');
+        
         //
     }
 
@@ -84,6 +94,7 @@ class CoworkController extends Controller
             'fk_Clients_id' => $client->id
         ]
         );
+        $this->Logger->log('info', 'Cadastrou Coworks');
         return redirect("admin/cowork/show/$cowork->id")->with('create', '1');
         
     }
@@ -98,6 +109,7 @@ class CoworkController extends Controller
     {
         //
         $response['cowork'] = Cowork::with('payments', 'scheldules','clients')->find($id);
+        $this->Logger->log('info', 'Detalhes de Coworks');
         return view('admin.coworks.details.index', $response);
     }
 
@@ -118,6 +130,7 @@ class CoworkController extends Controller
         $response['payment'] =  Helper::payment($middle->fk_Payments_id);
         $response['client'] =  Helper::client($middle->fk_Clients_id);
         
+        $this->Logger->log('info', 'Editar Coworks');
         return view('admin.coworks.edit.index', $response);
     }
 
@@ -167,7 +180,7 @@ class CoworkController extends Controller
         Scheldule::find($cowork->fk_Scheldules_id)->update($request->all());
         Payment::find($cowork->fk_Payments_id)->update($request->all());
         
-
+        $this->Logger->log('info', 'Actualizar Coworks');
         return redirect()->route('admin.coworks.list.index')->with('edit', '1');
     }
 
@@ -181,6 +194,7 @@ class CoworkController extends Controller
     {
         //
         Cowork::find($id)->delete();
+        $this->Logger->log('info', 'Eliminou Coworks');
         return redirect()->route('admin.coworks.list.index')->with('destroy', '1');
     }
 }
