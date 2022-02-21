@@ -206,7 +206,7 @@
                                         </a>
                                         <br>
 
-                                        <a href='{{ url("admin/manufactures/delete/{$manufacture->id}") }}'
+                                        <a onclick="mens()" href='{{ url("admin/manufactures/delete/{$manufacture->id}") }}'
                                             class="text-danger">
                                             <i class="fa fa-trash"></i>
                                             Eliminar
