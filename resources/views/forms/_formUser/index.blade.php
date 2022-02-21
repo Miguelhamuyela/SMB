@@ -26,8 +26,8 @@
 
             @if (Auth::user()->level == 'Administrador')
                 <option value="Administrador">Administrador</option>
+                <option value="Gestor">Gestor</option>
                 <option value="Finanças">Finanças</option>
-                <option value="Reparação de Equipamentos">Reparação de Equipamentos</option>
                 <option value="Fábrica de Software">Fábrica de Software</option>
                 <option value="Reparação de Equipamentos">Reparação de Equipamentos</option>
             @endif
