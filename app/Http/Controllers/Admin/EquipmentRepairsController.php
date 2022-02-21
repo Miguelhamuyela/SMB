@@ -65,7 +65,7 @@ class EquipmentRepairsController extends Controller
             /**EquipmentRepair */
             'equipmentName'=> 'required|string|max:50',
             'model'=> 'required|string|max:50',
-            'image'=> 'required|string|max:50',
+            'image'=> 'required|',
             'problemDetails'=> 'required',
             'color'=> 'required',
 
@@ -76,11 +76,11 @@ class EquipmentRepairsController extends Controller
         $client = Client::create($request->all());
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
-
+        $file = $request->file('image')->store('images');
         $EquipmentRepair = EquipmentRepair::create([
             'equipmentName' => $request->equipmentName,
             'model' => $request->model,
-            'image' => $request->image,
+            'image' =>  $file,
             'color' => $request->color,
             'problemDetails' => $request->problemDetails,
             'fk_Payments_id' => $payment->id,

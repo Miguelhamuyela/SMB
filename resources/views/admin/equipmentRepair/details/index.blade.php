@@ -233,19 +233,14 @@
 
 
     </div> <!-- .container-fluid -->
-
+    {{ $equipmentRepair->image }}
     <div class="card mb-2">
         <div class="card-body">
             <div class="row align-items-center my-4">
                 <div class="col">
                     <h2 class="page-title h4">Imagem </h2>
                 </div>
-                <div class="col-auto">
-                    <a type="button" class="btn btn-lg btn-primary text-white"
-                        href="{{ url("admin/memberequipmentRepair/create/{$equipmentRepair->id}") }}">
-                        <span class="fa fa-plus fa-16 mr-3"></span>Novo Membro
-                    </a>
-                </div>
+               <img src="/storage/{{ $equipmentRepair->image }}">
             </div>
 
 

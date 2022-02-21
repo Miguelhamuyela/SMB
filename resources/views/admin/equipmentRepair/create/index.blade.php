@@ -6,7 +6,7 @@
 
         <div class="col-lg-12 grid-margin stretch-card ">
             <div class="card">
-                <form  method="POST" action="{{ route('admin.equipmentRepair.store') }}" >
+                <form  enctype="multipart/form-data"  method="POST" action="{{ route('admin.equipmentRepair.store') }}" >
                     @csrf
 
                     @if ($errors->any())
