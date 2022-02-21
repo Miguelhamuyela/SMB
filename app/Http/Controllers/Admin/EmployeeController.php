@@ -44,19 +44,40 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:50',
             'tel' => 'max:12',
             'nif' => 'required|string|max:50',
-        ]);
+            'departament' => 'required|string|max:50',
+            'occupation' => 'required|string|max:50',
+            'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS', ]);
 
-        $employee = Employee::create($request->all());
+            $file = $request->file('photoEmployee')->store('employees');
+
+            $employee = Employee::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'tel' => $request->tel,
+                'photoEmployee' => $file,
+                'occupation' => $request->occupation,
+                'departament' => $request->departament,
+                'nif' => $request->nif ]);
+
 
         //Logger
         $this->Logger->log('info', 'Cadastrou um Funcionário com o identificador ' . $employee->id);
         return redirect()->route('admin.employees.index')->with('create', '1');
     }
+
+    public function show($id)
+    {
+        $response['Employee'] = Employee::find($id);
+        //Logger
+        //Logger
+        $this->Logger->log('info', 'Visualizou um Funcionário com o identificador ' . $id);
+        return view('admin.employees.details.index', $response);
+    }
+
 
 
     public function edit($id)
@@ -72,12 +93,13 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:50',
-            'tel' => 'max:9',
+            'tel' => 'max:12',
             'nif' => 'required|string|max:50',
-        ]);
+            'departament' => 'required|string|max:50',
+            'occupation' => 'required|string|max:50',
+            'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS', ]);
         Employee::find($id)->update($request->all());
 
         //Logger

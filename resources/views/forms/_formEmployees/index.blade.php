@@ -24,7 +24,7 @@
       <div class="form-group">
           <label for="name">Email <small class="text-danger">*</small></label>
           <input type="email" name="email" id="email" value="{{ isset($employee->name) ? $employee->name: old('name') }}"
-              class="form-control border rounded" placeholder="Nome do employeee" required>
+              class="form-control border rounded" placeholder="Email" required>
       </div>
     </div>
 
@@ -38,5 +38,27 @@
   </div>
 
 
-  <!-- /.col -->
+  <div class="col-md-4">
+    <div class="form-group">
+        <label for="photoEmployee">Fotografia <small class="text-danger">*</small></label>
+        <input type="file" name="photoEmployee" id="photoEmployee" value="{{ isset($employee->photoEmployee) ? $employee->photoEmployee: old('photoEmployee') }}"
+            class="form-control border rounded"  required>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="form-group">
+        <label for="occupation">Ocupação  <small class="text-danger">*</small></label>
+        <input type="text" name="occupation" id="occupation" value="{{ isset($employee->occupation) ? $employee->occupation: old('occupation') }}"
+            class="form-control border rounded" placeholder="Ocupação" required>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="form-group">
+        <label for="departament">Departamento <small class="text-danger">*</small></label>
+        <input type="text" name="departament" id="departament" value="{{ isset($employee->departament) ? $employee->departament: old('departament') }}"
+            class="form-control border rounded" placeholder="Departamento" required>
+    </div>
+  </div>
 
