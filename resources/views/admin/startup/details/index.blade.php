@@ -67,7 +67,7 @@
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Modelo de Incubadora</b><br>
+                                            <b>Modelo de Incubação</b><br>
                                             <small> {{ $startup->incubatorModel }}</small>
                                         </p>
                                     </div>
