@@ -165,7 +165,7 @@
                                         </a>
                                         <br>
 
-                                        <a href='{{ url("admin/auditoriums/delete/{$auditorium->id}") }}'
+                                        <a onclick="mens()" href='{{ url("admin/auditoriums/delete/{$auditorium->id}") }}'
                                             class="text-danger">
                                             <i class="fa fa-trash"></i>
                                             Eliminar

@@ -186,7 +186,7 @@
                                         </a>
                                         <br>
 
-                                        <a href='{{ url("admin/cowork/delete/{$cowork->id}") }}'
+                                        <a onclick="mens()" href='{{ url("admin/cowork/delete/{$cowork->id}") }}'
                                             class="text-danger">
                                             <i class="fa fa-trash"></i>
                                             Eliminar
