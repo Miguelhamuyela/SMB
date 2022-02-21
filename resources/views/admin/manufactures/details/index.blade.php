@@ -90,7 +90,7 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Documentação</b><br>
-                                            <small> <a href="/storage/{{ $manufacture->file }}">Documento</a></small>
+                                            <small> <a target="_"  href="/storage/{{ $manufacture->file }}">Documento</a></small>
                                         </p>
                                     </div>
 
@@ -100,7 +100,7 @@
                             </div>
 
                             <div class="col-12 mt-2">
-                                <h5 class=""><b>Período de Desenvolvimento</b> </h5>
+                                <h5 class=""><b>Período De Desenvolvimento</b> </h5>
                                 <hr>
                             </div>
 

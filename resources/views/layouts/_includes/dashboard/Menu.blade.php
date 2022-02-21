@@ -34,7 +34,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.elernings.list.index') }}">
                     <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Elernings</span>
+                    <span class="menu-title">E-learning</span>
                 </a>
             </li>
 
