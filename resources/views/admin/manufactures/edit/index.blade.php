@@ -6,18 +6,35 @@
         <div class="card-body">
             <h3 class="my-2 text-center">Editar  {{$manufacture->nameSoftware}} </h3>
 
-            <!-- Validation Errors -->
-            <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />
+             @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
             <div class="row align-items-center">
 
                 <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" enctype="multipart/form-data" method="POST" action="{{ route('admin.manufactures.update', $manufacture->id) }}">
                     @csrf
                     @method('PUT')
 
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                     </div>
+                     @endif
+
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Fábrica de Software</b></h4>
                         <hr>
-                        @include('forms._formFabrica.index')
+                        @include('forms._formManufacture.index')
                     </div>
 
                     <div class="card-body bg-light">
@@ -29,7 +46,7 @@
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Período de Desenvolvimento</b></h4>
                         <hr>
-                        @include('forms._formFabricaPeriodo.index')
+                        @include('forms._formManufacturePeriodo.index')
                     </div>
     
     

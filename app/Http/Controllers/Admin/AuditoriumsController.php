@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Classes\Logger;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Helpers\Helper;
@@ -12,6 +13,14 @@ use App\Models\Scheldule;
 
 class AuditoriumsController extends Controller
 {
+
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,6 +30,7 @@ class AuditoriumsController extends Controller
     {
         //
         $response['auditoriums'] = Auditorium::with('clientsInfo')->get();
+        $this->Logger->log('info', 'Lista de Auditórios');
         return view('admin.auditoriums.list.index', $response);
     }
 
@@ -32,7 +42,7 @@ class AuditoriumsController extends Controller
     public function create()
     {
         //
-        
+        $this->Logger->log('info', 'Criar Auditório');
         return view('admin.auditoriums.create.index');
     }
 
@@ -85,6 +95,8 @@ class AuditoriumsController extends Controller
         ]
         );
 
+
+        $this->Logger->log('info', 'Criou Auditório');
         return redirect()->route('admin.auditoriums.show',$auditorium->id)->with('create', '1');
 
     }
@@ -99,6 +111,7 @@ class AuditoriumsController extends Controller
     {
         //
         $response['auditorium'] = Auditorium::with('payments', 'scheldules','clients')->find($id);
+        $this->Logger->log('info', 'Detalhes de Auditório');
         return view('admin.auditoriums.details.index', $response);
     }
 
@@ -119,6 +132,7 @@ class AuditoriumsController extends Controller
         $response['payment'] =  Helper::payment($middle->fk_Payments_id);
         $response['client'] =  Helper::client($middle->fk_Clients_id);
         
+        $this->Logger->log('info', 'Editou Auditório');
         return view('admin.auditoriums.edit.index', $response);
     }
 
@@ -167,7 +181,7 @@ class AuditoriumsController extends Controller
         Scheldule::find($cowork->fk_Scheldules_id)->update($request->all());
         Payment::find($cowork->fk_Payments_id)->update($request->all());
         
-
+        $this->Logger->log('info', 'Actualizou Auditório');
         return redirect()->route('admin.auditoriums.list.index')->with('edit', '1');
 
 
@@ -183,6 +197,7 @@ class AuditoriumsController extends Controller
     {
         //
         Auditorium::find($id)->delete();
+        $this->Logger->log('info', 'Eliminou Auditório');
         return redirect()->route('admin.auditoriums.list.index')->with('destroy', '1');
     }
 }

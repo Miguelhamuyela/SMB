@@ -19,10 +19,11 @@
             <div class="card">
                 <div class="card-body">
 
-                  <table id="dataTable-1" class="table table-striped table-bordered mb-3">
+                    <table id="dataTable-1" class="table table-striped table-bordered mb-3">
                         <thead class="bg-primary thead-dark">
                             <tr class="text-center">
                                 <th>#</th>
+                                <th>FOTO</th>
                                 <th>NOME</th>
                                 <th>EMAIL</th>
                                 <th>DATA DE CRIAÇÃO</th>
@@ -34,6 +35,13 @@
                             @foreach ($users as $item)
                                 <tr class="text-center text-dark">
                                     <td>{{ $item->id }}</td>
+                                    <th class="text-center">
+                                        <div class="d-flex ml-5 align-items-center">
+                                            <img class="img-xs rounded-circle" src="{{ $item->photo }}"
+                                                alt="profile image">
+                                           
+                                        </div>
+                                    </th>
                                     <td>{{ $item->name }} </td>
                                     <td>{{ $item->email }} </td>
                                     <td>{{ $item->created_at }} </td>

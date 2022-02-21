@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Classes\Logger;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -11,7 +12,15 @@ use App\Models\Client;
 use App\Models\Elearning;
 
 class ElearningsController extends Controller
-{
+{   
+
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -100,6 +109,7 @@ class ElearningsController extends Controller
         //
 
         $response['elerning'] = Elearning::with('payments', 'scheldules','clients')->find($id);
+        $this->Logger->log('info', 'Detalhes de Coworks');
         return view('admin.elernings.details.index', $response);
     }
 
@@ -120,6 +130,7 @@ class ElearningsController extends Controller
         $response['payment'] =  Helper::payment($middle->fk_Payments_id);
         $response['client'] =  Helper::client($middle->fk_Clients_id);
 
+        $this->Logger->log('info', 'Editar Coworks');
         return view('admin.elernings.edit.index', $response);
     }
 
@@ -170,7 +181,7 @@ class ElearningsController extends Controller
         Scheldule::find($cowork->fk_Scheldules_id)->update($request->all());
         Payment::find($cowork->fk_Payments_id)->update($request->all());
 
-
+        $this->Logger->log('info', 'Actualizar Coworks');
         return redirect()->route('admin.elernings.list.index')->with('edit', '1');
 
 
@@ -186,6 +197,7 @@ class ElearningsController extends Controller
     {
         //
         Elearning::find($id)->delete();
+        $this->Logger->log('info', 'Eliminou Coworks');
         return redirect()->route('admin.elernings.list.index')->with('destroy', '1');
     }
 }

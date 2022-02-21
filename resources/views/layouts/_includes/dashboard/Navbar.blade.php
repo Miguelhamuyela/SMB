@@ -7,7 +7,7 @@
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center">
         <ul class="navbar-nav">
-            <li class="nav-item font-weight-semibold d-none d-lg-block">Helpdesk :Desenvolvimento@infosi.gov.ao
+            <li class="nav-item font-weight-semibold d-none d-lg-block">Helpdesk: desenvolvimento@infosi.gov.ao
             </li>
 
         </ul>
@@ -116,7 +116,7 @@
                     </a>
                     <a class="dropdown-item" href="">Mensagens</a>
                     <a class="dropdown-item" href="{{ route('admin.user.activity', Auth::User()->id) }}">Actividades</a>
-                    <a class="dropdown-item" href="">FAQ</a>
+                    <a class="dropdown-item" href="{{ route('admin.user.edit', Auth::User()->id) }}">Definições</a>
                     <a class="dropdown-item"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                         href="{{ route('logout') }}">Terminar a Sessão<i
