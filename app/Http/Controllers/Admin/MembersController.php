@@ -132,7 +132,7 @@ class MembersController extends Controller
      */
     public function qrfind($nif)
     {
-        $response['member'] = Member::with('startup')->where(['nif', $nif])->first();
+        $response['member'] = Member::where('nif', $nif)->with('startup')->first();
 
         return view('pdf.credential.index', $response);
     }
