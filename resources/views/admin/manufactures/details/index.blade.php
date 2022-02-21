@@ -52,6 +52,18 @@
                                             <small> {{ $manufacture->clients->tel }}</small>
                                         </p>
                                     </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Endereço</b><br>
+                                            <small> {{ $manufacture->clients->address }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Tipo de Cliente</b><br>
+                                            <small> {{ $manufacture->clients->clienttype }}</small>
+                                        </p>
+                                    </div>
 
                                 </div>
                             </div>
@@ -147,7 +159,7 @@
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Referencia</b><br>
+                                            <b>Referência</b><br>
                                             <small> {{ $manufacture->payments->reference }}</small>
                                         </p>
                                     </div>
