@@ -4,47 +4,60 @@
 @section('content')
 
     <div class="card col-lg-8 shadow shadow-lg mx-auto">
+        <div class="row">
 
-        <div class="card-body">
-            <div class="container-fluid">
 
-                <img src="/dashboard/images/logo_blue.png">
-                <h4 class="text-left mt-5 mb-2"><b> Credenciamento </b><br>{{ $member->name }}</h4>
-                <hr>
-            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <div class="container-fluid">
 
-            <div class="container-fluid d-flex justify-content-between">
-                <div class="col-lg-3 pl-0">
-                    <H5 class="mt-5 mb-2">
-                        <b> {{ $member->name }}</b>
-                    </H5>
-                    <p>
-                        <b>OCUPAÇÃO: </b> {{ $member->occupation }}, <br>
-                        <b>EMAIL: </b>{{ $member->email }}, <br>
-                        <b>TELEFONE: </b>{{ $member->tel }}, <br>
-                        <b>NIF: </b>{{ $member->nif }}
-                    </p>
+                        <img src="/dashboard/images/logo_blue.png">
+                        <h4 class="text-left mt-5 mb-2"><b> Credenciamento </b><br>{{ $member->name }}</h4>
+                        <hr>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <p>
+                            <b>OCUPAÇÃO: </b> {{ $member->occupation }} <br>
+                            <b>EMAIL: </b>{{ $member->email }} <br>
+                            <b>TELEFONE: </b>{{ $member->tel }} <br>
+                            <b>NIF: </b>{{ $member->nif }}
+                        </p>
+                    </div>
+                    <hr>
+
+                    <div class="col-lg-12 ">
+
+                        <p class="text-right">
+                            <b>STARTUP: </b>{{ $member->startup->name }}<br>
+                            <b>MODELO DE ENCUBADORA: </b>{{ $member->startup->incubatorModel }} <br>
+                            <b>NIF: </b>{{ $member->startup->nif }}
+                        </p>
+                    </div>
+
+                    <div class="container-fluid d-flex justify-content-between">
+                        <div class="col-lg-6 pl-0">
+                            <p class="mb-0 mt-5">Data de Cadastro : {{ $member->created_at }}</p>
+                            <p>Última Actualização : {{ $member->updated_at }}</p>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid d-flex justify-content-between">
+                        <div class="row">
+                            <a href="https://www.instagram.com/digital.ao2022/" target="_blank" class="col-md-4">
+                                <img src="/dashboard/images/social_icons/instagram.svg" alt="instagram">
+                            </a>
+                            <a href="https://www.facebook.com/TEC.DIGITAL.AO" target="_blank" class="col-md-4">
+                                <img src="/dashboard/images/social_icons/facebook.svg" alt="facebook">
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
-
-
-                <div class="col-lg-3 pr-0">
-                    <H5 class="mt-5 mb-2 text-right">
-                        <b> {{ $member->startup->name }}</b>
-                    </H5>
-                    <p class="text-right">
-
-                        <b>MODELO DE ENCUBADORA: </b>{{ $member->startup->incubatorModel }}, <br>
-                        <b>NIF: </b>{{ $member->startup->nif }}
-                    </p>
-                </div>
             </div>
-            <div class="container-fluid d-flex justify-content-between">
-                <div class="col-lg-6 pl-0">
-                    <p class="mb-0 mt-5">Data de Cadastro : {{ $member->created_at }}</p>
-                    <p>Última Actualização : {{ $member->updated_at }}</p>
-                </div>
+            <div class="col-md-4 text-center">
+                <img src="/dashboard/images/banner.jpg" alt="">
             </div>
-
         </div>
 
     </div>
