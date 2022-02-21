@@ -28,6 +28,8 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
+        //Logger
+        $this->Logger->log('info', 'Entrou em Criar uma Conta de Utilizador');
         return view('auth.register');
     }
 
@@ -46,6 +48,7 @@ class RegisteredUserController extends Controller
             'level' => 'required|string|max:40',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'photo' => 'mimes:jpg,png,jpeg',
         ]);
 
         if ($request->file('photo')) {
@@ -65,7 +68,7 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         //Logger
-        $this->Logger->log('info', 'Cadastrou o Utilizador  criou uma conta no sistema');
+        $this->Logger->log('info', 'Criou uma conta de Utilizador de ' . $user->name);
 
         return redirect()->route('admin.user.index')->with('create', '1');
     }

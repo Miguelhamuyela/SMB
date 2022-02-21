@@ -132,7 +132,8 @@ class UserController extends Controller
                 'password' => ['required', 'confirmed', Rules\Password::defaults()],
                 'birthday'    => 'max:40',
                 'phone'  => 'max:16',
-                'genre' => 'max:16'
+                'genre' => 'max:16',
+                'photo' => 'mimes:jpg,png,jpeg',
             ]);
 
 
