@@ -1,15 +1,16 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', ' Detalhes  Reparação De Equipamentos')
+@section('titulo', ' Detalhes Reparação De Equipamentos')
 
 @section('content')
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title">
 
-                Detalhes da Reparação De Equipamentos {{ $equipmentRepair->title }}
+                Detalhes da Reparação de Equipamentos {{ $equipmentRepair->title }}
             </h2>
         </div>
     </div>
+
 
     <div class="card shadow mb-2">
         <div class="card-body">
@@ -21,6 +22,55 @@
                         <div class="row  align-items-center">
 
 
+                            <div class="col-12 mt-2">
+                                <h5 class=""><b> Detalhes da Reparação </b> </h5>
+                                <hr>
+                            </div>
+
+                            <div class="col-12 mb-5">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b> Nome do Equipamento</b><br>
+                                            <small> {{ $equipmentRepair->equipmentName }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Modelo</b><br>
+                                            <small> {{ $equipmentRepair->model }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Funcionário</b><br>
+                                            <small> {{ $equipmentRepair->employees->name }}</small>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Cor</b><br>
+                                            <small> {{ $equipmentRepair->color }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Imagem</b><br>
+                                            <small> <a  href="/storage/{{$equipmentRepair->image  }}">Anexo</a> </small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Detalhe do Problema</b><br>
+                                            <small>
+
+                                                {!! html_entity_decode($equipmentRepair->problemDetails) !!}
+                                            </small>
+                                        </p>
+                                    </div>
+
+                                </div>
                             <div class="col-12 mt-2">
                                 <h5 class=""><b>Informações do Cliente </b> </h5>
                                 <hr>
@@ -55,7 +105,7 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Tipo de cliente</b><br>
-                                            <small> {{ $equipmentRepair->clients->clienttype}}</small>
+                                            <small> {{ $equipmentRepair->clients->clienttype }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
@@ -68,46 +118,12 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 mt-2">
-                                <h5 class=""><b> Detalhes da Reparação  </b> </h5>
-                                <hr>
-                            </div>
-
-                            <div class="col-12 mb-5">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b> Nome do Equipamento</b><br>
-                                            <small> {{ $equipmentRepair->equipmentName }}</small>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Modelo</b><br>
-                                            <small> {{ $equipmentRepair->model }}</small>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Funcionário</b><br>
-                                            <small> {{ $equipmentRepair->employees->name }}</small>
-                                        </p>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Cor</b><br>
-                                            <small> {{ $equipmentRepair->color }}</small>
-                                        </p>
-                                    </div>
-
-                                </div>
                                 <div class="col-md-3">
                                     <p class="text-dark">
                                         <b>Detalhe do Problema</b><br>
                                         <small>{!! html_entity_decode($equipmentRepair->problemDetails) !!}
 
-                                          </small>
+                                        </small>
                                     </p>
                                 </div>
                             </div>
@@ -154,7 +170,10 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Valores a Pagar</b><br>
-                                            <small> {{ $equipmentRepair->payments->value }}</small>
+                                            <small>
+
+                                                {!! number_format($equipmentRepair->payments->value, 2, ',', '.') . ' '  !!}
+                                            </small>
                                         </p>
                                     </div>
 
@@ -183,8 +202,6 @@
                                 </div>
                             </div>
 
-
-
                             <div class="col-12 my-5">
                                 <hr>
                                 <div class="row">
@@ -207,7 +224,8 @@
                                         </a>
                                         <br>
 
-                                        <a onclick="mens()" href='{{ url("admin/reparação-equipamentos/delete/{$equipmentRepair->id}") }}'
+                                        <a onclick="mens()"
+                                            href='{{ url("admin/reparação-equipamentos/delete/{$equipmentRepair->id}") }}'
                                             class="text-danger">
                                             <i class="fa fa-trash"></i>
                                             Eliminar
@@ -232,18 +250,4 @@
 
 
 
-    </div> <!-- .container-fluid -->
-    {{ $equipmentRepair->image }}
-    <div class="card mb-2">
-        <div class="card-body">
-            <div class="row align-items-center my-4">
-                <div class="col">
-                    <h2 class="page-title h4">Imagem </h2>
-                </div>
-               <img src="/storage/{{ $equipmentRepair->image }}">
-            </div>
-
-
-
-    </div>
-@endsection
+    @endsection
