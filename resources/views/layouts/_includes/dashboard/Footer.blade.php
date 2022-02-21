@@ -93,6 +93,7 @@
 <script src="/dashboard/vendors/datatables.net-fixedcolumns/dataTables.fixedColumns.min.js"></script>
 
 <script src="/dashboard/js/shared/data-table.js"></script>
+<script src="/dashboard/js/demo_1/dashboard.js"></script>
 <!-- End custom js for this page -->
 
 <script>
