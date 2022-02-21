@@ -19,17 +19,12 @@ class ElearningsController extends Controller
      */
     public function index()
     {
-        //
 
         $response['elernings'] = Elearning::get();
         return view('admin.elernings.list.index', $response);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
@@ -58,7 +53,7 @@ class ElearningsController extends Controller
              /**Scheldules Information */
              'started' => 'required|string|max:255',
              'end' => 'required|string|max:255',
-            
+
 
             /***Payment Information */
             'type' => 'required|string|max:255',
@@ -124,7 +119,7 @@ class ElearningsController extends Controller
         $response['scheldule'] =  Helper::scheldule($middle->fk_Scheldules_id);
         $response['payment'] =  Helper::payment($middle->fk_Payments_id);
         $response['client'] =  Helper::client($middle->fk_Clients_id);
-        
+
         return view('admin.elernings.edit.index', $response);
     }
 
@@ -151,7 +146,7 @@ class ElearningsController extends Controller
              /**Scheldules Information */
              'started' => 'required|string|max:255',
              'end' => 'required|string|max:255',
-            
+
 
             /***Payment Information */
             'type' => 'required|string|max:255',
@@ -174,7 +169,7 @@ class ElearningsController extends Controller
         Client::find($cowork->fk_Clients_id)->update($request->all());
         Scheldule::find($cowork->fk_Scheldules_id)->update($request->all());
         Payment::find($cowork->fk_Payments_id)->update($request->all());
-        
+
 
         return redirect()->route('admin.elernings.list.index')->with('edit', '1');
 
