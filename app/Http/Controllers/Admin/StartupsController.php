@@ -70,7 +70,6 @@ class StartupsController extends Controller
       
         
         $payment = Payment::create($request->all());
-       
         $schedule = Scheldule::create($request->all());
       
      

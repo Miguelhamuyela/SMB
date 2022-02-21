@@ -229,7 +229,7 @@
                                     <td class="text-left">{{ $item->occupation}}</td>
                                     <td>
                                         <div class="dropdown">
-                                            <button class="btn btn-dark text-white dropdown-toggle" type="button"
+                                            <button class="btn btn-primary text-white dropdown-toggle" type="button"
                                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false">
                                                 <i class="fa fa-navicon fa-sm" aria-hidden="true"></i>

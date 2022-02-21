@@ -51,7 +51,7 @@ class ManufacturesSoftwaresController extends Controller
             'nameSoftware' => 'required|string|max:255',
             'category' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            'file' => 'mimes:pdf,docx,doc',
+            'file' => 'mimes:pdf,docx,xlsx',
 
 
             /**Clients informatio */
