@@ -73,8 +73,28 @@
 <!-- endinject -->
 
 
-<script src='/js/jquery.dataTables.min.js'></script>
-<script src='/js/dataTables.bootstrap4.min.js'></script>
+{{-- <script src='/js/jquery.dataTables.min.js'></script>
+<script src='/js/dataTables.bootstrap4.min.js'></script> --}}
+
+<script>
+    function mens() {
+        confirm('Tem certeza de que deseja excluir este arquivo');
+    }
+</script>
+
+<!-- inject:js -->
+<script src="/dashboard/js/shared/off-canvas.js"></script>
+<script src="/dashboard/js/shared/misc.js"></script>
+<!-- endinject -->
+
+<!-- Custom js for this page-->
+{{-- <script src="/dashboard/js/demo_1/dashboard.js"></script> --}}
+<script src="/dashboard/vendors/datatables.net/jquery.dataTables.js"></script>
+<script src="/dashboard/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+<script src="/dashboard/vendors/datatables.net-fixedcolumns/dataTables.fixedColumns.min.js"></script>
+
+<script src="/dashboard/js/shared/data-table.js"></script>
+<!-- End custom js for this page -->
 
 <script>
     $('#dataTable-1').DataTable({
@@ -88,20 +108,6 @@
         ]
     });
 </script>
-<script>
-    function mens() {
-        confirm('Tem certeza de que deseja excluir este arquivo');
-    }
-</script>
-
-<!-- inject:js -->
-<script src="/dashboard/js/shared/off-canvas.js"></script>
-<script src="/dashboard/js/shared/misc.js"></script>
-<!-- endinject -->
-
-<!-- Custom js for this page-->
-<script src="/dashboard/js/demo_1/dashboard.js"></script>
-
 </body>
 
 </html>
