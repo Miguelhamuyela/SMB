@@ -24,7 +24,7 @@
 
 
             <li class="nav-item nav-category mt-2">Serviços</li>
-            @if ('Fábrica de Software' == Auth::user()->level || 'Administrador' == Auth::user()->level)
+            @if ('Gestor' == Auth::user()->level || 'Fábrica de Software' == Auth::user()->level || 'Administrador' == Auth::user()->level)
                 {{-- manufactures --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.manufactures.list.index') }}">
@@ -33,7 +33,7 @@
                     </a>
                 </li>
             @endif
-            @if ('Reparação de Equipamentos' == Auth::user()->level || 'Administrador' == Auth::user()->level)
+            @if ('Gestor' == Auth::user()->level || 'Reparação de Equipamentos' == Auth::user()->level || 'Administrador' == Auth::user()->level)
                 {{-- equipmentRepair --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.equipmentRepair.list.index') }}">
@@ -75,16 +75,16 @@
                         <span class="menu-title">Auditório</span>
                     </a>
                 </li>
-
-                {{-- employees --}}
-                <li class="nav-item nav-category mt-2">Funcionários do DIGITAL.AO</li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.employees.index') }}">
-                        <i class="menu-icon typcn typcn-document-text"></i>
-                        <span class="menu-title">Funcionáros</span>
-                    </a>
-                </li>
             @endif
+            {{-- employees --}}
+            <li class="nav-item nav-category mt-2">Funcionários do DIGITAL.AO</li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.employees.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Funcionáros</span>
+                </a>
+            </li>
+
             @if ('Administrador' == Auth::user()->level)
                 <li class="nav-item mb-5">
                     <a class="nav-link" href="{{ route('admin.user.index') }}">
