@@ -44,10 +44,10 @@
 
                     <div class="col-md-12">
                         <div class="row">
-                            <a href="https://www.instagram.com/digital.ao2022/" target="_blank" class="col-1">
+                            <a href="https://www.instagram.com/digital.ao2022/" target="_blank" class="col-2">
                                 <img src="/dashboard/images/social_icons/instagram.svg" alt="instagram">
                             </a>
-                            <a href="https://www.facebook.com/TEC.DIGITAL.AO" target="_blank" class="col-1">
+                            <a href="https://www.facebook.com/TEC.DIGITAL.AO" target="_blank" class="col-2">
                                 <img src="/dashboard/images/social_icons/facebook.svg" alt="facebook">
                             </a>
                         </div>
