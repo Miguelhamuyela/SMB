@@ -35,20 +35,35 @@
         </select>
     </div>
 
+
 </div>
 <hr class="my-4">
 <div class="row mb-4">
     <div class="col-md-6">
         <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" class="form-control" name="password"
-                autocomplete="new-password" placeholder="Password" required />
+            <label for="photo">Foto de Perfil </label>
+            <input type="file" name="photo" id="photo" class="form-control">
+            <small class="text-danger">Extensões permitidas: jpg, jpeg e png</small>
+
         </div>
-        <div class="form-group">
-            <label for="password_confirmation">Confirmar Password</label>
-            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
-                placeholder="Confirmar Password" required />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" class="form-control" name="password"
+                        autocomplete="new-password" placeholder="Password" required />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="password_confirmation">Confirmar Password</label>
+                    <input type="password" class="form-control" id="password_confirmation"
+                        name="password_confirmation" placeholder="Confirmar Password" required />
+                </div>
+            </div>
         </div>
+
+
     </div>
     <div class="col-md-6">
         <b class="mb-2 text-dark">Requisitos de senhas</b>
