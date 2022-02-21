@@ -44,7 +44,7 @@ class ManufacturesSoftwaresController extends Controller
      */
     public function store(Request $request)
     {
-   
+
         //
         $request->validate([
             /**ManufactureSoftware information */
@@ -52,19 +52,19 @@ class ManufacturesSoftwaresController extends Controller
             'category' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'file' => 'mimes:pdf,docx,xlsx',
-            
 
-             /**Clients informatio */
-             'name' => 'required|string|max:255',
-             'email' => 'required|string|max:50',
-             'tel' => '|max:50',
-             'nif' => 'required|string|max:50',
-             'address' => 'required|string|max:50',
-             'clienttype' => 'required|string|max:50',
 
-              /**Scheldules Information */
-              'started' => 'required|string|max:255',
-              'end' => 'required|string|max:255',
+            /**Clients informatio */
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:50',
+            'tel' => '|max:50',
+            'nif' => 'required|string|max:50',
+            'address' => 'required|string|max:50',
+            'clienttype' => 'required|string|max:50',
+
+            /**Scheldules Information */
+            'started' => 'required|string|max:255',
+            'end' => 'required|string|max:255',
 
             /***Payment Information */
             'type' => 'required|string|max:255',
@@ -79,26 +79,26 @@ class ManufacturesSoftwaresController extends Controller
 
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
-        $file = $request->file('file')->store('manufacturesSoftwares');
-      
-        $manufacture = ManufacturesSoftware::create(
-            [
-                'nameSoftware' => $request->nameSoftware,
-                'category' => $request->category,
-                'description' => $request->description,
-                'file' => $file,
-                'nif' => $request->nif,
-                'fk_Payments_id' => $payment->id,
-                'fk_Scheldules_id' => $schedule->id,
-                'fk_Clients_id' => $client->id
 
-            ]
-        );
+        if ($file = $request->file('file')) {
+            $file = $file->store('manufacturesSoftwares');
+        } else {
+            $file = null;
+        }
 
 
+        $manufacture = ManufacturesSoftware::create([
+            'nameSoftware' => $request->nameSoftware,
+            'category' => $request->category,
+            'description' => $request->description,
+            'file' => $file,
+            'nif' => $request->nif,
+            'fk_Payments_id' => $payment->id,
+            'fk_Scheldules_id' => $schedule->id,
+            'fk_Clients_id' => $client->id
+        ]);
 
-        
-        return redirect()->route('admin.manufactures.show',$manufacture->id)->with('create', '1');
+        return redirect()->route('admin.manufactures.show', $manufacture->id)->with('create', '1');
     }
 
     /**
@@ -111,9 +111,8 @@ class ManufacturesSoftwaresController extends Controller
     {
         //
 
-        $response['manufacture'] = ManufacturesSoftware::with('payments', 'scheldules','clients')->find($id);
+        $response['manufacture'] = ManufacturesSoftware::with('payments', 'scheldules', 'clients')->find($id);
         return view('admin.manufactures.details.index', $response);
-
     }
 
     /**
@@ -132,7 +131,7 @@ class ManufacturesSoftwaresController extends Controller
         $response['scheldule'] =  Helper::scheldule($middle->fk_Scheldules_id);
         $response['payment'] =  Helper::payment($middle->fk_Payments_id);
         $response['client'] =  Helper::client($middle->fk_Clients_id);
-        
+
         return view('admin.manufactures.edit.index', $response);
     }
 
@@ -154,17 +153,17 @@ class ManufacturesSoftwaresController extends Controller
             'description' => 'required|string|max:255',
             'file' => 'mimes:pdf,docx,xlsx',
 
-             /**Clients informatio */
-             'name' => 'required|string|max:255',
-             'email' => 'required|string|max:50',
-             'tel' => '|max:50',
-             'nif' => 'required|string|max:50',
-             'address' => 'required|string|max:50',
-             'clienttype' => 'required|string|max:50',
+            /**Clients informatio */
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:50',
+            'tel' => '|max:50',
+            'nif' => 'required|string|max:50',
+            'address' => 'required|string|max:50',
+            'clienttype' => 'required|string|max:50',
 
-             /**Scheldules Information */
-             'started' => 'required|string|max:255',
-             'end' => 'required|string|max:255',
+            /**Scheldules Information */
+            'started' => 'required|string|max:255',
+            'end' => 'required|string|max:255',
 
             /***Payment Information */
             'type' => 'required|string|max:255',
@@ -175,15 +174,28 @@ class ManufacturesSoftwaresController extends Controller
 
         ]);
 
-        ManufacturesSoftware::find($id)->update($request->all());
-        $manufacture = ManufacturesSoftware::find($id);
- 
-         Client::find($manufacture->fk_Clients_id)->update($request->all());
-         Scheldule::find($manufacture->fk_Scheldules_id)->update($request->all());
-         Payment::find($manufacture->fk_Payments_id)->update($request->all());
-         
-         return redirect()->route('admin.manufactures.list.index')->with('edit', '1');
 
+           
+        if($file = $request->file('file')){
+            $file = $file->store('manufacturesSoftwares');
+        }else{
+            $file = ManufacturesSoftware::find($id)->file;
+        }
+    
+        ManufacturesSoftware::find($id)->update([
+            'nameSoftware' => $request->nameSoftware,
+            'category' => $request->category,
+            'description' => $request->description,
+            'file' => $file,
+            'nif' => $request->nif
+        ]);
+        $manufacture = ManufacturesSoftware::find($id);
+
+        Client::find($manufacture->fk_Clients_id)->update($request->all());
+        Scheldule::find($manufacture->fk_Scheldules_id)->update($request->all());
+        Payment::find($manufacture->fk_Payments_id)->update($request->all());
+
+        return redirect()->route('admin.manufactures.list.index')->with('edit', '1');
     }
 
     /**

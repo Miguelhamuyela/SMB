@@ -22,75 +22,78 @@
                 </a>
             </li>
 
+
             <li class="nav-item nav-category mt-2">Serviços</li>
-            {{-- manufactures --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.manufactures.list.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Fabrica de Software</span>
-                </a>
-            </li>
-            {{-- elernings --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.elernings.list.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Elernings</span>
-                </a>
-            </li>
+            @if ('Fábrica de Software' == Auth::user()->level || 'Administrador' == Auth::user()->level)
+                {{-- manufactures --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.manufactures.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Fabrica de Software</span>
+                    </a>
+                </li>
+            @endif
+            @if ('Reparação de Equipamentos' == Auth::user()->level || 'Administrador' == Auth::user()->level)
+                {{-- equipmentRepair --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.equipmentRepair.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Reparação de Equipamentos</span>
+                    </a>
+                </li>
+            @endif
+            @if ('Gestor' == Auth::user()->level || 'Administrador' == Auth::user()->level)
+                {{-- elernings --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.elernings.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">E-learning</span>
+                    </a>
+                </li>
 
-            {{-- equipmentRepair --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.equipmentRepair.list.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Reparação de Equipamentos</span>
-                </a>
-            </li>
+                <li class="nav-item nav-category mt-2">Alugueres</li>
+                {{-- startups --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.startup.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Startup</span>
+                    </a>
+                </li>
 
+                {{-- coworks --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.coworks.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Cowork</span>
+                    </a>
+                </li>
 
-            <li class="nav-item nav-category mt-2">Alugueres</li>
-            {{-- startups --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.startup.list.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Startup</span>
-                </a>
-            </li>
+                {{-- auditoriums --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Auditório</span>
+                    </a>
+                </li>
 
-            {{-- coworks --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.coworks.list.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Cowork</span>
-                </a>
-            </li>
+                {{-- employees --}}
+                <li class="nav-item nav-category mt-2">Funcionários do DIGITAL.AO</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.employees.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Funcionáros</span>
+                    </a>
+                </li>
+            @endif
+            @if ('Administrador' == Auth::user()->level)
+                <li class="nav-item mb-5">
+                    <a class="nav-link" href="{{ route('admin.user.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Utilizadores</span>
+                    </a>
+                </li>
+            @endif
 
-            {{-- auditoriums --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Auditório</span>
-                </a>
-            </li>
-
-
-
-            {{-- employees  --}}
-            <li class="nav-item nav-category mt-2">Funcionários do DIGITAL.AO</li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.employees.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Funcionáros</span>
-                </a>
-            </li>
-           
-            <li class="nav-item mb-5">
-                <a class="nav-link" href="{{ route('admin.user.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Utilizadores</span>
-                </a>
-            </li>
-
-   
 
         </ul>
     </nav>

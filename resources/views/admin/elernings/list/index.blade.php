@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-body row">
                     <div class="col-md-10">
-                        <h5><b>E-lerning</b></h5>
+                        <h5><b>E-learning</b></h5>
                     </div>
                     <div class="col-md-2 text-center">
                         <a href="{{ route('admin.elernings.create.index') }}" class="btn btn-primary">Cadastrar</a>
@@ -24,11 +24,8 @@
                                 <tr class="text-center">
                                     <th>#</th>
                                     <th>CURSO</th>
-                                    <th>PERÍODO</th>
-                                    <th>NOTA</th>
                                     <th>NOME DO CLIENTE</th>
                                     <th>TELEFONE</th>
-                                    <th>NIF</th>
                                     <th>STATUS</th>
                                     <th class="text-left">ACÇÕES</th>
                                 </tr>
@@ -38,11 +35,8 @@
                                     <tr class="text-center text-dark">
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->course }} </td>
-                                        <td>{{ $item->timeCourse }} </td>
-                                        <td>{{ $item->note }} </td>
                                         <td>{{ $item->clients->name }} </td>
                                         <td>{{ $item->clients->tel }} </td>
-                                        <td>{{ $item->clients->nif }} </td>
                                         @if ($item->payments->status == 'Pago')
                                             <td> <button
                                                     class="btn btn-success btn-sm  rounded text-white btn-sm">{{ $item->payments->status }}</button>
@@ -55,7 +49,7 @@
 
                                         <td>
                                             <div class="dropdown">
-                                                <button class="btn btn-dark text-white btn-sm dropdown-toggle" type="button"
+                                                <button class="btn btn-primary text-white btn-sm dropdown-toggle" type="button"
                                                     id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                                     aria-expanded="false">
                                                     <i class="fa fa-navicon text-white" aria-hidden="true"></i>

@@ -26,7 +26,7 @@
                                 <th>#</th>
                                 <th>NOME DA STARTUP</th>
                                 <th>TELEFONE</th>
-                                <th>FIM DE CONTRACTO</th>
+                                <th>FIM DE CONTRATO</th>
                                 <th>STATUS</th>
                                 <th class="text-left">ACÇÕES</th>
                             </tr>
@@ -49,7 +49,7 @@
                                     @endif
                                     <td>
                                         <div class="dropdown">
-                                            <button class="btn btn-dark text-white btn-sm dropdown-toggle" type="button"
+                                            <button class="btn btn-primary text-white btn-sm dropdown-toggle" type="button"
                                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false">
                                                 <i class="fa fa-navicon text-white" aria-hidden="true"></i>
