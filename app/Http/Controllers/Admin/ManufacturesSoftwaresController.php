@@ -182,7 +182,13 @@ class ManufacturesSoftwaresController extends Controller
             $file = ManufacturesSoftware::find($id)->file;
         }
     
-        ManufacturesSoftware::find($id)->update($request->all());
+        ManufacturesSoftware::find($id)->update([
+            'nameSoftware' => $request->nameSoftware,
+            'category' => $request->category,
+            'description' => $request->description,
+            'file' => $file,
+            'nif' => $request->nif
+        ]);
         $manufacture = ManufacturesSoftware::find($id);
 
         Client::find($manufacture->fk_Clients_id)->update($request->all());
