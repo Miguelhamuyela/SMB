@@ -163,7 +163,7 @@
                                         </a>
                                         <br>
 
-                                        <a href='{{ url("admin/startup/delete/{$startup->id}") }}'
+                                        <a onclick="mens()" href='{{ url("admin/startup/delete/{$startup->id}") }}'
                                             class="text-danger">
                                             <i class="fa fa-trash"></i>
                                             Eliminar
