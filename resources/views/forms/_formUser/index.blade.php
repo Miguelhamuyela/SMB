@@ -17,7 +17,7 @@
         <label for="level">Nivel de Acesso</label>
         <select name="level" id="level" class="form-control" required>
             @if (isset($user->level))
-                <option value="{{ $user->level }}" class="text-primary h6" selected>
+                <option value="{{ $user->level }}" class="text-primary h5" selected>
                     {{ $user->level }}
                 </option>
             @else

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Editor
+class Financial
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,10 @@ class Editor
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->level != 'Editor' && Auth::user()->level != 'Administrador'){
-            return redirect()->back()->with('NoAuth', '1');
+        if(Auth::user()->level != 'Finanças' && Auth::user()->level != 'Administrador'){
+            if (Auth::user()->level != 'Gestor') {
+                return redirect()->back()->with('NoAuth', '1');
+            }
         }
         return $next($request);
     }
