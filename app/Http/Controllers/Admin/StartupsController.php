@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Classes\Logger;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
@@ -12,6 +13,12 @@ use Illuminate\Http\Request;
 
 class StartupsController extends Controller
 {
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -21,6 +28,7 @@ class StartupsController extends Controller
     {
 
         $response['startups'] = Startup::get();
+        $this->Logger->log('info', 'Lista de Startups');
         return view('admin.startup.list.index', $response);
     }
 
@@ -31,7 +39,8 @@ class StartupsController extends Controller
      */
     public function create()
     {
-
+        
+        $this->Logger->log('info', 'Criar Startups');
         return view('admin.startup.create.index');
         //
     }
@@ -87,6 +96,7 @@ class StartupsController extends Controller
             ]
         );
 
+        $this->Logger->log('info', 'Cadastrou Startups');
         return redirect()->route('admin.startup.show',$startup->id)->with('create', '1');
    
     }
@@ -101,6 +111,7 @@ class StartupsController extends Controller
     {
 
         $response['startup'] = Startup::with('payments', 'scheldules', 'members')->find($id);
+        $this->Logger->log('info', 'Detalhes de Startups');
         return view('admin.startup.details.index', $response);
     }
 
@@ -118,6 +129,7 @@ class StartupsController extends Controller
         $response['scheldule'] =  Helper::scheldule($middle->fk_Scheldules_id);
         $response['payment'] =  Helper::payment($middle->fk_Payments_id);
 
+        $this->Logger->log('info', 'Editar Startups');
         return view('admin.startup.edit.index', $response);
         //
     }
@@ -157,7 +169,7 @@ class StartupsController extends Controller
         Payment::find($startup->fk_Payments_id)->update($request->all());
         Scheldule::find($startup->fk_Scheldules_id)->update($request->all());
 
-
+        $this->Logger->log('info', 'Actoulizou Startups');
         return redirect()->route('admin.startup.list.index')->with('edit', '1');
     }
 
@@ -175,6 +187,7 @@ class StartupsController extends Controller
     public function destroy($id)
     {
         Startup::find($id)->delete();
+        $this->Logger->log('info', 'Eliminou Startups');
         return redirect()->route('admin.startup.list.index')->with('destroy', '1');
     }
 }

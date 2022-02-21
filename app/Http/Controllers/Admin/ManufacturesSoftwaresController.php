@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Classes\Logger;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\ManufacturesSoftware;
@@ -13,6 +14,13 @@ use Illuminate\Http\Request;
 
 class ManufacturesSoftwaresController extends Controller
 {
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,6 +30,7 @@ class ManufacturesSoftwaresController extends Controller
     {
         //
         $response['manufacture'] = ManufacturesSoftware::get();
+        $this->Logger->log('info', 'Listar Fábrica de Softwares');
         return view('admin.manufactures.list.index', $response);
     }
 
@@ -32,6 +41,8 @@ class ManufacturesSoftwaresController extends Controller
      */
     public function create()
     {
+
+        $this->Logger->log('info', 'Cadastrar Fábrica de Softwares');
         return view('admin.manufactures.create.index');
         //
     }
@@ -98,6 +109,8 @@ class ManufacturesSoftwaresController extends Controller
             'fk_Clients_id' => $client->id
         ]);
 
+
+        $this->Logger->log('info', 'Cadastrou Fábrica de Softwares');
         return redirect()->route('admin.manufactures.show', $manufacture->id)->with('create', '1');
     }
 
@@ -112,6 +125,7 @@ class ManufacturesSoftwaresController extends Controller
         //
 
         $response['manufacture'] = ManufacturesSoftware::with('payments', 'scheldules', 'clients')->find($id);
+        $this->Logger->log('info', 'Detalhes de Fábrica de Softwares');
         return view('admin.manufactures.details.index', $response);
     }
 
@@ -132,6 +146,7 @@ class ManufacturesSoftwaresController extends Controller
         $response['payment'] =  Helper::payment($middle->fk_Payments_id);
         $response['client'] =  Helper::client($middle->fk_Clients_id);
 
+        $this->Logger->log('info', 'Editar Fábrica de Softwares');
         return view('admin.manufactures.edit.index', $response);
     }
 
@@ -195,6 +210,7 @@ class ManufacturesSoftwaresController extends Controller
         Scheldule::find($manufacture->fk_Scheldules_id)->update($request->all());
         Payment::find($manufacture->fk_Payments_id)->update($request->all());
 
+        $this->Logger->log('info', 'Cadastrar Fábrica de Softwares');
         return redirect()->route('admin.manufactures.list.index')->with('edit', '1');
     }
 
@@ -208,6 +224,7 @@ class ManufacturesSoftwaresController extends Controller
     {
         //
         ManufacturesSoftware::find($id)->delete();
+        $this->Logger->log('info', 'Eliminou Fábrica de Softwares');
         return redirect()->route('admin.manufactures.list.index')->with('destroy', '1');
     }
 }

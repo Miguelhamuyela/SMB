@@ -19,26 +19,28 @@
 
     <div class="col-md-3">
         <div class="form-group">
-            <label for="fk_Employees_id">funcionário <small class="text-danger">*</small></label>
+            <label for="fk_Employees_id">Funcionário <small class="text-danger">*</small></label>
+
             <select type="text" name="fk_Employees_id" id="fk_Employees_id" class="form-control border rounded"
                 required>
 
-                @if (isset($equipmentRepair->employees->name))
-                    <option selected value="{{ $equipmentRepair->employees->id }}"
-                        class="text-primary h6 bg-primary text-white" >
-                {{         $equipmentRepair->employees->name }}
+                @if (isset($equipmentRepair->name))
+                    <option value="{{ $equipmentRepair->employees->id }}" class="text-primary h6 bg-primary text-white"
+                        selected>
+                        {{ $equipmentRepair->employees->name }}
                     </option>
                 @else
-                    <option disabled selected>selecione uma outra opção</option>
+                    <option disabled selected value="">selecione uma outra opção</option>
                 @endif
-                @foreach ($employees as $item)
-                    <option value="{{ $item->id }}" class="text-primary h6 bg-primary text-white" selected>
 
+                @foreach ($employees as $item)
+                    <option value="{{ $item->id }}" selected>
                         {{ $item->name }}
                     </option>
                 @endforeach
 
             </select>
+
         </div>
     </div>
 
@@ -47,28 +49,30 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label for="email">Cor <small class="text-danger">*</small></label>
-            <input type="color" name="color" id="color"
-                value="{{ isset($equipmentRepair->color) ? $equipmentRepair->color : old('color') }}"
-                class="form-control border rounded" placeholder="Email do equipmentRepaire" required>
+            <label for="email">Referência do Equipamento
+                <small class="text-danger">*</small></label>
+            <input type="text" name="referenceEquipment" id="referenceEquipment"
+                value="{{ isset($equipmentRepair->referenceEquipment)? $equipmentRepair->referenceEquipment: old('referenceEquipment') }}"
+                class="form-control border rounded" placeholder="Referência  do Equipamento
+                " required>
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label for="image">Imgem <small class="text-danger">*</small></label>
+            <label for="image">Imgem <small </small></label>
             <input type="file" name="image" id="image"
                 value="{{ isset($equipmentRepair->image) ? $equipmentRepair->tel : old('image') }}"
-                class="form-control border rounded" required>
+                class="form-control border rounded">
         </div>
     </div>
 
 </div>
 <div class="col-md-12">
     <div class="form-group">
-        <label for="problemDetails">Detalhes do Problema <small class="text-danger">*</small></label>
+        <label for="problemDetails">Detalhes do Equipamento e do Problema <small
+                class="text-danger">*</small></label>
         <textarea name="problemDetails" rows="4" id="editor1" class="form-control border-secondary no-resize"
             placeholder="Descrição do curso">{{ isset($equipmentRepair->problemDetails) ? $equipmentRepair->problemDetails : old('problemDetails') }}
     </textarea>
     </div>
 </div>
-<!-- /.col -->
