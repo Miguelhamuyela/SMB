@@ -12,6 +12,15 @@
                     @csrf
                     @method('PUT')
                     <div class="card-body bg-light">
+                        @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                     </div>
+                     @endif
                     <h4 class="card-title"><b>Auditório</b></h4>
                         <hr>
                         @include('forms._formAuditoriums.index')

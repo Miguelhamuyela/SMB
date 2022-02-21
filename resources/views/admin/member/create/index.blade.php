@@ -9,6 +9,16 @@
                 <form method="POST" action="{{ url('admin/member/store/'.$startup->id) }}">
                     @csrf
                     <div class="card-body bg-light">
+                        @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                     </div>
+                     @endif
+                     
                         <h4 class="card-title"><b>Membros</b></h4>
                         <hr>
                         @include('forms._formMember.index')
