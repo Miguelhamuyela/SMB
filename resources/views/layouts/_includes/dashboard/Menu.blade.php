@@ -90,14 +90,6 @@
                 {{-- End Payments --}}
             @endif
 
-            {{-- employees --}}
-            <li class="nav-item nav-category mt-2">Funcionários do DIGITAL.AO</li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.employees.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Funcionáros</span>
-                </a>
-            </li>
 
             @if ('Administrador' == Auth::user()->level)
                 {{-- employees --}}
