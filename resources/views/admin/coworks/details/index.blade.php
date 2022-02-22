@@ -4,9 +4,11 @@
 @section('content')
     <div class="card mb-2">
         <div class="card-body">
-            <h2 class="h5 page-title">
-                Detalhes do Cowork - {{ $cowork->title }}
-            </h2>
+            <h2 class="h5 page-title"><b>
+                <a href="{{ url('admin/cowork/list') }}">Listar Coworks</a>
+                        > Detalhes do Cowork - {{ $cowork->title }}
+                
+            </b></h2>
         </div>
     </div>
 
@@ -228,6 +230,7 @@
 
 
             <div class="page-category pb-5">
+                <div class="table-responsive">
                     <table class="table table-hover" id="dataTable-1">
                       <thead class="bg-primary thead-dark">
                             <tr class="text-center">
@@ -270,6 +273,7 @@
 
                         </tbody>
                     </table>
+                </div>
          
             </div>
 

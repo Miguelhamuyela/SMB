@@ -76,6 +76,28 @@
                     </a>
                 </li>
             @endif
+
+            {{-- Payments --}}
+            @if ('Administrador' == Auth::user()->level || 'Finanças' == Auth::user()->level)
+                <li class="nav-item nav-category mt-2">Pagamentos do DIGITAL.AO</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.payments.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Pagamentos</span>
+                    </a>
+                </li>
+            @endif
+            {{-- End Payments --}}
+
+            {{-- employees --}}
+            <li class="nav-item nav-category mt-2">Funcionários do DIGITAL.AO</li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.employees.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Funcionáros</span>
+                </a>
+            </li>
+
             @if ('Administrador' == Auth::user()->level)
                 {{-- employees --}}
                 <li class="nav-item nav-category mt-2">Funcionários do DIGITAL.AO</li>
