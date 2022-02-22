@@ -41,12 +41,13 @@
                                     <td>{{ $item->reference }} </td>
                                     <td>{{ $item->currency }} </td>
                                     @if ($item->status == 'Pago')
-                                        <td> <button
-                                                class="btn btn-success btn-sm rounded text-white btn-sm">{{ $item->status }}</button>
+                                        <td> 
+                                            <div
+                                                class="btn btn-success btn-fw btn-rounded text-dark btn-sm">{{ $item->status }}</div>
                                         </td>
                                     @else
-                                        <td> <button
-                                                class="btn btn-danger btn-sm  rounded text-white btn-sm">{{ $item->status }}</button>
+                                        <td> <div
+                                                class="btn btn-danger btn-fw  btn-rounded text-white btn-sm">{{ $item->status }}</div>
                                         </td>
                                     @endif
                                     <td>
