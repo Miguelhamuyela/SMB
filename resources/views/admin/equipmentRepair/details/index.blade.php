@@ -4,9 +4,12 @@
 @section('content')
     <div class="card mb-2">
         <div class="card-body">
-            <h2 class="h5 page-title">
-                Detalhes de Reparação de Equipamentos - {{ $equipmentRepair->title }}
-            </h2>
+            <h2 class="h5 page-title"><b>
+                <a href="{{ url('admin/reparação-equipamentos/list') }}">Listar Reparação de Equipamentos</a>
+                >  Detalhes de Reparação de Equipamentos - {{ $equipmentRepair->title }}
+
+                
+            </b></h2>
         </div>
     </div>
 

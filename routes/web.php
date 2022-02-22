@@ -42,6 +42,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/funcionários/delete/{id}', ['as' => 'admin.employees.delete', 'uses' => 'Admin\EmployeeController@destroy']);
         Route::get('admin/funcionários/show/{id}', ['as' => 'admin.employees.show', 'uses' => 'Admin\EmployeeController@show']);
         /**End funcionários */
+
+          /**Payments*/ 
+          Route::get('admin/pagamentos/list', ['as' => 'admin.payments.index', 'uses' => 'Admin\PaymentsController@index']);
+          Route::get('admin/pagamentos/show/{id}', ['as' => 'admin.payments.show', 'uses' => 'Admin\PaymentsController@show']);
+          /**End Payments*/
     });
 
 
@@ -111,6 +116,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('admin/member/store/{id}', ['as' => 'admin.member.store', 'uses' => 'Admin\MembersController@store']);
         Route::get('admin/member/delete/{id}', ['as' => 'admin.member.delete', 'uses' => 'Admin\MembersController@destroy']);
         /**End Member */
+
+      
+
     });
 
     Route::middleware(['RepEqui'])->group(function () {

@@ -6,8 +6,11 @@
     <div class="card">
         <div class="col-lg-12">
             <div class="card-body">
-                <h5><b>Detalhes da Startup -
-                        {{ $startup->name }}
+                <h5><b>
+                    <a href="{{ url('admin/startup/list')}}">Listar Startups</a>
+                    >  Detalhes da Startup - {{ $startup->name }}
+
+                    
                     </b></h5>
             </div>
         </div>
@@ -212,6 +215,7 @@
 
 
             <div class="page-category pb-5">
+                <div class="table-responsive">
                 <table class="table table-hover" id="dataTable-1">
                     <thead class="bg-primary thead-dark">
                         <tr class="text-center">
@@ -254,6 +258,7 @@
 
                     </tbody>
                 </table>
+            </div>
 
             </div>
 
