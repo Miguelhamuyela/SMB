@@ -45,7 +45,8 @@ class EmployeeController extends Controller
             'nif' => 'required|string|max:50',
             'departament' => 'required|string|max:50',
             'occupation' => 'required|string|max:50',
-            'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS', ]);
+            'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS',
+        ]);
 
 
         if ($middle = $request->file('photoEmployee')) {
@@ -53,14 +54,15 @@ class EmployeeController extends Controller
         } else {
             $file = null;
         }
-            $employee = Employee::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'tel' => $request->tel,
-                'photoEmployee' => $file,
-                'occupation' => $request->occupation,
-                'departament' => $request->departament,
-                'nif' => $request->nif ]);
+        $employee = Employee::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'tel' => $request->tel,
+            'photoEmployee' => $file,
+            'occupation' => $request->occupation,
+            'departament' => $request->departament,
+            'nif' => $request->nif
+        ]);
 
 
         //Logger
@@ -96,9 +98,9 @@ class EmployeeController extends Controller
             'nif' => 'required|string|max:50',
             'departament' => 'required|string|max:50',
             'occupation' => 'required|string|max:50',
-           ]);
+        ]);
 
-           if ($middle = $request->file('photoEmployee')) {
+        if ($middle = $request->file('photoEmployee')) {
             $file = $middle->storeAs('photoEmployee', 'photoEmployee-' . uniqid(rand(1, 5)) . "." . $middle->extension());
         } else {
             $file =  Employee::find($id)->photoEmployee;;
@@ -121,7 +123,6 @@ class EmployeeController extends Controller
         $this->Logger->log('info', 'Editou um Funcionário  com o identificador ' . $id);
         return redirect()->route('admin.employees.index')->with('edit', '1');
     }
-
     public function destroy($id)
     {
         //Logger
