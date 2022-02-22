@@ -34,19 +34,21 @@ Route::middleware(['auth'])->group(function () {
         /* end configuration */
 
         /**funcionários */
-        Route::get('admin/funcionários/index', ['as' => 'admin.employees.create', 'uses' => 'Admin\EmployeeController@create']);
+
         Route::get('admin/funcionários/list', ['as' => 'admin.employees.index', 'uses' => 'Admin\EmployeeController@index']);
+        Route::get('admin/funcionários/create', ['as' => 'admin.employees.create', 'uses' => 'Admin\EmployeeController@create']);
         Route::post('admin/funcionários/store', ['as' => 'admin.employees.store', 'uses' => 'Admin\EmployeeController@store']);
         Route::get('admin/funcionários/edit/{id}', ['as' => 'admin.employees.edit.index', 'uses' => 'Admin\EmployeeController@edit']);
         Route::put('admin/funcionários/update/{id}', ['as' => 'admin.employees.update', 'uses' => 'Admin\EmployeeController@update']);
         Route::get('admin/funcionários/delete/{id}', ['as' => 'admin.employees.delete', 'uses' => 'Admin\EmployeeController@destroy']);
         Route::get('admin/funcionários/show/{id}', ['as' => 'admin.employees.show', 'uses' => 'Admin\EmployeeController@show']);
+        Route::get('admin/funcionários/cartão/{id}', ['as' => 'admin.employees.card', 'uses' => 'Admin\EmployeeController@card']);
         /**End funcionários */
 
-          /**Payments*/ 
-          Route::get('admin/pagamentos/list', ['as' => 'admin.payments.index', 'uses' => 'Admin\PaymentsController@index']);
-          Route::get('admin/pagamentos/show/{id}', ['as' => 'admin.payments.show', 'uses' => 'Admin\PaymentsController@show']);
-          /**End Payments*/
+        /**Payments*/
+        Route::get('admin/pagamentos/list', ['as' => 'admin.payments.index', 'uses' => 'Admin\PaymentsController@index']);
+        Route::get('admin/pagamentos/show/{id}', ['as' => 'admin.payments.show', 'uses' => 'Admin\PaymentsController@show']);
+        /**End Payments*/
     });
 
 
@@ -118,9 +120,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('admin/member/store/{id}', ['as' => 'admin.member.store', 'uses' => 'Admin\MembersController@store']);
         Route::get('admin/member/delete/{id}', ['as' => 'admin.member.delete', 'uses' => 'Admin\MembersController@destroy']);
         /**End Member */
-
-      
-
     });
 
     Route::middleware(['RepEqui'])->group(function () {
