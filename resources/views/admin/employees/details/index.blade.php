@@ -1,12 +1,11 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', ' Detalhes do Employee')
+@section('titulo', ' Detalhes de Funcionários')
 
 @section('content')
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title">
-
-                Detalhes do Funcionário :{{ $Employee->name }}
+                Detalhes de Funcionários - {{ $Employee->name }}
             </h2>
         </div>
     </div>

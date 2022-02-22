@@ -5,8 +5,7 @@
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title">
-
-                Detalhes do Cowork {{ $cowork->title }}
+                Detalhes do Cowork - {{ $cowork->title }}
             </h2>
         </div>
     </div>
