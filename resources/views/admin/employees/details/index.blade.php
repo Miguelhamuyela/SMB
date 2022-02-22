@@ -75,7 +75,7 @@
                                             </small>
                                         @else
                                             <img src="/dashboard/User-595b40b85ba036ed117da56f.svg"
-                                                class="mr-2 rounded-circle" alt="Cinque Terre" width="90" height="90">
+                                                class="mr-2 rounded-circle img-fluid" alt="Cinque Terre" width="90" height="90">
                                             @endif
 
                                         </p>
