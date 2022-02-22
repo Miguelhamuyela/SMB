@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Classes\Logger;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
+use App\Models\EquipmentRepair;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -88,7 +89,6 @@ class EmployeeController extends Controller
         return view('admin.employees.edit.index', $response);
     }
 
-
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -100,12 +100,12 @@ class EmployeeController extends Controller
             'occupation' => 'required|string|max:50',
         ]);
 
+
         if ($middle = $request->file('photoEmployee')) {
             $file = $middle->storeAs('photoEmployee', 'photoEmployee-' . uniqid(rand(1, 5)) . "." . $middle->extension());
         } else {
             $file =  Employee::find($id)->photoEmployee;;
         }
-
 
         $employee = Employee::find($id)->update([
             'name' => $request->name,
@@ -115,7 +115,6 @@ class EmployeeController extends Controller
             'occupation' => $request->occupation,
             'departament' => $request->departament,
             'nif' => $request->nif
-
         ]);
 
 
