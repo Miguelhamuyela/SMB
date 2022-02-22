@@ -5,8 +5,7 @@
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title">
-
-                Detalhes do Cowork {{ $cowork->title }}
+                Detalhes do Cowork - {{ $cowork->title }}
             </h2>
         </div>
     </div>
@@ -257,9 +256,12 @@
                                                 <i class="fa fa-navicon fa-sm" aria-hidden="true"></i>
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a href='{{ url("admin/memberCowork/qrcode/$item->id") }}'
+                                                    class="dropdown-item mb-2">Credenciamento</a>
+    
                                                 <a href='{{ url("admin/memberCowork/delete/$item->id") }}'
-                                                    class="dropdown-item">Eliminar</a>
-
+                                                    class="dropdown-item text-danger">Eliminar</a>
+                                                   
                                             </div>
                                         </div>
                                     </td>

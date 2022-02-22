@@ -30,15 +30,15 @@
 
                         <p class="text-right">
                             <b>STARTUP: </b>{{ $member->startup->name }}<br>
-                            <b>MODELO DE ENCUBADORA: </b>{{ $member->startup->incubatorModel }} <br>
+                            <b>MODELO DE INCUBAÇÃO: </b>{{ $member->startup->incubatorModel }} <br>
                             <b>NIF: </b>{{ $member->startup->nif }}
                         </p>
                     </div>
 
                     <div class="col-md-12">
                         <div class="col-lg-6 pl-0">
-                            <p class="mb-0 mt-5">Data de Cadastro : {{ $member->created_at }}</p>
-                            <p>Última Actualização : {{ $member->updated_at }}</p>
+                            <p class="mb-0 mt-5">Data de Cadastro: {{ $member->created_at }}</p>
+                            <p>Última Actualização: {{ $member->updated_at }}</p>
                         </div>
                     </div>
 

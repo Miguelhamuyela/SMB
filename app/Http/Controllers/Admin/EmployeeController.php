@@ -127,6 +127,6 @@ class EmployeeController extends Controller
         //Logger
         $this->Logger->log('info', 'Eliminou um Funcionário com o identificador ' . $id);
         Employee::find($id)->delete();
-        return redirect()->back()->with('destroy', '1');
+        return  redirect()->route('admin.employees.index')->with('destroy', '1');
     }
 }

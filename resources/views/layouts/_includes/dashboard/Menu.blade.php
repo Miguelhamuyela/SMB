@@ -76,16 +76,17 @@
                     </a>
                 </li>
             @endif
-            {{-- employees --}}
-            <li class="nav-item nav-category mt-2">Funcionários do DIGITAL.AO</li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.employees.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Funcionáros</span>
-                </a>
-            </li>
-
             @if ('Administrador' == Auth::user()->level)
+                {{-- employees --}}
+                <li class="nav-item nav-category mt-2">Funcionários do DIGITAL.AO</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.employees.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Funcionáros</span>
+                    </a>
+                </li>
+
+
                 <li class="nav-item mb-5">
                     <a class="nav-link" href="{{ route('admin.user.index') }}">
                         <i class="menu-icon typcn typcn-document-text"></i>
