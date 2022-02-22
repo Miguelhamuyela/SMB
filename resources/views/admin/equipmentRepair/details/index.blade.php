@@ -59,7 +59,10 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Imagem</b><br>
+                                            @if(isset($equipmentRepair->image))
                                             <small> <a  href="/storage/{{$equipmentRepair->image  }}">Anexo</a> </small>
+                                            @endif
+
                                         </p>
                                     </div>
                                     <div class="col-md-3">
