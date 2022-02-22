@@ -62,7 +62,6 @@
                                             </td>
                                         @endif
                                         <td>
-
                                             <a href='{{ url("admin/pagamentos/show/{$item->id}") }}' type="button"
                                                 class="btn btn-icons btn-rounded btn-primary">
                                                 <i class="mdi mdi-eye"></i>

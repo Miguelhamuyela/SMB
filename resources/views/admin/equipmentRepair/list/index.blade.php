@@ -49,18 +49,10 @@
                                         </td>
                                     @endif
                                     <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-dark text-white btn-sm dropdown-toggle" type="button"
-                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
-                                                <i class="fa fa-navicon text-white" aria-hidden="true"></i>
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a href='{{ url("admin/reparação-equipamentos/show/{$item->id}") }}'
-                                                    class="dropdown-item">Detalhes</a>
-
-                                            </div>
-                                        </div>
+                                        <a href='{{ url("admin/reparação-equipamentos/show/{$item->id}") }}' type="button"
+                                            class="btn btn-icons btn-rounded btn-primary">
+                                            <i class="mdi mdi-eye"></i>
+                                        </a>
                                     </td>
                                 </tr>
 

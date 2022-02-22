@@ -29,7 +29,7 @@
                                 <th>FIM DE CONTRATO</th>
                                 <th>MODELO DE INCUBAÇÃO</th>
                                 <th>STATUS</th>
-                                <th class="text-left">ACÇÕES</th>
+                                <th>ACÇÕES</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,18 +50,11 @@
                                         </td>
                                     @endif
                                     <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-primary text-white btn-sm dropdown-toggle" type="button"
-                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
-                                                <i class="fa fa-navicon text-white" aria-hidden="true"></i>
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a href='{{ url("admin/startup/show/{$item->id}") }}'
-                                                    class="dropdown-item">Detalhes</a>
-
-                                            </div>
-                                        </div>
+                                        <a href='{{ url("admin/startup/show/{$item->id}") }}' type="button"
+                                            class="btn btn-icons btn-rounded btn-primary">
+                                            <i class="mdi mdi-eye"></i>
+                                        </a>
+                                        
                                     </td>
                                 </tr>
                             @endforeach
