@@ -40,7 +40,33 @@
                                     </p>
                                 </div>
 
-                             
+                                <div class="col-md-3">
+                                    <p class="text-dark">
+                                        <b>Telefone</b><br>
+                                        <small> {{ $startup->tel }}</small>
+                                    </p>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <p class="text-dark">
+                                        <b>Email</b><br>
+                                        <small> {{ $startup->email }}</small>
+                                    </p>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <p class="text-dark">
+                                        <b>Sala</b><br>
+                                        <small> {{ $startup->roomName }}</small>
+                                    </p>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <p class="text-dark">
+                                        <b>Site</b><br>
+                                        <small> {{ $startup->site }}</small>
+                                    </p>
+                                </div>
 
                                 <div class="col-md-3">
                                     <p class="text-dark">

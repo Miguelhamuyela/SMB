@@ -1,12 +1,11 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', ' Detalhes Reparação De Equipamentos')
+@section('titulo', ' Detalhes de Reparação de Equipamentos')
 
 @section('content')
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title">
-
-                Detalhes da Reparação de Equipamentos {{ $equipmentRepair->title }}
+                Detalhes de Reparação de Equipamentos - {{ $equipmentRepair->title }}
             </h2>
         </div>
     </div>
