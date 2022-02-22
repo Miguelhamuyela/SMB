@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cowork;
 use App\Models\CoworkMember;
 use Illuminate\Http\Request;
+use PDF;
 
 class CoworksMemberController extends Controller
 {
@@ -136,17 +137,11 @@ class CoworksMemberController extends Controller
         $data = CoworkMember::where('nif', $nif)->with('cowork')->first();
         $response['member'] = $data;
 
-        $mpdf = new \Mpdf\Mpdf([
-            'mode' => 'utf-8', 'margin_top' => 0,
-            'margin_left' => 5,
-            'margin_right' => 0, 'margin_bottom' => 0, 'format' => [54, 84]
-        ]);
-        $mpdf->SetFont("arial");
-        $mpdf->setHeader();
 
-        $html = view("pdf.qrcard.cowork.index", $response);
-        $mpdf->writeHTML($html);
-
-        $mpdf->Output('credencial de ' . $data->nif . ".pdf", "I");
+        $pdf = PDF::loadView('pdf/qrcard/cowork/index', $response);
+      
+        //$pdf = Pdf::loadview("pdf.qrcard.cowork.index", $response);
+        return $pdf->download('credencial de ' . $data->nif . ".pdf");
+  
     }
 }
