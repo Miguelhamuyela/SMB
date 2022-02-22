@@ -5,11 +5,10 @@
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title">
-                Detalhes de Funcionários - {{ $Employee->name }}
+                Detalhes de Funcionário - {{ $Employee->name }}
             </h2>
         </div>
     </div>
-
     <div class="card shadow mb-2">
         <div class="card-body">
 
@@ -65,9 +64,18 @@
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Fotografia </b><br>
-                                            <small> <img height="200" width="300"
-                                                    src="/storage/{{ $Employee->photoEmployee }}"></small>
+                                            <b>Foto </b><br>
+                                            <small>
+                                                @if (isset($Employee->photoEmployee))
+                                                    <img src="/storage/{{ $Employee->photoEmployee }}"
+                                                        class="mr-2 rounded-circle" alt="Cinque Terre" width="90"
+                                                        height="90">
+                                            </small>
+                                        @else
+                                            <img src="/dashboard/User-595b40b85ba036ed117da56f.svg"
+                                                class="mr-2 rounded-circle" alt="Cinque Terre" width="90" height="90">
+                                            @endif
+
                                         </p>
                                     </div>
                                 </div>

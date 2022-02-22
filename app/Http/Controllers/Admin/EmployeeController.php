@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Classes\Logger;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
+use App\Models\EquipmentRepair;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -45,7 +46,8 @@ class EmployeeController extends Controller
             'nif' => 'required|string|max:50',
             'departament' => 'required|string|max:50',
             'occupation' => 'required|string|max:50',
-            'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS', ]);
+            'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS',
+        ]);
 
 
         if ($middle = $request->file('photoEmployee')) {
@@ -53,14 +55,15 @@ class EmployeeController extends Controller
         } else {
             $file = null;
         }
-            $employee = Employee::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'tel' => $request->tel,
-                'photoEmployee' => $file,
-                'occupation' => $request->occupation,
-                'departament' => $request->departament,
-                'nif' => $request->nif ]);
+        $employee = Employee::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'tel' => $request->tel,
+            'photoEmployee' => $file,
+            'occupation' => $request->occupation,
+            'departament' => $request->departament,
+            'nif' => $request->nif
+        ]);
 
 
         //Logger
@@ -86,7 +89,6 @@ class EmployeeController extends Controller
         return view('admin.employees.edit.index', $response);
     }
 
-
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -96,14 +98,14 @@ class EmployeeController extends Controller
             'nif' => 'required|string|max:50',
             'departament' => 'required|string|max:50',
             'occupation' => 'required|string|max:50',
-           ]);
+        ]);
 
-           if ($middle = $request->file('photoEmployee')) {
+
+        if ($middle = $request->file('photoEmployee')) {
             $file = $middle->storeAs('photoEmployee', 'photoEmployee-' . uniqid(rand(1, 5)) . "." . $middle->extension());
         } else {
             $file =  Employee::find($id)->photoEmployee;;
         }
-
 
         $employee = Employee::find($id)->update([
             'name' => $request->name,
@@ -113,7 +115,6 @@ class EmployeeController extends Controller
             'occupation' => $request->occupation,
             'departament' => $request->departament,
             'nif' => $request->nif
-
         ]);
 
 
@@ -121,7 +122,6 @@ class EmployeeController extends Controller
         $this->Logger->log('info', 'Editou um Funcionário  com o identificador ' . $id);
         return redirect()->route('admin.employees.index')->with('edit', '1');
     }
-
     public function destroy($id)
     {
         //Logger
