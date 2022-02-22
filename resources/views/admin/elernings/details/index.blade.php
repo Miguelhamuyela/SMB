@@ -4,9 +4,11 @@
 @section('content')
     <div class="card mb-2">
         <div class="card-body">
-            <h2 class="h5 page-title">
-                Detalhes de E-learnings - {{ $elerning->course }}
-            </h2>
+            <h2 class="h5 page-title"><b>
+                <a href="{{ url('admin/elernings/list') }}">Listar E-learnings</a>
+                        >  Detalhes de E-learnings - {{ $elerning->course }}
+               
+            </b></h2>
         </div>
     </div>
 

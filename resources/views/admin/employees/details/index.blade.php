@@ -4,15 +4,17 @@
 @section('content')
     <div class="card mb-2">
         <div class="card-body">
-            <h2 class="h5 page-title">
-                Detalhes de Funcionário - {{ $Employee->name }}
-            </h2>
+            <h2 class="h5 page-title"><b>
+                    <a href="{{ url('admin/funcionários/list') }}">Listar Funcionários</a>
+                    > Detalhes de Funcionários - {{ $Employee->name }}
+
+                </b></h2>
         </div>
     </div>
     <div class="card shadow mb-2">
         <div class="card-body">
 
-            <div class="">
+            <div class="col-12">
                 <div class="row justify-content-center">
                     <div class="col-12">
 
@@ -73,7 +75,7 @@
                                             </small>
                                         @else
                                             <img src="/dashboard/User-595b40b85ba036ed117da56f.svg"
-                                                class="mr-2 rounded-circle" alt="Cinque Terre" width="90" height="90">
+                                                class="mr-2 rounded-circle img-fluid" alt="Cinque Terre" width="90" height="90">
                                             @endif
 
                                         </p>

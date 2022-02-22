@@ -4,9 +4,12 @@
 @section('content')
     <div class="card mb-2">
         <div class="card-body">
-            <h2 class="h5 page-title">
-                Detalhes da Fábrica de Software - {{ $manufacture->nameSoftware }}
-            </h2>
+            <h2 class="h5 page-title"><b>
+                <a href="{{ url('admin/manufactures/list') }}">Listar Fábrica de Softwares</a>
+                >  Detalhes da Fábrica de Software - {{ $manufacture->nameSoftware }}
+
+                
+            </b></h2>
         </div>
     </div>
 

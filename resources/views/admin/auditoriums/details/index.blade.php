@@ -4,9 +4,11 @@
 @section('content')
     <div class="card mb-2">
         <div class="card-body">
-            <h2 class="h5 page-title">
-                Detalhes do Auditório - {{ $auditorium->titleConference }}
-            </h2>
+            <h2 class="h5 page-title"><b>
+    
+                <a href="{{ url('admin/auditoriums/list') }}">Listar Auditório </a>
+                        > Detalhes do Auditório - {{ $auditorium->titleConference }}
+            </b></h2>
         </div>
     </div>
 
