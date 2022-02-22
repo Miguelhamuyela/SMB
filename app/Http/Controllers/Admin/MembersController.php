@@ -125,7 +125,7 @@ class MembersController extends Controller
     {
         $response['member'] = Member::where('nif', $nif)->with('startup')->first();
 
-        return view('pdf.credential.index', $response);
+        return view('pdf.credential.startup.index', $response);
     }
 
     public function print($nif)
@@ -142,7 +142,7 @@ class MembersController extends Controller
         $mpdf->SetFont("arial");
         $mpdf->setHeader();
 
-        $html = view("pdf/qrcard/index", $response);
+        $html = view("pdf.qrcard.startup.index", $response);
         $mpdf->writeHTML($html);
 
         $mpdf->Output('credencial de ' . $data->nif . ".pdf", "I");

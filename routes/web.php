@@ -68,6 +68,8 @@ Route::middleware(['auth'])->group(function () {
         /**End Cowork */
 
         /**Member Cowork*/
+        Route::get('admin/memberCowork/print/{id}', ['as' => 'admin.memberCowork.print', 'uses' => 'Admin\CoworksMemberController@print']);
+        Route::get('admin/memberCowork/qrcode/{id}', ['as' => 'admin.memberCowork.qrcode', 'uses' => 'Admin\CoworksMemberController@qrcode']);
         Route::get('admin/memberCowork/create/{id}', ['as' => 'admin.memberCowork.create', 'uses' => 'Admin\CoworksMemberController@create']);
         Route::post('admin/memberCowork/store/{id}', ['as' => 'admin.memberCowork.store', 'uses' => 'Admin\CoworksMemberController@store']);
         Route::get('admin/memberCowork/delete/{id}', ['as' => 'admin.memberCowork.delete', 'uses' => 'Admin\CoworksMemberController@destroy']);
@@ -144,6 +146,7 @@ Route::middleware(['auth'])->group(function () {
 
 /* QRCODE find */
 Route::get('membro/startup/{id}', ['as' => 'admin.member.qrfind', 'uses' => 'Admin\MembersController@qrfind']);
+Route::get('membro/cowork/{id}', ['as' => 'admin.member.cowork', 'uses' => 'Admin\CoworksMemberController@qrfind']);
 
 
 

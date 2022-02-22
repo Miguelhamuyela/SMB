@@ -20,4 +20,9 @@ class CoworkMember extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function cowork(){
+
+        return $this->belongsTo(Cowork::class, 'fk_coworks_id');
+    }
 }
