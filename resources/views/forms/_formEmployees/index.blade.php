@@ -5,8 +5,8 @@
         <div class="form-group">
             <label for="name">Nome do Funcionário <small class="text-danger">*</small></label>
             <input type="text" name="name" id="name"
-                value="{{ isset($employee->name) ? $employee->name : old('name') }}" class="form-control border rounded"
-                placeholder="Nome do Funcionário" required>
+                value="{{ isset($employee->name) ? $employee->name : old('name') }}"
+                class="form-control border rounded" placeholder="Nome do Funcionário" required>
         </div>
     </div>
 
@@ -18,8 +18,6 @@
                 class="form-control border rounded" placeholder="Nº de Telefone" required>
         </div>
     </div>
-
-
 
     <div class="col-md-6">
         <div class="form-group">
@@ -42,9 +40,8 @@
 
     <div class="col-md-4">
         <div class="form-group">
-            <label for="photoEmployee">Fotografia <small class="text-danger">*</small></label>
-            <input type="file" name="photoEmployee" id="photoEmployee"
-                class="form-control border rounded">
+            <label for="photoEmployee">Foto <small class="text-danger"></small></label>
+            <input type="file" name="photoEmployee" id="photoEmployee" class="form-control border rounded">
         </div>
     </div>
 
