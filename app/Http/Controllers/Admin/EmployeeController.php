@@ -143,7 +143,6 @@ class EmployeeController extends Controller
 
         $pdf = PDF::loadView('pdf.credential.employees.index', $response);
       
-        //$pdf = Pdf::loadview("pdf.qrcard.cowork.index", $response);
         return $pdf->download('credencial de ' . $data->nif . ".pdf");
     }
     
