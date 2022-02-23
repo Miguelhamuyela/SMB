@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', 'Lista de Funcionarios')
+@section('titulo', 'Lista de Funcionários ')
 
 @section('content')
     <div class="row">
@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-body row">
                     <div class="col-md-10">
-                        <h5><b>Lista de Funcionários</b></h5>
+                        <h5><b>Lista de Funcionários </b></h5>
                     </div>
                     <div class="col-md-2 text-center">
                         <a href="{{ route('admin.employees.create') }}" class="btn btn-primary">Cadastrar</a>
