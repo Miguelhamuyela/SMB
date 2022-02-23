@@ -80,7 +80,7 @@ class ManufacturesSoftwaresController extends Controller
             /***Payment Information */
             'type' => 'required|string|max:255',
             'value' =>  'required|numeric|min:2',
-            'reference'  => '|max:255',
+            'reference'  => '|max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255'
 
@@ -190,13 +190,13 @@ class ManufacturesSoftwaresController extends Controller
         ]);
 
 
-           
-        if($file = $request->file('file')){
+
+        if ($file = $request->file('file')) {
             $file = $file->store('manufacturesSoftwares');
-        }else{
+        } else {
             $file = ManufacturesSoftware::find($id)->file;
         }
-    
+
         ManufacturesSoftware::find($id)->update([
             'nameSoftware' => $request->nameSoftware,
             'category' => $request->category,

@@ -45,6 +45,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/funcionários/cartão/{id}', ['as' => 'admin.employees.card', 'uses' => 'Admin\EmployeeController@card']);
         /**End funcionários */
 
+
+         /**Statistic */
+
+         Route::get('admin/estatísticas-Geral/list', ['as' => 'admin.generalStatistics.index', 'uses' => 'Admin\GeneralStatisticController@index']);
+         Route::get('admin/estatísticas-por-seccao/list', ['as' => 'admin.statisticsSection.index', 'uses' => 'Admin\StatisticController@index']);
+         /**End Statistic */
+
         /**Payments*/
         Route::get('admin/pagamentos/list', ['as' => 'admin.payments.index', 'uses' => 'Admin\PaymentsController@index']);
         Route::get('admin/pagamentos/show/{id}', ['as' => 'admin.payments.show', 'uses' => 'Admin\PaymentsController@show']);

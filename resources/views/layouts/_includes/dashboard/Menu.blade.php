@@ -77,7 +77,6 @@
                 </li>
             @endif
 
-<<<<<<< HEAD
             @if ('Gestor' == Auth::user()->level || 'Administrador' == Auth::user()->level)
             {{-- elernings --}}
             <li class="nav-item">
@@ -90,80 +89,22 @@
             <li class="nav-item nav-category mt-2">Estatisticos de Pagamentos</li>
             {{-- startups --}}
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.startup.list.index') }}">
+                <a class="nav-link" href="{{ route('admin.generalStatistics.index') }}">
                     <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Fabrica de Software</span>
+                    <span class="menu-title">Estatística Geral</span>
+                </a>
+            </li>
+             {{-- startups --}}
+             <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.statisticsSection.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Estatística De Serviços </span>
                 </a>
             </li>
 
-            {{-- coworks --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.coworks.list.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Reparação de Equipamentos</span>
-                </a>
-            </li>
 
-            {{-- auditoriums --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">E-learning</span>
-                </a>
-            </li>
 
-             {{-- auditoriums --}}
-             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Startup</span>
-                </a>
-            </li>
-             {{-- auditoriums --}}
-             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Cowork</span>
-                </a>
-            </li>
-             {{-- auditoriums --}}
-             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Auditório</span>
-                </a>
-            </li>
-
-                {{-- auditoriums --}}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
-                        <i class="menu-icon typcn typcn-document-text"></i>
-                        <span class="menu-title">E-learning</span>
-                    </a>
-                </li>
-                    {{-- auditoriums --}}
-             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Auditório</span>
-                </a>
-            </li>
         @endif
-=======
-            @if ('Administrador' == Auth::user()->level || 'Finanças' == Auth::user()->level)
-                {{-- Payments --}}
-
-                <li class="nav-item nav-category mt-2">Pagamentos</li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.payments.index') }}">
-                        <i class="menu-icon typcn typcn-document-text"></i>
-                        <span class="menu-title">Pagamentos</span>
-                    </a>
-                </li>
-                {{-- End Payments --}}
-            @endif
-
->>>>>>> 53196356fd348c795a9cff813650128abad2036a
 
             @if ('Administrador' == Auth::user()->level)
                 {{-- employees --}}
@@ -171,7 +112,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.employees.index') }}">
                         <i class="menu-icon typcn typcn-document-text"></i>
-                        <span class="menu-title">Funcionáros</span>
+                        <span class="menu-title">Funcionários </span>
                     </a>
                 </li>
 

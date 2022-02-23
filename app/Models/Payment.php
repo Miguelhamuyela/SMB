@@ -21,6 +21,12 @@ class Payment extends Model
      */
     protected $dates = ['deleted_at'];
 
+
+    public function equipaments(){
+
+        return $this->hasMany(EquipmentRepair::class, 'fk_Payments_id');
+    }
+
 }
 
 

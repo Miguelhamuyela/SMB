@@ -12,7 +12,7 @@ use App\Models\Client;
 use App\Models\Elearning;
 
 class ElearningsController extends Controller
-{   
+{
 
     private $Logger;
 
@@ -67,7 +67,7 @@ class ElearningsController extends Controller
             /***Payment Information */
             'type' => 'required|string|max:255',
             'value' =>  'required|numeric|min:2',
-            'reference'  => 'max:255',
+            'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
 
@@ -162,7 +162,7 @@ class ElearningsController extends Controller
             /***Payment Information */
             'type' => 'required|string|max:255',
             'value' =>  'required|numeric|min:2',
-            'reference'  => 'max:255',
+            'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
 
