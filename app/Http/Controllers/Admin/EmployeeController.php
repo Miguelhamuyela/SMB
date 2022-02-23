@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use App\Models\EquipmentRepair;
 use Illuminate\Http\Request;
+use PDF;
 
 class EmployeeController extends Controller
 {
@@ -138,18 +139,11 @@ class EmployeeController extends Controller
         $this->Logger->log('info', 'Imprimiu um cartão de Funcionário com o identificador ' . $id);
         $response['Employee'] = $data;
 
-        $mpdf = new \Mpdf\Mpdf([
-            'mode' => 'utf-8', 'margin_top' => 0,
-            'margin_left' => 5,
-            'margin_right' => 0, 'margin_bottom' => 0, 'format' => [54, 84]
-        ]);
-        $mpdf->SetFont("arial");
-        $mpdf->setHeader();
+  
 
-        $html = view("pdf.credential.employees.index", $response);
-        $mpdf->writeHTML($html);
-
-        $mpdf->Output('cartão de ' . $data->nif . ".pdf", "I");
+        $pdf = PDF::loadView('pdf.credential.employees.index', $response);
+      
+        return $pdf->download('credencial de ' . $data->nif . ".pdf");
     }
     
 }

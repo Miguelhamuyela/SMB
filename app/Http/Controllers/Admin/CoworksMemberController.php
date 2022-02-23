@@ -140,7 +140,6 @@ class CoworksMemberController extends Controller
 
         $pdf = PDF::loadView('pdf/qrcard/cowork/index', $response);
       
-        //$pdf = Pdf::loadview("pdf.qrcard.cowork.index", $response);
         return $pdf->download('credencial de ' . $data->nif . ".pdf");
   
     }
