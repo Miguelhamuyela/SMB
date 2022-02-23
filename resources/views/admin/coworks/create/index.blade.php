@@ -20,7 +20,10 @@
                      </div>
                      @endif
                      
-                        <h4 class="card-title"><b>Coworks</b></h4>
+                        <h4 class="card-title"><b>
+                        <a href="{{ url('admin/cowork/list') }}">Listar Coworks</a>
+                        > Coworks
+                        </b></h4>
                         <hr>
                         @include('forms._formCoworks.index')
                     </div>

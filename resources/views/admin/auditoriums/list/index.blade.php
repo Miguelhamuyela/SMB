@@ -41,15 +41,27 @@
                                     <td>{{ $item->clientsInfo->nif }} </td>
                                     <td>{{ $item->clientsInfo->tel }} </td>
 
-                                    @if ($item->paymentsInfo->status == 'Pago')
-                                        <td> <button
-                                                class="btn btn-success btn-sm  rounded text-white btn-sm">{{ $item->paymentsInfo->status }}</button>
-                                        </td>
-                                    @else
-                                        <td> <button
-                                                class="btn btn-danger btn-sm  rounded text-white btn-sm">{{ $item->paymentsInfo->status }}</button>
-                                        </td>
-                                    @endif
+                                   @if ($item->payments->status == 'Pago')
+                                            <td>
+                                                <div class="btn btn-success btn-fw btn-rounded text-dark ">
+                                                    {{ $item->payments->status }}</div>
+                                            </td>
+                                        @elseif($item->payments->status == 'Não Pago')
+                                            <td>
+                                                <div class="btn btn-danger btn-fw btn-rounded text-white ">
+                                                    {{ $item->payments->status }}</div>
+                                            </td>
+                                        @elseif($item->payments->status == 'Em Validação')
+                                            <td>
+                                                <div class="btn btn-warning btn-fw btn-rounded text-dark ">
+                                                    {{ $item->payments->status }}</div>
+                                            </td>
+                                        @else
+                                            <td>
+                                                <div class="btn btn-dark btn-fw btn-rounded text-dark ">
+                                                    {{ $item->payments->status }}</div>
+                                            </td>
+                                        @endif
 
 
                                     <td>

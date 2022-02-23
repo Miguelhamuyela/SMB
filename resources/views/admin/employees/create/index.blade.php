@@ -10,7 +10,10 @@
                     @csrf
 
                     <div class="card-body bg-light">
-                        <h4 class="card-title"><b>Cadastrar Funcionários</b></h4>
+                        <h4 class="card-title"><b>
+                        <a href="{{ url('admin/funcionários/list') }}">Listar Funcionários</a>
+                    >  Funcionários 
+                        </b></h4>
                         <hr>
                         @if ($errors->any())
                         <div class="alert alert-danger">

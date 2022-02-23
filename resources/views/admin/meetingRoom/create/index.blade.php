@@ -1,12 +1,12 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', 'Fábrica de Softwares')
+@section('titulo', 'Salas de Reunião')
 
 @section('content')
     <div class="row">
 
         <div class="col-lg-12 grid-margin stretch-card ">
             <div class="card">
-                <form method="POST" enctype="multipart/form-data" action="{{ route('admin.manufactures.store') }}">
+                <form method="POST" enctype="multipart/form-data" action="{{ route('admin.meetingRoom.store') }}">
                     @csrf
                     <div class="card-body bg-light">
                         @if ($errors->any())
@@ -19,29 +19,17 @@
                             </div>
                         @endif
                         <h4 class="card-title"><b>
-                            <a href="{{ url('admin/manufactures/list') }}">Listar Fábrica de Softwares</a>
-                > Fábrica de Software 
+                            <a href="{{ url('admin/salas/list') }}">Listar Salas de Reunião</a>
+                > Salas de Reunião 
                         </b></h4>
                         <hr>
-                        @include('forms._formFabrica.index')
+                        @include('forms._formMeetingRoom.index')
                     </div>
 
                     <div class="card-body bg-light">
-                        <h4 class="card-title"><b>Cliente</b></h4>
+                        <h4 class="card-title"><b>Período de Agendamento</b></h4>
                         <hr>
-                        @include('forms._formClients.index')
-                    </div>
-
-                    <div class="card-body bg-light">
-                        <h4 class="card-title"><b>Período de Desenvolvimento</b></h4>
-                        <hr>
-                        @include('forms._formFabricaPeriodo.index')
-                    </div>
-
-                    <div class="card-body bg-light">
-                        <h4 class="card-title"><b>Pagamentos</b></h4>
-                        <hr>
-                        @include('forms._formPayments.index')
+                        @include('forms._formScheldulesMeet.index')
                     </div>
 
 

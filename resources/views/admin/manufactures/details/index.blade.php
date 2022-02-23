@@ -175,8 +175,27 @@
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Status</b><br>
-                                            <small> {{ $manufacture->payments->status }}</small>
+                                            <b>Estado do Pagamento</b> <br>
+                                        @if ($manufacture->payments->status == 'Pago')
+                                            <div class="btn btn-success btn-fw btn-rounded text-dark ">
+                                                {{ $manufacture->payments->status }}</div>
+
+                                        @elseif($manufacture->payments->status == 'Não Pago')
+
+                                            <div class="btn btn-danger btn-fw btn-rounded text-white ">
+                                                {{ $manufacture->payments->status }}</div>
+
+                                        @elseif($manufacture->payments->status == 'Em Validação')
+
+                                            <div class="btn btn-warning btn-fw btn-rounded text-dark ">
+                                                {{ $manufacture->payments->status }}</div>
+
+                                        @else
+
+                                            <div class="btn btn-dark btn-fw btn-rounded text-dark ">
+                                                {{ $manufacture->payments->status }}</div>
+                                        @endif
+
                                         </p>
                                     </div>
 

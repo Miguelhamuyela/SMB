@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MeetingRoom extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = "meetingRooms";
+    protected $table = "meeting_scheldules";
 
     protected $guarded = ['id'];
 
@@ -19,4 +19,8 @@ class MeetingRoom extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function scheldules(){
+        return $this->belongsTo(Scheldule::class, 'fk_Scheldules_id', 'id');
+    }
 }

@@ -18,7 +18,10 @@
                         </ul>
                     </div>
                 @endif
-                    <h4 class="card-title"><b>Startups</b></h4>
+                    <h4 class="card-title"><b>
+                    <a href="{{ url('admin/startup/list')}}">Listar Startups</a>
+                    > Startups
+                    </b></h4>
                     <hr>
                     @include('forms._formStartups.index')
                 </div>
