@@ -19,7 +19,10 @@
                     </div>
                 @endif
                 <div class="card-body bg-light">
-                    <h4 class="card-title"><b>Detalhes do Equipamento  </b></h4>
+                    <h4 class="card-title"><b>
+                        <a href="{{ url('admin/reparação-equipamentos/list') }}">Listar Reparação de Equipamentos</a>
+                > Reparação de Equipamentos
+                     </b></h4>
                     <hr>
                     @include('forms._formEquipmentRepairs.index')
                 </div>

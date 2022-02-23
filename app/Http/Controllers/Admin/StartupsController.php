@@ -39,7 +39,7 @@ class StartupsController extends Controller
      */
     public function create()
     {
-        
+
         $this->Logger->log('info', 'Criar Startups');
         return view('admin.startup.create.index');
         //
@@ -67,7 +67,7 @@ class StartupsController extends Controller
             /***Payment Information */
             'type' => 'required|string|max:255',
             'value' =>  'required|numeric|min:2',
-            'reference'  => 'max:255',
+            'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
 
@@ -77,12 +77,12 @@ class StartupsController extends Controller
 
         ]);
 
-      
-        
+
+
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
-      
-     
+
+
         $startup = Startup::create(
             [
                 'name' => $request->name,
@@ -100,7 +100,7 @@ class StartupsController extends Controller
 
         $this->Logger->log('info', 'Cadastrou Startups');
         return redirect()->route('admin.startup.show',$startup->id)->with('create', '1');
-   
+
     }
 
     /**
@@ -168,7 +168,7 @@ class StartupsController extends Controller
 
         Startup::find($id)->update($request->all());
         $startup = Startup::find($id);
-       
+
         Payment::find($startup->fk_Payments_id)->update($request->all());
         Scheldule::find($startup->fk_Scheldules_id)->update($request->all());
 

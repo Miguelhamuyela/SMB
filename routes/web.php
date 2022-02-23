@@ -34,7 +34,6 @@ Route::middleware(['auth'])->group(function () {
         /* end configuration */
 
         /**funcionários */
-
         Route::get('admin/funcionários/list', ['as' => 'admin.employees.index', 'uses' => 'Admin\EmployeeController@index']);
         Route::get('admin/funcionários/create', ['as' => 'admin.employees.create', 'uses' => 'Admin\EmployeeController@create']);
         Route::post('admin/funcionários/store', ['as' => 'admin.employees.store', 'uses' => 'Admin\EmployeeController@store']);
@@ -44,6 +43,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/funcionários/show/{id}', ['as' => 'admin.employees.show', 'uses' => 'Admin\EmployeeController@show']);
         Route::get('admin/funcionários/cartão/{id}', ['as' => 'admin.employees.card', 'uses' => 'Admin\EmployeeController@card']);
         /**End funcionários */
+
+
+         /**Statistic */
+
+         Route::get('admin/estatísticas-Geral/list', ['as' => 'admin.generalStatistics.index', 'uses' => 'Admin\GeneralStatisticController@index']);
+         Route::get('admin/estatísticas-por-seccao/list', ['as' => 'admin.statisticsSection.index', 'uses' => 'Admin\StatisticController@index']);
+         /**End Statistic */
 
         /**Payments*/
         Route::get('admin/pagamentos/list', ['as' => 'admin.payments.index', 'uses' => 'Admin\PaymentsController@index']);
@@ -120,6 +126,16 @@ Route::middleware(['auth'])->group(function () {
         Route::post('admin/member/store/{id}', ['as' => 'admin.member.store', 'uses' => 'Admin\MembersController@store']);
         Route::get('admin/member/delete/{id}', ['as' => 'admin.member.delete', 'uses' => 'Admin\MembersController@destroy']);
         /**End Member */
+
+        /**MeetingRoom Start */
+         Route::get('admin/salas/list', ['as' => 'admin.meetingRoom.list.index', 'uses' => 'Admin\MeetingRoomsController@index']);
+         Route::get('admin/salas/create', ['as' => 'admin.meetingRoom.create.index', 'uses' => 'Admin\MeetingRoomsController@create']);
+         Route::post('admin/salas/store', ['as' => 'admin.meetingRoom.store', 'uses' => 'Admin\MeetingRoomsController@store']);
+         Route::get('admin/salas/edit/{id}', ['as' => 'admin.meetingRoom.edit.index', 'uses' => 'Admin\MeetingRoomsController@edit']);
+         Route::put('admin/salas/update/{id}', ['as' => 'admin.meetingRoom.update', 'uses' => 'Admin\MeetingRoomsController@update']);
+         Route::get('admin/salas/delete/{id}', ['as' => 'admin.meetingRoom.delete', 'uses' => 'Admin\MeetingRoomsController@destroy']);
+         Route::get('admin/salas/show/{id}', ['as' => 'admin.meetingRoom.show', 'uses' => 'Admin\MeetingRoomsController@show']);
+        /**MeetingRoom End */
     });
 
     Route::middleware(['RepEqui'])->group(function () {

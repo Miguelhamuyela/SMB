@@ -20,7 +20,9 @@
                      </div>
                      @endif
 
-                        <h4 class="card-title"><b>Auditório</b></h4>
+                        <h4 class="card-title"><b>
+                        <a href="{{ url('admin/auditoriums/list') }}">Listar Auditório </a>
+                        > Auditório</b></h4>
                         <hr>
                         @include('forms._formAuditoriums.index')
                     </div>

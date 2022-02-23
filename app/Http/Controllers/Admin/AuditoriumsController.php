@@ -65,20 +65,20 @@ class AuditoriumsController extends Controller
             'address' => 'required|string|max:50',
             'clienttype' => 'required|string|max:50',
 
-             /**Scheldules Information */
-             'started' => 'required|string|max:255',
-             'end' => 'required|string|max:255',
-            
+            /**Scheldules Information */
+            'started' => 'required|string|max:255',
+            'end' => 'required|string|max:255',
+
 
             /***Payment Information */
             'type' => 'required|string|max:255',
             'value' =>  'required|numeric|min:2',
-            'reference'  => 'max:255',
+            'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
 
             /**Auditoriums Information */
-            'titleConference'=> 'required|string|max:200'
+            'titleConference' => 'required|string|max:200'
 
 
         ]);
@@ -87,18 +87,18 @@ class AuditoriumsController extends Controller
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
 
-        $auditorium = Auditorium::create([
-            'titleConference' => $request->titleConference,
-            'fk_Payments_id' => $payment->id,
-            'fk_Scheldules_id' => $schedule->id,
-            'fk_Clients_id' => $client->id
-        ]
+        $auditorium = Auditorium::create(
+            [
+                'titleConference' => $request->titleConference,
+                'fk_Payments_id' => $payment->id,
+                'fk_Scheldules_id' => $schedule->id,
+                'fk_Clients_id' => $client->id
+            ]
         );
 
 
         $this->Logger->log('info', 'Criou Auditório');
-        return redirect()->route('admin.auditoriums.show',$auditorium->id)->with('create', '1');
-
+        return redirect()->route('admin.auditoriums.show', $auditorium->id)->with('create', '1');
     }
 
     /**
@@ -110,7 +110,7 @@ class AuditoriumsController extends Controller
     public function show($id)
     {
         //
-        $response['auditorium'] = Auditorium::with('payments', 'scheldules','clients')->find($id);
+        $response['auditorium'] = Auditorium::with('payments', 'scheldules', 'clients')->find($id);
         $this->Logger->log('info', 'Detalhes de Auditório');
         return view('admin.auditoriums.details.index', $response);
     }
@@ -131,7 +131,7 @@ class AuditoriumsController extends Controller
         $response['scheldule'] =  Helper::scheldule($middle->fk_Scheldules_id);
         $response['payment'] =  Helper::payment($middle->fk_Payments_id);
         $response['client'] =  Helper::client($middle->fk_Clients_id);
-        
+
         $this->Logger->log('info', 'Editou Auditório');
         return view('admin.auditoriums.edit.index', $response);
     }
@@ -156,10 +156,10 @@ class AuditoriumsController extends Controller
             'address' => 'required|string|max:50',
             'clienttype' => 'required|string|max:50',
 
-             /**Scheldules Information */
-             'started' => 'required|string|max:255',
-             'end' => 'required|string|max:255',
-            
+            /**Scheldules Information */
+            'started' => 'required|string|max:255',
+            'end' => 'required|string|max:255',
+
 
             /***Payment Information */
             'type' => 'required|string|max:255',
@@ -169,22 +169,20 @@ class AuditoriumsController extends Controller
             'status' => 'required|string|max:255',
 
             /**Auditoriums Information */
-            'titleConference'=> 'required|string|max:200'
+            'titleConference' => 'required|string|max:200'
 
 
         ]);
 
-       Auditorium::find($id)->update($request->all());
-       $cowork =Auditorium::find($id);
+        Auditorium::find($id)->update($request->all());
+        $cowork = Auditorium::find($id);
 
         Client::find($cowork->fk_Clients_id)->update($request->all());
         Scheldule::find($cowork->fk_Scheldules_id)->update($request->all());
         Payment::find($cowork->fk_Payments_id)->update($request->all());
-        
+
         $this->Logger->log('info', 'Actualizou Auditório');
         return redirect()->route('admin.auditoriums.list.index')->with('edit', '1');
-
-
     }
 
     /**

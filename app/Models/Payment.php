@@ -21,6 +21,17 @@ class Payment extends Model
      */
     protected $dates = ['deleted_at'];
 
+
+    public function equipaments(){
+
+        return $this->belongsTo(EquipmentRepair::class, 'fk_Payments_id');
+    }
+
+    public function startups(){
+
+        return $this->belongsTo(Startup::class, 'fk_Payments_id');
+    }
+
 }
 
 
