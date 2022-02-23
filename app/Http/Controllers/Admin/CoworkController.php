@@ -83,7 +83,9 @@ class CoworkController extends Controller
         ]);
 
         $client = Client::create($request->all());
+
         $payment = Payment::create($request->all());
+
         $schedule = Scheldule::create($request->all());
 
         $cowork = Cowork::create([

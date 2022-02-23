@@ -17,6 +17,8 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->string('type');
             $table->double('value');
+            $table->string('origin');
+            
             $table->string('reference')->nullable();
             $table->string('currency', 10);
             $table->enum('status', ['Pago', 'Não Pago', 'Em Validação', 'Negado']);
