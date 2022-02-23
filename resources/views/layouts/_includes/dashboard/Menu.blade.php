@@ -75,6 +75,14 @@
                         <span class="menu-title">Auditório</span>
                     </a>
                 </li>
+
+                {{-- meetingRoom --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.meetingRoom.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Salas de Reuniões</span>
+                    </a>
+                </li>
             @endif
 
             @if ('Administrador' == Auth::user()->level || 'Finanças' == Auth::user()->level)

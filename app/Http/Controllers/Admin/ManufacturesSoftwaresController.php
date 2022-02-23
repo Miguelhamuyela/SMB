@@ -210,7 +210,7 @@ class ManufacturesSoftwaresController extends Controller
         Scheldule::find($manufacture->fk_Scheldules_id)->update($request->all());
         Payment::find($manufacture->fk_Payments_id)->update($request->all());
 
-        $this->Logger->log('info', 'Cadastrar Fábrica de Softwares');
+        $this->Logger->log('info', 'Actualizou Fábrica de Softwares');
         return redirect()->route('admin.manufactures.list.index')->with('edit', '1');
     }
 

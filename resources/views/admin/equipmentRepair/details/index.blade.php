@@ -192,14 +192,33 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Moeda</b><br>
-                                            <small> {{ $equipmentRepair->payments->currency }}</small>
+                                            <small> {{ $equipmentRepair->payments->status }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Status</b><br>
-                                            <small> {{ $equipmentRepair->payments->status }}</small>
+
+                                            <b>Estado do Pagamento</b> <br>
+                                        @if ($equipmentRepair->payments->status == 'Pago')
+                                            <div class="btn btn-success btn-fw btn-rounded text-dark ">
+                                                {{ $equipmentRepair->payments->status }}</div>
+
+                                        @elseif($equipmentRepair->payments->status == 'Não Pago')
+
+                                            <div class="btn btn-danger btn-fw btn-rounded text-white ">
+                                                {{ $equipmentRepair->payments->status }}</div>
+
+                                        @elseif($equipmentRepair->payments->status == 'Em Validação')
+
+                                            <div class="btn btn-warning btn-fw btn-rounded text-dark ">
+                                                {{ $equipmentRepair->payments->status }}</div>
+
+                                        @else
+
+                                            <div class="btn btn-dark btn-fw btn-rounded text-dark ">
+                                                {{ $equipmentRepair->payments->status }}</div>
+                                        @endif
                                         </p>
                                     </div>
 
