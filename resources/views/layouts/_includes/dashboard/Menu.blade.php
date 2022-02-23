@@ -76,6 +76,79 @@
                     </a>
                 </li>
             @endif
+
+            @if ('Gestor' == Auth::user()->level || 'Administrador' == Auth::user()->level)
+            {{-- elernings --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.elernings.list.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">E-learning</span>
+                </a>
+            </li>
+
+            <li class="nav-item nav-category mt-2">Estatisticos de Pagamentos</li>
+            {{-- startups --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.startup.list.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Fabrica de Software</span>
+                </a>
+            </li>
+
+            {{-- coworks --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.coworks.list.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Reparação de Equipamentos</span>
+                </a>
+            </li>
+
+            {{-- auditoriums --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">E-learning</span>
+                </a>
+            </li>
+
+             {{-- auditoriums --}}
+             <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Startup</span>
+                </a>
+            </li>
+             {{-- auditoriums --}}
+             <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Cowork</span>
+                </a>
+            </li>
+             {{-- auditoriums --}}
+             <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Auditório</span>
+                </a>
+            </li>
+
+                {{-- auditoriums --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">E-learning</span>
+                    </a>
+                </li>
+                    {{-- auditoriums --}}
+             <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.auditoriums.list.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Auditório</span>
+                </a>
+            </li>
+        @endif
+
             @if ('Administrador' == Auth::user()->level)
                 {{-- employees --}}
                 <li class="nav-item nav-category mt-2">Funcionários do DIGITAL.AO</li>
@@ -99,3 +172,4 @@
         </ul>
     </nav>
 @endif
+
