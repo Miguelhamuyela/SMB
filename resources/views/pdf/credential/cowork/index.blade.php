@@ -28,7 +28,7 @@
 
                     <div class="col-lg-12 ">
 
-                        <p class="text-right">
+                        <p>
                             <b>COWORK</b><br>
                             <b>ACTIVIDADES REALIZADAS: </b>{{ $member->cowork->activities }} <br>
                             <b>ÁREA DE ACTUAÇÃO DA EMPRESA: </b>{{ $member->cowork->title }}

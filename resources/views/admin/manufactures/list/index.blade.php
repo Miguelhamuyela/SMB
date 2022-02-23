@@ -15,13 +15,13 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
 
-                  <table id="dataTable-1" class="table table-striped table-bordered mb-3">
-                      <thead class="bg-primary thead-dark">
+                    <table id="dataTable-1" class="table table-striped table-bordered mb-3">
+                        <thead class="bg-primary thead-dark">
                             <tr class="text-center">
                                 <th>#</th>
                                 <th>NOME DO SOFTWARE</th>
@@ -48,18 +48,11 @@
                                         </td>
                                     @endif
                                     <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-primary text-white btn-sm dropdown-toggle" type="button"
-                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
-                                                <i class="fa fa-navicon text-white" aria-hidden="true"></i>
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a href='{{ url("admin/manufactures/show/{$item->id}") }}'
-                                                    class="dropdown-item">Detalhes</a>
+                                        <a href='{{ url("admin/manufactures/show/{$item->id}") }}' type="button"
+                                            class="btn btn-icons btn-rounded btn-primary">
+                                            <i class="mdi mdi-eye"></i>
+                                        </a>
 
-                                            </div>
-                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

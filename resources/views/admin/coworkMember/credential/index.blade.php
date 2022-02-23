@@ -9,7 +9,7 @@
                 <h5>
                     <b><a href="{{ url('admin/cowork/show/' . $member->cowork->id) }}">Detalhes do Cowork </a>
                         > Membro do Cowork -
-                        {{ $member->cowork->name }}
+                        {{ $member->cowork->title }}
                     </b>
                 </h5>
             </div>
@@ -40,7 +40,7 @@
 
                         <div class="col-lg-4 pr-0">
                             <H5 class="mt-5 mb-2 text-right">
-                                <b>-</b>
+                                <b>COWORK</b>
                             </H5>
                             <p class="text-right">
                                 <b>ACTIVIDADES REALIZADAS: </b>{{ $member->cowork->activities }}, <br>

@@ -20,14 +20,14 @@
             <div class="card">
                 <div class="card-body">
 
-                  <table id="dataTable-1" class="table table-striped table-bordered mb-3">
-                         <thead class="bg-primary thead-dark">
+                    <table id="dataTable-1" class="table table-striped table-bordered mb-3">
+                        <thead class="bg-primary thead-dark">
                             <tr class="text-center ">
                                 <th>#</th>
                                 <th>NOME</th>
                                 <th>DEPARTAMENTO</th>
                                 <th>TELEFONE</th>
-                                <th class="text-left">ACÇÕES</th>
+                                <th>ACÇÕES</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,6 +50,8 @@
 
                                                 <a href='{{ url("admin/funcionários/show/{$item->id}") }}'
                                                     class="dropdown-item">Detalhes</a>
+                                                <a href='{{ url("admin/funcionários/cartão/{$item->id}") }}'
+                                                    class="dropdown-item mt-2" target="_blank">Cartão</a>
 
                                             </div>
                                         </div>

@@ -77,6 +77,7 @@
                 </li>
             @endif
 
+<<<<<<< HEAD
             @if ('Gestor' == Auth::user()->level || 'Administrador' == Auth::user()->level)
             {{-- elernings --}}
             <li class="nav-item">
@@ -148,6 +149,21 @@
                 </a>
             </li>
         @endif
+=======
+            @if ('Administrador' == Auth::user()->level || 'Finanças' == Auth::user()->level)
+                {{-- Payments --}}
+
+                <li class="nav-item nav-category mt-2">Pagamentos</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.payments.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Pagamentos</span>
+                    </a>
+                </li>
+                {{-- End Payments --}}
+            @endif
+
+>>>>>>> 53196356fd348c795a9cff813650128abad2036a
 
             @if ('Administrador' == Auth::user()->level)
                 {{-- employees --}}

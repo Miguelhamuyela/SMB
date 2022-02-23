@@ -20,7 +20,7 @@ class EmployeeController extends Controller
     {
         $response['employees'] =  Employee::get();
         //Logger
-        $this->Logger->log('info', 'Listou de Funcionários');
+        $this->Logger->log('info', 'Listou os Funcionários');
         return view('admin.employees.list.index', $response);
     }
 
@@ -32,7 +32,7 @@ class EmployeeController extends Controller
     public function create()
     {
         //Logger
-        $this->Logger->log('info', 'Entrou em  Criar Funcionários');
+        $this->Logger->log('info', 'Entrou em Cadastrar Funcionário');
         return view('admin.employees.create.index');
     }
 
@@ -74,7 +74,7 @@ class EmployeeController extends Controller
     public function show($id)
     {
         $response['Employee'] = Employee::find($id);
-        //Logger
+
         //Logger
         $this->Logger->log('info', 'Visualizou um Funcionário com o identificador ' . $id);
         return view('admin.employees.details.index', $response);
@@ -119,7 +119,7 @@ class EmployeeController extends Controller
 
 
         //Logger
-        $this->Logger->log('info', 'Editou um Funcionário  com o identificador ' . $id);
+        $this->Logger->log('info', 'Editou um Funcionário com o identificador ' . $id);
         return redirect()->route('admin.employees.index')->with('edit', '1');
     }
     public function destroy($id)
@@ -129,4 +129,27 @@ class EmployeeController extends Controller
         Employee::find($id)->delete();
         return  redirect()->route('admin.employees.index')->with('destroy', '1');
     }
+
+    public function card($id)
+    {
+        $data = Employee::find($id);
+
+        //Logger
+        $this->Logger->log('info', 'Imprimiu um cartão de Funcionário com o identificador ' . $id);
+        $response['Employee'] = $data;
+
+        $mpdf = new \Mpdf\Mpdf([
+            'mode' => 'utf-8', 'margin_top' => 0,
+            'margin_left' => 5,
+            'margin_right' => 0, 'margin_bottom' => 0, 'format' => [54, 84]
+        ]);
+        $mpdf->SetFont("arial");
+        $mpdf->setHeader();
+
+        $html = view("pdf.credential.employees.index", $response);
+        $mpdf->writeHTML($html);
+
+        $mpdf->Output('cartão de ' . $data->nif . ".pdf", "I");
+    }
+    
 }

@@ -27,8 +27,7 @@
                     <hr>
 
                     <div class="col-lg-12 ">
-
-                        <p class="text-right">
+                        <p>
                             <b>STARTUP: </b>{{ $member->startup->name }}<br>
                             <b>MODELO DE INCUBAÇÃO: </b>{{ $member->startup->incubatorModel }} <br>
                             <b>NIF: </b>{{ $member->startup->nif }}

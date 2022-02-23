@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-pt">
-
+ 
 <head>
-    <meta charset="UTF-8">
-
     <title>Credencial de Membro do Cowork</title>
     <style>
 
@@ -13,9 +11,7 @@
 <body>
 
     <h3>DIGITAL.AO</h3>
-    <section>
-        {{ QrCode::size(150)->generate(url('membro/cowork/' . $member->nif)) }}
-    </section>
+    {{ QrCode::size(100)->generate(url('membro/cowork/' . $member->nif)) }}
 
 </body>
 
