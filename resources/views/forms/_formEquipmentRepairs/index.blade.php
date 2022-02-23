@@ -13,7 +13,7 @@
             <label for="model">Modelo <small class="text-danger">*</small></label>
             <input type="text" name="model" id="model"
                 value="{{ isset($equipmentRepair->model) ? $equipmentRepair->model : old('model') }}"
-                class="form-control border rounded" placeholder="Nº de Identificação Fiscal" required>
+                class="form-control border rounded" placeholder="Modelo" required>
         </div>
     </div>
 

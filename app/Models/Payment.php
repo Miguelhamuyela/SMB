@@ -24,7 +24,12 @@ class Payment extends Model
 
     public function equipaments(){
 
-        return $this->hasMany(EquipmentRepair::class, 'fk_Payments_id');
+        return $this->belongsTo(EquipmentRepair::class, 'fk_Payments_id');
+    }
+
+    public function startups(){
+
+        return $this->belongsTo(Startup::class, 'fk_Payments_id');
     }
 
 }

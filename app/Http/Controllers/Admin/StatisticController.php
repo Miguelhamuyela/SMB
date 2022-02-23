@@ -16,35 +16,58 @@ class StatisticController extends Controller
      */
     public function index()
     {
-$response['totalPayments']=0;
+        $response['totalEquipament'] = Payment::with('equipaments')->where('status', '=', 'Pago')->sum('value');
+        $janEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', 01)->where('status', '=', 'Pago')->sum('value');
+        $response['janEquipament'] = json_encode($janEquipament);
+        $fevEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', 02)->where('status', '=', 'Pago')->sum('value');
+        $response['fevEquipament'] = json_encode($fevEquipament);
+        $marEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', 03)->where('status', '=', 'Pago')->sum('value');
+        $response['marEquipament'] = json_encode($marEquipament);
+        $abrEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', 04)->where('status', '=', 'Pago')->sum('value');
+        $response['abrEquipament'] = json_encode($abrEquipament);
+        $maioEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', 05)->where('status', '=', 'Pago')->sum('value');
+        $response['maioEquipament'] = json_encode($maioEquipament);
+        $junEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', 06)->where('status', '=', 'Pago')->count();
+        $response['junEquipament'] = json_encode($junEquipament);
+        $julEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', 07)->sum('value');
+        $response['julEquipament'] = json_encode($julEquipament);
+        $agoEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', '08')->where('status', '=', 'Pago')->sum('value');
+        $response['agoEquipament'] = json_encode($agoEquipament);
+        $setEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', '09')->where('status', '=', 'Pago')->sum('value');
+        $response['setEquipament'] = json_encode($setEquipament);
+        $outEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', '10')->where('status', '=', 'Pago')->sum('value');
+        $response['outEquipament'] = json_encode($outEquipament);
+        $novEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', 11)->where('status', '=', 'Pago')->sum('value');
+        $response['novEquipament'] = json_encode($novEquipament);
+        $dezEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', 12)->where('status', '=', 'Pago')->sum('value');
+        $response['dezEquipament'] = json_encode($dezEquipament);
+        /* fim do reparacao Equipamentos/*/
 
-        $jan = Payment::with('equipaments')->whereMonth('created_at', '=', 01)->where('status', '=', 'Pago')->sum('value');
-        $response['jan'] = json_encode($jan);
-
-        $fev = Payment::with('equipaments')->whereMonth('created_at', '=', 02)->where('status', '=', 'Pago')->sum('value');
-        $response['fev'] = json_encode($fev);
-        $mar = Payment::with('equipaments')->whereMonth('created_at', '=', 03)->where('status', '=', 'Pago')->sum('value');
-        $response['mar'] = json_encode($mar);
-        $abr = Payment::with('equipaments')->whereMonth('created_at', '=', 04)->where('status', '=', 'Pago')->sum('value');
-        $response['abr'] = json_encode($abr);
-        $maio = Payment::with('equipaments')->whereMonth('created_at', '=', 05)->where('status', '=', 'Pago')->sum('value');
-        $response['maio'] = json_encode($maio);
-        $jun = Payment::with('equipaments')->whereMonth('created_at', '=', 06)->where('status', '=', 'Pago')->count();
-        $response['jun'] = json_encode($jun);
-        $jul = Payment::with('equipaments')->whereMonth('created_at', '=', 07)->sum('value');
-        $response['jul'] = json_encode($jul);
-        $ago = Payment::with('equipaments')->whereMonth('created_at', '=', '08')->where('status', '=', 'Pago')->sum('value');
-        $response['ago'] = json_encode($ago);
-
-
-        $set = Payment::with('equipaments')->whereMonth('created_at', '=', '09')->where('status', '=', 'Pago')->sum('value');
-        $response['set'] = json_encode($set);
-        $out = Payment::with('equipaments')->whereMonth('created_at', '=', '10')->where('status', '=', 'Pago')->sum('value');
-        $response['out'] = json_encode($out);
-        $nov = Payment::with('equipaments')->whereMonth('created_at', '=', 11)->where('status', '=', 'Pago')->sum('value');
-        $response['nov'] = json_encode($nov);
-        $dez = Payment::with('equipaments')->whereMonth('created_at', '=', 12)->where('status', '=', 'Pago')->sum('value');
-        $response['dez'] = json_encode($dez);
+        $janStartups = Payment::with('startups')->whereMonth('created_at', '=', 01)->where('status', '=', 'Pago')->sum('value');
+        $response['janStartups'] = json_encode($janStartups);
+        $fevStartups = Payment::with('startups')->whereMonth('created_at', '=', 02)->where('status', '=', 'Pago')->sum('value');
+        $response['fevStartups'] = json_encode($fevStartups);
+        $marStartups = Payment::with('startups')->whereMonth('created_at', '=', 03)->where('status', '=', 'Pago')->sum('value');
+        $response['marStartups'] = json_encode($marStartups);
+        $abrStartups = Payment::with('startups')->whereMonth('created_at', '=', 04)->where('status', '=', 'Pago')->sum('value');
+        $response['abrStartups'] = json_encode($abrStartups);
+        $maioStartups = Payment::with('startups')->whereMonth('created_at', '=', 05)->where('status', '=', 'Pago')->sum('value');
+        $response['maioStartups'] = json_encode($maioStartups);
+        $junStartups = Payment::with('startups')->whereMonth('created_at', '=', 06)->where('status', '=', 'Pago')->count();
+        $response['junStartups'] = json_encode($junStartups);
+        $julStartups = Payment::with('startups')->whereMonth('created_at', '=', 07)->sum('value');
+        $response['julStartups'] = json_encode($julStartups);
+        $agoStartups = Payment::with('startups')->whereMonth('created_at', '=', '08')->where('status', '=', 'Pago')->sum('value');
+        $response['agoStartups'] = json_encode($agoStartups);
+        $setStartups = Payment::with('startups')->whereMonth('created_at', '=', '09')->where('status', '=', 'Pago')->sum('value');
+        $response['setStartups'] = json_encode($setStartups);
+        $outStartups = Payment::with('startups')->whereMonth('created_at', '=', '10')->where('status', '=', 'Pago')->sum('value');
+        $response['outStartups'] = json_encode($outStartups);
+        $novStartups = Payment::with('startups')->whereMonth('created_at', '=', 11)->where('status', '=', 'Pago')->sum('value');
+        $response['novStartups'] = json_encode($novStartups);
+        $dezStartups = Payment::with('startups')->whereMonth('created_at', '=', 12)->where('status', '=', 'Pago')->sum('value');
+        $response['dezStartups'] = json_encode($dezStartups);
+        $response['totalStartups']  =Payment::with('startups')->where('status', '=', 'Pago')->sum('value');;
         return view('admin.Statistics.statisticsSection.index', $response);
     }
 
