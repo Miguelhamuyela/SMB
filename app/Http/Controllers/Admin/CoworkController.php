@@ -42,7 +42,7 @@ class CoworkController extends Controller
     {
         $this->Logger->log('info', 'Criar Coworks');
         return view('admin.coworks.create.index');
-        
+
         //
     }
 
@@ -66,12 +66,12 @@ class CoworkController extends Controller
              /**Scheldules Information */
              'started' => 'required|string|max:255',
              'end' => 'required|string|max:255',
-            
+
 
             /***Payment Information */
             'type' => 'required|string|max:255',
             'value' =>  'required|numeric|min:2',
-            'reference'  => 'max:255',
+            'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
 
@@ -96,7 +96,7 @@ class CoworkController extends Controller
         );
         $this->Logger->log('info', 'Cadastrou Coworks');
         return redirect("admin/cowork/show/$cowork->id")->with('create', '1');
-        
+
     }
 
     /**
@@ -129,7 +129,7 @@ class CoworkController extends Controller
         $response['scheldule'] =  Helper::scheldule($middle->fk_Scheldules_id);
         $response['payment'] =  Helper::payment($middle->fk_Payments_id);
         $response['client'] =  Helper::client($middle->fk_Clients_id);
-        
+
         $this->Logger->log('info', 'Editar Coworks');
         return view('admin.coworks.edit.index', $response);
     }
@@ -154,19 +154,19 @@ class CoworkController extends Controller
              'address' => 'required|string|max:50',
              'clienttype' => 'required|string|max:50',
 
- 
+
               /**Scheldules Information */
               'started' => 'required|string|max:255',
               'end' => 'required|string|max:255',
-             
- 
+
+
              /***Payment Information */
              'type' => 'required|string|max:255',
              'value' =>  'required|numeric|min:2',
              'reference'  => 'max:255',
              'currency' => 'required|string|max:255',
              'status' => 'required|string|max:255',
- 
+
              /**Cowork Information */
              'title'=> 'required|string|max:300',
              'activities'=> 'required|string|max:50'
@@ -179,7 +179,7 @@ class CoworkController extends Controller
         Client::find($cowork->fk_Clients_id)->update($request->all());
         Scheldule::find($cowork->fk_Scheldules_id)->update($request->all());
         Payment::find($cowork->fk_Payments_id)->update($request->all());
-        
+
         $this->Logger->log('info', 'Actualizar Coworks');
         return redirect()->route('admin.coworks.list.index')->with('edit', '1');
     }

@@ -77,19 +77,34 @@
                 </li>
             @endif
 
-            @if ('Administrador' == Auth::user()->level || 'Finanças' == Auth::user()->level)
-                {{-- Payments --}}
+            @if ('Gestor' == Auth::user()->level || 'Administrador' == Auth::user()->level)
+            {{-- elernings --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.elernings.list.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">E-learning</span>
+                </a>
+            </li>
 
-                <li class="nav-item nav-category mt-2">Pagamentos</li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.payments.index') }}">
-                        <i class="menu-icon typcn typcn-document-text"></i>
-                        <span class="menu-title">Pagamentos</span>
-                    </a>
-                </li>
-                {{-- End Payments --}}
-            @endif
+            <li class="nav-item nav-category mt-2">Estatisticos de Pagamentos</li>
+            {{-- startups --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.generalStatistics.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Estatística Geral</span>
+                </a>
+            </li>
+             {{-- startups --}}
+             <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.statisticsSection.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Estatística De Serviços </span>
+                </a>
+            </li>
 
+
+
+        @endif
 
             @if ('Administrador' == Auth::user()->level)
                 {{-- employees --}}
@@ -97,7 +112,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.employees.index') }}">
                         <i class="menu-icon typcn typcn-document-text"></i>
-                        <span class="menu-title">Funcionáros</span>
+                        <span class="menu-title">Funcionários </span>
                     </a>
                 </li>
 
@@ -114,3 +129,4 @@
         </ul>
     </nav>
 @endif
+
