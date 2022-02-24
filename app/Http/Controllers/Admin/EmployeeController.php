@@ -45,8 +45,8 @@ class EmployeeController extends Controller
             'email' => 'required|string|max:50',
             'tel' => 'max:12',
             'nif' => 'required|string|max:50',
-            'departament' => 'required|string|max:50',
-            'occupation' => 'required|string|max:50',
+            'departament' => 'required|string|max:255',
+            'occupation' => 'required|string|max:100',
             'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS',
         ]);
 
@@ -97,7 +97,7 @@ class EmployeeController extends Controller
             'email' => 'required|string|max:50',
             'tel' => 'max:12',
             'nif' => 'required|string|max:50',
-            'departament' => 'required|string|max:50',
+            'departament' => 'required|string|max:255',
             'occupation' => 'required|string|max:50',
         ]);
 
@@ -139,11 +139,11 @@ class EmployeeController extends Controller
         $this->Logger->log('info', 'Imprimiu um cartão de Funcionário com o identificador ' . $id);
         $response['Employee'] = $data;
 
-  
+
 
         $pdf = PDF::loadView('pdf.credential.employees.index', $response);
-      
+
         return $pdf->download('credencial de ' . $data->nif . ".pdf");
     }
-    
+
 }
