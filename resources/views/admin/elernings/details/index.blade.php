@@ -98,70 +98,8 @@
                             </div>
 
 
-                            <div class="col-12 mt-2">
-                                <h5 class=""><b>Informações de Pagamento </b> </h5>
-                                <hr>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Tipo de Pagamento</b><br>
-                                            <small> {{ $elerning->payments->type }}</small>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Valores a Pagar</b><br>
-                                            <small> {{ $elerning->payments->value }}</small>
-                                        </p>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Referência </b><br>
-                                            <small> {{ $elerning->payments->reference }}</small>
-                                        </p>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Moeda</b><br>
-                                            <small> {{ $elerning->payments->currency }}</small>
-                                        </p>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Estado do Pagamento</b> <br>
-
-                                        @if ($elerning->payments->status == 'Pago')
-                                            <div class="btn btn-success btn-fw btn-rounded text-dark ">
-                                                {{ $elerning->payments->status }}</div>
-
-                                        @elseif($elerning->payments->status == 'Não Pago')
-
-                                            <div class="btn btn-danger btn-fw btn-rounded text-white ">
-                                                {{ $elerning->payments->status }}</div>
-
-                                        @elseif($elerning->payments->status == 'Em Validação')
-
-                                            <div class="btn btn-warning btn-fw btn-rounded text-dark ">
-                                                {{ $elerning->payments->status }}</div>
-
-                                        @else
-
-                                            <div class="btn btn-dark btn-fw btn-rounded text-dark ">
-                                                {{ $elerning->payments->status }}</div>
-                                        @endif
-                                        
-                                        </p>
-                                    </div>
 
 
-                                </div>
-                            </div>
 
 
 
