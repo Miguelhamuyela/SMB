@@ -20,14 +20,18 @@
                      </div>
                      @endif
 
+<<<<<<< HEAD
+                        <h4 class="card-title"><b>E-learning </b></h4>
+=======
                         <h4 class="card-title"><b>
                         <a href="{{ url('admin/elernings/list') }}">Listar E-learnings</a>
                         > E-learnings
                         </b></h4>
+>>>>>>> 2f9b540e3a62fa45969107ab7dffd3188c640433
                         <hr>
                         @include('forms._formElernings.index')
                     </div>
-                    
+
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Cliente</b></h4>
                         <hr>

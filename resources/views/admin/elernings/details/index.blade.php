@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', '  Detalhes de E-learnings')
+@section('titulo', '  Detalhes de  E-learning ')
 
 @section('content')
     <div class="card mb-2">
@@ -7,7 +7,7 @@
             <h2 class="h5 page-title"><b>
                 <a href="{{ url('admin/elernings/list') }}">Listar E-learnings</a>
                         >  Detalhes de E-learnings - {{ $elerning->course }}
-               
+
             </b></h2>
         </div>
     </div>
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
 
-                           
+
 
                             <div class="col-12 mt-2">
                                 <h5 class=""><b>Período do Contracto </b> </h5>
@@ -120,7 +120,7 @@
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Referencia</b><br>
+                                            <b>Referência </b><br>
                                             <small> {{ $elerning->payments->reference }}</small>
                                         </p>
                                     </div>

@@ -62,7 +62,7 @@ class EquipmentRepairsController extends Controller
             'model' => 'required|string|max:50',
             'image' => 'mimes:jpg,png,gif,SVG,EPS',
             'problemDetails' => 'required',
-            'referenceEquipment' => 'required',
+            'referenceEquipment' => 'required|unique:equipment_repairs',
         ]);
 
         $client = Client::create($request->all());
@@ -140,17 +140,36 @@ class EquipmentRepairsController extends Controller
             /**EquipmentRepair */
             'equipmentName' => 'required|string|max:50',
             'model' => 'required|string|max:50',
-            'image' => 'required|',
+
             'problemDetails' => 'required',
             'referenceEquipment' => 'required',
         ]);
 
-        EquipmentRepair::find($id)->update($request->all());
-        $EquipmentRepair = EquipmentRepair::find($id);
+        if ($middle = $request->file('image')) {
+            $file = $middle->storeAs('equipmentRepairs', 'Equipamento-' . uniqid(rand(1, 5)) . "." . $middle->extension());
+        } else {
+            $file = EquipmentRepair::find($id)->image;
+        }
+
+        $EquipmentRepair =  EquipmentRepair::find($id);
+
         Client::find($EquipmentRepair->fk_Clients_id)->update($request->all());
-        Scheldule::find($EquipmentRepair->fk_Scheldules_id)->update($request->all());
-        Payment::find($EquipmentRepair->fk_Payments_id)->update($request->all());
-        return redirect()->route('admin.equipmentRepair.show', $EquipmentRepair->id)->with('edit', '1');
+        $client = Client::find($EquipmentRepair->fk_Clients_id);
+        $schedule = Scheldule::find($EquipmentRepair->fk_Scheldules_id)->update($request->all());
+        $payment=  Payment::find($EquipmentRepair->fk_Payments_id)->update($request->all());
+
+        $EquipmentRepair = EquipmentRepair::find($id)->update([
+            'equipmentName' => $request->equipmentName,
+            'model' => $request->model,
+            'image' =>  $file,
+            'referenceEquipment' => $request->referenceEquipment,
+            'problemDetails' => $request->problemDetails,
+            'fk_Payments_id' => $EquipmentRepair->fk_Payments_id,
+            'fk_Employees_id' => $request->fk_Employees_id,
+            'fk_Clients_id' =>$EquipmentRepair->fk_Clients_id,
+            'fk_Scheldules_id' => $EquipmentRepair->fk_Scheldules_id,
+        ]);
+        return redirect()->route('admin.equipmentRepair.show', $id)->with('edit', '1');
     }
 
     public function destroy($id)

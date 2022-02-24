@@ -2,22 +2,22 @@
     <div class="col-md-5">
         <div class="form-group">
             <label for="type">Tipo de Pagamento <small class="text-danger">*</small></label>
-           
-                <select type="text" name="type" id="type" class="form-control border rounded" required>
 
-                    @if (isset($payment->type))
-                        <option value="{{ $payment->type }}" class="text-primary h6 bg-primary text-white" selected>
-                            {{ $payment->type }}
-                        </option>
-                    @else
-                        <option disabled selected value="">selecione um tipo de pagamento</option>
-                    @endif
+            <select type="text" name="type" id="type" class="form-control border rounded" required>
 
-                    <option>Dinheiro</option>
-                    <option>Transferência</option>
-                    <option>Rupe</option>
-    
-                </select>
+                @if (isset($payment->type))
+                    <option value="{{ $payment->type }}" class="text-primary h6 bg-primary text-white" selected>
+                        {{ $payment->type }}
+                    </option>
+                @else
+                    <option disabled selected value="">selecione um tipo de pagamento</option>
+                @endif
+
+                <option>Dinheiro</option>
+                <option>Transferência</option>
+                <option>Rupe</option>
+
+            </select>
         </div>
     </div>
 
@@ -26,7 +26,7 @@
             <label for="type">Valores a Pagar <small class="text-danger">*</small></label>
             <input type="text" name="value" id="value"
                 value="{{ isset($payment->value) ? $payment->value : old('value') }}"
-                class="form-control border rounded" placeholder="0,00"  required>
+                class="form-control border rounded" placeholder="0,00" required>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
             <label for="type">Referência </label>
             <input type="text" name="reference" id="reference"
                 value="{{ isset($payment->reference) ? $payment->reference : old('reference') }}"
-                class="form-control border rounded" placeholder="Referência" >
+                class="form-control border rounded" placeholder="Referência">
         </div>
     </div>
 </div>
@@ -52,7 +52,7 @@
                         {{ $payment->currency }}
                     </option>
                 @else
-                    <option disabled selected value="">selecione uma  moeda</option>
+                    <option disabled selected value="">selecione uma moeda</option>
                 @endif
 
                 <option>Kwanza</option>
