@@ -8,7 +8,7 @@
                 <a href="{{ url('admin/reparação-equipamentos/list') }}">Listar Reparação de Equipamentos</a>
                 >  Detalhes de Reparação de Equipamentos - {{ $equipmentRepair->title }}
 
-                
+
             </b></h2>
         </div>
     </div>
@@ -52,22 +52,22 @@
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Cor</b><br>
-                                            <small> {{ $equipmentRepair->color }}</small>
+                                            <b>Referência do Equipamento</b><br>
+                                            <small> {{ $equipmentRepair->referenceEquipment }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Imagem</b><br>
                                             @if(isset($equipmentRepair->image))
-                                            <small> <a  href="/storage/{{$equipmentRepair->image  }}">Anexo</a> </small>
+                                            <small> <a  href="/storage/{{$equipmentRepair->image}}">Anexo</a> </small>
                                             @endif
 
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Detalhe do Problema</b><br>
+                                            <b>Detalhes do Equipamento e do Problema</b><br>
                                             <small>
 
                                                 {!! html_entity_decode($equipmentRepair->problemDetails) !!}
@@ -109,7 +109,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Tipo de cliente</b><br>
+                                            <b>Tipo de Cliente</b><br>
                                             <small> {{ $equipmentRepair->clients->clienttype }}</small>
                                         </p>
                                     </div>
@@ -123,14 +123,7 @@
                                 </div>
                             </div>
 
-                                <div class="col-md-3">
-                                    <p class="text-dark">
-                                        <b>Detalhe do Problema</b><br>
-                                        <small>{!! html_entity_decode($equipmentRepair->problemDetails) !!}
 
-                                        </small>
-                                    </p>
-                                </div>
                             </div>
 
                             <div class="col-12 mt-2">
@@ -142,18 +135,23 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Inicio do Contracto</b><br>
+                                            <b>Data da Entrada</b><br>
                                             <small> {{ $equipmentRepair->scheldules->started }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Fim do Contracto</b><br>
+                                            <b>Data da Entrega</b><br>
                                             <small> {{ $equipmentRepair->scheldules->end }}</small>
                                         </p>
                                     </div>
 
-
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Data da Retirada</b><br>
+                                            <small> {{ $equipmentRepair->scheldules->prespective }}</small>
+                                        </p>
+                                    </div>
 
                                 </div>
                             </div>
@@ -184,7 +182,7 @@
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Referencia</b><br>
+                                            <b>Referência </b><br>
                                             <small> {{ $equipmentRepair->payments->reference }}</small>
                                         </p>
                                     </div>

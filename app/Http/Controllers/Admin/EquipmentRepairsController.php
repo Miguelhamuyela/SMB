@@ -62,7 +62,7 @@ class EquipmentRepairsController extends Controller
             'model' => 'required|string|max:50',
             'image' => 'mimes:jpg,png,gif,SVG,EPS',
             'problemDetails' => 'required',
-            'referenceEquipment' => 'required',
+            'referenceEquipment' => 'required|unique:equipment_repairs',
         ]);
 
         $client = Client::create($request->all());
@@ -140,11 +140,16 @@ class EquipmentRepairsController extends Controller
             /**EquipmentRepair */
             'equipmentName' => 'required|string|max:50',
             'model' => 'required|string|max:50',
-            'image' => 'required|',
+            'image' => 'mimes:jpg,png,gif,SVG,EPS',
             'problemDetails' => 'required',
             'referenceEquipment' => 'required',
         ]);
 
+        if ($middle = $request->file('image')) {
+            $file = $middle->storeAs('equipmentRepairs', 'Equipamento-' . uniqid(rand(1, 5)) . "." . $middle->extension());
+        } else {
+            $file = null;
+        }
         EquipmentRepair::find($id)->update($request->all());
         $EquipmentRepair = EquipmentRepair::find($id);
         Client::find($EquipmentRepair->fk_Clients_id)->update($request->all());
