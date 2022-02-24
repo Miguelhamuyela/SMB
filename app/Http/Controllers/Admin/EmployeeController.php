@@ -139,11 +139,9 @@ class EmployeeController extends Controller
         $this->Logger->log('info', 'Imprimiu um cartão de Funcionário com o identificador ' . $id);
         $response['Employee'] = $data;
 
-
-
         $pdf = PDF::loadView('pdf.credential.employees.index', $response);
-
-        return $pdf->download('credencial de ' . $data->nif . ".pdf");
+      
+        return $pdf->stream('credencial de ' . $data->nif . ".pdf");
     }
 
 }
