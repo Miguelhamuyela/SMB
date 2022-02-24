@@ -6,17 +6,31 @@
 
     <title>Credencial de Membro da Startup</title>
     <style>
+        @page {
+            size: 5.4cm 8.5cm;
+            margin: 10px;
+        }
 
+        * {
+            text-align: center;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        section{
+            margin-top: 40px;
+        }
+       
     </style>
 </head>
 
 <body>
 
-    <h3>DIGITAL.AO</h3>
+    <img src="dashboard/images/logo_blue.png" width="150">
+    <b>STARTUP</b>
+    <br>
     <section>
-        {{ QrCode::size(150)->generate(url('membro/startup/' . $member->nif)) }}
+        <img src="data:image/png;base64,{!! base64_encode($qrcode) !!}" alt="qrcode">
     </section>
-
 </body>
 
 </html>

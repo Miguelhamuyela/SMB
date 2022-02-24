@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-pt">
- 
+
 <head>
+    <meta charset="UTF-8">
+
     <title>Credencial de Membro do Cowork</title>
     <style>
+        @page {
+            size: 5.4cm 8.5cm;
+            margin: 10px;
+        }
 
+        * {
+            text-align: center;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        section{
+            margin-top: 40px;
+        }
+       
     </style>
 </head>
 
 <body>
 
-    <h3>DIGITAL.AO</h3>
-    {{ QrCode::size(100)->generate(url('membro/cowork/' . $member->nif)) }}
-
+    <img src="dashboard/images/logo_blue.png" width="150">
+    <b>COWORK</b>
+    <br>
+    <section>
+        <img src="data:image/png;base64,{!! base64_encode($qrcode) !!}" alt="qrcode">
+    </section>
 </body>
 
 </html>
