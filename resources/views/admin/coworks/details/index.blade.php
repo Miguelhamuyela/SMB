@@ -154,8 +154,28 @@
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Status</b><br>
-                                            <small> {{ $cowork->payments->status }}</small>
+                                            <b>Estado do Pagamento</b> <br>
+
+                                        @if ($cowork->payments->status == 'Pago')
+                                            <div class="btn btn-success btn-fw btn-rounded text-dark ">
+                                                {{ $cowork->payments->status }}</div>
+
+                                        @elseif($cowork->payments->status == 'Não Pago')
+
+                                            <div class="btn btn-danger btn-fw btn-rounded text-white ">
+                                                {{ $cowork->payments->status }}</div>
+
+                                        @elseif($cowork->payments->status == 'Em Validação')
+
+                                            <div class="btn btn-warning btn-fw btn-rounded text-dark ">
+                                                {{ $cowork->payments->status }}</div>
+
+                                        @else
+
+                                            <div class="btn btn-dark btn-fw btn-rounded text-dark ">
+                                                {{ $cowork->payments->status }}</div>
+                                        @endif
+                                        
                                         </p>
                                     </div>
 
