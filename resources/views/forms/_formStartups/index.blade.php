@@ -1,11 +1,11 @@
-<input type="hidden" name="origin" value="Startup">
 <div class="row">
-
+    <input type="text" name="origin" value="Startup">
     <div class="col-md-5">
         <div class="form-group">
             <label for="name">Nome da Startup <small class="text-danger">*</small></label>
-            <input type="text" name="name" id="name" value="{{ isset($startup->name) ? $startup->name : old('name') }}"
-                class="form-control border rounded" placeholder="Nome da startup " required>
+            <input type="text" name="name" id="name"
+                value="{{ isset($startup->name) ? $startup->name : old('name') }}" class="form-control border rounded"
+                placeholder="Nome da startup " required>
         </div>
     </div>
 
@@ -73,8 +73,9 @@
     <div class="col-md-3">
         <div class="form-group">
             <label for="site">Site </label>
-            <input type="text" name="site" id="site" value="{{ isset($startup->site) ? $startup->site : old('site') }}"
-                class="form-control border rounded" placeholder="Site ">
+            <input type="text" name="site" id="site"
+                value="{{ isset($startup->site) ? $startup->site : old('site') }}" class="form-control border rounded"
+                placeholder="Site ">
         </div>
     </div>
 </div>

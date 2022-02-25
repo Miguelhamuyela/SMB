@@ -41,7 +41,7 @@
 
     <div class="col-md-12">
         <div class="form-group">
-            <label for="file">Documentação </label>
+            <label for="file">Documentação</label>
             <input type="file" name="file"
                 value="{{ isset($manufacture->file) ? $manufacture->file : old('file') }}"
                 id="file" class="form-control border">
