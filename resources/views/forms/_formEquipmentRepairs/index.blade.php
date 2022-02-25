@@ -59,7 +59,7 @@
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label for="image">Imgem <small </small></label>
+            <label for="image">Imagem</label>
             <input type="file" name="image" id="image" value="" class="form-control border rounded">
         </div>
     </div>
@@ -71,6 +71,6 @@
                 class="text-danger">*</small></label>
         <textarea name="problemDetails" rows="4" id="editor1" class="form-control border-secondary no-resize"
             placeholder="Descrição do curso">{{ isset($equipmentRepair->problemDetails) ? $equipmentRepair->problemDetails : old('problemDetails') }}
-    </textarea>
+        </textarea>
     </div>
 </div>

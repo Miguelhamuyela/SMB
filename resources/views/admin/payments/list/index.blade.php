@@ -28,6 +28,7 @@
                                     <th>VALORES A PAGAR</th>
                                     <th>REFERÊNCIA</th>
                                     <th>MOEDA</th>
+                                    <th>ORIGEM</th>
                                     <th>STATUS</th>
                                     <th class="text-center">ACÇÕES</th>
                                 </tr>
@@ -40,6 +41,7 @@
                                         <td>{{ $item->value }} </td>
                                         <td>{{ $item->reference }} </td>
                                         <td>{{ $item->currency }} </td>
+                                        <td>{{ $item->origin }} </td>
                                         @if ($item->status == 'Pago')
                                             <td>
                                                 <div class="btn btn-success btn-fw btn-rounded text-dark ">

@@ -62,7 +62,7 @@ class AuditoriumsController extends Controller
             'email' => 'required|string|max:50',
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
-            'address' => 'required|string|max:50',
+            'address' => 'required|string|max:200',
             'clienttype' => 'required|string|max:50',
 
             /**Scheldules Information */
@@ -76,6 +76,7 @@ class AuditoriumsController extends Controller
             'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
+           
 
             /**Auditoriums Information */
             'titleConference' => 'required|string|max:200'
@@ -84,7 +85,14 @@ class AuditoriumsController extends Controller
         ]);
 
         $client = Client::create($request->all());
-        $payment = Payment::create($request->all());
+        $payment = Payment::create([
+            'type' => $request->type,
+            'value' => $request->value,
+            'reference' => $request->reference,
+            'currency' => $request->currency,
+            'status' => $request->status,
+            'origin' => "Auditório"
+        ]);
         $schedule = Scheldule::create($request->all());
 
         $auditorium = Auditorium::create(
@@ -176,10 +184,17 @@ class AuditoriumsController extends Controller
 
         Auditorium::find($id)->update($request->all());
         $cowork = Auditorium::find($id);
-
+        
         Client::find($cowork->fk_Clients_id)->update($request->all());
         Scheldule::find($cowork->fk_Scheldules_id)->update($request->all());
-        Payment::find($cowork->fk_Payments_id)->update($request->all());
+        Payment::find($id)->update([
+            'type' => $request->type,
+            'value' => $request->value,
+            'reference' => $request->reference,
+            'currency' => $request->currency,
+            'status' => $request->status,
+            'origin' => "Auditório"
+        ]);
 
         $this->Logger->log('info', 'Actualizou Auditório');
         return redirect()->route('admin.auditoriums.list.index')->with('edit', '1');
