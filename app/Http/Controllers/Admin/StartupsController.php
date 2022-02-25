@@ -70,6 +70,7 @@ class StartupsController extends Controller
             'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
+            'origin' => 'max:255',
 
             /**Scheldules Information */
             'started' => 'required|string|max:255',
@@ -156,11 +157,15 @@ class StartupsController extends Controller
             'tel' => 'max:50',
             'incubatorModel' =>'required|string|max:50',
             'nif' => 'required|string|max:50',
+
+            /**Payments Information */
             'type' => 'required|string|max:255',
             'value' =>  'required|numeric|min:2',
-            'reference'  => 'string|max:255',
+            'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
+            'origin' => 'max:255',
+            /**Payments Information End */
             'started' => 'required|string|max:255',
             'end' => 'required|string|max:255',
 
