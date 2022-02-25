@@ -5,7 +5,7 @@
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title"><b>
-    
+
                 <a href="{{ url('admin/auditoriums/list') }}">Listar Auditório </a>
                         > Detalhes do Auditório - {{ $auditorium->titleConference }}
             </b></h2>
@@ -20,7 +20,7 @@
                     <div class="col-12">
 
                         <div class="row  align-items-center">
-                           
+
                             <div class="col-12 mt-2">
                                 <h5 class=""><b>Informações do Cliente </b> </h5>
                                 <hr>
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
 
-                           
+
 
                             <div class="col-12 mt-2">
                                 <h5 class=""><b>Período do Contracto </b> </h5>
@@ -119,7 +119,7 @@
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Referencia</b><br>
+                                            <b>Referência </b><br>
                                             <small> {{ $auditorium->payments->reference }}</small>
                                         </p>
                                     </div>

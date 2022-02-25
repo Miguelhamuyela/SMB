@@ -1,3 +1,4 @@
+<input type="hidden" name="origin" value="Reparação de Equipamentos">
 <div class="row">
     <div class="col-md-5">
         <div class="form-group">
@@ -25,8 +26,8 @@
                 required>
 
                 @if (isset($equipmentRepair->name))
-                    <option value="{{ $equipmentRepair->employees->id }}" class="text-primary h6 bg-primary text-white"
-                        selected>
+                    <option value="{{ $equipmentRepair->employees->id }}"
+                        class="text-primary h6 bg-primary text-white" selected>
                         {{ $equipmentRepair->employees->name }}
                     </option>
                 @else
@@ -45,7 +46,6 @@
     </div>
 
 </div>
-
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
@@ -60,9 +60,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="image">Imgem <small </small></label>
-            <input type="file" name="image" id="image"
-                value="{{ isset($equipmentRepair->image) ? $equipmentRepair->tel : old('image') }}"
-                class="form-control border rounded">
+            <input type="file" name="image" id="image" value="" class="form-control border rounded">
         </div>
     </div>
 

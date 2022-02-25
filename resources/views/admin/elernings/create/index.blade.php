@@ -27,7 +27,7 @@
                         <hr>
                         @include('forms._formElernings.index')
                     </div>
-                    
+
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Cliente</b></h4>
                         <hr>
@@ -41,11 +41,6 @@
                     </div>
 
 
-                    <div class="card-body bg-light">
-                        <h4 class="card-title"><b>Pagamentos</b></h4>
-                        <hr>
-                        @include('forms._formPayments.index')
-                    </div>
 
                 <div class="card-body bg-light">
                     <div class="col-md-12">

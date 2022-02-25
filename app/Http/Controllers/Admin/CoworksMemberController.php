@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cowork;
 use App\Models\CoworkMember;
 use Illuminate\Http\Request;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use PDF;
 
 class CoworksMemberController extends Controller
@@ -138,9 +139,11 @@ class CoworksMemberController extends Controller
         $response['member'] = $data;
 
 
+       
+        $response['qrcode'] = QrCode::size(150)->generate(url('membro/cowork/' . $data->nif));
         $pdf = PDF::loadView('pdf/qrcard/cowork/index', $response);
       
-        return $pdf->download('credencial de ' . $data->nif . ".pdf");
+        return $pdf->stream('credencial de ' . $data->nif . ".pdf");
   
     }
 }

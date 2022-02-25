@@ -6,6 +6,19 @@
 
     <title>Passe de Funcionário</title>
     <style>
+        @page {
+            size: 8.5cm 5.4cm;
+            margin: 10px;
+        }
+
+        * {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        section {
+            margin-top: 40px;
+        }
 
     </style>
 </head>
@@ -16,8 +29,7 @@ background-position: top left;
              background-image-resize: 2;
              background-image-resolution: from-image;
 ">
-
-
+  
 </body>
 
 </html>

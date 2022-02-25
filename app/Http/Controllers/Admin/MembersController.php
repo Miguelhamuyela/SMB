@@ -8,6 +8,7 @@ use App\Models\Member;
 use App\Http\Controllers\Controller;
 use App\Models\Startup;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use PDF;
 
 class MembersController extends Controller
 {
@@ -134,17 +135,10 @@ class MembersController extends Controller
 
         $data = Member::where('nif', $nif)->with('startup')->first();
         $response['member'] = $data;
-        $mpdf = new \Mpdf\Mpdf([
-            'mode' => 'utf-8', 'margin_top' => 0,
-            'margin_left' => 5,
-            'margin_right' => 0, 'margin_bottom' => 0, 'format' => [54, 84]
-        ]);
-        $mpdf->SetFont("arial");
-        $mpdf->setHeader();
-
-        $html = view("pdf.qrcard.startup.index", $response);
-        $mpdf->writeHTML($html);
-
-        $mpdf->Output('credencial de ' . $data->nif . ".pdf", "I");
+       
+        $response['qrcode'] = QrCode::size(150)->generate(url('membro/startup/' . $data->nif));
+        $pdf = PDF::loadView('pdf/qrcard/startup/index', $response);
+      
+        return $pdf->stream('credencial de ' . $data->nif . ".pdf");
     }
 }

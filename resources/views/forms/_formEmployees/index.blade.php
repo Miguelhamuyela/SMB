@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group">
             <label for="name">Email <small class="text-danger">*</small></label>
             <input type="email" name="email" id="email"
@@ -29,7 +29,7 @@
     </div>
 
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group">
             <label for="nif">NIF <small class="text-danger">*</small></label>
             <input type="text" name="nif" id="nif" value="{{ isset($employee->nif) ? $employee->nif : old('nif') }}"
@@ -54,11 +54,47 @@
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="form-group">
             <label for="departament">Departamento <small class="text-danger">*</small></label>
-            <input type="text" name="departament" id="departament"
-                value="{{ isset($employee->departament) ? $employee->departament : old('departament') }}"
-                class="form-control border rounded" placeholder="Departamento" required>
+
+                <select type="text" name="departament" id="departament" class="form-control border rounded"
+                required>
+
+                @if (isset($employee->departament))
+                    <option value="{{ $employee->departament }}"
+                        class="text-primary h6 bg-primary text-white" selected>
+                        {{ $employee->departament  }}
+                    </option>
+                @else
+                    <option disabled selected value="">selecione uma outra opção</option>
+                @endif
+                    <option value="Departamento de Administração de Sistemas, Redes e Comunicações" >
+                        Departamento de Administração de Sistemas, Redes e Comunicações
+                    </option>
+
+                    <option value="Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados" >
+                        Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados
+                    </option>
+                    <option value="Departamento de Massificação, Inclusão e Conteúdo Digital" >
+                        Departamento de Massificação, Inclusão e Conteúdo Digital
+                    </option>
+                    <option value="Departamento de Cibersegurança, Chaves Públicas e Carimbo do Tempo" >
+                        Departamento de Cibersegurança, Chaves Públicas e Carimbo do Tempo
+                    </option>
+                    <option value="Departamento de Apoio ao Director Geral" >
+                        Departamento de Apoio ao Director Geral
+                    </option>
+
+                    <option value="Departamento de Administração e Serviços Gerais" >
+                        Departamento de Administração e Serviços Gerais
+                    </option>
+                    <option value="Departamento de Comunicação, Inovação, Tecnologia e Modernização dos Serviços" >
+                        Departamento de Comunicação, Inovação, Tecnologia e Modernização dos Serviços
+                    </option>
+
+
+            </select>
+
         </div>
     </div>
