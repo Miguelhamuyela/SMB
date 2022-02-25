@@ -48,8 +48,15 @@ class MembersController extends Controller
             'email' => 'required|string|max:50',
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
+            'foto' => 'required|mimes:jpg,png,gif,SVG,JPEG'
 
         ]);
+
+        if ($middle = $request->file('foto')) {
+            $file = $middle->storeAs('foto', 'foto-' . uniqid(rand(1, 5)) . "." . $middle->extension());
+        } else {
+            $file = null;
+        }
 
         $member = Member::create(
             [
@@ -58,6 +65,7 @@ class MembersController extends Controller
                 'email' => $request->email,
                 'tel' => $request->tel,
                 'nif' => $request->nif,
+                'foto' => $file,
                 'fk_startups_id' => $id
 
             ]

@@ -47,4 +47,16 @@
   </div>
 
   </div>
+
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="form-group">
+          <label for="tel">Foto <small class="text-danger">*</small></label>
+          <input type="file" name="foto" id="foto" value="{{ isset($cowork->foto) ? $cowork->foto: old('foto') }}"
+              class="form-control border rounded" placeholder="Ocupação" required>
+      </div>
+    </div>
+
+  </div>
   <!-- /.col -->

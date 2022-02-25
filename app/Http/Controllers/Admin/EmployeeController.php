@@ -42,7 +42,7 @@ class EmployeeController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|max:50',
+            'email' => 'required|string|max:200',
             'tel' => 'max:12',
             'nif' => 'required|string|max:50',
             'departament' => 'required|string|max:255',
