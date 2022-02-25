@@ -78,8 +78,7 @@ class StartupsController extends Controller
 
         ]);
 
-        echo json_encode($request->all());
-        die();
+      
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
 

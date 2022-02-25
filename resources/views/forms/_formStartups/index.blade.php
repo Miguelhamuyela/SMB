@@ -1,5 +1,5 @@
+<input type="hidden" name="origin" value="Startup">
 <div class="row">
-    <input type="text" name="origin" value="Startup">
     <div class="col-md-5">
         <div class="form-group">
             <label for="name">Nome da Startup <small class="text-danger">*</small></label>
