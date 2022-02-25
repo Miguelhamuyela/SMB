@@ -70,7 +70,7 @@ class StartupsController extends Controller
             'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
-            'origin' => 'max:255',
+
 
             /**Scheldules Information */
             'started' => 'required|string|max:255',
@@ -78,26 +78,23 @@ class StartupsController extends Controller
 
         ]);
 
-
-
+      
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
 
 
-        $startup = Startup::create(
-            [
-                'name' => $request->name,
-                'roomName' => $request->roomName,
-                'site' => $request->site,
-                'email' => $request->email,
-                'tel' => $request->tel,
-                'nif' => $request->nif,
-                'incubatorModel' => $request->incubatorModel,
-                'fk_Payments_id' => $payment->id,
-                'fk_Scheldules_id' => $schedule->id
+        $startup = Startup::create([
+            'name' => $request->name,
+            'roomName' => $request->roomName,
+            'site' => $request->site,
+            'email' => $request->email,
+            'tel' => $request->tel,
+            'nif' => $request->nif,
+            'incubatorModel' => $request->incubatorModel,
+            'fk_Payments_id' => $payment->id,
+            'fk_Scheldules_id' => $schedule->id
 
-            ]
-        );
+        ]);
 
         $this->Logger->log('info', 'Cadastrou Startups');
         return redirect()->route('admin.startup.show', $startup->id)->with('create', '1');
@@ -142,7 +139,7 @@ class StartupsController extends Controller
             'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
-            'origin' => 'max:255',
+
             /**Payments Information End */
             'started' => 'required|string|max:255',
             'end' => 'required|string|max:255',

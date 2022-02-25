@@ -56,7 +56,7 @@ class EquipmentRepairsController extends Controller
             'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
-            'origin' => 'max:255',
+           
             /**EquipmentRepair */
             'equipmentName' => 'required|string|max:50',
             'model' => 'required|string|max:50',

@@ -76,7 +76,7 @@ class AuditoriumsController extends Controller
             'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
-            'origin' => 'max:255',
+           
 
             /**Auditoriums Information */
             'titleConference' => 'required|string|max:200'

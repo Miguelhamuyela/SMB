@@ -55,6 +55,12 @@
                                         <small> {{ $payment->currency }}</small>
                                     </p>
                                 </div>
+                                <div class="col-md-4">
+                                    <p class="text-dark">
+                                        <b>Origem</b><br>
+                                        <small> {{ $payment->origin }}</small>
+                                    </p>
+                                </div>
 
                                 <div class="col-md-4">
                                     <p class="text-dark">
