@@ -59,7 +59,7 @@ class MeetingRoomsController extends Controller
             'phone' => 'max:50',
             'meetRoom' => 'required|string|max:50',
             'name' => 'required|string|max:50',
-            'email' => 'required|string|max:50',
+            'email' => 'required|string|max:255',
 
              /**Scheldules Information */
              'started' => 'required|string|max:255',
@@ -134,7 +134,7 @@ class MeetingRoomsController extends Controller
             'phone' => 'max:50',
             'meetRoom' => 'required|string|max:50',
             'name' => 'required|string|max:50',
-            'email' => 'required|string|max:50',
+            'email' => 'required|string|max:255',
 
              /**Scheldules Information */
              'started' => 'required|string|max:255',
