@@ -86,13 +86,16 @@
             @endif
 
             @if ('Gestor' == Auth::user()->level || 'Administrador' == Auth::user()->level)
-            {{-- elernings --}}
+
+            <li class="nav-item nav-category mt-2">Pagamentos</li>
+            {{-- paymets --}}
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.elernings.list.index') }}">
+                <a class="nav-link" href="{{ route('admin.payments.index') }}">
                     <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">E-learning</span>
+                    <span class="menu-title">Pagamentos</span>
                 </a>
             </li>
+
 
             <li class="nav-item nav-category mt-2">Estatisticos de Pagamentos</li>
             {{-- startups --}}
@@ -109,6 +112,9 @@
                     <span class="menu-title">Estatística de Serviços </span>
                 </a>
             </li>
+
+
+
 
 
 

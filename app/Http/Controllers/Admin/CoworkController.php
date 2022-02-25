@@ -74,6 +74,7 @@ class CoworkController extends Controller
             'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
+            'origin' => 'max:255',
 
             /**Cowork Information */
             'title'=> 'required|string|max:300',
@@ -85,7 +86,14 @@ class CoworkController extends Controller
 
         $client = Client::create($request->all());
 
-        $payment = Payment::create($request->all());
+        $payment = Payment::create([
+            'type' => $request->type,
+            'value' => $request->value,
+            'reference' => $request->reference,
+            'currency' => $request->currency,
+            'status' => $request->status,
+            'origin' => "Cowork"
+        ]);
 
         $schedule = Scheldule::create($request->all());
 
