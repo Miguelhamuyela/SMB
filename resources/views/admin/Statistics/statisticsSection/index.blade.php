@@ -103,10 +103,11 @@
             </div>
         </div>
     </div>
+    @include('admin.extras.equipmentRepair.index')
     @include('admin.extras.Auditoriums.index')
     @include('admin.extras.cowork.index')
 @include('admin.extras.manufactures.index')
-@include('admin.extras.equipmentRepair.index')
+
 @include('admin.extras.startup.index')
 
 @endsection

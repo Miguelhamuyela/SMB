@@ -8,7 +8,7 @@
                 <a href="{{ url('admin/manufactures/list') }}">Listar Fábrica de Softwares</a>
                 >  Detalhes da Fábrica de Software - {{ $manufacture->nameSoftware }}
 
-                
+
             </b></h2>
         </div>
     </div>
@@ -227,8 +227,9 @@
                                         </a>
                                         <br>
 
-                                        <a onclick="mens()" href='{{ url("admin/manufactures/delete/{$manufacture->id}") }}'
-                                            class="text-danger">
+                                        <a  href='
+                                        javascript:void(0)'
+                                            class="text-danger" onclick="deleteElemto({{$manufacture->id  }})">
                                             <i class="fa fa-trash"></i>
                                             Eliminar
                                         </a>
@@ -243,7 +244,7 @@
 
                 </div>
 
-                
+
 
 
 
@@ -251,4 +252,13 @@
         </div> <!-- .row -->
     </div> <!-- .container-fluid -->
 
+    <script>
+        function deleteElemto(id){
+            if(confirm("a apgar")){
+
+});
+
+            }
+
+    </script>
 @endsection
