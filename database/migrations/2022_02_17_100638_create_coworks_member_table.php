@@ -20,7 +20,7 @@ class CreateCoworksMemberTable extends Migration
             $table->string('tel');
             $table->string('name');
             $table->string('nif');
-            $table->string('foto');
+            $table->string('foto')->nullable();
 
             $table->unsignedBigInteger('fk_coworks_id');
             $table->foreign('fk_coworks_id')->references('id')->on('coworks')->onDelete('CASCADE')->onUpgrade('CASCADE');

@@ -48,7 +48,7 @@ class MembersController extends Controller
             'email' => 'required|string|max:50',
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
-            'foto' => 'required|mimes:jpg,png,gif,SVG,JPEG'
+            'foto' => 'mimes:jpg,png,gif,SVG,JPEG'
 
         ]);
 

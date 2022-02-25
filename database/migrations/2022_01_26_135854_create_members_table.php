@@ -20,7 +20,7 @@ class CreateMembersTable extends Migration
             $table->string('tel');
             $table->string('name');
             $table->string('nif');
-            $table->string('foto');
+            $table->string('foto')->nullable();
 
             $table->unsignedBigInteger('fk_startups_id');
             $table->foreign('fk_startups_id')->references('id')->on('startups')->onDelete('CASCADE')->onUpgrade('CASCADE');
