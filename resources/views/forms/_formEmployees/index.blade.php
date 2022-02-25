@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="form-group">
             <label for="occupation">Ocupação <small class="text-danger">*</small></label>
             <input type="text" name="occupation" id="occupation"

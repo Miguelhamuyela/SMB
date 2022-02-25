@@ -31,12 +31,11 @@ class EquipmentRepairsController extends Controller
 
     public function create()
     {
-        $response['employees'] = Employee::where('departament','Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados')->get();
+        $response['employees'] = Employee::where('departament', 'Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados')->get();
         //Logger
         $this->Logger->log('info', 'Entrou em Cadastrar  Reparação de  Equipamentos ');
         return view('admin.equipmentRepair.create.index', $response);
     }
-
 
     public function store(Request $request)
     {
@@ -156,7 +155,7 @@ class EquipmentRepairsController extends Controller
         Client::find($EquipmentRepair->fk_Clients_id)->update($request->all());
         $client = Client::find($EquipmentRepair->fk_Clients_id);
         $schedule = Scheldule::find($EquipmentRepair->fk_Scheldules_id)->update($request->all());
-        $payment=  Payment::find($EquipmentRepair->fk_Payments_id)->update($request->all());
+        $payment =  Payment::find($EquipmentRepair->fk_Payments_id)->update($request->all());
 
         $EquipmentRepair = EquipmentRepair::find($id)->update([
             'equipmentName' => $request->equipmentName,
@@ -166,7 +165,7 @@ class EquipmentRepairsController extends Controller
             'problemDetails' => $request->problemDetails,
             'fk_Payments_id' => $EquipmentRepair->fk_Payments_id,
             'fk_Employees_id' => $request->fk_Employees_id,
-            'fk_Clients_id' =>$EquipmentRepair->fk_Clients_id,
+            'fk_Clients_id' => $EquipmentRepair->fk_Clients_id,
             'fk_Scheldules_id' => $EquipmentRepair->fk_Scheldules_id,
         ]);
         return redirect()->route('admin.equipmentRepair.show', $id)->with('edit', '1');

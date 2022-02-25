@@ -32,6 +32,19 @@ class Payment extends Model
         return $this->belongsTo(Startup::class, 'fk_Payments_id');
     }
 
+    public function manufacturesSoftware(){
+
+        return $this->belongsTo(ManufacturesSoftware::class, 'fk_Payments_id');
+    }
+    public function  Cowork(){
+
+        return $this->belongsTo(Cowork::class, 'fk_Payments_id');
+    }
+    public function  Auditoriums(){
+
+        return $this->belongsTo(Auditorium::class, 'fk_Payments_id');
+    }
+
 }
 
 

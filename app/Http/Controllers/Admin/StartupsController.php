@@ -62,7 +62,7 @@ class StartupsController extends Controller
             'email' => 'required|string|max:50',
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
-            'incubatorModel'=> 'required|string|max:50',
+            'incubatorModel' => 'required|string|max:50',
 
             /***Payment Information */
             'type' => 'required|string|max:255',
@@ -91,7 +91,7 @@ class StartupsController extends Controller
                 'email' => $request->email,
                 'tel' => $request->tel,
                 'nif' => $request->nif,
-                'incubatorModel'=> $request->incubatorModel,
+                'incubatorModel' => $request->incubatorModel,
                 'fk_Payments_id' => $payment->id,
                 'fk_Scheldules_id' => $schedule->id
 
@@ -99,16 +99,9 @@ class StartupsController extends Controller
         );
 
         $this->Logger->log('info', 'Cadastrou Startups');
-        return redirect()->route('admin.startup.show',$startup->id)->with('create', '1');
-
+        return redirect()->route('admin.startup.show', $startup->id)->with('create', '1');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
 
@@ -117,12 +110,7 @@ class StartupsController extends Controller
         return view('admin.startup.details.index', $response);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $middle = Startup::find($id);
@@ -136,16 +124,6 @@ class StartupsController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-
-
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -154,7 +132,7 @@ class StartupsController extends Controller
             'site' => 'max:255',
             'email' => 'required|string|max:50',
             'tel' => 'max:50',
-            'incubatorModel' =>'required|string|max:50',
+            'incubatorModel' => 'required|string|max:50',
             'nif' => 'required|string|max:50',
             'type' => 'required|string|max:255',
             'value' =>  'required|numeric|min:2',

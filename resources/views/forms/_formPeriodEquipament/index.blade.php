@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-4">
         <div class="form-group">
-            <label for="prespective"> Data da Retirada <small class="text-danger">*</small></label>
+            <label for="prespective"> Data da Retirada <small class="text-danger"></small></label>
             <input type="datetime-local" name="prespective" id="prespective"
                 value="{{ isset($scheldule->prespective) ? date('Y-m-d\TH:i:s', strtotime($scheldule->prespective)) : old('prespective') }}"
                 class="form-control border rounded">
