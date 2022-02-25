@@ -50,8 +50,15 @@ class CoworksMemberController extends Controller
             'email' => 'required|string|max:50',
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
+            'foto' => 'mimes:jpg,png,gif,SVG,JPEG'
 
         ]);
+
+        if ($middle = $request->file('foto')) {
+            $file = $middle->storeAs('foto', 'foto-' . uniqid(rand(1, 5)) . "." . $middle->extension());
+        } else {
+            $file = null;
+        }
 
         $member = CoworkMember::create([
             'name' => $request->name,
@@ -59,6 +66,7 @@ class CoworksMemberController extends Controller
             'email' => $request->email,
             'tel' => $request->tel,
             'nif' => $request->nif,
+            'foto' => $file,
             'fk_coworks_id' => $id
 
         ]);

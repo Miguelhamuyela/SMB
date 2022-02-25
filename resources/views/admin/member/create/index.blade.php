@@ -19,7 +19,7 @@
 
         <div class="col-lg-12 grid-margin stretch-card ">
             <div class="card">
-                <form method="POST" action="{{ url('admin/member/store/' . $startup->id) }}">
+                <form method="POST" enctype="multipart/form-data" action="{{ url('admin/member/store/' . $startup->id) }}">
                     @csrf
                     <div class="card-body bg-light">
                         @if ($errors->any())

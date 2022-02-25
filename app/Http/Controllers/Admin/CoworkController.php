@@ -78,7 +78,7 @@ class CoworkController extends Controller
 
             /**Cowork Information */
             'title'=> 'required|string|max:300',
-            'activities'=> 'required|string|max:50'
+            'activities'=> 'required|string|max:300'
 
 
         ]);
