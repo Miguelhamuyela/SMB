@@ -20,6 +20,7 @@
             <div class="card">
                 <div class="card-body">
 
+                    <div class="table-responsive">
                     <table id="dataTable-1" class="table table-striped table-bordered mb-3">
                         <thead class="bg-primary thead-dark">
                             <tr class="text-center ">
@@ -62,6 +63,7 @@
 
                         </tbody>
                     </table>
+                </div>
                 </div>
             </div>
         </div>
