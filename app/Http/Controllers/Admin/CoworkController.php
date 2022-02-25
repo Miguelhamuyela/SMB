@@ -83,6 +83,7 @@ class CoworkController extends Controller
 
         ]);
 
+
         $client = Client::create($request->all());
 
         $payment = Payment::create([
