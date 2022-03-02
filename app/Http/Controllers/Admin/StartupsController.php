@@ -169,6 +169,8 @@ class StartupsController extends Controller
 
     public function destroy(Request $request)
     {
+        $fk_Payments_id=Startup::find($request->id)->fk_Payments_id;
+        Payment::where('id', $fk_Payments_id)->delete();
         Startup::find($request->id)->delete();
         $this->Logger->log('info', 'Eliminou Startups');
         return redirect()->route('admin.startup.list.index')->with('destroy', '1');

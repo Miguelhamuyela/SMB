@@ -174,8 +174,10 @@ class EquipmentRepairsController extends Controller
 
     public function destroy(Request $request)
     {
+        $fk_Payments_id = EquipmentRepair::find($request->id)->fk_Payments_id;
+        Payment::where('id', $fk_Payments_id)->delete();
         //Logger
-        $this->Logger->log('info', 'Eliminou Reparação de Equipamentos com o identificador ' .$request->id);
+        $this->Logger->log('info', 'Eliminou Reparação de Equipamentos com o identificador ' . $request->id);
         EquipmentRepair::find($request->id)->delete();
         return redirect('admin/reparação-equipamentos/list')->with('destroy', '1');
     }
