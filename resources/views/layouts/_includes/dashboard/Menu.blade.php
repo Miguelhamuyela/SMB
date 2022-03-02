@@ -29,7 +29,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.manufactures.list.index') }}">
                         <i class="menu-icon typcn typcn-document-text"></i>
-                        <span class="menu-title">Fabrica de Software</span>
+                        <span class="menu-title">Fábrica de Software</span>
                     </a>
                 </li>
             @endif
