@@ -76,7 +76,7 @@ class AuditoriumsController extends Controller
             'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
-           
+
 
             /**Auditoriums Information */
             'titleConference' => 'required|string|max:200'
@@ -184,7 +184,7 @@ class AuditoriumsController extends Controller
 
         Auditorium::find($id)->update($request->all());
         $cowork = Auditorium::find($id);
-        
+
         Client::find($cowork->fk_Clients_id)->update($request->all());
         Scheldule::find($cowork->fk_Scheldules_id)->update($request->all());
         Payment::find($id)->update([
@@ -206,10 +206,10 @@ class AuditoriumsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
-        Auditorium::find($id)->delete();
+        Auditorium::find($request->id)->delete();
         $this->Logger->log('info', 'Eliminou Auditório');
         return redirect()->route('admin.auditoriums.list.index')->with('destroy', '1');
     }

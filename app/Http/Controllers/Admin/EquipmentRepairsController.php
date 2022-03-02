@@ -56,7 +56,7 @@ class EquipmentRepairsController extends Controller
             'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
-           
+
             /**EquipmentRepair */
             'equipmentName' => 'required|string|max:50',
             'model' => 'required|string|max:50',
@@ -172,11 +172,11 @@ class EquipmentRepairsController extends Controller
         return redirect()->route('admin.equipmentRepair.show', $id)->with('edit', '1');
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //Logger
-        $this->Logger->log('info', 'Eliminou Reparação de Equipamentos com o identificador ' . $id);
-        EquipmentRepair::find($id)->delete();
+        $this->Logger->log('info', 'Eliminou Reparação de Equipamentos com o identificador ' .$request->id);
+        EquipmentRepair::find($request->id)->delete();
         return redirect('admin/reparação-equipamentos/list')->with('destroy', '1');
     }
 }

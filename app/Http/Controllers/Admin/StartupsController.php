@@ -78,7 +78,7 @@ class StartupsController extends Controller
 
         ]);
 
-      
+
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
 
@@ -97,7 +97,7 @@ class StartupsController extends Controller
         ]);
 
         $this->Logger->log('info', 'Cadastrou Startups');
-        return redirect()->route('admin.startup.show', $startup->id)->with('create', '1');
+        return redirect()->route('admin.startup.list.index')->with('create', '1');
     }
 
     public function show($id)
@@ -167,9 +167,9 @@ class StartupsController extends Controller
      */
 
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        Startup::find($id)->delete();
+        Startup::find($request->id)->delete();
         $this->Logger->log('info', 'Eliminou Startups');
         return redirect()->route('admin.startup.list.index')->with('destroy', '1');
     }

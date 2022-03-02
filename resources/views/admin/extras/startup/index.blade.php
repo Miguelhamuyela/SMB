@@ -16,7 +16,7 @@
         var dezStartups = JSON.parse('<?php echo $dezStartups; ?>');
         const startups = document.getElementById('startups').getContext('2d');
         const myChart = new Chart(startups, {
-            type: 'line',
+            type: 'bar',
             data: {
                 labels: ['Janeiro', 'Fevereiro ', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Ago', 'Setembro',
                     'Outubro', 'Novembro', 'Dezembro'
