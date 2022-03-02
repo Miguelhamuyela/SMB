@@ -32,12 +32,12 @@
 
     <div>
         
-        <p style="margin-top:99px; font-size:10px;margin-right:65px;">
+        <p style="margin-top:99px; font-size:10px;margin-left:-65px;">
             {{ $Employee->name }}
         </p>
-        <p style="font-size:10px; margin-top:-8px;margin-right:102px;">{{ $Employee->occupation }}</p>
-        <p style="font-size:10px;margin-top:-7px;margin-right:53px; ">{{ $Employee->acronym }}</p>
-        <img style="margin-top:-55px;margin-left:135px;height:60px;width:60px;" class="img-fluid" src="storage/{{ $Employee->photoEmployee }}" alt="{{ $Employee->name }}">
+        <p style="font-size:10px; margin-top:-8px;margin-left:-93px;">{{ $Employee->occupation }}</p>
+        <p style="font-size:10px;margin-top:-7px;margin-left:-55px; ">{{ $Employee->acronym }}</p>
+        <img style="margin-top:-55px;margin-left:125px;height:63px;width:63px;" class="img-fluid" src="storage/{{ $Employee->photoEmployee }}" alt="{{ $Employee->name }}">
 
     </div>
 
