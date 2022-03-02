@@ -32,12 +32,13 @@
 
     <div class="col-md-3">
         <div class="form-group">
-            <label for="type">Referência <small class="text-danger">*</small></label>
+            <label for="type">Referência </label>
             <input type="text" name="reference" id="reference"
                 value="{{ isset($payment->reference) ? $payment->reference : old('reference') }}"
                 class="form-control border rounded" placeholder="Referência">
         </div>
     </div>
+    
 </div>
 
 <div class="row mb-2">
