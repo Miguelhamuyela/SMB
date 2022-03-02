@@ -45,11 +45,11 @@ Route::middleware(['auth'])->group(function () {
         /**End funcionários */
 
 
-         /**Statistic */
+        /**Statistic */
 
-         Route::get('admin/estatísticas-Geral/list', ['as' => 'admin.generalStatistics.index', 'uses' => 'Admin\GeneralStatisticController@index']);
-         Route::get('admin/estatísticas-por-seccao/list', ['as' => 'admin.statisticsSection.index', 'uses' => 'Admin\StatisticController@index']);
-         /**End Statistic */
+        Route::get('admin/estatísticas-Geral/list', ['as' => 'admin.generalStatistics.index', 'uses' => 'Admin\GeneralStatisticController@index']);
+        Route::get('admin/estatísticas-por-seccao/list', ['as' => 'admin.statisticsSection.index', 'uses' => 'Admin\StatisticController@index']);
+        /**End Statistic */
 
         /**Payments*/
         Route::get('admin/pagamentos/list', ['as' => 'admin.payments.index', 'uses' => 'Admin\PaymentsController@index']);
@@ -128,13 +128,13 @@ Route::middleware(['auth'])->group(function () {
         /**End Member */
 
         /**MeetingRoom Start */
-         Route::get('admin/salas/list', ['as' => 'admin.meetingRoom.list.index', 'uses' => 'Admin\MeetingRoomsController@index']);
-         Route::get('admin/salas/create', ['as' => 'admin.meetingRoom.create.index', 'uses' => 'Admin\MeetingRoomsController@create']);
-         Route::post('admin/salas/store', ['as' => 'admin.meetingRoom.store', 'uses' => 'Admin\MeetingRoomsController@store']);
-         Route::get('admin/salas/edit/{id}', ['as' => 'admin.meetingRoom.edit.index', 'uses' => 'Admin\MeetingRoomsController@edit']);
-         Route::put('admin/salas/update/{id}', ['as' => 'admin.meetingRoom.update', 'uses' => 'Admin\MeetingRoomsController@update']);
-         Route::post('admin/salas/delete', ['as' => 'admin.meetingRoom.delete', 'uses' => 'Admin\MeetingRoomsController@destroy']);
-         Route::get('admin/salas/show/{id}', ['as' => 'admin.meetingRoom.show', 'uses' => 'Admin\MeetingRoomsController@show']);
+        Route::get('admin/salas/list', ['as' => 'admin.meetingRoom.list.index', 'uses' => 'Admin\MeetingRoomsController@index']);
+        Route::get('admin/salas/create', ['as' => 'admin.meetingRoom.create.index', 'uses' => 'Admin\MeetingRoomsController@create']);
+        Route::post('admin/salas/store', ['as' => 'admin.meetingRoom.store', 'uses' => 'Admin\MeetingRoomsController@store']);
+        Route::get('admin/salas/edit/{id}', ['as' => 'admin.meetingRoom.edit.index', 'uses' => 'Admin\MeetingRoomsController@edit']);
+        Route::put('admin/salas/update/{id}', ['as' => 'admin.meetingRoom.update', 'uses' => 'Admin\MeetingRoomsController@update']);
+        Route::post('admin/salas/delete', ['as' => 'admin.meetingRoom.delete', 'uses' => 'Admin\MeetingRoomsController@destroy']);
+        Route::get('admin/salas/show/{id}', ['as' => 'admin.meetingRoom.show', 'uses' => 'Admin\MeetingRoomsController@show']);
         /**MeetingRoom End */
     });
 

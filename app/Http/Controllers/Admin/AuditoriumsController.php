@@ -208,7 +208,8 @@ class AuditoriumsController extends Controller
      */
     public function destroy(Request $request)
     {
-        //
+        $fk_Payments_id = Auditorium::find($request->id)->fk_Payments_id;
+        Payment::where('id', $fk_Payments_id)->delete();
         Auditorium::find($request->id)->delete();
         $this->Logger->log('info', 'Eliminou Auditório');
         return redirect()->route('admin.auditoriums.list.index')->with('destroy', '1');
