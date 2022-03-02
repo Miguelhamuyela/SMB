@@ -65,7 +65,8 @@ class ElearningsController extends Controller
             'fk_Clients_id' => $client->id  ]
         );
 
-        return redirect()->back()->with('create', '1');}
+        return  redirect()->route('admin.elernings.list.index')->with('create', '1');
+    }
 
 
     public function show($id)
