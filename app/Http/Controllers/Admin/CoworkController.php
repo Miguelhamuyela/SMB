@@ -74,7 +74,7 @@ class CoworkController extends Controller
             'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
-           
+
 
             /**Cowork Information */
             'title'=> 'required|string|max:300',
@@ -201,10 +201,10 @@ class CoworkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
-        Cowork::find($id)->delete();
+        Cowork::find($request->id)->delete();
         $this->Logger->log('info', 'Eliminou Coworks');
         return redirect()->route('admin.coworks.list.index')->with('destroy', '1');
     }

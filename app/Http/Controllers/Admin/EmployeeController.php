@@ -25,11 +25,7 @@ class EmployeeController extends Controller
         return view('admin.employees.list.index', $response);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //Logger
@@ -67,7 +63,6 @@ class EmployeeController extends Controller
             'acronym' => $request->acronym,
             'nif' => $request->nif
         ]);
-
 
         //Logger
         $this->Logger->log('info', 'Cadastrou um Funcionário com o identificador ' . $employee->id);
@@ -127,11 +122,11 @@ class EmployeeController extends Controller
         $this->Logger->log('info', 'Editou um Funcionário com o identificador ' . $id);
         return redirect()->route('admin.employees.index')->with('edit', '1');
     }
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //Logger
-        $this->Logger->log('info', 'Eliminou um Funcionário com o identificador ' . $id);
-        Employee::find($id)->delete();
+
+        $this->Logger->log('info', 'Eliminou um Funcionário com o identificador ' . $request->id);
+        Employee::find($request->id)->delete();
         return  redirect()->route('admin.employees.index')->with('destroy', '1');
     }
 
@@ -144,7 +139,7 @@ class EmployeeController extends Controller
         $response['Employee'] = $data;
 
         $pdf = PDF::loadView('pdf.credential.employees.index', $response);
-      
+
         return $pdf->stream('credencial de ' . $data->nif . ".pdf");
     }
 

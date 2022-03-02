@@ -20,10 +20,10 @@
                         @endif
                         <h4 class="card-title"><b>
                             <a href="{{ url('admin/manufactures/list') }}">Listar Fábrica de Softwares</a>
-                > Fábrica de Software 
+                > Fábrica de Software
                         </b></h4>
                         <hr>
-                        @include('forms._formFabrica.index')
+                        @include('forms._formFabrica.index')    @include('forms._formFabrica.index')
                     </div>
 
                     <div class="card-body bg-light">

@@ -24,6 +24,6 @@
     <!-- partial -->
 
 </div>
-<!-- main-panel ends -->
+
 
 @include('layouts._includes.dashboard.Footer')

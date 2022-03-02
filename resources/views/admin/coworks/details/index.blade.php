@@ -2,12 +2,36 @@
 @section('titulo', ' Detalhes do Cowork')
 
 @section('content')
+<form action="{{ url('admin/cowork/delete') }}" method="POST">
+    @csrf
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" id="category_id">
+                    Tem certeza de que deseja excluir este item ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Apagar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title"><b>
                 <a href="{{ url('admin/cowork/list') }}">Listar Coworks</a>
                         > Detalhes do Cowork - {{ $cowork->title }}
-                
+
             </b></h2>
         </div>
     </div>
@@ -175,7 +199,7 @@
                                             <div class="btn btn-dark btn-fw btn-rounded text-dark ">
                                                 {{ $cowork->payments->status }}</div>
                                         @endif
-                                        
+
                                         </p>
                                     </div>
 
@@ -200,19 +224,19 @@
                                             {{ $cowork->updated_at }}
                                         </small>
                                     </div>
+
                                     <div class="col-md-4 text-dark text-right">
-                                        <a href='{{ url("admin/cowork/edit/{$cowork->id}") }}'>
+                                        <a type="button" class="btn btn-primary text-left text-white mb-2 btn-fw" href='{{ url("admin/cowork/edit/{$cowork->id}") }}'>
                                             <i class="fa fa-edit"></i>
                                             Editar
                                         </a>
                                         <br>
 
-                                        <a onclick="mens()" href='{{ url("admin/cowork/delete/{$cowork->id}") }}'
-                                            class="text-danger">
+
+                                        <button class="text-left text-white btn btn-danger btn-fw" id="deleteCategoryBtn" value="{{ $cowork->id }}">
                                             <i class="fa fa-trash"></i>
                                             Eliminar
-                                        </a>
-
+                                        </button>
 
                                     </div>
                                 </div>
@@ -223,15 +247,15 @@
 
                 </div>
 
-                
+
 
 
 
             </div> <!-- /.col-12 -->
         </div> <!-- .row -->
 
-        
-   
+
+
     </div> <!-- .container-fluid -->
 
     <div class="card mb-2">
@@ -254,7 +278,7 @@
                     <table class="table table-hover" id="dataTable-1">
                       <thead class="bg-primary thead-dark">
                             <tr class="text-center">
-                  
+
                                 <th>NOME DO MEMBRO</th>
                                 <th>EMAIL</th>
                                 <th>TELEFONE</th>
@@ -266,13 +290,13 @@
                         <tbody class="bg-white">
                             @foreach ($cowork->members as $item)
                                 <tr class="text-center text-dark">
-                                    <td class="text-left">{{ $item->name }}</td>      
+                                    <td class="text-left">{{ $item->name }}</td>
                                     <td class="text-left">{{ $item->email }}</td>
                                     <td class="text-left">{{ $item->tel }}</td>
                                     <td class="text-left">{{ $item->nif }}</td>
                                     <td class="text-left">{{ $item->occupation}}</td>
                                     <td>
-                                        
+
                                         <div class="dropdown">
                                             <button class="btn btn-primary text-white dropdown-toggle" type="button"
                                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
@@ -282,10 +306,10 @@
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a href='{{ url("admin/memberCowork/qrcode/$item->id") }}'
                                                     class="dropdown-item mb-2">Credenciamento</a>
-    
+
                                                 <a href='{{ url("admin/memberCowork/delete/$item->id") }}'
                                                     class="dropdown-item text-danger">Eliminar</a>
-                                                   
+
                                             </div>
                                         </div>
                                     </td>
@@ -295,7 +319,7 @@
                         </tbody>
                     </table>
                 </div>
-         
+
             </div>
 
     </div>
