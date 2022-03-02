@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('admin/funcionários/store', ['as' => 'admin.employees.store', 'uses' => 'Admin\EmployeeController@store']);
         Route::get('admin/funcionários/edit/{id}', ['as' => 'admin.employees.edit.index', 'uses' => 'Admin\EmployeeController@edit']);
         Route::put('admin/funcionários/update/{id}', ['as' => 'admin.employees.update', 'uses' => 'Admin\EmployeeController@update']);
-        Route::get('admin/funcionários/delete/{id}', ['as' => 'admin.employees.delete', 'uses' => 'Admin\EmployeeController@destroy']);
+        Route::post('admin/funcionários/delete', ['as' => 'admin.employees.delete', 'uses' => 'Admin\EmployeeController@destroy']);
         Route::get('admin/funcionários/show/{id}', ['as' => 'admin.employees.show', 'uses' => 'Admin\EmployeeController@show']);
         Route::get('admin/funcionários/cartão/{id}', ['as' => 'admin.employees.card', 'uses' => 'Admin\EmployeeController@card']);
         /**End funcionários */
@@ -65,7 +65,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('admin/startup/store', ['as' => 'admin.startup.store', 'uses' => 'Admin\StartupsController@store']);
         Route::get('admin/startup/edit/{id}', ['as' => 'admin.startup.edit.index', 'uses' => 'Admin\StartupsController@edit']);
         Route::put('admin/startup/update/{id}', ['as' => 'admin.startup.update', 'uses' => 'Admin\StartupsController@update']);
-        Route::get('admin/startup/delete/{id}', ['as' => 'admin.startup.delete', 'uses' => 'Admin\StartupsController@destroy']);
+        Route::post('admin/startup/delete', ['as' => 'admin.startup.delete', 'uses' => 'Admin\StartupsController@destroy']);
         Route::get('admin/startup/show/{id}', ['as' => 'admin.startup.show', 'uses' => 'Admin\StartupsController@show']);
         /**End Startups */
 
@@ -75,7 +75,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/cowork/list', ['as' => 'admin.coworks.list.index', 'uses' => 'Admin\CoworkController@index']);
         Route::post('admin/cowork/store', ['as' => 'admin.coworks.store', 'uses' => 'Admin\CoworkController@store']);
         Route::get('admin/cowork/show/{id}', ['as' => 'admin.coworks.show', 'uses' => 'Admin\CoworkController@show']);
-        Route::get('admin/cowork/delete/{id}', ['as' => 'admin.coworks.delete', 'uses' => 'Admin\CoworkController@destroy']);
+        Route::post('admin/cowork/delete', ['as' => 'admin.coworks.delete', 'uses' => 'Admin\CoworkController@destroy']);
         Route::put('admin/cowork/update/{id}', ['as' => 'admin.coworks.update', 'uses' => 'Admin\CoworkController@update']);
         Route::get('admin/cowork/edit/{id}', ['as' => 'admin.coworks.edit.index', 'uses' => 'Admin\CoworkController@edit']);
         /**End Cowork */
@@ -104,7 +104,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/elernings/list', ['as' => 'admin.elernings.list.index', 'uses' => 'Admin\ElearningsController@index']);
         Route::post('admin/elernings/store', ['as' => 'admin.elernings.store', 'uses' => 'Admin\ElearningsController@store']);
         Route::get('admin/elernings/show/{id}', ['as' => 'admin.elernings.show', 'uses' => 'Admin\ElearningsController@show']);
-        Route::get('admin/elernings/delete/{id}', ['as' => 'admin.elernings.delete', 'uses' => 'Admin\ElearningsController@destroy']);
+        Route::post('admin/elernings/delete', ['as' => 'admin.elernings.delete', 'uses' => 'Admin\ElearningsController@destroy']);
         Route::put('admin/elernings/update/{id}', ['as' => 'admin.elernings.update', 'uses' => 'Admin\ElearningsController@update']);
         Route::get('admin/elernings/edit/{id}', ['as' => 'admin.elernings.edit.index', 'uses' => 'Admin\ElearningsController@edit']);
         /**End Elernings */
@@ -114,7 +114,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/auditoriums/list', ['as' => 'admin.auditoriums.list.index', 'uses' => 'Admin\AuditoriumsController@index']);
         Route::post('admin/auditoriums/store', ['as' => 'admin.auditoriums.store', 'uses' => 'Admin\AuditoriumsController@store']);
         Route::get('admin/auditoriums/show/{id}', ['as' => 'admin.auditoriums.show', 'uses' => 'Admin\AuditoriumsController@show']);
-        Route::get('admin/auditoriums/delete/{id}', ['as' => 'admin.auditoriums.delete', 'uses' => 'Admin\AuditoriumsController@destroy']);
+        Route::post('admin/auditoriums/delete', ['as' => 'admin.auditoriums.delete', 'uses' => 'Admin\AuditoriumsController@destroy']);
         Route::put('admin/auditoriums/update/{id}', ['as' => 'admin.auditoriums.update', 'uses' => 'Admin\AuditoriumsController@update']);
         Route::get('admin/auditoriums/edit/{id}', ['as' => 'admin.auditoriums.edit.index', 'uses' => 'Admin\AuditoriumsController@edit']);
         /**End Auditoriums */
@@ -133,7 +133,7 @@ Route::middleware(['auth'])->group(function () {
          Route::post('admin/salas/store', ['as' => 'admin.meetingRoom.store', 'uses' => 'Admin\MeetingRoomsController@store']);
          Route::get('admin/salas/edit/{id}', ['as' => 'admin.meetingRoom.edit.index', 'uses' => 'Admin\MeetingRoomsController@edit']);
          Route::put('admin/salas/update/{id}', ['as' => 'admin.meetingRoom.update', 'uses' => 'Admin\MeetingRoomsController@update']);
-         Route::get('admin/salas/delete/{id}', ['as' => 'admin.meetingRoom.delete', 'uses' => 'Admin\MeetingRoomsController@destroy']);
+         Route::post('admin/salas/delete', ['as' => 'admin.meetingRoom.delete', 'uses' => 'Admin\MeetingRoomsController@destroy']);
          Route::get('admin/salas/show/{id}', ['as' => 'admin.meetingRoom.show', 'uses' => 'Admin\MeetingRoomsController@show']);
         /**MeetingRoom End */
     });
@@ -144,7 +144,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/reparação-equipamentos/list', ['as' => 'admin.equipmentRepair.list.index', 'uses' => 'Admin\EquipmentRepairsController@index']);
         Route::post('admin/reparação-equipamentos/store', ['as' => 'admin.equipmentRepair.store', 'uses' => 'Admin\EquipmentRepairsController@store']);
         Route::get('admin/reparação-equipamentos/show/{id}', ['as' => 'admin.equipmentRepair.show', 'uses' => 'Admin\EquipmentRepairsController@show']);
-        Route::get('admin/reparação-equipamentos/delete/{id}', ['as' => 'admin.equipmentRepair.delete', 'uses' => 'Admin\CowEquipmentRepairsControllerorkController@destroy']);
+        Route::post('admin/reparação-equipamentos/delete', ['as' => 'admin.equipmentRepair.delete', 'uses' => 'Admin\EquipmentRepairsController@destroy']);
         Route::put('admin/reparação-equipamentos/update/{id}', ['as' => 'admin.equipmentRepair.update', 'uses' => 'Admin\EquipmentRepairsController@update']);
         Route::get('admin/reparação-equipamentos/edit/{id}', ['as' => 'admin.equipmentRepair.edit.index', 'uses' => 'Admin\EquipmentRepairsController@edit']);
         /**End equipmentRepair */
@@ -157,7 +157,7 @@ Route::middleware(['auth'])->group(function () {
          */
         Route::get('admin/manufactures/index', ['as' => 'admin.manufactures.create.index', 'uses' => 'Admin\ManufacturesSoftwaresController@create']);
         Route::post('admin/manufactures/store', ['as' => 'admin.manufactures.store', 'uses' => 'Admin\ManufacturesSoftwaresController@store']);
-        Route::get('admin/manufactures/delete/{id}', ['as' => 'admin.manufactures.delete', 'uses' => 'Admin\ManufacturesSoftwaresController@destroy']);
+        Route::post('admin/manufactures/delete', ['as' => 'admin.manufactures.delete', 'uses' => 'Admin\ManufacturesSoftwaresController@destroy']);
         Route::put('admin/manufactures/update/{id}', ['as' => 'admin.manufactures.update', 'uses' => 'Admin\ManufacturesSoftwaresController@update']);
         Route::get('admin/manufactures/edit/{id}', ['as' => 'admin.manufactures.edit.index', 'uses' => 'Admin\ManufacturesSoftwaresController@edit']);
         Route::get('admin/manufactures/show/{id}', ['as' => 'admin.manufactures.show', 'uses' => 'Admin\ManufacturesSoftwaresController@show']);

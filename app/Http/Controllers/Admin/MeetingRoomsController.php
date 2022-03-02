@@ -28,7 +28,7 @@ class MeetingRoomsController extends Controller
         $response['meetingRoom'] =MeetingRoom::get();
         $this->Logger->log('info', 'Listar Sala de Reuniões');
         return view('admin.meetingRoom.list.index', $response);
-        
+
     }
 
     /**
@@ -163,10 +163,10 @@ class MeetingRoomsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
-        MeetingRoom::find($id)->delete();
+        MeetingRoom::find($request->id)->delete();
         $this->Logger->log('info', 'Eliminou Sala de Reunião');
         return redirect()->route('admin.meetingRoom.list.index')->with('destroy', '1');
     }

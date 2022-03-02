@@ -186,7 +186,7 @@ class ManufacturesSoftwaresController extends Controller
             'reference'  => 'max:255|unique:payments',
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
-           
+
 
         ]);
 
@@ -221,10 +221,10 @@ class ManufacturesSoftwaresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
-        ManufacturesSoftware::find($id)->delete();
+        ManufacturesSoftware::find($request->id)->delete();
         $this->Logger->log('info', 'Eliminou Fábrica de Softwares');
         return redirect()->route('admin.manufactures.list.index')->with('destroy', '1');
     }

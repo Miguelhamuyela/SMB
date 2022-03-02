@@ -99,6 +99,22 @@
         ]
     });
 </script>
+
+
+
+<script>
+    $(document).ready(function() {
+
+        $('#deleteCategoryBtn').click(function(e) {
+            e.preventDefault();
+            var category_id = $(this).val();
+            console.log(category_id);
+            $('#category_id').val(category_id);
+            $('#deleteModal').modal('show');
+
+        });
+    });
+</script>
 </body>
 
 </html>

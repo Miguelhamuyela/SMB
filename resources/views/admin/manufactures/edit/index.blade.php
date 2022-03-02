@@ -34,7 +34,7 @@
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Fábrica de Software</b></h4>
                         <hr>
-                        @include('forms._formManufacture.index')
+                        @include('forms._formFabrica.index')
                     </div>
 
                     <div class="card-body bg-light">
@@ -46,27 +46,27 @@
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Período de Desenvolvimento</b></h4>
                         <hr>
-                        @include('forms._formManufacturePeriodo.index')
+                        @include('forms._formFabricaPeriodo.index')
                     </div>
-    
-    
+
+
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Pagamentos</b></h4>
                         <hr>
                         @include('forms._formPayments.index')
                     </div>
-    
-                   
 
-                    
-                    
+
+
+
+
                     <div class="card-body bg-light">
                         <div class="col-md-12">
                             <div class="form-group text-center">
                                 <button type="submit" class="btn px-5 col-md-4 btn-primary">
                                     Salvar Alterações
                                 </button>
-    
+
                             </div>
                         </div>
                     </div>
