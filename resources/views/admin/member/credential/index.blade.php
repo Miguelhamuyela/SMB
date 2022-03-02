@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="container-fluid d-flex justify-content-between">
-                        <div class="col-lg-6 pl-0">
+                        <div class="col-lg-4 pl-0">
                             <H5 class="mt-5 mb-2">
                                 <b> {{ $member->name }}</b>
                             </H5>
@@ -34,16 +34,17 @@
                                 <b>EMAIL: </b>{{ $member->email }}, <br>
                                 <b>TELEFONE: </b>{{ $member->tel }}, <br>
                                 <b>NIF: </b>{{ $member->nif }}, <br>
-                                <b>FOTO: </b><div class="py-2">
-                                    <img class="mr-2 rounded-circle img-fluid" src="/storage/{{$member->foto}}"
-                                    width="90" height="90" alt="profile image">
-                                </div>
-
+       
                             </p>
                         </div>
 
+                        <div class="col-lg-4 text-center my-3  mt-4 mb-2">
+                            <img class=" justify-content-center  img-fluid rounded  " src="/storage/{{$member->foto}}"
+                            width="150" height="150" alt="profile image">
+                        </div>
 
-                        <div class="col-lg-3 pr-0">
+
+                        <div class="col-lg-4 pr-0">
                             <H5 class="mt-5 mb-2 text-right">
                                 <b> {{ $member->startup->name }}</b>
                             </H5>
