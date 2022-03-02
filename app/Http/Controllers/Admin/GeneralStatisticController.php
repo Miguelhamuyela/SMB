@@ -37,7 +37,7 @@ class GeneralStatisticController extends Controller
 
         $jun = Payment::whereMonth('created_at', '=', 06)->where('status', '=', 'Pago')->count();
         $response['jun'] = json_encode($jun);
-        $jul = Payment::whereMonth('created_at', '=', 07)->sum('value');
+        $jul = Payment::whereMonth('created_at', '=', 07)->where('status', '=', 'Pago')->sum('value');
         $response['jul'] = json_encode($jul);
         $ago = Payment::whereMonth('created_at', '=', '08')->where('status', '=', 'Pago')->sum('value');
         $response['ago'] = json_encode($ago);

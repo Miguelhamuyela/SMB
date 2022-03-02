@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 
 class StatisticController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         /* equipaments/*/

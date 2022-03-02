@@ -223,7 +223,8 @@ class ManufacturesSoftwaresController extends Controller
      */
     public function destroy(Request $request)
     {
-        //
+        $fk_Payments_id=ManufacturesSoftware::find($request->id)->fk_Payments_id;
+        Payment::where('id', $fk_Payments_id)->delete();
         ManufacturesSoftware::find($request->id)->delete();
         $this->Logger->log('info', 'Eliminou Fábrica de Softwares');
         return redirect()->route('admin.manufactures.list.index')->with('destroy', '1');
