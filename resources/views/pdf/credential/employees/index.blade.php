@@ -12,7 +12,7 @@
         }
 
         * {
-            text-align: center;
+           
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -32,12 +32,12 @@
 
     <div>
         
-        <p style="margin-top:99px; font-size:10px;margin-left:-65px;">
+        <p style="margin-top:99px; font-size:10px;margin-left:65px;">
             {{ $Employee->name }}
         </p>
-        <p style="font-size:10px; margin-top:-8px;margin-left:-93px;">{{ $Employee->occupation }}</p>
-        <p style="font-size:10px;margin-top:-7px;margin-left:-55px; ">{{ $Employee->acronym }}</p>
-        <img style="margin-top:-55px;margin-left:125px;height:63px;width:63px;" class="img-fluid" src="storage/{{ $Employee->photoEmployee }}" alt="{{ $Employee->name }}">
+        <p style="font-size:10px; margin-top:-8px;margin-left:70px;">{{ $Employee->occupation }}</p>
+        <p style="font-size:10px;margin-top:-7px;margin-left:107px; ">{{ $Employee->acronym }}</p>
+        <img style="margin-top:-55px;margin-left:180px;height:63px;width:63px;" class="img-fluid" src="storage/{{ $Employee->photoEmployee }}" alt="{{ $Employee->name }}">
 
     </div>
 
