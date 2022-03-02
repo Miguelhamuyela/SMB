@@ -42,7 +42,7 @@ class EquipmentRepairsController extends Controller
         $request->validate([
             /**Clients informatio */
             'name' => 'required|string|max:255',
-            'email' => 'required|string|max:50',
+            'email' => 'required|string|max:255',
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
             'address' => 'required|string|max:50',
@@ -120,7 +120,7 @@ class EquipmentRepairsController extends Controller
         $request->validate([
             /**Clients informatio */
             'name' => 'required|string|max:255',
-            'email' => 'required|string|max:50',
+            'email' => 'required|string|max:255',
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
             'address' => 'required|string|max:50',

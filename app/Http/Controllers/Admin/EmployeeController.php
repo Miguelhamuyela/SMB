@@ -42,6 +42,7 @@ class EmployeeController extends Controller
             'tel' => 'max:12',
             'nif' => 'required|string|max:50',
             'departament' => 'required|string|max:255',
+            'acronym' => 'required|string|max:255',
             'occupation' => 'required|string|max:100',
             'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS',
         ]);
@@ -59,6 +60,7 @@ class EmployeeController extends Controller
             'photoEmployee' => $file,
             'occupation' => $request->occupation,
             'departament' => $request->departament,
+            'acronym' => $request->acronym,
             'nif' => $request->nif
         ]);
 
@@ -89,10 +91,11 @@ class EmployeeController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|max:50',
+            'email' => 'required|string|max:255',
             'tel' => 'max:12',
             'nif' => 'required|string|max:50',
             'departament' => 'required|string|max:255',
+            'acronym' => 'required|string|max:255',
             'occupation' => 'required|string|max:50',
         ]);
 
@@ -110,6 +113,7 @@ class EmployeeController extends Controller
             'photoEmployee' => $file,
             'occupation' => $request->occupation,
             'departament' => $request->departament,
+            'acronym' => $request->acronym,
             'nif' => $request->nif
         ]);
 
