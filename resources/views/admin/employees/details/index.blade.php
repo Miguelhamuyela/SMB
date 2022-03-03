@@ -96,7 +96,7 @@
                             <b>Foto </b><br>
                             <small>
                                 @if (isset($Employee->photoEmployee))
-                                    <img src="/storage/{{ $Employee->photoEmployee }}" class="mr-2 rounded-circle"
+                                    <img src="/storage/{{ $Employee->photoEmployee }}" class="mr-2 rounded-circle img-fluid"
                                         alt="Cinque Terre" width="90" height="90">
                             </small>
                         @else
