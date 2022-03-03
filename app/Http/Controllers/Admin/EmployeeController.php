@@ -83,8 +83,8 @@ class EmployeeController extends Controller
 
     public function edit($id)
     {
-        $response['employee'] = Employee::find($id);
-
+        $response['employee'] = Employee::with('departament')->find($id);
+        $response['departaments'] = Department::get();
         //Logger
         $this->Logger->log('info', 'Entrou em editar um Funcionário  com o identificador ' . $id);
         return view('admin.employees.edit.index', $response);

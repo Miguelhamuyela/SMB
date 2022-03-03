@@ -34,7 +34,7 @@
                     <option disabled selected value="">selecione uma outra opção</option>
                 @endif
 
-                @foreach ($employees as $item)
+                @foreach ($departament as $item)
                     <option value="{{ $item->id }}" selected>
                         {{ $item->name }}
                     </option>

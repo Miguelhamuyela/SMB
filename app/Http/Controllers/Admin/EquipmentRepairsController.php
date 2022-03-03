@@ -6,6 +6,7 @@ use App\Classes\Logger;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use App\Models\Department;
 use App\Models\Employee;
 use App\Models\EquipmentRepair;
 use App\Models\Payment;
@@ -31,8 +32,9 @@ class EquipmentRepairsController extends Controller
 
     public function create()
     {
-        $response['employees'] = Employee::where('departament', 'Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados')->get();
+        $response['departament'] =Department::with('employee')->where('department', 'Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados')->get();
         //Logger
+
         $this->Logger->log('info', 'Entrou em Cadastrar  Reparação de  Equipamentos ');
         return view('admin.equipmentRepair.create.index', $response);
     }
