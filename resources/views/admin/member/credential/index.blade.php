@@ -33,15 +33,27 @@
                                 <b>OCUPAÇÃO: </b> {{ $member->occupation }}, <br>
                                 <b>EMAIL: </b>{{ $member->email }}, <br>
                                 <b>TELEFONE: </b>{{ $member->tel }}, <br>
-                                <b>NIF: </b>{{ $member->nif }}, <br>
+                                <b>NIF: </b>{{ $member->nif }}
        
                             </p>
                         </div>
 
+                        @if (!isset($member->foto))
+
+                        <div class="col-lg-4 text-center my-3  mt-4 mb-2">
+                            <img class=" justify-content-center  img-fluid rounded  " src="/dashboard/images/user.png"
+                            width="150" height="150" alt="profile image">
+                        </div>
+                            
+                        @else
                         <div class="col-lg-4 text-center my-3  mt-4 mb-2">
                             <img class=" justify-content-center  img-fluid rounded  " src="/storage/{{$member->foto}}"
                             width="150" height="150" alt="profile image">
                         </div>
+                            
+                        @endif
+
+                        
 
 
                         <div class="col-lg-4 pr-0">
