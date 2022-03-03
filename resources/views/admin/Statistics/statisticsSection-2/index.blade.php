@@ -67,7 +67,7 @@
     </div>
 </div>
 @include('admin.extras.manufactures.index')
-@include('admin.extras.startup.index')
+@include('admin.extras.cowork.index')
 
 
 </center>
