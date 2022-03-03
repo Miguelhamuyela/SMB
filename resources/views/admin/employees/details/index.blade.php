@@ -82,13 +82,13 @@
                     <div class="col-md-3">
                         <p class="text-dark">
                             <b>Departamento</b><br>
-                            <small>{{ $Employee->departament }} </small>
+                            <small>{{ $Employee->departament->department  }} </small>
                         </p>
                     </div>
                     <div class="col-md-3">
                         <p class="text-dark">
                             <b>Acrónimo</b><br>
-                            <small>{{ $Employee->acronym }} </small>
+                            <small>{{ $Employee->departament->acronym    }} </small>
                         </p>
                     </div>
                     <div class="col-md-3">

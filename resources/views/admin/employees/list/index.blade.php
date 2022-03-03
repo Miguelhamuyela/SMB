@@ -32,14 +32,14 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                                 @foreach ($employees as $item)
                                     <tr class="text-center text-dark">
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->employees->name }} </td>
-                                        <td>{{ $item->departament }} </td>
+                                        <td>{{ $item->name }} </td>
+                                        <td>{{ $item->departament->department }} </td>
 
-
-                                        <td>{{ $item->employees->tel }} </td>
+                                        <td>{{ $item->tel }} </td>
                                         <td>
                                             <div class="dropdown">
                                                 <button class="btn btn-primary text-white btn-sm dropdown-toggle"
@@ -49,9 +49,9 @@
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                                    <a href='{{ url("admin/funcionários/show/{$item->employees->id}") }}'
+                                                    <a href='{{ url("admin/funcionários/show/{$item->id}") }}'
                                                         class="dropdown-item">Detalhes</a>
-                                                    <a href='{{ url("admin/funcionários/cartão/{$item->employees->id}") }}'
+                                                    <a href='{{ url("admin/funcionários/cartão/{$item->id}") }}'
                                                         class="dropdown-item mt-2" target="_blank">Cartão</a>
 
                                                 </div>
