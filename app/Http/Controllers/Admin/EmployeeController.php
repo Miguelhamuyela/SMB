@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Classes\Logger;
 use App\Http\Controllers\Controller;
-use App\Models\Departament;
 use App\Models\Employee;
 use App\Models\EquipmentRepair;
 use Illuminate\Http\Request;
@@ -30,16 +29,10 @@ class EmployeeController extends Controller
     public function create()
     {
         //Logger
-        $response['departaments']=Departament::get();
         $this->Logger->log('info', 'Entrou em Cadastrar Funcionário');
-        return view('admin.employees.create.index',$response);
+        return view('admin.employees.create.index');
     }
 
-
-    public function GetSubCatAgainstMainCatEdit($id)
-    {
-        echo json_encode(Departament::find($id));
-    }
 
     public function store(Request $request)
     {
@@ -51,7 +44,7 @@ class EmployeeController extends Controller
             'departament' => 'required|string|max:255',
             'acronym' => 'required|string|max:255',
             'occupation' => 'required|string|max:100',
-            'photoEmployee' => 'mimes:jpg,png,gif,jpeg',
+            'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS',
         ]);
 
 
