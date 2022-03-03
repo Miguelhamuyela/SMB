@@ -44,7 +44,7 @@ class EmployeeController extends Controller
             'departament' => 'required|string|max:255',
             'acronym' => 'required|string|max:255',
             'occupation' => 'required|string|max:100',
-            'photoEmployee' => 'mimes:jpg,png,gif',
+            'photoEmployee' => 'mimes:jpg,png,gif,jpeg',
         ]);
 
 
