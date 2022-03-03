@@ -11,9 +11,9 @@
 
     <div class="col-md-6">
         <div class="form-group">
-            <label for="prespective">Entrega do Projeto <small class="text-danger">*</small></label>
+            <label for="Entrega">Entrega do Projeto <small class="text-danger">*</small></label>
             <input type="datetime-local" name="end" id="end"
-                value="{{ isset($scheldule->prespective) ? date('Y-m-d\TH:i:s', strtotime($scheldule->prespective)) : old('prespective') }}" class="form-control border rounded"
+                value="{{ isset($scheldule->end) ? date('Y-m-d\TH:i:s', strtotime($scheldule->end)) : old('end') }}" class="form-control border rounded"
                >
         </div>
     </div>
