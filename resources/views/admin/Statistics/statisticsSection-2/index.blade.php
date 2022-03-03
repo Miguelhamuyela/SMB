@@ -39,7 +39,7 @@
                 <div class="d-flex flex-column flex-lg-row">
                     <div class="ml-lg-auto" ></div>
                 </div>
-                <canvas height="200" id="startups" style="height:10%; width:0cm "></canvas>
+                <canvas height="200" id="cowork" style="height:10%; width:0cm "></canvas>
             </div>
         </div>
     </div>
