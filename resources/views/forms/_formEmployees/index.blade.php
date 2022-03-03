@@ -59,9 +59,10 @@
 
     <div class="col-md-6">
         <div class="form-group">
-            <label for="departament">Departamento <small class="text-danger">*</small></label>
+            <label for="fk_departament">Departamento <small class="text-danger">*</small></label>
 
-            <select type="text" name="departament" id="sub_category_name" class="form-control border rounded" required>
+            <select type="text" name="fk_departament" id="sub_category_name" class="form-control border rounded"
+                required>
 
                 @if (isset($employee->departament))
                     <option value="{{ $employee->departament }}" class="text-primary h6 bg-primary text-white"
@@ -77,10 +78,7 @@
                         {{ $item->department }}
                     </option>
                 @endforeach
-
-
             </select>
-
         </div>
     </div>
 
@@ -88,7 +86,8 @@
         <div class="form-group">
             <label for="Acrónimo">Acrónimo <small class="text-danger">*</small></label>
 
-            <select id="sub_category" type="text" name="acronym" id="acronym" class="form-control border rounded" required>
+            <select id="sub_category" type="text" name="acronym" id="acronym" class="form-control border rounded"
+                required>
 
                 @if (isset($employee->acronym))
                     <option value="{{ $employee->acronym }}" class="text-primary h6 bg-primary text-white" selected>
@@ -124,10 +123,9 @@
 
 @section('jQueryAPI')
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
-
 @endsection
 <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
-      <script src="/dashboard/bundles/jquery.min.js"></script>
+<script src="/dashboard/bundles/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
         jQuery.support.cors = true;
@@ -165,7 +163,7 @@
 
                     );
                     $('#sub_category').append(
-                        `<option selected value="${response['sigle']}">${response['sigle']}</option>`
+                        `<option selected value="${response['acronym']}">${response['acronym']}</option>`
                     );
                 }
             });
