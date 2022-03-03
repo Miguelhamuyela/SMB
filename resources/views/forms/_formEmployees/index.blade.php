@@ -65,9 +65,10 @@
                 required>
 
                 @if (isset($employee->departament))
-                    <option value="{{ $employee->departament }}" class="text-primary h6 bg-primary text-white"
+                    <option value="{{  $employee->departament->id }}" class="text-primary h6 bg-primary text-white"
                         selected>
-                        {{ $employee->departament }}
+                        {{ $employee->departament->department }}
+
                     </option>
                 @else
                     <option disabled selected value="">selecione uma outra opção</option>
@@ -89,16 +90,14 @@
             <select id="sub_category" type="text" name="acronym" id="acronym" class="form-control border rounded"
                 required>
 
-                @if (isset($employee->acronym))
-                    <option value="{{ $employee->acronym }}" class="text-primary h6 bg-primary text-white" selected>
-                        {{ $employee->acronym }}
+                @if (isset($employee->departament->department))
+                    <option value="{{ $employee->departament->id }}" class="text-primary h6 bg-primary text-white" selected>
+                        {{  $employee->departament->acronym }}
                     </option>
                 @else
                     <option disabled selected value="">selecione uma outra opção</option>
                 @endif
-                <option value="DMICD">
-                    DMICD
-                </option>
+
 
 
             </select>
