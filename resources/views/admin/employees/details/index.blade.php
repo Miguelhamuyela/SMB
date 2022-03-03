@@ -87,6 +87,12 @@
                     </div>
                     <div class="col-md-3">
                         <p class="text-dark">
+                            <b>Acrónimo</b><br>
+                            <small>{{ $Employee->acronym }} </small>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="text-dark">
                             <b>Foto </b><br>
                             <small>
                                 @if (isset($Employee->photoEmployee))
