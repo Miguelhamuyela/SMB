@@ -34,10 +34,12 @@
                     <option disabled selected value="">selecione uma outra opção</option>
                 @endif
 
-                @foreach ($departament as $item)
-                    <option value="{{ $item->id }}" selected>
-                        {{ $item->name }}
-                    </option>
+                @foreach ($employees as $item)
+                    @if ($item->departament->department == 'Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados')
+                        <option value="{{ $item->id }}" selected>
+                            {{ $item->name }}
+                        </option>
+                    @endif
                 @endforeach
 
             </select>

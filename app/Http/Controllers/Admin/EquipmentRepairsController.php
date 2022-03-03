@@ -32,9 +32,8 @@ class EquipmentRepairsController extends Controller
 
     public function create()
     {
-        $response['departament'] =Department::with('employee')->where('department', 'Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados')->get();
+        $response['employees'] = Employee::with('departament')->orderBy('name', 'asc')->get();
         //Logger
-
         $this->Logger->log('info', 'Entrou em Cadastrar  Reparação de  Equipamentos ');
         return view('admin.equipmentRepair.create.index', $response);
     }
