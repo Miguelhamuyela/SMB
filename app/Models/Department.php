@@ -20,9 +20,9 @@ class Department extends Model
      */
     protected $dates = ['deleted_at'];
 
-    public function employee(){
+    public function employees(){
 
-        return $this->hasMany(Employee::class, 'fk_departament');
+        return $this->belongsTo(Department::class, 'fk_departament');
     }
 
 }
