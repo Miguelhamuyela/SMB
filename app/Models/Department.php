@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Employee extends Model
+class Department extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = "employees";
+    protected $table = "departments";
 
     protected $guarded = ['id'];
 
@@ -20,7 +20,7 @@ class Employee extends Model
      */
     protected $dates = ['deleted_at'];
 
-    public function departament(){
+    public function employees(){
 
         return $this->belongsTo(Department::class, 'fk_departament');
     }

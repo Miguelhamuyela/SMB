@@ -37,7 +37,6 @@ class CreateEquipmentRepairsTable extends Migration
 
             $table->softDeletes();
             $table->timestamps();
-
         });
     }
 

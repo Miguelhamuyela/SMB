@@ -35,9 +35,11 @@
                 @endif
 
                 @foreach ($employees as $item)
-                    <option value="{{ $item->id }}" selected>
-                        {{ $item->name }}
-                    </option>
+                    @if ($item->departament->department == 'Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados')
+                        <option value="{{ $item->id }}" selected>
+                            {{ $item->name }}
+                        </option>
+                    @endif
                 @endforeach
 
             </select>
