@@ -40,9 +40,9 @@
   
   <div class="col-md-4">
     <div class="form-group">
-        <label for="tel">Ocupação <small class="text-danger">*</small></label>
+        <label for="tel">Função <small class="text-danger">*</small></label>
         <input type="text" name="occupation" id="occupation" value="{{ isset($member->occupation) ? $member->occupation: old('occupation') }}"
-            class="form-control border rounded" placeholder="Ocupação" required>
+            class="form-control border rounded" placeholder="Função" required>
     </div>
   </div>
 
