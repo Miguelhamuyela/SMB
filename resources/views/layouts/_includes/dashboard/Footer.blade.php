@@ -59,13 +59,10 @@
 
 <script src="/js/sweetalert2.all.min.js"></script>
 
-
-
 <!-- plugins:js -->
 <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
 <script src="/dashboard/vendors/js/vendor.bundle.addons.js"></script>
 <!-- endinject -->
-
 
 <script>
     function mens() {
