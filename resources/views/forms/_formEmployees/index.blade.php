@@ -13,8 +13,8 @@
 
     <div class="col-md-6">
         <div class="form-group">
-            <label for="nif">Telefone <small class="text-danger">*</small></label>
-            <input type="text" name="tel" id="tel" value="{{ isset($employee->nif) ? $employee->nif : old('nif') }}"
+            <label for="Telefone">Telefone <small class="text-danger">*</small></label>
+            <input type="text" name="tel" id="tel" value="{{ isset($employee->tel) ? $employee->tel : old('tel') }}"
                 class="form-control border rounded" placeholder="Nº de Telefone" required>
         </div>
     </div>

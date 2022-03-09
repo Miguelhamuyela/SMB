@@ -83,6 +83,18 @@
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
+                                            <b>Endereço MAC</b><br>
+                                            <small> {{ $equipmentRepair->macAddress }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Endereço MAC</b><br>
+                                            <small> {{ $equipmentRepair->serialNumber }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
                                             <b>Imagem</b><br>
                                             @if(isset($equipmentRepair->image))
                                             <small> <a  href="/storage/{{$equipmentRepair->image}}">Anexo</a> </small>
