@@ -283,7 +283,7 @@
                                 <th>EMAIL</th>
                                 <th>TELEFONE</th>
                                 <th>NIF</th>
-                                <th>OCUPAÇÁO</th>
+                                <th>FUNÇÃO</th>
                                 <th class="text-left">ACÇÕES</th>
                             </tr>
                         </thead>
