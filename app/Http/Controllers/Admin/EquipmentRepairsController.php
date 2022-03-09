@@ -64,6 +64,8 @@ class EquipmentRepairsController extends Controller
             'image' => 'mimes:jpg,png,gif,SVG,EPS',
             'problemDetails' => 'required',
             'referenceEquipment' => 'required|unique:equipment_repairs',
+            'macAddress' => '|unique:equipment_repairs',
+            'serialNumber' => '|unique:equipment_repairs'
         ]);
 
         $client = Client::create($request->all());
@@ -81,6 +83,8 @@ class EquipmentRepairsController extends Controller
             'image' =>  $file,
             'referenceEquipment' => $request->referenceEquipment,
             'problemDetails' => $request->problemDetails,
+            'macAddress'=> $request->macAddress,
+            'serialNumber'=> $request->serialNumber,
             'fk_Payments_id' => $payment->id,
             'fk_Employees_id' => $request->fk_Employees_id,
             'fk_Clients_id' => $client->id,
@@ -141,9 +145,10 @@ class EquipmentRepairsController extends Controller
             /**EquipmentRepair */
             'equipmentName' => 'required|string|max:50',
             'model' => 'required|string|max:50',
-
             'problemDetails' => 'required',
             'referenceEquipment' => 'required',
+            'macAddress' => '|unique:equipment_repairs',
+            'serialNumber' => '|unique:equipment_repairs'
         ]);
 
         if ($middle = $request->file('image')) {
@@ -165,6 +170,8 @@ class EquipmentRepairsController extends Controller
             'image' =>  $file,
             'referenceEquipment' => $request->referenceEquipment,
             'problemDetails' => $request->problemDetails,
+            'macAddress'=> $request->macAddress,
+            'serialNumber'=> $request->serialNumber,
             'fk_Payments_id' => $EquipmentRepair->fk_Payments_id,
             'fk_Employees_id' => $request->fk_Employees_id,
             'fk_Clients_id' => $EquipmentRepair->fk_Clients_id,
