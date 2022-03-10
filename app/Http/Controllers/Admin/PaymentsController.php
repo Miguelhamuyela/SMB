@@ -51,4 +51,16 @@ class PaymentsController extends Controller
         return view('admin.payments.details.index', $response);
     }
 
+    public function printPayment(Request $request)
+    {
+        $response['payment'] = Payment::find($request->fk_payments_id);
+        $response['EnrollemtStudents'] = EnrollemtStudent::with('courses')->with('payment')->where('fk_course_id', $request->fk_course_id)->get();
+        $pdf = PDF::loadview('admin.pdf.RegistionCourse.index', $response);
+
+        //Logger
+        $this->Logger->log('info', 'Imprimiu lista de ');
+
+        return $pdf->setPaper('a4')->stream('pdf');
+    }
+
 }
