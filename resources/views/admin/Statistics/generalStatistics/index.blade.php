@@ -8,84 +8,401 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-0">Estatística  Geral de Pagamentos </h4>
-                    <div class="card-options"align="left" >
+                    <h4 class="card-title mb-0">Estatística Geral de Pagamentos </h4>
+                    <div class="card-options" align="left">
                         <h6 align="right"> Total somado: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!} </h6>
                     </div>
 
-
+                    <canvas height="450" id="myChart" style="height:10%; width:1cm "></canvas>
 
                     <div class="d-flex flex-column flex-lg-row">
 
 
                     </div>
 
-                    <div class="d-flex flex-column flex-lg-row">
 
-                        <div class="ml-lg-auto" id="sales-statistics-legend"></div>
-                    </div>
-                    <canvas height="350" id="myChart1" style="height:10%; width:0cm "></canvas>
-                </div>
-            </div>
-        </div>
 
-    </div>
+                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
-    <script>
-        var jan = JSON.parse('<?php echo $jan; ?>');
+                    <script>
+                        window.onload = function() {
 
-        var fev = JSON.parse('<?php echo $fev; ?>');
-        var mar = JSON.parse('<?php echo $mar; ?>');
-        var abr = JSON.parse('<?php echo $abr; ?>');
-        var maio = JSON.parse('<?php echo $maio; ?>');
-        var jun = JSON.parse('<?php echo $jun; ?>');
-        var jul = JSON.parse('<?php echo $jul; ?>');
-        var ago = JSON.parse('<?php echo $ago; ?>');
-        var set = JSON.parse('<?php echo $set; ?>');
-        var out = JSON.parse('<?php echo $out; ?>');
-        var nov = JSON.parse('<?php echo $nov; ?>');
-        var dez = JSON.parse('<?php echo $dez; ?>');
-        const ctx = document.getElementById('myChart1').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'bar',
+                            var janManufacture = JSON.parse('<?php echo $janManufacture; ?>');
+                            var feManufacture = JSON.parse('<?php echo $feManufacture; ?>');
+                            var marManufacture = JSON.parse('<?php echo   $marManufacture; ?>');
+                            var abrManufacture = JSON.parse('<?php echo $abrManufacture; ?>');
+                            var maioManufacture = JSON.parse('<?php echo $maioManufacture; ?>');
+                            var junManufacture = JSON.parse('<?php echo $junManufacture; ?>');
+                            var julManufacture = JSON.parse('<?php echo $julManufacture; ?>');
+                            var agoManufacture = JSON.parse('<?php echo $agoManufacture; ?>');
+                            var setManufacture = JSON.parse('<?php echo $setManufacture; ?>');
+                            var outManufacture = JSON.parse('<?php echo $outManufacture; ?>');
+                            var novManufacture = JSON.parse('<?php echo $novManufacture; ?>');
+                            var dezManufacture = JSON.parse('<?php echo $dezManufacture; ?>');
 
-            data: {
-                labels: ['Janeiro', 'Fevereiro ', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Ago', 'Setembro',
-                    'Outubro', 'Novembro', 'Dezembro'
-                ],
-                datasets: [{
-                    label: 'Total Somado',
-                    data: [jan, fev, mar, abr, maio, jun, jul, ago, set, out, nov, dez],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(254, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)',
-                        'rgba(254, 159, 64, 0.2)'
-                    ],
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+                            var janEquipament = JSON.parse('<?php echo $janEquipament; ?>');
+                            var fevEquipament = JSON.parse('<?php echo $fevEquipament; ?>');
+                            var marEquipament = JSON.parse('<?php echo $marEquipament; ?>');
+                            var abrEquipament = JSON.parse('<?php echo $abrEquipament; ?>');
+                            var maioEquipament = JSON.parse('<?php echo $maioEquipament; ?>');
+                            var junEquipament = JSON.parse('<?php echo $junEquipament; ?>');
+                            var julEquipament = JSON.parse('<?php echo $julEquipament; ?>');
+                            var agoEquipament = JSON.parse('<?php echo $agoEquipament; ?>');
+                            var setEquipament = JSON.parse('<?php echo $setEquipament; ?>');
+                            var outEquipament = JSON.parse('<?php echo $outEquipament; ?>');
+                            var novEquipament = JSON.parse('<?php echo $novEquipament; ?>');
+                            var dezEquipament = JSON.parse('<?php echo $dezEquipament; ?>');
 
-@endsection
+                            var janStartups = JSON.parse('<?php echo $janStartups; ?>');
+                            var fevStartups = JSON.parse('<?php echo $fevStartups; ?>');
+                            var marStartups = JSON.parse('<?php echo $marStartups; ?>');
+                            var abrStartups = JSON.parse('<?php echo $abrStartups; ?>');
+                            var maioStartups = JSON.parse('<?php echo $maioStartups; ?>');
+                            var junStartups = JSON.parse('<?php echo $junStartups; ?>');
+                            var julStartups = JSON.parse('<?php echo $julStartups; ?>');
+                            var agoStartups = JSON.parse('<?php echo $agoStartups; ?>');
+                            var setStartups = JSON.parse('<?php echo $setStartups; ?>');
+                            var outStartups = JSON.parse('<?php echo $outStartups; ?>');
+                            var novStartups = JSON.parse('<?php echo $novStartups; ?>');
+                            var dezStartups = JSON.parse('<?php echo $dezStartups; ?>');
+
+                            var jancowork = JSON.parse('<?php echo $jancowork; ?>');
+                            var fecowork = JSON.parse('<?php echo $fecowork; ?>');
+                            var marcowork = JSON.parse('<?php echo $marcowork; ?>');
+                            var abrcowork = JSON.parse('<?php echo $abrcowork; ?>');
+                            var maiocowork = JSON.parse('<?php echo $maiocowork; ?>');
+                            var juncowork = JSON.parse('<?php echo $juncowork; ?>');
+                            var julcowork = JSON.parse('<?php echo $julcowork; ?>');
+                            var agocowork = JSON.parse('<?php echo $agocowork; ?>');
+                            var setcowork = JSON.parse('<?php echo $setcowork; ?>');
+                            var outcowork = JSON.parse('<?php echo $outcowork; ?>');
+                            var novcowork = JSON.parse('<?php echo $novcowork; ?>');
+                            var dezcowork = JSON.parse('<?php echo $dezcowork; ?>');
+
+                            var janAuditoriums = JSON.parse('<?php echo $janAuditoriums; ?>');
+                            var feAuditoriums = JSON.parse('<?php echo $feAuditoriums; ?>');
+                            var marAuditoriums = JSON.parse('<?php echo $marAuditoriums; ?>');
+                            var abrAuditoriums = JSON.parse('<?php echo $abrAuditoriums; ?>');
+                            var maioAuditoriums = JSON.parse('<?php echo $maioAuditoriums; ?>');
+                            var junAuditoriums = JSON.parse('<?php echo $junAuditoriums; ?>');
+                            var julAuditoriums = JSON.parse('<?php echo $julAuditoriums; ?>');
+                            var agoAuditoriums = JSON.parse('<?php echo $agoAuditoriums; ?>');
+                            var setAuditoriums = JSON.parse('<?php echo $setAuditoriums; ?>');
+                            var outAuditoriums = JSON.parse('<?php echo $outAuditoriums; ?>');
+                            var novAuditoriums = JSON.parse('<?php echo $novAuditoriums; ?>');
+                            var dezAuditoriums = JSON.parse('<?php echo $dezAuditoriums; ?>');
+                            var chart = new CanvasJS.Chart("chartContainer", {
+                                theme: "light2",
+                                animationEnabled: true,
+                                title: {
+                                    text: "Estatística Geral"
+                                },
+                                axisY: {
+                                    title: "",
+                                    suffix: ""
+                                },
+                                toolTip: {
+                                    shared: "true"
+                                },
+                                legend: {
+                                    cursor: "pointer",
+                                    itemclick: toggleDataSeries
+                                },
+                                data: [{
+                                        type: "spline",
+                                        visible: false,
+                                        showInLegend: true,
+                                        yValueFormatString: "##.00KZ",
+                                        name: "Fábrica Software",
+                                        dataPoints: [{
+                                                label: "Janeiro",
+                                                y: janManufacture
+                                            },
+                                            {
+                                                label: "Fevereiro",
+                                                y: feManufacture
+                                            },
+                                            {
+                                                label: "Março",
+                                                y: marManufacture
+                                            },
+                                            {
+                                                label: "Abril",
+                                                y: abrManufacture
+                                            },
+                                            {
+                                                label: "Maio",
+                                                y: maioManufacture
+                                            },
+                                            {
+                                                label: "Junho",
+                                                y: junManufacture
+                                            },
+                                            {
+                                                label: "Julho",
+                                                y: julManufacture
+                                            },
+                                            {
+                                                label: "Ago",
+                                                y: agoManufacture
+                                            },
+                                            {
+                                                label: "Setembro",
+                                                y: setManufacture
+                                            },
+                                            {
+                                                label: "Outubro",
+                                                y: outManufacture
+                                            },
+                                            {
+                                                label: "Novembro",
+                                                y: novManufacture
+                                            },
+                                            {
+                                                label: "Dezembro",
+                                                y: dezManufacture
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        type: "spline",
+                                        showInLegend: true,
+                                        visible: false,
+                                        yValueFormatString: "##.00KZ",
+                                        name: "Reparação de Equipamentos",
+                                        dataPoints: [{
+                                                label: "Janeiro",
+                                                y: janEquipament
+                                            },
+                                            {
+                                                label: "Fevereiro",
+                                                y: fevEquipament
+                                            },
+                                            {
+                                                label: "Março",
+                                                y: marEquipament
+                                            },
+                                            {
+                                                label: "Abril",
+                                                y: abrEquipament
+                                            },
+                                            {
+                                                label: "Maio",
+                                                y: maioEquipament
+                                            },
+                                            {
+                                                label: "Junho",
+                                                y: junEquipament
+                                            },
+                                            {
+                                                label: "Julho",
+                                                y: julEquipament
+                                            },
+                                            {
+                                                label: "Ago",
+                                                y: agoEquipament
+                                            },
+                                            {
+                                                label: "Setembro",
+                                                y: setEquipament
+                                            },
+                                            {
+                                                label: "Outubro",
+                                                y: outEquipament
+                                            },
+                                            {
+                                                label: "Novembro",
+                                                y: novEquipament
+                                            },
+                                            {
+                                                label: "Dezembro",
+                                                y: dezEquipament
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        type: "spline",
+                                        visible: false,
+                                        showInLegend: true,
+                                        yValueFormatString: "##.00kz",
+                                        name: "Startup",
+                                        dataPoints: [{
+                                                label: "Janeiro",
+                                                y: janStartups
+                                            },
+                                            {
+                                                label: "Fevereiro",
+                                                y: fevStartups
+                                            },
+                                            {
+                                                label: "Março",
+                                                y: marStartups
+                                            },
+                                            {
+                                                label: "Abril",
+                                                y: abrStartups
+                                            },
+                                            {
+                                                label: "Maio",
+                                                y: maioStartups
+                                            },
+                                            {
+                                                label: "Junho",
+                                                y: junStartups
+                                            },
+                                            {
+                                                label: "Julho",
+                                                y: julStartups
+                                            },
+                                            {
+                                                label: "Ago",
+                                                y: agoStartups
+                                            },
+                                            {
+                                                label: "Setembro",
+                                                y: setStartups
+                                            },
+                                            {
+                                                label: "Outubro",
+                                                y: outStartups
+                                            },
+                                            {
+                                                label: "Novembro",
+                                                y: novStartups
+                                            }, {
+                                                label: "Dezembro",
+                                                y: dezStartups
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        type: "spline",
+                                        visible: false,
+                                        showInLegend: true,
+                                        yValueFormatString: "##.00KZ",
+                                        name: "Cowork",
+                                        dataPoints: [{
+                                                label: "Janeiro",
+                                                y: jancowork
+                                            },
+                                            {
+                                                label: "Fevereiro",
+                                                y: fecowork
+                                            },
+                                            {
+                                                label: "Março",
+                                                y: marcowork
+                                            },
+                                            {
+                                                label: "Abril",
+                                                y: abrcowork
+                                            },
+                                            {
+                                                label: "Maio",
+                                                y: maiocowork
+                                            },
+                                            {
+                                                label: "Junho",
+                                                y: juncowork
+                                            },
+                                            {
+                                                label: "Julho",
+                                                y: julcowork
+                                            },
+                                            {
+                                                label: "Ago",
+                                                y: agocowork
+                                            },
+                                            {
+                                                label: "Setembro",
+                                                y: setcowork
+                                            },
+                                            {
+                                                label: "Outubro",
+                                                y: outcowork
+                                            },
+                                            {
+                                                label: "Novembro",
+                                                y: novcowork
+                                            }, {
+                                                label: "Dezembro",
+                                                y: dezcowork
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        type: "spline",
+                                        showInLegend: true,
+                                        yValueFormatString: "##.00KZ",
+                                        name: "Auditório",
+                                        dataPoints: [{
+                                                label: "Janeiro",
+                                                y: janAuditoriums
+                                            },
+                                            {
+                                                label: "Fevereiro",
+                                                y: feAuditoriums
+                                            },
+                                            {
+                                                label: "Março",
+                                                y: marAuditoriums
+                                            },
+                                            {
+                                                label: "Abril",
+                                                y: abrAuditoriums
+                                            },
+                                            {
+                                                label: "Maio",
+                                                y: maioAuditoriums
+                                            },
+                                            {
+                                                label: "Junho",
+                                                y: junAuditoriums
+                                            },
+                                            {
+                                                label: "Julho",
+                                                y: julAuditoriums
+                                            },
+                                            {
+                                                label: "Ago",
+                                                y:agoAuditoriums
+                                            },
+                                            {
+                                                label: "Setembro",
+                                                y:  setAuditoriums
+                                            },
+                                            {
+                                                label: "Outubro",
+                                                y: outAuditoriums
+                                            },
+                                            {
+                                                label: "Novembro",
+                                                y:novAuditoriums
+                                            },  {
+                                                label: "Dezembro",
+                                                y: dezAuditoriums
+                                            }
+
+                                        ]
+                                    },
+
+
+
+                                ]
+                            });
+                            chart.render();
+
+                            function toggleDataSeries(e) {
+                                if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                                    e.dataSeries.visible = false;
+                                } else {
+                                    e.dataSeries.visible = true;
+                                }
+                                chart.render();
+                            }
+
+                        }
+                    </script>
+
+                @endsection

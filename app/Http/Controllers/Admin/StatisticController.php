@@ -163,12 +163,9 @@ class StatisticController extends Controller
         $response['totalEquipament'] = Payment::with('equipaments')->where('status', '=', 'Pago')->where('origin', '=', 'Reparação de Equipamentos')->sum('value');
         $janEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', 01)->where('status', '=', 'Pago')->where('origin', '=', 'Reparação de Equipamentos')->sum('value');
         $response['janEquipament'] = json_encode($janEquipament);
-
-
         $fevEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', 02)->where('status', '=', 'Pago')->where('origin', '=', 'Reparação de Equipamentos')->sum('value');
         $response['fevEquipament'] = json_encode($fevEquipament);
         $response['fevEquipament'];
-
         $marEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', 03)->where('status', '=', 'Pago')->where('origin', '=', 'Reparação de Equipamentos')->sum('value');
         $response['marEquipament'] = json_encode($marEquipament);
         $abrEquipament = Payment::with('equipaments')->whereMonth('created_at', '=', 04)->where('status', '=', 'Pago')->where('origin', '=', 'Reparação de Equipamentos')->sum('value');
