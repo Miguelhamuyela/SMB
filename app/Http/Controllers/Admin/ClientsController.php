@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Http\Controllers\Controller;
+use PDF;
 
 class ClientsController extends Controller
 {
@@ -79,10 +80,8 @@ class ClientsController extends Controller
     public function edit($id)
     {
         //
-
         $response['client'] = Client::find($id);
         return view('admin.clients.edit.index', $response);
-
     }
 
     /**
@@ -108,6 +107,34 @@ class ClientsController extends Controller
 
         return redirect()->route('admin.client.list.index')->with('edit', '1');
     }
+
+    /**Imprimir Lista de Clientes */
+    public function printClient(Request $request){
+        if($request->origin=="all"){
+            $response['client'] = Client::get();
+
+        $pdf = PDF::loadview('pdf.clientAll.index', $response);
+
+        //Logger
+        $this->Logger->log('info', 'Imprimiu lista de Clientes');
+
+        return $pdf->setPaper('a4')->stream('pdf');
+        }
+        else{
+        $response['client'] = Client::where('origin',$request->origin)->get();
+        $response['origin']=$request->origin;
+
+        $pdf = PDF::loadview('pdf.client.index', $response);
+
+       
+
+        return $pdf->setPaper('a4')->stream('pdf');
+    }
+
+     //Logger
+     $this->Logger->log('info', 'Imprimiu lista de Clientes ');
+    }
+
 
     /**
      * Remove the specified resource from storage.
