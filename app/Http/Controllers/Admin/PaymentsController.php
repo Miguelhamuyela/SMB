@@ -52,8 +52,7 @@ class PaymentsController extends Controller
         return view('admin.payments.details.index', $response);
     }
 
-    public function printPayment(Request $request)
-    {
+    public function printPayment(Request $request){
         if($request->origin=="allPayment"){
             $response['payment'] = Payment::get();
 
@@ -66,7 +65,7 @@ class PaymentsController extends Controller
         }
         else{
         $response['payment'] = Payment::where('origin',$request->origin)->get();
-$response['origin']=$request->origin;
+        $response['origin']=$request->origin;
 
         $pdf = PDF::loadview('pdf.payment.index', $response);
 

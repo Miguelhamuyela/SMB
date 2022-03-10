@@ -79,17 +79,6 @@
                                         </small>
                                     </div>
                                     <div class="col-md-4 text-dark text-right">
-                                        <a href='{{ url("admin/client/edit/{$client->id}") }}'>
-                                            <i class="fa fa-edit"></i>
-                                            Editar
-                                        </a>
-                                        <br>
-
-                                        <a href='{{ url("admin/client/delete/{$client->id}") }}'
-                                            class="text-danger">
-                                            <i class="fa fa-trash"></i>
-                                            Eliminar
-                                        </a>
 
 
                                     </div>
