@@ -23,6 +23,10 @@
     Data: @php
         echo date('Y-m-d');
     @endphp
+    <br>
+    Quantidade: @php
+    echo count($client);
+    @endphp
 
     </center><br><br><br>
 
