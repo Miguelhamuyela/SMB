@@ -14,10 +14,13 @@ action="#" enctype="multipart/form-data">
             <div class="modal-body">
 
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label">Pagamentos <span class="text-danger">*</span></label>
+                    <label class="col-md-3 col-form-label">Origem <span class="text-danger">*</span></label>
                     <div class="col-md-9">
                         <select required name="" class="form-control" name="select">
-                            
+                            <option>Todos Pagamentos</option>
+                            <option>Fábrica de Software</option>
+                            <option>  Startup</option>
+
                         </select>
                     </div>
                 </div>
