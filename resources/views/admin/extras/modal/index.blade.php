@@ -17,9 +17,12 @@ action="#" enctype="multipart/form-data">
                     <label class="col-md-3 col-form-label">Origem <span class="text-danger">*</span></label>
                     <div class="col-md-9">
                         <select required name="" class="form-control" name="select">
-                            <option>Todos Pagamentos</option>
-                            <option>Fábrica de Software</option>
-                            <option>  Startup</option>
+
+                            <option value="Auditório">Auditório</option>
+                            <option value="Fábrica de Software">Fábrica de Software</option>
+                            <option value="Startup">  Startup</option>
+                            <option value="all">Todos Pagamentos</option>
+                            <option value="Reparação de Equipamentos">Reparação de Equipamentos</option>
 
                         </select>
                     </div>

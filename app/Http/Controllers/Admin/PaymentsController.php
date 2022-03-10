@@ -6,6 +6,7 @@ use App\Classes\Logger;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
 use Illuminate\Http\Request;
+use PDF;
 
 class PaymentsController extends Controller
 {
@@ -34,7 +35,7 @@ class PaymentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-  
+
 
     /**
      * Display the specified resource.
@@ -53,14 +54,27 @@ class PaymentsController extends Controller
 
     public function printPayment(Request $request)
     {
-        $response['payment'] = Payment::find($request->fk_payments_id);
-        $response['EnrollemtStudents'] = EnrollemtStudent::with('courses')->with('payment')->where('fk_course_id', $request->fk_course_id)->get();
-        $pdf = PDF::loadview('admin.pdf.RegistionCourse.index', $response);
+        if($request->origin=="allPayment"){
+            $response['payment'] = Payment::get();
+
+        $pdf = PDF::loadview('pdf.paymentAll.index', $response);
 
         //Logger
         $this->Logger->log('info', 'Imprimiu lista de ');
 
         return $pdf->setPaper('a4')->stream('pdf');
+        }
+        else{
+        $response['payment'] = Payment::where('origin',$request->origin)->get();
+$response['origin']=$request->origin;
+
+        $pdf = PDF::loadview('pdf.payment.index', $response);
+
+        //Logger
+        $this->Logger->log('info', 'Imprimiu lista de ');
+
+        return $pdf->setPaper('a4')->stream('pdf');
+    }
     }
 
 }
