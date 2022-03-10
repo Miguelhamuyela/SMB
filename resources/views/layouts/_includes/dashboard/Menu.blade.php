@@ -105,6 +105,7 @@
                     <span class="menu-title">Estatística Geral</span>
                 </a>
             </li>
+
              {{-- startups --}}
              <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.statisticsSection.index') }}">
@@ -113,9 +114,13 @@
                 </a>
             </li>
 
-
-
-
+            {{-- Clients --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.client.list.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Clientes</span>
+                </a>
+            </li>
 
 
         @endif

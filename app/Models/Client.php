@@ -20,4 +20,27 @@ class Client extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function equipaments(){
+
+        return $this->belongsTo(EquipmentRepair::class, 'fk_Payments_id');
+    }
+
+    public function startups(){
+
+        return $this->belongsTo(Startup::class, 'fk_Payments_id');
+    }
+
+    public function manufacturesSoftware(){
+
+        return $this->belongsTo(ManufacturesSoftware::class, 'fk_Payments_id');
+    }
+    public function  Cowork(){
+
+        return $this->belongsTo(Cowork::class, 'fk_Payments_id');
+    }
+    public function  Auditoriums(){
+
+        return $this->belongsTo(Auditorium::class, 'fk_Payments_id');
+    }
 }

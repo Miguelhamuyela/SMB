@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-md-2 text-center">
                             <a href="#" data-toggle="modal" data-target="#exampleModal"> <i
-                                    class="fa fa-file-pdf-o text-danger"></i>Imprimir Lista</a>
+                            class="fa fa-file-pdf-o text-danger"></i>Imprimir Lista</a>
 
                     </div>
                 </div>
@@ -85,7 +85,7 @@
 
     </div>
 
-    @include('admin.extras.modal.index')
+    @include('admin.extras.modal.payments.index')
 @endsection
 
 

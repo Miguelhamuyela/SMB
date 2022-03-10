@@ -21,6 +21,7 @@ class CreateClientsTable extends Migration
             $table->string('email');
             $table->string('nif');
             $table->string('address');
+            $table->string('origin')->nullable();
             $table->enum('clienttype', ['Singular', 'Colectivo']);
             
             $table->softDeletes();
