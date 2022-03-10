@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Classes\Logger;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Http\Controllers\Controller;
+
 use PDF;
 
 class ClientsController extends Controller
 {
+
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -116,7 +125,7 @@ class ClientsController extends Controller
         $pdf = PDF::loadview('pdf.clientAll.index', $response);
 
         //Logger
-        $this->Logger->log('info', 'Imprimiu lista de Clientes');
+        $this->Logger->log('info', 'Imprimiu lista de Pagamentos ');
 
         return $pdf->setPaper('a4')->stream('pdf');
         }
@@ -126,13 +135,11 @@ class ClientsController extends Controller
 
         $pdf = PDF::loadview('pdf.client.index', $response);
 
-       
+        //Logger
+        $this->Logger->log('info', 'Imprimiu lista de Pagamentos');
 
         return $pdf->setPaper('a4')->stream('pdf');
     }
-
-     //Logger
-     $this->Logger->log('info', 'Imprimiu lista de Clientes ');
     }
 
 

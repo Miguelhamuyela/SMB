@@ -16,7 +16,7 @@ action="{{ route('admin.clients.report') }}" enctype="multipart/form-data">
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label">Origem <span class="text-danger">*</span></label>
                     <div class="col-md-9">
-                        <select required name="" class="form-control" name="select">
+                        <select required name="origin" class="form-control" name="select">
                             <option value="Auditório">Auditório</option>
                             <option value="Fábrica de Software">Fábrica de Software</option>
                             <option value="Startup">  Startup</option>

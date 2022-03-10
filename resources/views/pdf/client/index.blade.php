@@ -34,7 +34,6 @@
                 <th>NIF</th>
                 <th>ORIGEM</th>
                 <th>TELEFONE</th>
-                <th>ACÇÕES</th>
 
             </tr>
         </thead>
@@ -45,7 +44,7 @@
                     <td>{{ $item->nif }} </td>
                     <td>{{ $item->origin }} </td>
                     <td>{{ $item->tel }}</td>
-                    <td>{{ $item->status }}</td>
+
                 </tr>
             @endforeach
 
