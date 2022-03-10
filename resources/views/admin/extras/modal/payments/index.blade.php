@@ -1,5 +1,5 @@
 <form target="_blank" class="card-body" method="POST"
-action="#" enctype="multipart/form-data">
+action="{{ route('admin.payments.report') }}" enctype="multipart/form-data">
 @csrf
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -16,12 +16,13 @@ action="#" enctype="multipart/form-data">
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label">Pagamentos <span class="text-danger">*</span></label>
                     <div class="col-md-9">
-                        <select required name="" class="form-control" name="select">
-                            <option value="">Cowork</option>
-                            <option value="">Fábrica de Software</option>
-                            <option value="">Startup</option>
-                            <option value="">Reparação de Equipamentos</option>
-                            <option value="">Auditório</option>
+                        <select required name="origin" class="form-control" name="select">
+                            <option value="Cowork">Cowork</option>
+                            <option value="Fábrica de Software">Fábrica de Software</option>
+                            <option value="Startup">Startup</option>
+                            <option value="Reparação de Equipamentos">Reparação de Equipamentos</option>
+                            <option value="Auditório">Auditório</option>
+                            <option value="allPayment">Todos Pagamentos</option>
                         </select>
                     </div>
                 </div>
