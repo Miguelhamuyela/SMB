@@ -11,16 +11,16 @@
 
 
 
-    <title>Lista De Pagamentos</title>
+    <title>Lista geral de pagamentos</title>
 </head>
 
 <body>
 
     <img src="{{ public_path('/dashboard/images/digital.png') }}" width="200" />
     <center>
-        <h2>Lista de Pagamentos</h2> <br>
+        <h2>Lista Geral de Pagamentos</h2> <br>
     </center>
-    Origem: {{ $origin }}<br>
+
 
     Data: @php
         echo date('Y-m-d');
@@ -33,6 +33,7 @@
             <tr>
 
                 <th>TIPO DE PAGAMENTO</th>
+                <th>Origem</th>
                 <th>VALORES A PAGAR</th>
                 <th>MOEDA</th>
                 <th>REFERÊNCIA</th>
@@ -47,6 +48,7 @@
                 <tr class="text-center text-dark">
 
                     <td>{{ $item->type }} </td>
+                    <td>{{ $item->origin }} </td>
                     <td>
                         @php
                             echo number_format($item->value, 2, ',', '.');
