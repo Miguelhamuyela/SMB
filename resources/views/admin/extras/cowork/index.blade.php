@@ -1,7 +1,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
 <script>
     var jancowork = JSON.parse('<?php echo $jancowork; ?>');
-
     var  fecowork  = JSON.parse('<?php echo $fecowork ; ?>');
     var marcowork = JSON.parse('<?php echo $marcowork; ?>');
     var abrcowork = JSON.parse('<?php echo $abrcowork; ?>');
