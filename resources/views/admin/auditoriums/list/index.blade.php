@@ -29,7 +29,7 @@
                                 <th>NOME DO CLIENTE</th>
                                 <th>NIF</th>
                                 <th>TELEFONE</th>
-                                <th>Status</th>
+                                <th>STATUS</th>
                                 <th class="text-left">ACÇÕES</th>
                             </tr>
                         </thead>
