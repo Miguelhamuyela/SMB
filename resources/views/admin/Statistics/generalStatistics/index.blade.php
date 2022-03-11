@@ -6,7 +6,7 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-0">Estatística Geral de Pagamentos do  ano @php
+                    <h4 class="card-title mb-0">Estatística Geral de Pagamentos do ano @php
                         echo date('Y');
                     @endphp </h4>
 
@@ -16,10 +16,10 @@
                     <form method="POST" action="{{ route('admin.StatistiYerar.store') }}">
                         @csrf
                         <div class="form-group col-md-4">
-                            <label for="year">Pesquisar Por Ano</label>
-                            <input type="number" class="form-control" placeholder="digite o ano" id="year" name="year"
-                               required autofocu /><br><br>
-                               <button type="submit" class="btn btn-primary">Pesquisar</button>
+                            <label for="year">Ano</label>
+                            <input type="text" class="form-control" placeholder="digite o ano" id="year" name="name"
+                                required autofocu /><br><br>
+                            <button type="submit" class="btn btn-primary">Pesquisar</button>
                         </div>
 
                     </form>
@@ -38,7 +38,7 @@
 
                             var janManufacture = JSON.parse('<?php echo $janManufacture; ?>');
                             var feManufacture = JSON.parse('<?php echo $feManufacture; ?>');
-                            var marManufacture = JSON.parse('<?php echo   $marManufacture; ?>');
+                            var marManufacture = JSON.parse('<?php echo $marManufacture; ?>');
                             var abrManufacture = JSON.parse('<?php echo $abrManufacture; ?>');
                             var maioManufacture = JSON.parse('<?php echo $maioManufacture; ?>');
                             var junManufacture = JSON.parse('<?php echo $junManufacture; ?>');
@@ -119,7 +119,7 @@
                                 },
                                 data: [{
                                         type: "spline",
-                                        visible: true,
+                                        visible: false,
                                         showInLegend: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Fábrica Software",
@@ -176,7 +176,7 @@
                                     {
                                         type: "spline",
                                         showInLegend: true,
-                                        visible: true,
+                                        visible: false,
                                         yValueFormatString: "##.00KZ",
                                         name: "Reparação de Equipamentos",
                                         dataPoints: [{
@@ -231,7 +231,7 @@
                                     },
                                     {
                                         type: "spline",
-                                        visible: true,
+                                        visible: false,
                                         showInLegend: true,
                                         yValueFormatString: "##.00kz",
                                         name: "Startup",
@@ -286,7 +286,7 @@
                                     },
                                     {
                                         type: "spline",
-                                        visible: true,
+                                        visible: false,
                                         showInLegend: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Cowork",
@@ -374,11 +374,11 @@
                                             },
                                             {
                                                 label: "Ago",
-                                                y:agoAuditoriums
+                                                y: agoAuditoriums
                                             },
                                             {
                                                 label: "Setembro",
-                                                y:  setAuditoriums
+                                                y: setAuditoriums
                                             },
                                             {
                                                 label: "Outubro",
@@ -386,8 +386,8 @@
                                             },
                                             {
                                                 label: "Novembro",
-                                                y:novAuditoriums
-                                            },  {
+                                                y: novAuditoriums
+                                            }, {
                                                 label: "Dezembro",
                                                 y: dezAuditoriums
                                             }
@@ -403,7 +403,7 @@
 
                             function toggleDataSeries(e) {
                                 if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-                                    e.dataSeries.visible = true;
+                                    e.dataSeries.visible = false;
                                 } else {
                                     e.dataSeries.visible = true;
                                 }
