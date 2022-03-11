@@ -42,7 +42,7 @@
                                     <td>{{ $item->email }} </td>
                                     <td>{{ $item->meetRoom }} </td>
                                     <td>
-                                        <a href='{{ url("admin/salas/show/{$item->id}") }}' type="button"
+                                        <a href='{{ url("admin/sala-de-reunião/show/{$item->id}") }}' type="button"
                                             class="btn btn-icons btn-rounded btn-primary">
                                             <i class="mdi mdi-eye"></i>
                                         </a>
