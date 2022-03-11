@@ -66,7 +66,7 @@ Route::middleware(['auth'])->group(function () {
         /**Payments*/
         Route::get('admin/pagamentos/list', ['as' => 'admin.payments.index', 'uses' => 'Admin\PaymentsController@index']);
         Route::get('admin/pagamentos/show/{id}', ['as' => 'admin.payments.show', 'uses' => 'Admin\PaymentsController@show']);
-        Route::get('admin/pagamentos/relatorios/{uuid}', ['as' => 'admin.payments.report', 'uses' => 'Admin\PaymentsController@printPayment']);
+        Route::get('admin/pagamentos/relatorios', ['as' => 'admin.payments.report', 'uses' => 'Admin\PaymentsController@printPayment']);
         /**End Payments*/
 
 
