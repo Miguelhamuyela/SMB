@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-pt">
 
 <head>
     <meta charset="UTF-8">
@@ -14,47 +14,51 @@
 
 <body>
 
-    <img src="{{ public_path('/dashboard/images/digital.png') }}" width="200" />
-    <center>
-        <h2>Lista de Clientes</h2> <br>
-    </center>
-    Origem: {{ $origin }}<br>
+    <header class="col-12 mt-2 mb-5">
 
-    Data: @php
-        echo date('Y-m-d');
-    @endphp
-    <br>
-    Quantidade: @php
-    echo count($client);
-    @endphp
+        <img src="dashboard/images/logo_blue.png" alt="">
 
-    </center><br><br><br>
+        <p>
+        <h2 class="text-center">Lista de Clientes</h2>
 
-    <table class="table">
-        <thead>
-            <tr>
+        @if ($origin)
+            <b> Origem:</b> {{ $origin }}<br>
+        @endif
 
-                <th>NOME DO CLIENTE</th>
-                <th>NIF</th>
-                <th>ORIGEM</th>
-                <th>TELEFONE</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($client as $item)
-                <tr class="text-center text-dark">
-                    <td>{{ $item->name }} </td>
-                    <td>{{ $item->nif }} </td>
-                    <td>{{ $item->origin }} </td>
-                    <td>{{ $item->tel }}</td>
-
+        <b>Data:</b> {{ date('d-m-Y') }}
+        <br>
+        <b>Total de Clientes:</b> {!! count($clients) !!}
+        </p>
+    </header>
+    <section class="col-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>NOME DO CLIENTE</th>
+                    <th>NIF</th>
+                    <th>ORIGEM</th>
+                    <th>TELEFONE</th>
                 </tr>
-            @endforeach
+            </thead>
+            <tbody>
+                @foreach ($clients as $item)
+                    <tr class="text-center text-dark">
+                        <td>{{ $item->name }} </td>
+                        <td>{{ $item->nif }} </td>
+                        <td>{{ $item->origin }} </td>
+                        <td>{{ $item->tel }}</td>
+                    </tr>
+                @endforeach
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </section>
 
+    
+    {{-- <footer class="mt-2">
+       <img src="dashboard/images/minttics.jpg" alt="">
+   </footer> --}}
 </body>
 
 </html>
