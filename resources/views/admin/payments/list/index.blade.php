@@ -10,7 +10,7 @@
                         <h5><b>Lista de Pagamentos</b></h5>
                     </div>
                     <div class="col-md-3 text-center">
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                             <i class="fa fa-file-pdf-o text-white"></i>Imprimir Relatório
                         </a>
 
