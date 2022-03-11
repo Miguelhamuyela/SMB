@@ -12,11 +12,11 @@
     <title>Relatório De Clientes</title>
 </head>
 
-<body>
+<body style='height:auto; width:100%; background: url("dashboard/images/digital.canvas.png") no-repeat center;'>
 
     <header class="col-12 mt-2 mb-5">
 
-        <img src="dashboard/images/logo_blue.png" alt="">
+        <img src="dashboard/images/logo_blue.png" alt="" width="200">
 
         <p>
         <h2 class="text-center">Relatório de Clientes</h2>
@@ -34,7 +34,7 @@
     <section class="col-12">
         <table class="table table-striped">
             <thead>
-                <tr>
+                <tr class="text-center">
                     <th>NOME DO CLIENTE</th>
                     <th>NIF</th>
                     @if ($origin == 'all')
