@@ -30,12 +30,6 @@ class PaymentsController extends Controller
         return view('admin.payments.list.index', $response);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
 
     /**
      * Display the specified resource.
@@ -52,30 +46,32 @@ class PaymentsController extends Controller
         return view('admin.payments.details.index', $response);
     }
 
-    public function printPayment(Request $request)
-    {
-        if ($request->origin == "allPayment") {
-            $response['payment'] = Payment::get();
-            $response['totalPayments'] = Payment::where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
-            $response['paidStatus'] = Payment::Where('status', '=', 'Pago')->count();
-            $response['unpaidStatus'] = Payment::Where('status', '=', 'Não Pago')->count();
-            $pdf = PDF::loadview('pdf.paymentAll.index', $response);
-            //Logger
-            $this->Logger->log('info', 'Imprimiu lista de ');
-            return $pdf->setPaper('a4')->stream('pdf');
+    public function printPayment(Request $request){
+
+        if ($request->origin == 'all') {
+
+            $response['totalPayments'] = Payment::where('status', '=', 'Pago')->where('currency','=','Kwanza')->sum('value');
+            $response['paidStatus'] = Payment::Where('status','=','Pago')->count();
+            $response['unpaidStatus'] = Payment::Where('status','=','Não Pago')->count();
+
+            $response['payments'] = Payment::orderBy('created_at', 'desc')->get();
+
+
         } else {
-            $response['payment'] = Payment::where('origin', $request->origin)->get();
-            $response['origin'] = $request->origin;
             $response['totalPayments'] = Payment::where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
             $response['totalPayments'] = Payment::where('origin', $request->origin)->where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
             $response['paidStatus'] = Payment::where('origin', $request->origin)->Where('status', '=', 'Pago')->count();
             $response['unpaidStatus'] = Payment::where('origin', $request->origin)->Where('status', '=', 'Não Pago')->count();
-            $pdf = PDF::loadview('pdf.payment.index', $response);
 
-            //Logger
-            $this->Logger->log('info', 'Imprimiu lista de ');
-
-            return $pdf->setPaper('a4')->stream('pdf');
+            $response['payments'] = Payment::where('origin', $request->origin)->orderBy('created_at', 'desc')->get();
+            $response['origin'] = $request->origin;
         }
+        //Logger
+        $this->Logger->log('info', 'Imprimiu lista de Pagamentos');
+
+        $pdf = PDF::loadview('pdf.payment.index', $response);
+        return $pdf->setPaper('a4')->stream('pdf');
+
     }
+
 }
