@@ -15,7 +15,7 @@
     <center>
         <h2>Lista de Clientes</h2> <br>
     </center>
-    Origem: {{ $origin }}<br>
+   
 
     Data: @php
         echo date('Y-m-d');
@@ -34,7 +34,6 @@
                 <th>NIF</th>
                 <th>ORIGEM</th>
                 <th>TELEFONE</th>
-                <th>ACÇÕES</th>
             </tr>
         </thead>
         <tbody>
@@ -45,7 +44,7 @@
                     <td>{{ $item->nif }} </td>
                     <td>{{ $item->origin }} </td>
                     <td>{{ $item->tel }}</td>
-                    <td>{{ $item->status }}</td>
+
                 </tr>
             @endforeach
 
