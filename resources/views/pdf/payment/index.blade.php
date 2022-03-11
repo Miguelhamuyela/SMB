@@ -16,6 +16,25 @@
 
 <body>
 
+
+    <header class="col-12 mt-2 mb-5">
+
+        <img src="dashboard/images/logo_blue.png" alt="">
+
+        <p>
+        <h2 class="text-center">Lista de Pagamentos</h2>
+
+        @if ($origin)
+            <b> Origem:</b> {{ $origin }}<br>
+        @endif
+
+
+        <b>Data:</b> {{ date('d-m-Y') }}
+        <br>
+        <b>Total de Clientes:</b> {!! count($clients) !!}
+        </p>
+    </header>
+
     <img src="{{ public_path('/dashboard/images/digital.png') }}" width="200" />
     <center>
         <h2>Lista de Pagamentos</h2> <br>
@@ -24,7 +43,9 @@
 
     Data: @php
         echo date('Y-m-d');
-    @endphp
+    @endphpNº Status Pago:{{ $paidStatus }}<br>
+    Nº Status Não Pago :{{ $unpaidStatus }}<br>
+    Valor Total pagamentos: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!}
 
     </center><br><br><br>
 
@@ -59,10 +80,10 @@
 
 
 
-                        <td>
+                    <td>
 
-                                {{ $item->status }}
-                        </td>
+                        {{ $item->status }}
+                    </td>
 
 
                 </tr>

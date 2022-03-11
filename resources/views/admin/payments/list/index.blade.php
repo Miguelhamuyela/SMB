@@ -6,15 +6,24 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body row">
-                    <div class="col-md-8">
+                    <div class="col-md-9">
                         <h5><b>Lista de Pagamentos</b></h5>
+
+                        <b>Quantidade de Status Pago: </b>{{ $paidStatus }}<br>
+                        <b>Quantidade de Status Não Pago: </b>{{ $unpaidStatus }}<br>
+                        <b>Valor Total pagamentos: </b>{!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!}
                     </div>
-                    <div class="col-md-2 text-center">
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Imprimir Lista</a>
+
+                    <div class="col-md-3 text-center">
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa fa-file-pdf-o text-white"></i>Imprimir Relatório
+                        </a>
+
                     </div>
                 </div>
             </div>
-        </div>
+        </div> <br>
+
 
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
