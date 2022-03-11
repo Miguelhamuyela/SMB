@@ -20,9 +20,9 @@ class CreateClientsTable extends Migration
             $table->string('tel');
             $table->string('email');
             $table->string('nif');
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->string('origin')->nullable();
-            $table->enum('clienttype', ['Singular', 'Colectivo']);
+            $table->enum('clienttype', ['Singular', 'Colectivo'])->nullable();
             
             $table->softDeletes();
             $table->timestamps();

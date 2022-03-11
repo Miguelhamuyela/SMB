@@ -76,26 +76,19 @@ class StartupsController extends Controller
             'started' => 'required|string|max:255',
             'end' => 'required|string|max:255',
 
+            /**Clients informatio */
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'tel' => 'max:50',
+            'nif' => 'required|string|max:50',
+            'address' => 'max:50',
+            'clienttype' => 'max:50'
+
         ]);
 
 
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
-
-        $client = Client::create([
-            'name' => $request->name,
-            'roomName' => $request->roomName,
-            'site' => $request->site,
-            'email' => $request->email,
-            'tel' => $request->tel,
-            'nif' => $request->nif,
-            'incubatorModel' => $request->incubatorModel,
-            'fk_Payments_id' => $payment->id,
-            'fk_Scheldules_id' => $schedule->id
-
-        ]);
-
-
 
         $startup = Startup::create([
             'name' => $request->name,
@@ -108,6 +101,14 @@ class StartupsController extends Controller
             'fk_Payments_id' => $payment->id,
             'fk_Scheldules_id' => $schedule->id
 
+        ]);
+
+        $client = Client::create([
+            'name' =>$startup->name,
+            'nif' => $startup->nif,
+            'tel' => $startup->tel,
+            'email' => $startup->email,
+            'origin' => "Startup"
         ]);
 
         $this->Logger->log('info', 'Cadastrou Startups');

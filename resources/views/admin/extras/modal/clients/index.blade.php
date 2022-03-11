@@ -22,6 +22,7 @@ action="{{ route('admin.clients.report') }}" enctype="multipart/form-data">
                             <option value="E-Learning">E-Learning</option>
                             <option value="Reparação de Equipamentos">Reparação de Equipamentos</option>
                             <option value="Fábrica de Software">Fábrica de Software</option>
+                            <option value="Startup">Startup</option>
                             <option value="all">Todos Pagamentos</option>
                         </select>
                     </div>
