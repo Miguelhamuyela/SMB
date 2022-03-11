@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use App\Classes\Logger;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
+use App\Models\Client;
 use App\Models\Payment;
 use App\Models\Scheldule;
 use App\Models\Startup;
@@ -80,6 +81,20 @@ class StartupsController extends Controller
 
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
+
+        $client = Client::create([
+            'name' => $request->name,
+            'roomName' => $request->roomName,
+            'site' => $request->site,
+            'email' => $request->email,
+            'tel' => $request->tel,
+            'nif' => $request->nif,
+            'incubatorModel' => $request->incubatorModel,
+            'fk_Payments_id' => $payment->id,
+            'fk_Scheldules_id' => $schedule->id
+
+        ]);
+
 
 
         $startup = Startup::create([
