@@ -6,7 +6,18 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-0">Estatística Geral de Pagamentos </h4>
+                    <h4 class="card-title mb-0">Estatística Geral de Pagamentos ano @php
+                        echo date('Y');
+                    @endphp </h4>
+                    <div class="col-md-3">7
+                        <form
+                        <div class="form-group">
+                            <label for="name">Ano de Cadastrado<small class="text-danger">*</small></label>
+                            <input type="number" name="name" id="name" value="{{ isset($client->name) ? $client->name: old('name') }}"
+                                class="form-control border rounded" placeholder="" required>
+                        </div>
+                        <button type="button" class="btn btn-primary">Pesquisar</button>
+                    </div>
                     <div class="card-options" align="left">
                         <h6 align="right"> Total somado: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!} </h6>
                     </div>
