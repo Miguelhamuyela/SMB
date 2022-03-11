@@ -6,9 +6,7 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-0">Estatística Geral de Pagamentos do  ano @php
-                        echo date('Y');
-                    @endphp </h4>
+                    <h4 class="card-title mb-0">Estatística Geral de Pagamentos do  ano {{ $year }} </h4>
 
                     <div class="card-options" align="left">
                         <h6 align="right"> Total somado: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!} </h6>
