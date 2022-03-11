@@ -2,7 +2,7 @@
 @section('titulo', ' Detalhes de Salas de Reuniões')
 
 @section('content')
-<form action="{{ url('admin/salas/delete') }}" method="POST">
+<form action="{{ url('admin/sala-de-reunião/delete') }}" method="POST">
     @csrf
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -29,7 +29,7 @@
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title"><b>
-                <a href="{{ url('admin/salas/list') }}">Listar Fábrica de Softwares</a>
+                <a href="{{ url('admin/sala-de-reunião/list') }}">Listar Fábrica de Softwares</a>
                 >  Detalhes de Salas de Reunião - {{ $meetingRoom->title }}
 
 
@@ -137,7 +137,7 @@
 
 
                                     <div class="col-md-4 text-dark text-right">
-                                        <a type="button" class="btn btn-primary text-left text-white mb-2 btn-fw" href='{{ url("admin/salas/edit/{$meetingRoom->id}") }}'>
+                                        <a type="button" class="btn btn-primary text-left text-white mb-2 btn-fw" href='{{ url("admin/sala-de-reunião/edit/{$meetingRoom->id}") }}'>
                                             <i class="fa fa-edit"></i>
                                             Editar
                                         </a>

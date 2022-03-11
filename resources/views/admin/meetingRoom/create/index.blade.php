@@ -19,7 +19,7 @@
                             </div>
                         @endif
                         <h4 class="card-title"><b>
-                            <a href="{{ url('admin/salas/list') }}">Listar Salas de Reunião</a>
+                            <a href="{{ url('admin/sala-de-reunião/list') }}">Listar Salas de Reunião</a>
                 > Salas de Reunião 
                         </b></h4>
                         <hr>
