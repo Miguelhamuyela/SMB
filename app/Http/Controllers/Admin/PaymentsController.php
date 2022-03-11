@@ -52,30 +52,30 @@ class PaymentsController extends Controller
         return view('admin.payments.details.index', $response);
     }
 
-    public function printPayment(Request $request){
-        if($request->origin=="allPayment"){
+    public function printPayment(Request $request)
+    {
+        if ($request->origin == "allPayment") {
             $response['payment'] = Payment::get();
-            $response['totalPayments'] = Payment::where('status', '=', 'Pago')->where('currency','=','Kwanza')->sum('value');
-            $response['paidStatus'] = Payment::Where('status','=','Pago')->count();
-            $response['unpaidStatus'] = Payment::Where('status','=','Não Pago')->count();
-        $pdf = PDF::loadview('pdf.paymentAll.index', $response);
+            $response['totalPayments'] = Payment::where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
+            $response['paidStatus'] = Payment::Where('status', '=', 'Pago')->count();
+            $response['unpaidStatus'] = Payment::Where('status', '=', 'Não Pago')->count();
+            $pdf = PDF::loadview('pdf.paymentAll.index', $response);
+            //Logger
+            $this->Logger->log('info', 'Imprimiu lista de ');
+            return $pdf->setPaper('a4')->stream('pdf');
+        } else {
+            $response['payment'] = Payment::where('origin', $request->origin)->get();
+            $response['origin'] = $request->origin;
+            $response['totalPayments'] = Payment::where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
+            $response['totalPayments'] = Payment::where('origin', $request->origin)->where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
+            $response['paidStatus'] = Payment::where('origin', $request->origin)->Where('status', '=', 'Pago')->count();
+            $response['unpaidStatus'] = Payment::where('origin', $request->origin)->Where('status', '=', 'Não Pago')->count();
+            $pdf = PDF::loadview('pdf.payment.index', $response);
 
-        //Logger
-        $this->Logger->log('info', 'Imprimiu lista de ');
+            //Logger
+            $this->Logger->log('info', 'Imprimiu lista de ');
 
-        return $pdf->setPaper('a4')->stream('pdf');
+            return $pdf->setPaper('a4')->stream('pdf');
         }
-        else{
-        $response['payment'] = Payment::where('origin',$request->origin)->get();
-        $response['origin']=$request->origin;
-
-        $pdf = PDF::loadview('pdf.payment.index', $response);
-
-        //Logger
-        $this->Logger->log('info', 'Imprimiu lista de ');
-
-        return $pdf->setPaper('a4')->stream('pdf');
     }
-    }
-
 }

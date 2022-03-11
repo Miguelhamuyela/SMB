@@ -24,7 +24,9 @@
 
     Data: @php
         echo date('Y-m-d');
-    @endphp
+    @endphpNº Status Pago:{{ $paidStatus }}<br>
+    Nº Status Não Pago :{{ $unpaidStatus }}<br>
+    Valor Total pagamentos: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!}
 
     </center><br><br><br>
 
