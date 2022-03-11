@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body row">
-                    <div class="col-md-10">
+                    <div class="col-md-8">
                         <h5><b>Lista de Pagamentos</b></h5>
                     </div>
                     <div class="col-md-2 text-center">
@@ -85,5 +85,3 @@
 
     @include('admin.extras.modal.payments.index')
 @endsection
-
-
