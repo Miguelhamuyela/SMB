@@ -9,7 +9,7 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Lista De Clientes</title>
+    <title>Relatório De Clientes</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <img src="dashboard/images/logo_blue.png" alt="">
 
         <p>
-        <h2 class="text-center">Lista de Clientes</h2>
+        <h2 class="text-center">Relatório de Clientes</h2>
 
         @if ($origin)
             <b> Origem:</b> {{ $origin }}<br>
