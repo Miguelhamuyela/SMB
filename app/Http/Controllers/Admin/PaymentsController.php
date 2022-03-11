@@ -30,12 +30,6 @@ class PaymentsController extends Controller
         return view('admin.payments.list.index', $response);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
 
     /**
      * Display the specified resource.
@@ -55,7 +49,13 @@ class PaymentsController extends Controller
     public function printPayment(Request $request){
 
         if ($request->origin == 'all') {
+
+            $response['totalPayments'] = Payment::where('status', '=', 'Pago')->where('currency','=','Kwanza')->sum('value');
+            $response['paidStatus'] = Payment::Where('status','=','Pago')->count();
+            $response['unpaidStatus'] = Payment::Where('status','=','Não Pago')->count();
+            
             $response['payments'] = Payment::orderBy('created_at', 'desc')->get();
+
 
         } else {
             $response['payments'] = Payment::where('origin', $request->origin)->orderBy('created_at', 'desc')->get();
