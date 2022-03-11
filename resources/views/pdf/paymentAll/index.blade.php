@@ -18,12 +18,12 @@
     <center>
         <h2>Lista Geral de Pagamentos</h2> <br>
     </center>
-
-
     Data: @php
         echo date('Y-m-d');
-    @endphp
-
+    @endphp<br>
+    Nº Status Pago:{{ $paidStatus }}<br>
+    Nº Status Não Pago :{{ $unpaidStatus }}<br>
+    Valor Total pagamentos: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!}
     </center><br><br><br>
 
     <table class="table">
@@ -31,7 +31,7 @@
             <tr>
 
                 <th>TIPO DE PAGAMENTO</th>
-                <th>Origem</th>
+                <th>ORIGEM</th>
                 <th>VALORES A PAGAR</th>
                 <th>MOEDA</th>
                 <th>REFERÊNCIA</th>

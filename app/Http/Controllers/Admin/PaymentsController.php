@@ -55,7 +55,9 @@ class PaymentsController extends Controller
     public function printPayment(Request $request){
         if($request->origin=="allPayment"){
             $response['payment'] = Payment::get();
-
+            $response['totalPayments'] = Payment::where('status', '=', 'Pago')->where('currency','=','Kwanza')->sum('value');
+            $response['paidStatus'] = Payment::Where('status','=','Pago')->count();
+            $response['unpaidStatus'] = Payment::Where('status','=','Não Pago')->count();
         $pdf = PDF::loadview('pdf.paymentAll.index', $response);
 
         //Logger

@@ -87,14 +87,6 @@
 
             @if ('Gestor' == Auth::user()->level || 'Administrador' == Auth::user()->level)
 
-            <li class="nav-item nav-category mt-2">Pagamentos</li>
-            {{-- paymets --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.payments.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Pagamentos</span>
-                </a>
-            </li>
 
 
             <li class="nav-item nav-category mt-2">Estatísticas</li>
@@ -102,11 +94,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.generalStatistics.index') }}">
                     <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Estatística Geral  Pagamentos</span>
+                    <span class="menu-title">Gráfico de Pagamentos</span>
                 </a>
             </li>
-
-
 
             {{-- Clients --}}
             <li class="nav-item">
@@ -115,7 +105,12 @@
                     <span class="menu-title">Clientes</span>
                 </a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.payments.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Pagamentos</span>
+                </a>
+            </li>
 
         @endif
 
