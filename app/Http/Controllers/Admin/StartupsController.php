@@ -76,7 +76,7 @@ class StartupsController extends Controller
             'started' => 'required|string|max:255',
             'end' => 'required|string|max:255',
 
-            /**Clients informatio */
+            /**Clients information */
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:255',
             'tel' => 'max:50',
@@ -159,10 +159,26 @@ class StartupsController extends Controller
             'started' => 'required|string|max:255',
             'end' => 'required|string|max:255',
 
+            /**Clients information */
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'tel' => 'max:50',
+            'nif' => 'required|string|max:50',
+            'address' => 'max:50',
+            'clienttype' => 'max:50'
+
         ]);
 
         Startup::find($id)->update($request->all());
         $startup = Startup::find($id);
+
+
+        Client::where('nif',$startup->nif)->update([
+            'name' => $startup->name,
+            'email' => $startup->email,
+            'tel' => $startup->tel,
+            'nif' => $startup->nif
+        ]);
 
         Payment::find($startup->fk_Payments_id)->update($request->all());
         Scheldule::find($startup->fk_Scheldules_id)->update($request->all());

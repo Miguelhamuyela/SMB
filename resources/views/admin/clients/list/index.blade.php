@@ -3,15 +3,19 @@
 
 @section('content')
 
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-body row">
-                <div class="col-md-10">
-                    <h5><b>Lista de Clients</b></h5>
-                </div>
-                <div class="col-md-2 text-center">
-                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Imprimir Lista</a>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body row">
+                    <div class="col-md-9">
+                        <h5><b>Lista de Clientes</b></h5>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa fa-file-pdf-o text-white"></i>Imprimir Lista
+                        </a>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,9 +63,5 @@
             </div>
         </div>
 
-    </div>
-
     @include('admin.extras.modal.clients.index')
-
-
 @endsection
