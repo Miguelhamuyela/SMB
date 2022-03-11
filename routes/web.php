@@ -110,7 +110,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('admin/client/update/{id}', ['as' => 'admin.client.update', 'uses' => 'Admin\ClientsController@update']);
 
         //Relatórios PDF
-        Route::get('admin/clients/relatorios/{uuid}', ['as' => 'admin.clients.report', 'uses' => 'Admin\ClientsController@printClient']);
+        Route::get('admin/clients/relatorios', ['as' => 'admin.clients.report', 'uses' => 'Admin\ClientsController@printClient']);
         /**End Clients */
 
 
