@@ -53,11 +53,15 @@ class PaymentsController extends Controller
             $response['totalPayments'] = Payment::where('status', '=', 'Pago')->where('currency','=','Kwanza')->sum('value');
             $response['paidStatus'] = Payment::Where('status','=','Pago')->count();
             $response['unpaidStatus'] = Payment::Where('status','=','Não Pago')->count();
-            
+
             $response['payments'] = Payment::orderBy('created_at', 'desc')->get();
 
 
         } else {
+            $response['totalPayments'] = Payment::where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
+            $response['totalPayments'] = Payment::where('origin', $request->origin)->where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
+            $response['paidStatus'] = Payment::where('origin', $request->origin)->Where('status', '=', 'Pago')->count();
+            $response['unpaidStatus'] = Payment::where('origin', $request->origin)->Where('status', '=', 'Não Pago')->count();
             $response['payments'] = Payment::where('origin', $request->origin)->orderBy('created_at', 'desc')->get();
             $response['origin'] = $request->origin;
         }
@@ -66,7 +70,7 @@ class PaymentsController extends Controller
 
         $pdf = PDF::loadview('pdf.payments.index', $response);
         return $pdf->setPaper('a4')->stream('pdf');
-    
+
     }
 
 }
