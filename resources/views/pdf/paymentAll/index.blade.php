@@ -20,9 +20,7 @@
     </center>
 
 
-    Data: @php
-        echo date('Y-m-d');
-    @endphp
+    Data: {{ date('Y-m-d') }}
 
     </center><br><br><br>
 
@@ -48,21 +46,13 @@
                     <td>{{ $item->type }} </td>
                     <td>{{ $item->origin }} </td>
                     <td>
-                        @php
-                            echo number_format($item->value, 2, ',', '.');
-                        @endphp
+                        {!! number_format($item->value, 2, ',', '.') !!}
 
                     </td>
                     <td>{{ $item->currency }} </td>
                     <td>{{ $item->reference }} </td>
 
-
-
-
-                        <td>
-
-                                {{ $item->status }}
-                        </td>
+                    <td>{{ $item->status }} </td>
 
 
                 </tr>
