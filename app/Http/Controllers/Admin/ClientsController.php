@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Classes\Logger;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Http\Controllers\Controller;
 
+use PDF;
+
 class ClientsController extends Controller
 {
+
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -79,10 +89,8 @@ class ClientsController extends Controller
     public function edit($id)
     {
         //
-
         $response['client'] = Client::find($id);
         return view('admin.clients.edit.index', $response);
-
     }
 
     /**
@@ -108,6 +116,32 @@ class ClientsController extends Controller
 
         return redirect()->route('admin.client.list.index')->with('edit', '1');
     }
+
+    /**Imprimir Lista de Clientes */
+    public function printClient(Request $request){
+        if($request->origin=="all"){
+            $response['client'] = Client::get();
+
+        $pdf = PDF::loadview('pdf.clientAll.index', $response);
+
+        //Logger
+        $this->Logger->log('info', 'Imprimiu lista de Pagamentos ');
+
+        return $pdf->setPaper('a4')->stream('pdf');
+        }
+        else{
+        $response['client'] = Client::where('origin',$request->origin)->get();
+        $response['origin']=$request->origin;
+
+        $pdf = PDF::loadview('pdf.client.index', $response);
+
+        //Logger
+        $this->Logger->log('info', 'Imprimiu lista de Pagamentos');
+
+        return $pdf->setPaper('a4')->stream('pdf');
+    }
+    }
+
 
     /**
      * Remove the specified resource from storage.

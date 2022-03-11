@@ -89,7 +89,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Endereço MAC</b><br>
+                                            <b>Número de Série</b><br>
                                             <small> {{ $equipmentRepair->serialNumber }}</small>
                                         </p>
                                     </div>

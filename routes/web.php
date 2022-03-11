@@ -68,6 +68,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/pagamentos/show/{id}', ['as' => 'admin.payments.show', 'uses' => 'Admin\PaymentsController@show']);
         Route::post('admin/pagamentos/relatorios', ['as' => 'admin.payments.report', 'uses' => 'Admin\PaymentsController@printPayment']);
         /**End Payments*/
+        
+
+         /**Clients */
+         Route::post('admin/clients/relatorios', ['as' => 'admin.clients.report', 'uses' => 'Admin\ClientsController@printClient']);
+         /**Clients */
     });
 
 
