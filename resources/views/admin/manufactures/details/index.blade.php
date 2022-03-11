@@ -103,32 +103,32 @@
 
                             <div class="col-12 mb-5">
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <p class="text-dark">
                                             <b>Nome do Software</b><br>
                                             <small> {{ $manufacture->category }}</small>
                                         </p>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <p class="text-dark">
                                             <b>Categoria</b><br>
                                             <small> {{ $manufacture->category }}</small>
                                         </p>
                                     </div>
-                                    <div class="col-md-3">
+                                  
+                                    <div class="col-md-4">
+                                        <p class="text-dark">
+                                            <b>Documentação</b><br>
+                                            <small> <a target="_blank"
+                                                    href="/storage/{{ $manufacture->file }}">Documento</a></small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-12">
                                         <p class="text-dark">
                                             <b>Descrição</b><br>
                                             <small> {{ $manufacture->description }}</small>
                                         </p>
                                     </div>
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Documentação</b><br>
-                                            <small> <a target="_"
-                                                    href="/storage/{{ $manufacture->file }}">Documento</a></small>
-                                        </p>
-                                    </div>
-
 
 
                                 </div>
