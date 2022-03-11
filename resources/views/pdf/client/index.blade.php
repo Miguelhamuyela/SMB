@@ -9,7 +9,7 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Lista De Clientes</title>
+    <title>Relatório De Clientes</title>
 </head>
 
 <body>
@@ -19,9 +19,9 @@
         <img src="dashboard/images/logo_blue.png" alt="">
 
         <p>
-        <h2 class="text-center">Lista de Clientes</h2>
+        <h2 class="text-center">Relatório de Clientes</h2>
 
-        @if ($origin)
+        @if ($origin != 'all')
             <b> Origem:</b> {{ $origin }}<br>
         @endif
 
@@ -37,7 +37,9 @@
                 <tr>
                     <th>NOME DO CLIENTE</th>
                     <th>NIF</th>
-                    <th>ORIGEM</th>
+                    @if ($origin == 'all')
+                        <th>ORIGEM</th>
+                    @endif
                     <th>TELEFONE</th>
                 </tr>
             </thead>
@@ -46,7 +48,9 @@
                     <tr class="text-center text-dark">
                         <td>{{ $item->name }} </td>
                         <td>{{ $item->nif }} </td>
-                        <td>{{ $item->origin }} </td>
+                        @if ($origin == 'all')
+                            <td>{{ $item->origin }} </td>
+                        @endif
                         <td>{{ $item->tel }}</td>
                     </tr>
                 @endforeach
@@ -55,7 +59,7 @@
         </table>
     </section>
 
-    
+
     {{-- <footer class="mt-2">
        <img src="dashboard/images/minttics.jpg" alt="">
    </footer> --}}

@@ -11,7 +11,7 @@
                             <div class="d-flex">
                                 <div class="wrapper">
                                     <h3 class="mb-0 font-weight-semibold">{{ $user }}</h3>
-                                    <h5 class="mb-0 font-weight-medium text-primary">Utilizadores</h5>
+                                    <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.user.index') }}">Utilizadores</a>
                                     <p class="mb-0 text-muted">{{ $user/100 }}%</p>
                                 </div>
                                 <div class="wrapper my-auto ml-auto ml-lg-4">
@@ -23,7 +23,7 @@
                             <div class="d-flex">
                                 <div class="wrapper">
                                     <h3 class="mb-0 font-weight-semibold">{{ $startup }}</h3>
-                                    <h5 class="mb-0 font-weight-medium text-primary">Startups</h5>
+                                    <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.startup.list.index') }}">Startups</a>
                                     <p class="mb-0 text-muted">{{ $startup/100 }}%</p>
                                 </div>
                                 <div class="wrapper my-auto ml-auto ml-lg-4">
@@ -35,7 +35,7 @@
                             <div class="d-flex">
                                 <div class="wrapper">
                                     <h3 class="mb-0 font-weight-semibold">{{ $employee }}</h3>
-                                    <h5 class="mb-0 font-weight-medium text-primary">Funcionários </h5>
+                                    <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.employees.index') }}">Funcionários</a>
                                     <p class="mb-0 text-muted">{{ $employee/100 }}%</p>
                                 </div>
                                 <div class="wrapper my-auto ml-auto ml-lg-4">
@@ -47,7 +47,7 @@
                             <div class="d-flex">
                                 <div class="wrapper">
                                     <h3 class="mb-0 font-weight-semibold">{{ $client }}</h3>
-                                    <h5 class="mb-0 font-weight-medium text-primary">Clientes</h5>
+                                    <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.client.list.index') }}">Clientes</a>
                                     <p class="mb-0 text-muted">{{ $client/100 }}%</p>
                                 </div>
                                 <div class="wrapper my-auto ml-auto ml-lg-4">

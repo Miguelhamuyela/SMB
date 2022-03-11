@@ -16,7 +16,7 @@
 
                     <div class="col-md-3 text-center">
                         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            <i class="fa fa-file-pdf-o text-white"></i>Imprimir Lista
+                            <i class="fa fa-file-pdf-o text-white"></i>Imprimir Relatório
                         </a>
 
                     </div>

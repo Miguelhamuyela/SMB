@@ -124,8 +124,10 @@ class ClientsController extends Controller
 
         } else {
             $response['clients'] = Client::where('origin', $request->origin)->orderBy('name', 'asc')->get();
-            $response['origin'] = $request->origin;
+      
         }
+        $response['origin'] = $request->origin;
+        
         //Logger
         $this->Logger->log('info', 'Imprimiu lista de Clientes');
 
