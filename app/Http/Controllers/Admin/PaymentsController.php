@@ -53,27 +53,20 @@ class PaymentsController extends Controller
     }
 
     public function printPayment(Request $request){
-        if($request->origin=="allPayment"){
-            $response['payment'] = Payment::get();
 
-        $pdf = PDF::loadview('pdf.paymentAll.index', $response);
+        if ($request->origin == 'all') {
+            $response['payments'] = Payment::orderBy('created_at', 'desc')->get();
 
-        //Logger
-        $this->Logger->log('info', 'Imprimiu lista de ');
-
-        return $pdf->setPaper('a4')->stream('pdf');
+        } else {
+            $response['payments'] = Payment::where('origin', $request->origin)->orderBy('created_at', 'desc')->get();
+            $response['origin'] = $request->origin;
         }
-        else{
-        $response['payment'] = Payment::where('origin',$request->origin)->get();
-        $response['origin']=$request->origin;
+        //Logger
+        $this->Logger->log('info', 'Imprimiu lista de Pagamentos');
 
         $pdf = PDF::loadview('pdf.payment.index', $response);
-
-        //Logger
-        $this->Logger->log('info', 'Imprimiu lista de ');
-
         return $pdf->setPaper('a4')->stream('pdf');
-    }
+    
     }
 
 }
