@@ -21,7 +21,7 @@
         <p>
         <h2 class="text-center">Relatório de Clientes</h2>
 
-        @if ($origin)
+        @if ($origin != 'all')
             <b> Origem:</b> {{ $origin }}<br>
         @endif
 
@@ -37,7 +37,9 @@
                 <tr>
                     <th>NOME DO CLIENTE</th>
                     <th>NIF</th>
-                    <th>ORIGEM</th>
+                    @if ($origin == 'all')
+                        <th>ORIGEM</th>
+                    @endif
                     <th>TELEFONE</th>
                 </tr>
             </thead>
@@ -46,7 +48,9 @@
                     <tr class="text-center text-dark">
                         <td>{{ $item->name }} </td>
                         <td>{{ $item->nif }} </td>
-                        <td>{{ $item->origin }} </td>
+                        @if ($origin == 'all')
+                            <td>{{ $item->origin }} </td>
+                        @endif
                         <td>{{ $item->tel }}</td>
                     </tr>
                 @endforeach
@@ -55,7 +59,7 @@
         </table>
     </section>
 
-    
+
     {{-- <footer class="mt-2">
        <img src="dashboard/images/minttics.jpg" alt="">
    </footer> --}}

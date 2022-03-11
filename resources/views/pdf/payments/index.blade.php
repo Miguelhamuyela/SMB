@@ -21,7 +21,7 @@
         <p>
         <h2 class="text-center">Relatório de Pagamentos</h2>
 
-        @if ($origin !== 'all')
+        @if ($origin != 'all')
             <b> Origem:</b> {{ $origin }}<br>
         @endif
 
