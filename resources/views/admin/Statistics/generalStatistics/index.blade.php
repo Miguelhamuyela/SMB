@@ -119,7 +119,7 @@
                                 },
                                 data: [{
                                         type: "spline",
-                                        visible: false,
+                                        visible: true,
                                         showInLegend: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Fábrica Software",
@@ -176,7 +176,7 @@
                                     {
                                         type: "spline",
                                         showInLegend: true,
-                                        visible: false,
+                                        visible: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Reparação de Equipamentos",
                                         dataPoints: [{
@@ -231,7 +231,7 @@
                                     },
                                     {
                                         type: "spline",
-                                        visible: false,
+                                        visible: true,
                                         showInLegend: true,
                                         yValueFormatString: "##.00kz",
                                         name: "Startup",
@@ -286,7 +286,7 @@
                                     },
                                     {
                                         type: "spline",
-                                        visible: false,
+                                        visible: true,
                                         showInLegend: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Cowork",
@@ -403,7 +403,7 @@
 
                             function toggleDataSeries(e) {
                                 if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-                                    e.dataSeries.visible = false;
+                                    e.dataSeries.visible = true;
                                 } else {
                                     e.dataSeries.visible = true;
                                 }
