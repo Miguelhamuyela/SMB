@@ -62,7 +62,6 @@ class PaymentsController extends Controller
             $response['totalPayments'] = Payment::where('origin', $request->origin)->where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
             $response['paidStatus'] = Payment::where('origin', $request->origin)->Where('status', '=', 'Pago')->count();
             $response['unpaidStatus'] = Payment::where('origin', $request->origin)->Where('status', '=', 'Não Pago')->count();
-
             $response['payments'] = Payment::where('origin', $request->origin)->orderBy('created_at', 'desc')->get();
             $response['origin'] = $request->origin;
         }
