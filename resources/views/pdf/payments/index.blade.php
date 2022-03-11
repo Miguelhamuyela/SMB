@@ -9,7 +9,7 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Lista geral de pagamentos</title>
+    <title>Relatório de Pagamentos</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <img src="dashboard/images/logo_blue.png" alt="">
 
         <p>
-        <h2 class="text-center">Lista de Pagamentos</h2>
+        <h2 class="text-center">Relatório de Pagamentos</h2>
 
         @if ($origin !== 'all')
             <b> Origem:</b> {{ $origin }}<br>
@@ -27,8 +27,8 @@
 
         <b>Data:</b> {{ date('d-m-Y') }}
         <br>
-        <b>Nº Status Pago: </b>{{ $paidStatus }}<br>
-        <b>Nº Status Não Pago: </b>{{ $unpaidStatus }}<br>
+        <b>Quantidade de Status Pago: </b>{{ $paidStatus }}<br>
+        <b>Quantidade de Status Não Pago: </b>{{ $unpaidStatus }}<br>
         <b>Valor Total pagamentos: </b>{!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!}
 
         </p>
@@ -41,7 +41,7 @@
             <thead>
                 <tr>
                     <th>TIPO DE PAGAMENTO</th>
-                    @if ($item->origin == 'All')
+                    @if ($origin == 'all')
                         <th>ORIGEM</th>
                     @endif
                     <th>VALORES A PAGAR</th>
@@ -55,7 +55,7 @@
                     <tr class="text-center text-dark">
 
                         <td>{{ $item->type }} </td>
-                        @if ($item->origin == 'All')
+                        @if ($origin == 'all')
                             <td>{{ $item->origin }} </td>
                         @endif
                         <td>

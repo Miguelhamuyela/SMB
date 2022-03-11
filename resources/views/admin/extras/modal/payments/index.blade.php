@@ -21,7 +21,7 @@
                                 <option value="Startup">Startup</option>
                                 <option value="Reparação de Equipamentos">Reparação de Equipamentos</option>
                                 <option value="Auditório">Auditório</option>
-                                <option value="allPayment">Todos Pagamentos</option>
+                                <option value="all">Todos Pagamentos</option>
                             </select>
                         </div>
                     </div>
