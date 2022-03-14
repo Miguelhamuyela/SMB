@@ -6,6 +6,8 @@ namespace App\Http\Controllers\Admin;
 use App\Classes\Logger;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
+use App\Models\Client;
+use App\Models\Cowork;
 use App\Models\Payment;
 use App\Models\Scheldule;
 use App\Models\Startup;
@@ -27,7 +29,7 @@ class StartupsController extends Controller
     public function index()
     {
 
-        $response['startups'] = Startup::get();
+        $response['startups'] = Startup::with('payments','scheldules','members')->get();
         $this->Logger->log('info', 'Lista de Startups');
         return view('admin.startup.list.index', $response);
     }
@@ -61,7 +63,7 @@ class StartupsController extends Controller
             'site' => 'max:255',
             'email' => 'required|string|max:255',
             'tel' => 'max:50',
-            'nif' => 'required|string|max:50',
+            'nif' => 'required|string|max:50|unique:startups,nif',
             'incubatorModel' => 'required|string|max:50',
 
             /***Payment Information */
@@ -75,12 +77,19 @@ class StartupsController extends Controller
             'started' => 'required|string|max:255',
             'end' => 'required|string|max:255',
 
+            /**Clients information */
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'tel' => 'max:50',
+            'nif' => 'required|string|max:50',
+            'address' => 'max:50',
+            'clienttype' => 'max:50'
+
         ]);
 
 
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
-
 
         $startup = Startup::create([
             'name' => $request->name,
@@ -93,6 +102,14 @@ class StartupsController extends Controller
             'fk_Payments_id' => $payment->id,
             'fk_Scheldules_id' => $schedule->id
 
+        ]);
+
+        $client = Client::create([
+            'name' =>$startup->name,
+            'nif' => $startup->nif,
+            'tel' => $startup->tel,
+            'email' => $startup->email,
+            'origin' => "Startup"
         ]);
 
         $this->Logger->log('info', 'Cadastrou Startups');
@@ -130,7 +147,7 @@ class StartupsController extends Controller
             'email' => 'required|string|max:255',
             'tel' => 'max:50',
             'incubatorModel' => 'required|string|max:50',
-            'nif' => 'required|string|max:50',
+            'nif' => 'required|string|max:50|unique:startups,nif',
 
             /**Payments Information */
             'type' => 'required|string|max:255',
@@ -143,10 +160,27 @@ class StartupsController extends Controller
             'started' => 'required|string|max:255',
             'end' => 'required|string|max:255',
 
+            /**Clients information */
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'tel' => 'max:50',
+            'nif' => 'required|string|max:50',
+            'address' => 'max:50',
+            'clienttype' => 'max:50'
+
         ]);
 
         Startup::find($id)->update($request->all());
         $startup = Startup::find($id);
+
+
+        Client::where('nif',$startup->nif,'origin','=','Startup')->update([
+            'name' => $startup->name,
+            'email' => $startup->email,
+            'tel' => $startup->tel,
+            'nif' => $startup->nif,
+            'origin' => "Startup"
+        ]);
 
         Payment::find($startup->fk_Payments_id)->update($request->all());
         Scheldule::find($startup->fk_Scheldules_id)->update($request->all());
@@ -154,8 +188,6 @@ class StartupsController extends Controller
         $this->Logger->log('info', 'Actoulizou Startups');
         return redirect()->route('admin.startup.list.index')->with('edit', '1');
     }
-
-
 
 
     /**
@@ -168,9 +200,11 @@ class StartupsController extends Controller
 
     public function destroy(Request $request)
     {
-        $fk_Payments_id=Startup::find($request->id)->fk_Payments_id;
-        Payment::where('id', $fk_Payments_id)->delete();
-        Startup::find($request->id)->delete();
+        $startup=Startup::find($request->id);
+        echo json_encode( $startup);
+        Client::where('nif',$startup->nif)->where('origin','=','Startup')->delete();
+        Payment::where('id', $startup->id)->delete();
+        Startup::find($startup->id)->delete();
         $this->Logger->log('info', 'Eliminou Startups');
         return redirect()->route('admin.startup.list.index')->with('destroy', '1');
     }
