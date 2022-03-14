@@ -63,8 +63,8 @@ class PaymentsController extends Controller
 
     public function printPayment(Request $request)
     {
-        $response['checkbox'] = $request->all();
-     
+        $response['checkbox'] =  $request->all();
+  
         if ($request->origin == 'all') {
             $response['totalPayments'] = Payment::where('status', '=', 'Pago')
                 ->where('currency', '=', 'Kwanza')
@@ -107,7 +107,6 @@ class PaymentsController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->get();
         }
-        $response['origin'] = $request->origin;
 
         //Logger
         $this->Logger->log('info', 'Imprimiu lista de Pagamentos');

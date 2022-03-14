@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
-   @include('admin.extras.modal.clients.index')
+    @include('admin.extras.modal.clients.index')
 @endsection
