@@ -8,8 +8,8 @@
                 <div class="card-body">
                     <h4 class="card-title mb-0">Estatística Geral de Pagamentos do  ano {{ $year }} </h4>
 
-                    <div class="card-options" align="left">
-                        <h6 align="right"> Total somado: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!} </h6>
+                    <div class="card-options text-left">
+                        <h6 class="text-right"> Total Geral: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!} </h6>
                     </div>
                     <form method="POST" action="{{ route('admin.StatistiYerar.store') }}">
                         @csrf
@@ -401,7 +401,7 @@
 
                             function toggleDataSeries(e) {
                                 if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-                                    e.dataSeries.visible = true;
+                                    e.dataSeries.visible = false;
                                 } else {
                                     e.dataSeries.visible = true;
                                 }
