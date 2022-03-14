@@ -14,7 +14,7 @@ class PaymentsController extends Controller
 
     public function __construct()
     {
-        $this->Logger = new Logger;
+        $this->Logger = new Logger();
     }
     /**
      * Display a listing of the resource.
@@ -23,16 +23,25 @@ class PaymentsController extends Controller
      */
     public function index()
     {
-        $response['totalPayments'] = Payment::where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
-        $response['paidStatus'] = Payment::Where('status', '=', 'Pago')->count();
-        $response['unpaidStatus'] = Payment::Where('status', '=', 'Não Pago')->count();
+        $response['totalPayments'] = Payment::where('status', '=', 'Pago')
+            ->where('currency', '=', 'Kwanza')
+            ->sum('value');
+        $response['paidStatus'] = Payment::Where(
+            'status',
+            '=',
+            'Pago'
+        )->count();
+        $response['unpaidStatus'] = Payment::Where(
+            'status',
+            '=',
+            'Não Pago'
+        )->count();
         $response['payments'] = Payment::orderBy('created_at', 'desc')->get();
-        $response['payments'] =  Payment::get();
+        $response['payments'] = Payment::get();
         //Logger
         $this->Logger->log('info', 'Lista de Pagamentos');
         return view('admin.payments.list.index', $response);
     }
-
 
     /**
      * Display the specified resource.
@@ -45,27 +54,59 @@ class PaymentsController extends Controller
         //
         $response['payment'] = Payment::find($id);
         //Logger
-        $this->Logger->log('info', 'Visualizou pagamentos com o identificador ' . $id);
+        $this->Logger->log(
+            'info',
+            'Visualizou pagamentos com o identificador ' . $id
+        );
         return view('admin.payments.details.index', $response);
     }
 
     public function printPayment(Request $request)
     {
-
+        $response['checkbox'] =  $request->all();
+  
         if ($request->origin == 'all') {
-
-            $response['totalPayments'] = Payment::where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
-            $response['paidStatus'] = Payment::Where('status', '=', 'Pago')->count();
-            $response['unpaidStatus'] = Payment::Where('status', '=', 'Não Pago')->count();
-            $response['payments'] = Payment::orderBy('created_at', 'desc')->get();
+            $response['totalPayments'] = Payment::where('status', '=', 'Pago')
+                ->where('currency', '=', 'Kwanza')
+                ->sum('value');
+            $response['paidStatus'] = Payment::Where(
+                'status',
+                '=',
+                'Pago'
+            )->count();
+            $response['unpaidStatus'] = Payment::Where(
+                'status',
+                '=',
+                'Não Pago'
+            )->count();
+            $response['payments'] = Payment::orderBy(
+                'created_at',
+                'desc'
+            )->get();
         } else {
-            $response['totalPayments'] = Payment::where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
-            $response['totalPayments'] = Payment::where('origin', $request->origin)->where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
-            $response['paidStatus'] = Payment::where('origin', $request->origin)->Where('status', '=', 'Pago')->count();
-            $response['unpaidStatus'] = Payment::where('origin', $request->origin)->Where('status', '=', 'Não Pago')->count();
-            $response['payments'] = Payment::where('origin', $request->origin)->orderBy('created_at', 'desc')->get();
+            $response['totalPayments'] = Payment::where('status', '=', 'Pago')
+                ->where('currency', '=', 'Kwanza')
+                ->sum('value');
+            $response['totalPayments'] = Payment::where(
+                'origin',
+                $request->origin
+            )
+                ->where('status', '=', 'Pago')
+                ->where('currency', '=', 'Kwanza')
+                ->sum('value');
+            $response['paidStatus'] = Payment::where('origin', $request->origin)
+                ->Where('status', '=', 'Pago')
+                ->count();
+            $response['unpaidStatus'] = Payment::where(
+                'origin',
+                $request->origin
+            )
+                ->Where('status', '=', 'Não Pago')
+                ->count();
+            $response['payments'] = Payment::where('origin', $request->origin)
+                ->orderBy('created_at', 'desc')
+                ->get();
         }
-        $response['origin'] = $request->origin;
 
         //Logger
         $this->Logger->log('info', 'Imprimiu lista de Pagamentos');

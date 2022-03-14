@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>Relatório de Pagamentos</title>
+ 
+    <title>Relatório de Pagamentos - {{ date('d-m-Y') }}</title>
 </head>
 
 <body style='height:auto; width:100%; background: url("dashboard/images/digital.canvas.png") no-repeat center;'>
@@ -21,8 +21,8 @@
         <p>
         <h2 class="text-center">Relatório de Pagamentos</h2>
 
-        @if ($origin != 'all')
-            <b> Origem:</b> {{ $origin }}<br>
+        @if ($checkbox['origin'] != 'all')
+            <b> Origem:</b> {{ $checkbox['origin'] }}<br>
         @endif
 
         <b>Data:</b> {{ date('d-m-Y') }}
@@ -34,40 +34,57 @@
         </p>
     </header>
 
-
-
     <section class="col-12">
         <table class="table table-striped">
             <thead>
                 <tr class="text-center">
-                    <th>TIPO DE PAGAMENTO</th>
-                    @if ($origin == 'all')
+                    @isset($checkbox['type'])
+                        <th>TIPO DE PAGAMENTO</th>
+                    @endisset
+                    @if ($checkbox['origin'] == 'all')
                         <th>ORIGEM</th>
                     @endif
-                    <th>VALORES A PAGAR</th>
-                    <th>MOEDA</th>
-                    <th>REFERÊNCIA</th>
-                    <th>STATUS</th>
+                    @isset($checkbox['value'])
+                        <th>VALORES A PAGAR</th>
+                    @endisset
+                    @isset($checkbox['currency'])
+                        <th>MOEDA</th>
+                    @endisset
+                    @isset($checkbox['reference'])
+                        <th>REFERÊNCIA</th>
+                    @endisset
+                    @isset($checkbox['status'])
+                        <th>STATUS</th>
+                    @endisset
+                    @isset($checkbox['created_at'])
+                        <th>DATA</th>
+                    @endisset
                 </tr>
             </thead>
             <tbody>
                 @foreach ($payments as $item)
-                
                     <tr class="text-center text-dark">
-
-                        <td>{{ $item->type }} </td>
-                        @if ($origin == 'all')
+                        @isset($checkbox['type'])
+                            <td>{{ $item->type }} </td>
+                        @endisset
+                        @if ($checkbox['origin'] == 'all')
                             <td>{{ $item->origin }} </td>
                         @endif
-                        <td>
-                            {!! number_format($item->value, 2, ',', '.') !!}
-
-                        </td>
-                        <td>{{ $item->currency }} </td>
-                        <td>{{ $item->reference }} </td>
-
-                        <td>{{ $item->status }} </td>
-
+                        @isset($checkbox['value'])
+                            <td>{!! number_format($item->value, 2, ',', '.') !!}</td>
+                        @endisset
+                        @isset($checkbox['currency'])
+                            <td>{{ $item->currency }} </td>
+                        @endisset
+                        @isset($checkbox['reference'])
+                            <td>{{ $item->reference }} </td>
+                        @endisset
+                        @isset($checkbox['status'])
+                            <td>{{ $item->status }} </td>
+                        @endisset
+                        @isset($checkbox['created_at'])
+                            <td>{{ $item->created_at }}</td>
+                        @endisset
 
                     </tr>
                 @endforeach
