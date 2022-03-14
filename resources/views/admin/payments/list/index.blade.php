@@ -9,9 +9,6 @@
                     <div class="col-md-9">
                         <h5><b>Lista de Pagamentos</b></h5>
 
-                        <b>Quantidade de Status Pago: </b>{{ $paidStatus }}<br>
-                        <b>Quantidade de Status Não Pago: </b>{{ $unpaidStatus }}<br>
-                        <b>Valor Total pagamentos: </b>{!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!}
                     </div>
 
                     <div class="col-md-3 text-center">
@@ -20,10 +17,54 @@
                         </a>
 
                     </div>
+
+                </div>
+                <hr>
+                <div class="card-body row">
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <i class="mdi mdi-poll-box icon-lg text-primary d-flex align-items-center"></i>
+                                <div class="d-flex flex-column ms-4">
+                                    <span class="d-flex flex-column">
+                                        <p class="mb-0">Quantidade de Status Pago</p>
+                                        <h4 class="font-weight-bold">{{ $paidStatus }}</h4>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <i class="mdi mdi-poll-box icon-lg text-primary d-flex align-items-center"></i>
+                                <div class="d-flex flex-column ms-4">
+                                    <span class="d-flex flex-column">
+                                        <p class="mb-0">Quantidade de Status Não Pago</p>
+                                        <h4 class="font-weight-bold">{{ $unpaidStatus }}</h4>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <i class="mdi mdi-poll-box icon-lg text-primary d-flex align-items-center"></i>
+                                <div class="d-flex flex-column ms-4">
+                                    <span class="d-flex flex-column">
+                                        <p class="mb-0">Valor Total Pagamentos</p>
+                                        <h4 class="font-weight-bold">{!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!}</h4>
+                                    </span>
+                                    <small class="text-muted">Valor Total de Pagamentos de Todos os Serviços</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div> <br>
-
+        </div>
 
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
