@@ -9757,20 +9757,23 @@ ul {
 
 .auth {
   min-height: 100vh; }
-  .auth.auth-bg-1 {
+  .auth .banner-section {
     background: url("../../images/auth/baia.jpg");
-    background-size: cover; }
+    background-size: cover; 
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
   .auth.register-bg-1 {
     background: url("../../images/auth/register.jpg") center center no-repeat;
     background-size: cover; }
-  .auth.theme-one .auto-form-wrapper {
-    background: #fff;
+    .auto-form-wrapper {
+
     padding: 40px 40px 10px;
     border-radius: 4px;
-    box-shadow: 0 -25px 37.7px 11.3px rgba(8, 143, 220, 0.07); }
-    .auth.theme-one .auto-form-wrapper .form-group .input-group {
+    box-shadow: 0 -25px 37.7px 11.3px rgba(8, 143, 220, 0.02); }
+    .theme-one .auto-form-wrapper .form-group .input-group {
       height: 44px; }
-      .auth.theme-one .auto-form-wrapper .form-group .input-group .form-control {
+      .theme-one .auto-form-wrapper .form-group .input-group .form-control {
         border: 1px solid #cfd5db;
         border-right: none;
         border-radius: 6px 0 0 6px;
@@ -9779,22 +9782,22 @@ ul {
         display: inline-block;
         padding-top: 0px;
         padding-bottom: 0px; }
-        .auth.theme-one .auto-form-wrapper .form-group .input-group .form-control:focus {
+       .theme-one .auto-form-wrapper .form-group .input-group .form-control:focus {
           border-right: none;
           border-color: #cfd5db; }
-      .auth.theme-one .auto-form-wrapper .form-group .input-group .input-group-append {
+      .theme-one .auto-form-wrapper .form-group .input-group .input-group-append {
         border-left: none; }
-        .auth.theme-one .auto-form-wrapper .form-group .input-group .input-group-append .input-group-text {
+      .theme-one .auto-form-wrapper .form-group .input-group .input-group-append .input-group-text {
           border-radius: 0 6px 6px 0;
           border-left: none;
           border-color: #cfd5db;
           color: #b6b6b6; }
-    .auth.theme-one .auto-form-wrapper .form-group .submit-btn {
+    .theme-one .auto-form-wrapper .form-group .submit-btn {
       font-family: "roboto", sans-serif;
       font-size: 13px;
       padding: 12px 8px;
       font-weight: 600; }
-    .auth.theme-one .auto-form-wrapper .g-login {
+    .theme-one .auto-form-wrapper .g-login {
       border: 1px solid #dee2e6;
       padding: 13px;
       font-size: 12px;
