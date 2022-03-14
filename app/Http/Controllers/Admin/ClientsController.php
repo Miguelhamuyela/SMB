@@ -121,8 +121,9 @@ class ClientsController extends Controller
     public function printClient(Request $request){
         if($request->origin=="all"){
             $response['client'] = Client::get();
+            $response['origin']=$request->origin;
 
-        $pdf = PDF::loadview('pdf.clientAll.index', $response);
+        $pdf = PDF::loadview('pdf.client.index', $response);
 
         //Logger
         $this->Logger->log('info', 'Imprimiu lista de Pagamentos ');

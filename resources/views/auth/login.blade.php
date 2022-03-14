@@ -1,12 +1,16 @@
 @extends('layouts.merge.dashboardWithoutMenu')
 @section('titulo', 'Login')
 @section('content')
-
+ {{-- ../../images/auth/login_1.jpg --}}
     <div class="container-fluid page-body-wrapper full-page-wrapper">
-        <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
+        <div class="content-wrapper align-items-center auth auth-bg-1 theme-one">
             <div class="row w-100">
-                <div class="col-lg-4 mx-auto">
 
+                <div class="col-md-6 bg-left-login">
+     
+                </div>
+
+                <div style="margin-top: 100px;" class="col-md-5">
 
                     <div class="auto-form-wrapper">
                         <x-slot name="logo">
@@ -65,7 +69,9 @@
 
                         </form>
                     </div>
+
                 </div>
+
             </div>
         </div>
         <!-- content-wrapper ends -->
