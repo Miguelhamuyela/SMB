@@ -28,7 +28,7 @@
                     </div>
                     <hr>
                     <div class="form-group row">
-                        <b class="col-md-12 text-center">Incluir Colunas do Relatório</b>
+                        <b class="col-md-12 text-center">Incluir Colunas no Relatório</b>
                         <div class="col-md-12">
                             <div class="row text-left mx-2">
 
