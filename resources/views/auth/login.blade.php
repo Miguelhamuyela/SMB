@@ -9,11 +9,11 @@
                     <div class="col-md-5 banner-section d-none d-md-flex align-items-stretch justify-content-center">
                         <div class="slide-content bg-1"> </div>
                     </div>
-                    <div class="col-12 col-md-7  bg-white">
+                    <div class="col-12 col-md-7 ">
                         <div class="auto-form-wrapper d-flex align-items-center justify-content-center flex-column">
 
                                 <a href="{{ route('admin.home') }}">
-                                    <img src="/dashboard/images/digital.canvas.png" alt="Logo" width="100">
+                                    <img src="/dashboard/images/logo_blue.png" alt="Logo" width="250">
                                 </a>
                 
                             <!-- Session Status -->
@@ -27,7 +27,7 @@
                                 <div class="form-group">
                                     <label class="label" for="email">Email</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="email" name="email" value="{{ old('email') }}"
+                                        <input class="form-control " type="email" name="email" value="{{ old('email') }}"
                                             required autofocus>
                                         <div class="input-group-append">
                                             <span class="input-group-text">
