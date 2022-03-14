@@ -29,7 +29,7 @@
         <br>
         <b>Quantidade de Status Pago: </b>{{ $paidStatus }}<br>
         <b>Quantidade de Status Não Pago: </b>{{ $unpaidStatus }}<br>
-        <b>Total de Pagamentos: </b>{!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!}
+        <b> Valor Total de Pagamentos: </b>{!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!}
 
         </p>
     </header>
