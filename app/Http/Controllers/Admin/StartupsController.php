@@ -7,6 +7,7 @@ use App\Classes\Logger;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use App\Models\Cowork;
 use App\Models\Payment;
 use App\Models\Scheldule;
 use App\Models\Startup;
@@ -28,7 +29,7 @@ class StartupsController extends Controller
     public function index()
     {
 
-        $response['startups'] = Startup::get();
+        $response['startups'] = Startup::with('payments','scheldules','members')->get();
         $this->Logger->log('info', 'Lista de Startups');
         return view('admin.startup.list.index', $response);
     }
@@ -173,11 +174,12 @@ class StartupsController extends Controller
         $startup = Startup::find($id);
 
 
-        Client::where('nif',$startup->nif)->update([
+        Client::where('nif',$startup->nif,'origin','=','Startup')->update([
             'name' => $startup->name,
             'email' => $startup->email,
             'tel' => $startup->tel,
-            'nif' => $startup->nif
+            'nif' => $startup->nif,
+            'origin' => "Startup"
         ]);
 
         Payment::find($startup->fk_Payments_id)->update($request->all());
@@ -186,8 +188,6 @@ class StartupsController extends Controller
         $this->Logger->log('info', 'Actoulizou Startups');
         return redirect()->route('admin.startup.list.index')->with('edit', '1');
     }
-
-
 
 
     /**
@@ -200,9 +200,11 @@ class StartupsController extends Controller
 
     public function destroy(Request $request)
     {
-        $fk_Payments_id=Startup::find($request->id)->fk_Payments_id;
-        Payment::where('id', $fk_Payments_id)->delete();
-        Startup::find($request->id)->delete();
+        $startup=Startup::find($request->id);
+        echo json_encode( $startup);
+        Client::where('nif',$startup->nif)->where('origin','=','Startup')->delete();
+        Payment::where('id', $startup->id)->delete();
+        Startup::find($startup->id)->delete();
         $this->Logger->log('info', 'Eliminou Startups');
         return redirect()->route('admin.startup.list.index')->with('destroy', '1');
     }

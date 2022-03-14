@@ -64,8 +64,8 @@ class EquipmentRepairsController extends Controller
             'image' => 'mimes:jpg,png,gif,SVG,EPS',
             'problemDetails' => 'required',
             'referenceEquipment' => 'required|unique:equipment_repairs',
-            'macAddress' => '|unique:equipment_repairs',
-            'serialNumber' => '|unique:equipment_repairs'
+            'macAddress' => 'required|string|max:255',
+            'serialNumber' => 'required|string|max:255'
         ]);
 
         $client = Client::create($request->all());
@@ -147,8 +147,8 @@ class EquipmentRepairsController extends Controller
             'model' => 'required|string|max:50',
             'problemDetails' => 'required',
             'referenceEquipment' => 'required',
-            'macAddress' => '|unique:equipment_repairs',
-            'serialNumber' => '|unique:equipment_repairs'
+            'macAddress' => 'required|string|max:255',
+            'serialNumber' => 'required|string|max:255'
         ]);
 
         if ($middle = $request->file('image')) {
