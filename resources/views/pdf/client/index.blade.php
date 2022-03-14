@@ -28,7 +28,7 @@
 
         <b>Data:</b> {{ date('d-m-Y') }}
         <br>
-        <b>Total de Clientes:</b> {!! count($clients) !!}
+        <b>Total de Clientes:</b> {!! count($client) !!}
         </p>
     </header>
     <section class="col-12">
@@ -44,7 +44,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($clients as $item)
+                @foreach ($client as $item)
                     <tr class="text-center text-dark">
                         <td>{{ $item->name }} </td>
                         <td>{{ $item->nif }} </td>
