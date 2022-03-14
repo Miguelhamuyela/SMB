@@ -8,8 +8,8 @@
                 <div class="card-body">
                     <h4 class="card-title mb-0">Estatística Geral de Pagamentos do  ano {{ $year }} </h4>
 
-                    <div class="card-options" align="left">
-                        <h6 align="right"> Total somado: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!} </h6>
+                    <div class="card-options text-left">
+                        <h6 class="text-right"> Total Geral: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!} </h6>
                     </div>
                     <form method="POST" action="{{ route('admin.StatistiYerar.store') }}">
                         @csrf
@@ -117,7 +117,7 @@
                                 },
                                 data: [{
                                         type: "spline",
-                                        visible: false,
+                                        visible: true,
                                         showInLegend: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Fábrica Software",
@@ -174,7 +174,7 @@
                                     {
                                         type: "spline",
                                         showInLegend: true,
-                                        visible: false,
+                                        visible: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Reparação de Equipamentos",
                                         dataPoints: [{
@@ -229,7 +229,7 @@
                                     },
                                     {
                                         type: "spline",
-                                        visible: false,
+                                        visible: true,
                                         showInLegend: true,
                                         yValueFormatString: "##.00kz",
                                         name: "Startup",
@@ -284,7 +284,7 @@
                                     },
                                     {
                                         type: "spline",
-                                        visible: false,
+                                        visible: true,
                                         showInLegend: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Cowork",

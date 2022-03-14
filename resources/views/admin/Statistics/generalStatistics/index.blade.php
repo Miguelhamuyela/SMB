@@ -6,20 +6,18 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-0">Estatística Geral de Pagamentos do  ano @php
-                        echo date('Y');
-                    @endphp </h4>
+                    <h4 class="card-title mb-0">Estatística Geral de Pagamentos do Ano {{ date('Y') }} </h4>
 
-                    <div class="card-options" align="left">
-                        <h6 align="right"> Total somado: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!} </h6>
+                    <div class="card-options text-left">
+                        <h6 class="text-right"> Total Geral: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!} </h6>
                     </div>
                     <form method="POST" action="{{ route('admin.StatistiYerar.store') }}">
                         @csrf
                         <div class="form-group col-md-4">
                             <label for="year">Pesquisar Por Ano</label>
                             <input type="number" class="form-control" placeholder="digite o ano" id="year" name="year"
-                               required autofocu /><br><br>
-                               <button type="submit" class="btn btn-primary">Pesquisar</button>
+                                required autofocu /><br><br>
+                            <button type="submit" class="btn btn-primary">Pesquisar</button>
                         </div>
 
                     </form>
@@ -38,7 +36,7 @@
 
                             var janManufacture = JSON.parse('<?php echo $janManufacture; ?>');
                             var feManufacture = JSON.parse('<?php echo $feManufacture; ?>');
-                            var marManufacture = JSON.parse('<?php echo   $marManufacture; ?>');
+                            var marManufacture = JSON.parse('<?php echo $marManufacture; ?>');
                             var abrManufacture = JSON.parse('<?php echo $abrManufacture; ?>');
                             var maioManufacture = JSON.parse('<?php echo $maioManufacture; ?>');
                             var junManufacture = JSON.parse('<?php echo $junManufacture; ?>');
@@ -119,7 +117,7 @@
                                 },
                                 data: [{
                                         type: "spline",
-                                        visible: false,
+                                        visible: true,
                                         showInLegend: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Fábrica Software",
@@ -176,7 +174,7 @@
                                     {
                                         type: "spline",
                                         showInLegend: true,
-                                        visible: false,
+                                        visible: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Reparação de Equipamentos",
                                         dataPoints: [{
@@ -231,7 +229,7 @@
                                     },
                                     {
                                         type: "spline",
-                                        visible: false,
+                                        visible: true,
                                         showInLegend: true,
                                         yValueFormatString: "##.00kz",
                                         name: "Startup",
@@ -286,7 +284,7 @@
                                     },
                                     {
                                         type: "spline",
-                                        visible: false,
+                                        visible: true,
                                         showInLegend: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Cowork",
@@ -374,11 +372,11 @@
                                             },
                                             {
                                                 label: "Ago",
-                                                y:agoAuditoriums
+                                                y: agoAuditoriums
                                             },
                                             {
                                                 label: "Setembro",
-                                                y:  setAuditoriums
+                                                y: setAuditoriums
                                             },
                                             {
                                                 label: "Outubro",
@@ -386,8 +384,8 @@
                                             },
                                             {
                                                 label: "Novembro",
-                                                y:novAuditoriums
-                                            },  {
+                                                y: novAuditoriums
+                                            }, {
                                                 label: "Dezembro",
                                                 y: dezAuditoriums
                                             }
