@@ -6,15 +6,9 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-0">Estatística Geral de Pagamentos do ano @php
-                        echo date('Y');
-                    @endphp </h4>
 
-                    <div class="card-options" align="left">
-                        <h6 align="right"> Total somado: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!} </h6>
-                    </div>
-                    <form method="POST" action="{{ route('admin.StatistiYerar.store') }}">
-                        @csrf
+                    <div class="card-options text-left">
+                        <h6 class="text-right"> Total Geral: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!} </h6>
                         <div class="form-group col-md-4">
                             <label for="year">Ano</label>
                             <input type="text" class="form-control" placeholder="digite o ano" id="year" name="name"
