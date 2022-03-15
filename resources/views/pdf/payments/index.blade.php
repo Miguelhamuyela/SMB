@@ -52,7 +52,7 @@
             </thead>
             <tbody>
                 @foreach ($payments as $item)
-                
+
                     <tr class="text-center text-dark">
 
                         <td>{{ $item->type }} </td>
