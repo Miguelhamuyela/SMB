@@ -13,10 +13,10 @@
                             @csrf
                         <div class="form-group col-md-4">
 
-                            <label for="year">Ano</label>
-                            <input type="text" class="form-control" placeholder="digite o ano" id="year" name="year"
+                            <label for="year">Pesquise por Ano</label>
+                            <input type="search" class="form-control" placeholder="Digite o Ano" id="year" name="year"
                                 required autofocu /><br><br>
-                            <button type="submit" class="btn btn-primary">Pesquisar</button>
+
                         </div>
 
                     </form>
