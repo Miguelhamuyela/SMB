@@ -47,6 +47,19 @@
                             var novManufacture = JSON.parse('<?php echo $novManufacture; ?>');
                             var dezManufacture = JSON.parse('<?php echo $dezManufacture; ?>');
 
+                            var janTotal = JSON.parse('<?php echo $janTotal; ?>');
+                            var fevTotal = JSON.parse('<?php echo $fevTotal; ?>');
+                            var marTotal = JSON.parse('<?php echo $marTotal; ?>');
+                            var abrTotal = JSON.parse('<?php echo $abrTotal; ?>');
+                            var maioTotal = JSON.parse('<?php echo $maioTotal; ?>');
+                            var junTotal = JSON.parse('<?php echo $junTotal; ?>');
+                            var julTotal= JSON.parse('<?php echo $julTotal; ?>');
+                            var agoTotal = JSON.parse('<?php echo $agoTotal; ?>');
+                            var setTotal = JSON.parse('<?php echo $setTotal; ?>');
+                            var outTotal = JSON.parse('<?php echo $outTotal; ?>');
+                            var novTotal = JSON.parse('<?php echo $novTotal; ?>');
+                            var dezTotal = JSON.parse('<?php echo $dezTotal; ?>');
+
                             var janEquipament = JSON.parse('<?php echo $janEquipament; ?>');
                             var fevEquipament = JSON.parse('<?php echo $fevEquipament; ?>');
                             var marEquipament = JSON.parse('<?php echo $marEquipament; ?>');
@@ -390,6 +403,62 @@
                                                 y: dezAuditoriums
                                             }
 
+                                        ]
+                                    },
+                                    {
+                                        type: "spline",
+                                        showInLegend: true,
+                                        visible: true,
+                                        yValueFormatString: "##.00KZ",
+                                        name: "Pagamentos Mensais",
+                                        dataPoints: [{
+                                                label: "Janeiro",
+                                                y: janTotal
+                                            },
+                                            {
+                                                label: "Fevereiro",
+                                                y: fevTotal
+                                            },
+                                            {
+                                                label: "Março",
+                                                y: marTotal
+                                            },
+                                            {
+                                                label: "Abril",
+                                                y: abrTotal
+                                            },
+                                            {
+                                                label: "Maio",
+                                                y: maioTotal
+                                            },
+                                            {
+                                                label: "Junho",
+                                                y: junTotal
+                                            },
+                                            {
+                                                label: "Julho",
+                                                y: julTotal
+                                            },
+                                            {
+                                                label: "Ago",
+                                                y: agoTotal
+                                            },
+                                            {
+                                                label: "Setembro",
+                                                y: setTotal
+                                            },
+                                            {
+                                                label: "Outubro",
+                                                y: outTotal
+                                            },
+                                            {
+                                                label: "Novembro",
+                                                y: novTotal
+                                            },
+                                            {
+                                                label: "Dezembro",
+                                                y: dezTotal
+                                            }
                                         ]
                                     },
 

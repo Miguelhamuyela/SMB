@@ -9,9 +9,12 @@
 
                     <div class="card-options text-left">
                         <h6 class="text-right"> Total Geral: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!} </h6>
+                        <form method="POST" action="{{ route('admin.StatistiYerar.store') }}">
+                            @csrf
                         <div class="form-group col-md-4">
+
                             <label for="year">Ano</label>
-                            <input type="text" class="form-control" placeholder="digite o ano" id="year" name="name"
+                            <input type="text" class="form-control" placeholder="digite o ano" id="year" name="year"
                                 required autofocu /><br><br>
                             <button type="submit" class="btn btn-primary">Pesquisar</button>
                         </div>
@@ -134,7 +137,7 @@
                                 },
                                 data: [{
                                         type: "spline",
-                                        visible: false,
+                                        visible: true,
                                         showInLegend: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Fábrica Software",
@@ -191,7 +194,7 @@
                                     {
                                         type: "spline",
                                         showInLegend: true,
-                                        visible: false,
+                                        visible: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Reparação de Equipamentos",
                                         dataPoints: [{
@@ -246,63 +249,7 @@
                                     },
                                     {
                                         type: "spline",
-                                        showInLegend: true,
-                                        visible: false,
-                                        yValueFormatString: "##.00KZ",
-                                        name: "Pagamentos Mensais",
-                                        dataPoints: [{
-                                                label: "Janeiro",
-                                                y: janTotal
-                                            },
-                                            {
-                                                label: "Fevereiro",
-                                                y: fevTotal
-                                            },
-                                            {
-                                                label: "Março",
-                                                y: marTotal
-                                            },
-                                            {
-                                                label: "Abril",
-                                                y: abrTotal
-                                            },
-                                            {
-                                                label: "Maio",
-                                                y: maioTotal
-                                            },
-                                            {
-                                                label: "Junho",
-                                                y: junTotal
-                                            },
-                                            {
-                                                label: "Julho",
-                                                y: julTotal
-                                            },
-                                            {
-                                                label: "Ago",
-                                                y: agoTotal
-                                            },
-                                            {
-                                                label: "Setembro",
-                                                y: setTotal
-                                            },
-                                            {
-                                                label: "Outubro",
-                                                y: outTotal
-                                            },
-                                            {
-                                                label: "Novembro",
-                                                y: novTotal
-                                            },
-                                            {
-                                                label: "Dezembro",
-                                                y: dezTotal
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        type: "spline",
-                                        visible: false,
+                                        visible: true,
                                         showInLegend: true,
                                         yValueFormatString: "##.00kz",
                                         name: "Startup",
@@ -357,7 +304,7 @@
                                     },
                                     {
                                         type: "spline",
-                                        visible: false,
+                                        visible: true,
                                         showInLegend: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Cowork",
@@ -445,11 +392,11 @@
                                             },
                                             {
                                                 label: "Ago",
-                                                y: agoAuditoriums
+                                                y:agoAuditoriums
                                             },
                                             {
                                                 label: "Setembro",
-                                                y: setAuditoriums
+                                                y:  setAuditoriums
                                             },
                                             {
                                                 label: "Outubro",
@@ -457,12 +404,68 @@
                                             },
                                             {
                                                 label: "Novembro",
-                                                y: novAuditoriums
-                                            }, {
+                                                y:novAuditoriums
+                                            },  {
                                                 label: "Dezembro",
                                                 y: dezAuditoriums
                                             }
 
+                                        ]
+                                    },
+                                    {
+                                        type: "spline",
+                                        showInLegend: true,
+                                        visible: true,
+                                        yValueFormatString: "##.00KZ",
+                                        name: "Pagamentos Mensais",
+                                        dataPoints: [{
+                                                label: "Janeiro",
+                                                y: janTotal
+                                            },
+                                            {
+                                                label: "Fevereiro",
+                                                y: fevTotal
+                                            },
+                                            {
+                                                label: "Março",
+                                                y: marTotal
+                                            },
+                                            {
+                                                label: "Abril",
+                                                y: abrTotal
+                                            },
+                                            {
+                                                label: "Maio",
+                                                y: maioTotal
+                                            },
+                                            {
+                                                label: "Junho",
+                                                y: junTotal
+                                            },
+                                            {
+                                                label: "Julho",
+                                                y: julTotal
+                                            },
+                                            {
+                                                label: "Ago",
+                                                y: agoTotal
+                                            },
+                                            {
+                                                label: "Setembro",
+                                                y: setTotal
+                                            },
+                                            {
+                                                label: "Outubro",
+                                                y: outTotal
+                                            },
+                                            {
+                                                label: "Novembro",
+                                                y: novTotal
+                                            },
+                                            {
+                                                label: "Dezembro",
+                                                y: dezTotal
+                                            }
                                         ]
                                     },
 
