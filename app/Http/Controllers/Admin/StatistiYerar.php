@@ -11,6 +11,7 @@ class StatistiYerar extends Controller
 
     public function store(Request $request)
     {
+
         return redirect()->route('admin.StatistiYerar.show', $request->year);
     }
 
@@ -19,6 +20,37 @@ class StatistiYerar extends Controller
 
         $response['year']=$id;
         $response['totalPayments'] = Payment::whereYear('created_at', '=', $id)->where('status', '=', 'Pago')->where('currency', '=', 'Kwanza')->sum('value');
+
+
+     /**monthly payments */
+     $janTotal = Payment::whereYear('created_at', '=', $id)->whereMonth('created_at', '=', 01)->where('status', '=', 'Pago')->sum('value');
+     $response['janTotal'] = json_encode($janTotal);
+     $fevTotal  = Payment::whereYear('created_at', '=', $id)->whereMonth('created_at', '=', 02)->where('status', '=', 'Pago')->sum('value');
+     $response['fevTotal'] = json_encode($fevTotal);
+     $marTotal  = Payment::whereYear('created_at', '=', $id)->whereMonth('created_at', '=', 03)->where('status', '=', 'Pago')->sum('value');
+     $response['marTotal'] = json_encode($marTotal);
+     $abrTotal  = Payment::whereYear('created_at', '=', $id)->whereMonth('created_at', '=', 04)->where('status', '=', 'Pago')->sum('value');
+     $response['abrTotal'] = json_encode($abrTotal);
+     $maioTotal  = Payment::whereYear('created_at', '=', $id)->whereMonth('created_at', '=', 05)->where('status', '=', 'Pago')->sum('value');
+     $response['maioTotal'] = json_encode($maioTotal);
+     $junTotal  = Payment::whereYear('created_at', '=', $id)->whereMonth('created_at', '=', 06)->where('status', '=', 'Pago')->sum('value');
+     $response['junTotal'] = json_encode($junTotal);
+     $julTotal  = Payment::whereYear('created_at', '=', $id)->whereMonth('created_at', '=', 07)->where('status', '=', 'Pago')->sum('value');
+     $response['julTotal'] = json_encode($julTotal);
+     $agoTotal   = Payment::whereYear('created_at', '=', $id)->whereMonth('created_at', '=', '08')->where('status', '=', 'Pago')->sum('value');
+     $response['agoTotal'] = json_encode($agoTotal);
+     $setTotal  = Payment::whereYear('created_at', '=', $id)->whereMonth('created_at', '=', '09')->where('status', '=', 'Pago')->sum('value');
+     $response['setTotal'] = json_encode($setTotal);
+     $outTotal  = Payment::whereYear('created_at', '=', $id)->whereMonth('created_at', '=', '10')->where('status', '=', 'Pago')->sum('value');
+     $response['outTotal'] = json_encode($outTotal);
+     $novTotal  = Payment::whereYear('created_at', '=', $id)->whereMonth('created_at', '=', 11)->where('status', '=', 'Pago')->sum('value');
+     $response['novTotal'] = json_encode($novTotal);
+     $dezTotal = Payment::whereYear('created_at', '=', $id)->whereMonth('created_at', '=', 12)->where('status', '=', 'Pago')->sum('value');
+     $response['dezTotal'] = json_encode($dezTotal);
+
+     /**end  monthly payments  */
+
+
 
         /**Manufacture  */
         $janManufacture = Payment::whereYear('created_at', '=', $id)->with('manufacturesSoftware')->whereMonth('created_at', '=', 01)->where('status', '=', 'Pago')->where('origin', '=', 'Fábrica de Software')->sum('value');
