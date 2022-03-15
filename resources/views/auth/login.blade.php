@@ -6,10 +6,10 @@
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div class="content-wrapper auth p-0 theme-one">
                 <div class="row d-flex align-items-stretch">
-                    <div class="col-md-6 banner-section d-none d-md-flex align-items-stretch justify-content-center">
+                    <div class="col-md-7 banner-section d-none d-md-flex align-items-stretch justify-content-center">
                         <div class="slide-content bg-1"> </div>
                     </div>
-                    <div class="col-12 col-md-6 ">
+                    <div class="col-12 col-md-5 ">
                         <div class="auto-form-wrapper d-flex align-items-center justify-content-center flex-column">
 
                                 <a href="{{ route('admin.home') }}">
@@ -63,17 +63,15 @@
                                     <button class="btn btn-primary submit-btn btn-block"> {{ __('Log in') }}</button>
                                 </div>
 
-
-
-                                <div class="wrapper mt-5 text-gray">
+                                <div class="wrapper mt-2 text-gray">
                                     <div class="container-fluid clearfix">
-                                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Todos os Direitos Reservados ao
+                                        <small class="text-muted d-block text-center text-sm-left d-sm-inline-block">Todos os Direitos Reservados ao
                                             <a href="https://www.infosi.gov.ao" target="_blank">
                                                INFOSI
                                             </a>
                                             ©
                                             {{ date('Y') }}
-                                        </span>
+                                        </small>
                                     </div>
                                 </div>
 
