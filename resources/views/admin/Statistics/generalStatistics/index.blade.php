@@ -6,16 +6,12 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-0">Estatística Geral de Pagamentos do Ano {{ date('Y') }} </h4>
 
                     <div class="card-options text-left">
                         <h6 class="text-right"> Total Geral: {!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!} </h6>
-                    </div>
-                    <form method="POST" action="{{ route('admin.StatistiYerar.store') }}">
-                        @csrf
                         <div class="form-group col-md-4">
-                            <label for="year">Pesquisar Por Ano</label>
-                            <input type="number" class="form-control" placeholder="digite o ano" id="year" name="year"
+                            <label for="year">Ano</label>
+                            <input type="text" class="form-control" placeholder="digite o ano" id="year" name="name"
                                 required autofocu /><br><br>
                             <button type="submit" class="btn btn-primary">Pesquisar</button>
                         </div>
@@ -59,6 +55,27 @@
                             var outEquipament = JSON.parse('<?php echo $outEquipament; ?>');
                             var novEquipament = JSON.parse('<?php echo $novEquipament; ?>');
                             var dezEquipament = JSON.parse('<?php echo $dezEquipament; ?>');
+
+
+
+
+                            var janTotal = JSON.parse('<?php echo $janTotal; ?>');
+                            var fevTotal = JSON.parse('<?php echo $fevTotal; ?>');
+                            var marTotal = JSON.parse('<?php echo $marTotal; ?>');
+                            var abrTotal = JSON.parse('<?php echo $abrTotal; ?>');
+                            var maioTotal = JSON.parse('<?php echo $maioTotal; ?>');
+                            var junTotal = JSON.parse('<?php echo $junTotal; ?>');
+                            var julTotal= JSON.parse('<?php echo $julTotal; ?>');
+                            var agoTotal = JSON.parse('<?php echo $agoTotal; ?>');
+                            var setTotal = JSON.parse('<?php echo $setTotal; ?>');
+                            var outTotal = JSON.parse('<?php echo $outTotal; ?>');
+                            var novTotal = JSON.parse('<?php echo $novTotal; ?>');
+                            var dezTotal = JSON.parse('<?php echo $dezTotal; ?>');
+
+
+
+
+
 
                             var janStartups = JSON.parse('<?php echo $janStartups; ?>');
                             var fevStartups = JSON.parse('<?php echo $fevStartups; ?>');
@@ -117,7 +134,7 @@
                                 },
                                 data: [{
                                         type: "spline",
-                                        visible: true,
+                                        visible: false,
                                         showInLegend: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Fábrica Software",
@@ -174,7 +191,7 @@
                                     {
                                         type: "spline",
                                         showInLegend: true,
-                                        visible: true,
+                                        visible: false,
                                         yValueFormatString: "##.00KZ",
                                         name: "Reparação de Equipamentos",
                                         dataPoints: [{
@@ -229,7 +246,63 @@
                                     },
                                     {
                                         type: "spline",
-                                        visible: true,
+                                        showInLegend: true,
+                                        visible: false,
+                                        yValueFormatString: "##.00KZ",
+                                        name: "Pagamentos Mensais",
+                                        dataPoints: [{
+                                                label: "Janeiro",
+                                                y: janTotal
+                                            },
+                                            {
+                                                label: "Fevereiro",
+                                                y: fevTotal
+                                            },
+                                            {
+                                                label: "Março",
+                                                y: marTotal
+                                            },
+                                            {
+                                                label: "Abril",
+                                                y: abrTotal
+                                            },
+                                            {
+                                                label: "Maio",
+                                                y: maioTotal
+                                            },
+                                            {
+                                                label: "Junho",
+                                                y: junTotal
+                                            },
+                                            {
+                                                label: "Julho",
+                                                y: julTotal
+                                            },
+                                            {
+                                                label: "Ago",
+                                                y: agoTotal
+                                            },
+                                            {
+                                                label: "Setembro",
+                                                y: setTotal
+                                            },
+                                            {
+                                                label: "Outubro",
+                                                y: outTotal
+                                            },
+                                            {
+                                                label: "Novembro",
+                                                y: novTotal
+                                            },
+                                            {
+                                                label: "Dezembro",
+                                                y: dezTotal
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        type: "spline",
+                                        visible: false,
                                         showInLegend: true,
                                         yValueFormatString: "##.00kz",
                                         name: "Startup",
@@ -284,7 +357,7 @@
                                     },
                                     {
                                         type: "spline",
-                                        visible: true,
+                                        visible: false,
                                         showInLegend: true,
                                         yValueFormatString: "##.00KZ",
                                         name: "Cowork",

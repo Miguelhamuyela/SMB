@@ -63,6 +63,10 @@
             </thead>
             <tbody>
                 @foreach ($payments as $item)
+<<<<<<< HEAD
+
+=======
+>>>>>>> e87dc718bbee2e34c6c492d66ae260a8f93a2c71
                     <tr class="text-center text-dark">
                         @isset($checkbox['type'])
                             <td>{{ $item->type }} </td>
