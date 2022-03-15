@@ -6,7 +6,7 @@ use App\Classes\Logger;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\URL;
+
 use PDF;
 
 class ClientsController extends Controller
@@ -118,19 +118,18 @@ class ClientsController extends Controller
     /**Imprimir Lista de Clientes */
     public function printClient(Request $request)
     {
-      
+        $response['checkbox'] = $request->all();
+
         if ($request->origin == 'all') {
-            $response['clients'] = Client::orderBy('name', 'asc')->get();
 
+            $response['clients'] = Client::get();
         } else {
-            $response['clients'] = Client::where('origin', $request->origin)->orderBy('name', 'asc')->get();
-      
+            $response['clients'] = Client::where('origin', $request->origin)->get();
         }
-        $response['origin'] = $request->origin;
-        
-        //Logger
-        $this->Logger->log('info', 'Imprimiu lista de Clientes');
 
+        //Logger
+        $this->Logger->log('info', 'Imprimiu lista de Pagamentos');
+        
         $pdf = PDF::loadview('pdf.client.index', $response);
         return $pdf->setPaper('a4')->stream('pdf');
     }

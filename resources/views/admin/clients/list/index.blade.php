@@ -53,8 +53,6 @@
 
                                     </tr>
                                 @endforeach
-
-
                             </tbody>
                         </table>
                     </div>
@@ -64,8 +62,5 @@
         </div>
 
     </div>
-
     @include('admin.extras.modal.clients.index')
-
-
 @endsection

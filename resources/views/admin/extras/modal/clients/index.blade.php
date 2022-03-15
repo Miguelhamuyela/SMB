@@ -21,15 +21,48 @@
                                 <option value="E-Learning">E-Learning</option>
                                 <option value="Reparação de Equipamentos">Reparação de Equipamentos</option>
                                 <option value="Fábrica de Software">Fábrica de Software</option>
+                                <option value="Startup">Startup</option>
                                 <option value="all">Todos Pagamentos</option>
                             </select>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Imprimir</button>
+                    <hr>
+                    <div class="form-group row">
+                        <b class="col-md-12 text-center">Incluir Colunas no Relatório</b>
+                        <div class="col-md-12">
+                            <div class="row text-left mx-2">
+
+                                <div class="form-check col-md-4">
+                                    <input type="checkbox" class="form-check-input" name="name" checked>
+                                    <small>Nome do Cliente</small>
+                                </div>
+                                <div class="form-check col-md-4">
+                                    <input type="checkbox" class="form-check-input" name="nif" checked>
+                                    <small>NIF</small>
+                                </div>
+                                <div class="form-check col-md-4">
+                                    <input type="checkbox" class="form-check-input" name="tel" checked>
+                                    <small>Telefone</small>
+                                </div>
+                                <div class="form-check col-md-4">
+                                    <input type="checkbox" class="form-check-input" name="email">
+                                    <small>Email</small>
+                                </div>
+                                <div class="form-check col-md-4">
+                                    <input type="checkbox" class="form-check-input" name="clienttype">
+                                    <small>Tipo de Cliente</small>
+                                </div>
+                                <div class="form-check col-md-4">
+                                    <input type="checkbox" class="form-check-input" name="created_at">
+                                    <small>Data de Criação</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Imprimir</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </form>

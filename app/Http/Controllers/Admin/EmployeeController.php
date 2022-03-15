@@ -122,6 +122,7 @@ class EmployeeController extends Controller
         $this->Logger->log('info', 'Editou um Funcionário com o identificador ' . $id);
         return redirect()->route('admin.employees.index')->with('edit', '1');
     }
+    
     public function destroy(Request $request)
     {
 

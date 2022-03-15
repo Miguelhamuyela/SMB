@@ -9,7 +9,7 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Relatório De Clientes</title>
+    <title>Relatório De Clientes - {{ date('d-m-Y') }}</title>
 </head>
 
 <body style='height:auto; width:100%; background: url("dashboard/images/digital.canvas.png") no-repeat center;'>
@@ -21,8 +21,8 @@
         <p>
         <h2 class="text-center">Relatório de Clientes</h2>
 
-        @if ($origin != 'all')
-            <b> Origem:</b> {{ $origin }}<br>
+        @if ($checkbox['origin'] != 'all')
+            <b> Origem:</b> {{ $checkbox['origin'] }}<br>
         @endif
 
 
@@ -31,27 +31,58 @@
         <b>Total de Clientes:</b> {!! count($clients) !!}
         </p>
     </header>
+
     <section class="col-12">
         <table class="table table-striped">
             <thead>
                 <tr class="text-center">
-                    <th>NOME DO CLIENTE</th>
-                    <th>NIF</th>
-                    @if ($origin == 'all')
+                    @isset($checkbox['name'])
+                        <th>CLIENTE</th>
+                    @endisset
+                    @isset($checkbox['nif'])
+                        <th>NIF</th>
+                    @endisset
+                    @if ($checkbox['origin'] == 'all')
                         <th>ORIGEM</th>
                     @endif
-                    <th>TELEFONE</th>
+                    @isset($checkbox['tel'])
+                        <th>TELEFONE</th>
+                    @endisset
+                    @isset($checkbox['email'])
+                        <th>EMAIL</th>
+                    @endisset
+                    @isset($checkbox['clienttype'])
+                        <th>TIPO</th>
+                    @endisset
+                    @isset($checkbox['created_at'])
+                        <th>DATA</th>
+                    @endisset
                 </tr>
             </thead>
             <tbody>
                 @foreach ($clients as $item)
                     <tr class="text-center text-dark">
-                        <td>{{ $item->name }} </td>
-                        <td>{{ $item->nif }} </td>
-                        @if ($origin == 'all')
+                        @isset($checkbox['name'])
+                            <td>{{ $item->name }} </td>
+                        @endisset
+                        @isset($checkbox['nif'])
+                            <td>{{ $item->nif }} </td>
+                        @endisset
+                        @if ($checkbox['origin'] == 'all')
                             <td>{{ $item->origin }} </td>
                         @endif
-                        <td>{{ $item->tel }}</td>
+                        @isset($checkbox['tel'])
+                            <td>{{ $item->tel }}</td>
+                        @endisset
+                        @isset($checkbox['email'])
+                            <td>{{ $item->email }}</td>
+                        @endisset
+                        @isset($checkbox['clienttype'])
+                            <td>{{ $item->clienttype }}</td>
+                        @endisset
+                        @isset($checkbox['created_at'])
+                            <td>{{ $item->created_at }}</td>
+                        @endisset
                     </tr>
                 @endforeach
 
