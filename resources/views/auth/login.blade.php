@@ -6,10 +6,10 @@
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div class="content-wrapper auth p-0 theme-one">
                 <div class="row d-flex align-items-stretch">
-                    <div class="col-md-5 banner-section d-none d-md-flex align-items-stretch justify-content-center">
+                    <div class="col-md-6 banner-section d-none d-md-flex align-items-stretch justify-content-center">
                         <div class="slide-content bg-1"> </div>
                     </div>
-                    <div class="col-12 col-md-7 ">
+                    <div class="col-12 col-md-6 ">
                         <div class="auto-form-wrapper d-flex align-items-center justify-content-center flex-column">
 
                                 <a href="{{ route('admin.home') }}">
@@ -66,8 +66,15 @@
 
 
                                 <div class="wrapper mt-5 text-gray">
-                                    <p class="footer-text">Copyright © 2022 Digital.AO Todos direitos Reservados.</p>
-                                  
+                                    <div class="container-fluid clearfix">
+                                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Todos os Direitos Reservados ao
+                                            <a href="https://www.infosi.gov.ao" target="_blank">
+                                               INFOSI
+                                            </a>
+                                            ©
+                                            {{ date('Y') }}
+                                        </span>
+                                    </div>
                                 </div>
 
                             </form>
