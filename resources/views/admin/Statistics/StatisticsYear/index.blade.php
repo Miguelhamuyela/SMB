@@ -29,6 +29,11 @@
 
                     </div>
                     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
                     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
                     <script>
@@ -410,7 +415,7 @@
                                         showInLegend: true,
                                         visible: true,
                                         yValueFormatString: "##.00KZ",
-                                        name: "Pagamentos Mensais",
+                                        name: "Pagamento Total do Mês",
                                         dataPoints: [{
                                                 label: "Janeiro",
                                                 y: janTotal
