@@ -68,7 +68,7 @@
                     <div class="card">
                         <div class="card-body pb-0">
                             <div class="d-flex justify-content-between">
-                                <h4 class="card-title mb-0">Solicitação Fabrica de Software</h4>
+                                <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.manufactures.list.index') }}">Solicitação Fabrica de Software</a>
                                 <p class="font-weight-semibold mb-0">{{ $manufacturesSoftware/100 }}%</p>
                             </div>
                             <h3 class="font-weight-medium mb-4">{{ $manufacturesSoftware }}</h3>
@@ -80,7 +80,7 @@
                     <div class="card">
                         <div class="card-body pb-0">
                             <div class="d-flex justify-content-between">
-                                <h4 class="card-title mb-0">Solicitação de reparação de Equipamentos</h4>
+                                <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.equipmentRepair.list.index') }}">Solicitação de reparação de Equipamentos</a>
                                 <p class="font-weight-semibold mb-0">{{ $equipmentRepair/100 }}%</p>
                             </div>
                             <h3 class="font-weight-medium">{{ $equipmentRepair }}</h3>

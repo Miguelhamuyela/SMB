@@ -38,9 +38,9 @@
                                 <tr class="text-center text-dark">
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->titleConference }}</td>
-                                    <td>{{ $item->clientsInfo->name }} </td>
-                                    <td>{{ $item->clientsInfo->nif }} </td>
-                                    <td>{{ $item->clientsInfo->tel }} </td>
+                                    <td>{{ $item->client->name }} </td>
+                                    <td>{{ $item->client->nif }} </td>
+                                    <td>{{ $item->client->tel }} </td>
 
                                    @if ($item->payments->status == 'Pago')
                                             <td>
@@ -66,11 +66,20 @@
 
 
                                     <td>
-                                        <a href='{{ url("admin/auditoriums/show/{$item->id}") }}' type="button"
-                                            class="btn btn-icons btn-rounded btn-primary">
-                                            <i class="mdi mdi-eye"></i>
-                                        </a>
-                                        
+                                       
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary text-white btn-sm dropdown-toggle"
+                                                type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-navicon text-white" aria-hidden="true"></i>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a href='{{ url("admin/auditoriums/show/{$item->id}") }}'
+                                                    class="dropdown-item">Detalhes</a>
+                                                <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->origin . '/' . $item->payments->value.'/'.$item->client->name) }}"
+                                                    class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

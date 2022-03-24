@@ -62,11 +62,21 @@
                                             </td>
                                         @endif
                                     <td>
-                                        <a href='{{ url("admin/cowork/show/{$item->id}") }}' type="button"
-                                            class="btn btn-icons btn-rounded btn-primary">
-                                            <i class="mdi mdi-eye"></i>
-                                        </a>
+                                    
                                         
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary text-white btn-sm dropdown-toggle"
+                                                type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-navicon text-white" aria-hidden="true"></i>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a href='{{ url("admin/cowork/show/{$item->id}") }}'
+                                                    class="dropdown-item">Detalhes</a>
+                                                <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->origin . '/' . $item->payments->value.'/'.$item->clients->name) }}"
+                                                    class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

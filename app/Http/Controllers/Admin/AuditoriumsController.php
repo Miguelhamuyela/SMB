@@ -29,7 +29,7 @@ class AuditoriumsController extends Controller
     public function index()
     {
         //
-        $response['auditoriums'] = Auditorium::with('clientsInfo')->get();
+        $response['auditoriums'] = Auditorium::with('client')->get();
         $this->Logger->log('info', 'Lista de Auditórios');
         return view('admin.auditoriums.list.index', $response);
     }

@@ -67,6 +67,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/pagamentos/list', ['as' => 'admin.payments.index', 'uses' => 'Admin\PaymentsController@index']);
         Route::get('admin/pagamentos/show/{id}', ['as' => 'admin.payments.show', 'uses' => 'Admin\PaymentsController@show']);
         Route::get('admin/pagamentos/relatorios', ['as' => 'admin.payments.report', 'uses' => 'Admin\PaymentsController@printPayment']);
+
+        /* fatura de Pagamento de Serviço */
+        Route::get('admin/pagamentos/fatura/{service}/{value}/{client}', ['as' => 'admin.payments.invoice', 'uses' => 'Admin\InvoiceController@index']);
         /**End Payments*/
 
 
@@ -186,6 +189,8 @@ Route::middleware(['auth'])->group(function () {
 Route::get('membro/startup/{id}', ['as' => 'admin.member.qrfind', 'uses' => 'Admin\MembersController@qrfind']);
 Route::get('membro/cowork/{id}', ['as' => 'admin.member.cowork', 'uses' => 'Admin\CoworksMemberController@qrfind']);
 
+/* Invoice Payment */
+Route::get('Pagamentos/Fatura/{id}', ['as' => 'admin.invoice.qrfind', 'uses' => 'Admin\InvoiceController@qrfind']);
 
 
 /* inclui as rotas de autenticação do ficheiro auth.php */

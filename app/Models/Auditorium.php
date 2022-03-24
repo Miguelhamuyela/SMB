@@ -33,7 +33,7 @@ class Auditorium extends Model
         return $this->belongsTo(Client::class, 'fk_Clients_id', 'id');
     }
 
-    public function clientsInfo(){
+    public function client(){
 
         return $this->belongsTo(Client::class, 'fk_Clients_id');
     }

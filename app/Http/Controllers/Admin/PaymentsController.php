@@ -37,7 +37,6 @@ class PaymentsController extends Controller
             'Não Pago'
         )->count();
         $response['payments'] = Payment::orderBy('created_at', 'desc')->get();
-        $response['payments'] = Payment::get();
         //Logger
         $this->Logger->log('info', 'Lista de Pagamentos');
         return view('admin.payments.list.index', $response);
