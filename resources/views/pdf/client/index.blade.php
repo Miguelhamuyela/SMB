@@ -10,6 +10,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Relatório De Clientes - {{ date('d-m-Y') }}</title>
+    <style>
+        #footer {
+            padding-top: 10px;
+            padding-bottom: 0px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body style='height:auto; width:100%; background: url("dashboard/images/digital.canvas.png") no-repeat center;'>
@@ -91,9 +100,11 @@
     </section>
 
 
-    {{-- <footer class="mt-2">
-       <img src="dashboard/images/minttics.jpg" alt="">
-   </footer> --}}
+    <footer class="col-12 mt-2" id="footer">
+        <div class="text-right">
+            <img src="dashboard/images/minttics.jpg" width="350">
+        </div>
+    </footer>
 </body>
 
 </html>
