@@ -91,12 +91,9 @@
                     </div>
 
 
-
-
                     <div class="col-md-3">
                         <p class="text-dark">
                             <b>Foto </b><br>
-<<<<<<< HEAD
 
                             @if (!isset($Employee->photoEmployee))
                                 <small>
@@ -110,19 +107,6 @@
                                         class="mr-2 rounded-circle img-fluid" alt="Cinque Terre" width="90" height="90">
 
                                 </small>
-=======
-                            <small>
-                                @if (!isset($Employee->photoEmployee))
-
-                                    <img src="/dashboard/User-595b40b85ba036ed117da56f.svg"
-                                        class="mr-2 rounded-circle img-fluid" alt="Cinque Terre" width="90" height="90">
-                            </small>
-                        @else
-                            <small>
-                                <img src="/storage/{{ $Employee->photoEmployee }}" class="mr-2 rounded-circle img-fluid"
-                                    alt="Cinque Terre" width="90" height="90">
-                            </small>
->>>>>>> bc34caf388649d1c4b34c328b37fa5ac4e0f062f
                             @endif
 
                         </p>
@@ -152,10 +136,6 @@
                         </a>
                         <br>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> bc34caf388649d1c4b34c328b37fa5ac4e0f062f
                         <button class="text-left text-white btn btn-danger btn-fw" id="deleteCategoryBtn"
                             value="{{ $Employee->id }}">
                             <i class="fa fa-trash"></i>
