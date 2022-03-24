@@ -3,14 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-
-    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> --}}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fatura de Pagamento-{{ date('d-m-Y') }}</title>
     <style>
         @page {
-            size: 68mm 120mm;
+            size: 68mm 160mm;
 
         }
 
@@ -26,23 +25,23 @@
 <body>
 
     <header class="col-12">
-        <p class="text-center mt-3 h4">DIGITAL.AO</p>
+        <p class="text-center mt-1 h5">DIGITAL.AO</p>
         <p class="text-left">Luanda, Distrito do Rangel, Bairro dos CTTs, KM-7, Parque do Saber <br>
             Telefone: [000 000 000] <br>
             NIF: [lorem3]<br>
             Email: geral@digital.ao
         </p>
-        <b class="text-center  mt-3">FATURA RECIBO Nº FR [Q{{ date('Y') }}/{id}]</b>
+        <b class="text-center  mt-1">FATURA RECIBO Nº FR [Q{{ date('Y') }}/{id}]</b>
         <p class="text-left">DATA: {{ date('d-m-Y h:i:s') }}</p>
         <p class="text-left">CLIENTE: {{ $client }}</p>
         <p class="text-left">NIF: CONSUMIDOR FINAL</p>
 
     </header>
-    <section class="col-12 my-4">
+    <section class="col-12 my-1">
         <p class="text-center border border-dark">
             VENDA | {{ $client }}
         </p>
-        <table class="table table-responsive">
+        <table class="table ">
             <thead>
                 <tr class="text-center">
                     <th>DESCRIÇÃO</th>
