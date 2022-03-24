@@ -131,7 +131,7 @@
                                         <small class="mb-1 text-dark">
                                             <b>Última Actualização:</b>
                                             {{ $meetingRoom->updated_at }}
-                                        </small>meetingRoom
+                                        </small>
                                     </div>
 
 
