@@ -22,7 +22,7 @@
                                 <option value="Reparação de Equipamentos">Reparação de Equipamentos</option>
                                 <option value="Fábrica de Software">Fábrica de Software</option>
                                 <option value="Startup">Startup</option>
-                                <option value="all">Todos Pagamentos</option>
+                                <option value="all">Todos Clientes</option>
                             </select>
                         </div>
                     </div>

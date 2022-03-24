@@ -13,7 +13,7 @@
                         <div class="auto-form-wrapper align-items-center justify-content-center flex-column">
 
                                 <a class="align-items-center justify-content-center flex-column d-flex" href="{{ route('admin.home') }}">
-                                    <img src="/dashboard/images/logo_blue.png" alt="Logo" width="250">
+                                    <img src="/dashboard/images/digital.canvas.png" alt="Logo" width="70">
                                 </a>
                 
                             <!-- Session Status -->

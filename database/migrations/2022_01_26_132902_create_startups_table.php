@@ -22,6 +22,7 @@ class CreateStartupsTable extends Migration
             $table->string('tel');
             $table->string('nif');
             $table->enum('incubatorModel', ['Residente', 'Não Residente']);
+            $table->string('StartupDetails');
 
             $table->unsignedBigInteger('fk_Scheldules_id');
             $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules')->onDelete('CASCADE')->onUpgrade('CASCADE');
