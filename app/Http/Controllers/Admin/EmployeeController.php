@@ -97,8 +97,12 @@ class EmployeeController extends Controller
             'email' => 'required|string|max:255',
             'tel' => 'max:12',
             'nif' => 'required|string|max:50',
+<<<<<<< HEAD
+            'occupation' => 'required|string|max:50'
+=======
             'occupation' => 'required|string|max:50',
             'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS'
+>>>>>>> bc34caf388649d1c4b34c328b37fa5ac4e0f062f
         ]);
 
 

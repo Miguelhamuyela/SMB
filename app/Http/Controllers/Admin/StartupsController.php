@@ -65,6 +65,8 @@ class StartupsController extends Controller
             'tel' => 'max:50',
             'nif' => 'required|string|max:50|unique:startups,nif',
             'incubatorModel' => 'required|string|max:50',
+            'StartupDetails' => 'required|string|max:255',
+            
 
             /***Payment Information */
             'type' => 'required|string|max:255',
@@ -99,6 +101,7 @@ class StartupsController extends Controller
             'tel' => $request->tel,
             'nif' => $request->nif,
             'incubatorModel' => $request->incubatorModel,
+            'StartupDetails' => $request->StartupDetails,
             'fk_Payments_id' => $payment->id,
             'fk_Scheldules_id' => $schedule->id
 
@@ -148,6 +151,7 @@ class StartupsController extends Controller
             'tel' => 'max:50',
             'incubatorModel' => 'required|string|max:50',
             'nif' => 'required|string|max:50|unique:startups,nif',
+            'StartupDetails' => 'required|string|max:255',
 
             /**Payments Information */
             'type' => 'required|string|max:255',

@@ -101,6 +101,13 @@
                                     </p>
                                 </div>
 
+                                <div class="col-md-3">
+                                    <p class="text-dark">
+                                        <b>Detalhes Sobre a Startup</b><br>
+                                        <small> {{ $startup->StartupDetails}}</small>
+                                    </p>
+                                </div>
+
                             </div>
                         </div>
 
