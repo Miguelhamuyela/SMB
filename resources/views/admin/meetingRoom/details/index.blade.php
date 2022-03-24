@@ -29,7 +29,7 @@
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title"><b>
-                <a href="{{ url('admin/sala-de-reunião/list') }}">Listar Fábrica de Softwares</a>
+                <a href="{{ url('admin/sala-de-reunião/list') }}">Listar Salas de Reuniões</a>
                 >  Detalhes de Salas de Reunião - {{ $meetingRoom->title }}
 
 
