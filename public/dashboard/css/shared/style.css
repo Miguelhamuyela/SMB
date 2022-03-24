@@ -9760,7 +9760,7 @@ ul {
 .auth {
   min-height: 100vh; }
   .auth .banner-section {
-    background: url("../../images/auth/baia.jpg");
+    background: url("../../images/auth/DIGITAL-I.jpg");
     width: calc(100% - 560px);
     background-repeat: no-repeat;
     background-size: cover;
@@ -9774,7 +9774,7 @@ ul {
     background-size: cover; }
     .auto-form-wrapper {
 
-      padding: 173px 55px 55px 55px;
+    padding: 173px 55px 55px 55px;
     border-radius: 4px;
     box-shadow: 0 -25px 37.7px 11.3px rgba(8, 143, 220, 0.02); }
     .theme-one .auto-form-wrapper .form-group .input-group {

@@ -13,21 +13,23 @@
                             @csrf
                         <div class="form-group col-md-4">
 
-                            <label for="year">Ano</label>
-                            <input type="text" class="form-control" placeholder="digite o ano" id="year" name="year"
+                            <label for="year">Pesquise por Ano</label>
+                            <input type="search" class="form-control" placeholder="Digite o Ano" id="year" name="year"
                                 required autofocu /><br><br>
-                            <button type="submit" class="btn btn-primary">Pesquisar</button>
+
                         </div>
 
                     </form>
 
                     <canvas height="450" id="myChart" style="height:10%; width:1cm "></canvas>
 
-                    <div class="d-flex flex-column flex-lg-row">
 
-
-                    </div>
                     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
                     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
                     <script>
@@ -417,7 +419,7 @@
                                         showInLegend: true,
                                         visible: true,
                                         yValueFormatString: "##.00KZ",
-                                        name: "Pagamentos Mensais",
+                                        name: "Pagamento Total do Mês",
                                         dataPoints: [{
                                                 label: "Janeiro",
                                                 y: janTotal

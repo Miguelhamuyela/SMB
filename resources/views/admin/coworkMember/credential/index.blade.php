@@ -30,9 +30,9 @@
                                 <b> {{ $member->name }}</b>
                             </H5>
                             <p>
-                                <b>OCUPAÇÃO: </b> {{ $member->occupation }}, <br>
-                                <b>EMAIL: </b>{{ $member->email }}, <br>
-                                <b>TELEFONE: </b>{{ $member->tel }}, <br>
+                                <b>OCUPAÇÃO: </b> {{ $member->occupation }}<br>
+                                <b>EMAIL: </b>{{ $member->email }}<br>
+                                <b>TELEFONE: </b>{{ $member->tel }}<br>
                                 <b>NIF: </b>{{ $member->nif }}
                             </p>
                         </div>
@@ -58,13 +58,13 @@
                                 <b>COWORK</b>
                             </H5>
                             <p class="text-right">
-                                <b>ACTIVIDADES REALIZADAS: </b>{{ $member->cowork->activities }}, <br>
+                                <b>ACTIVIDADES REALIZADAS: </b>{{ $member->cowork->activities }}<br>
                                 <b>ÁREA DE ACTUAÇÃO DA EMPRESA: </b>{{ $member->cowork->title }}
                             </p>
                         </div>
                     </div>
                     <div class="container-fluid d-flex justify-content-between">
-                        <div class="col-lg-3 pl-0">
+                        <div class="col-lg-12 pl-0">
                             <p class="mb-0 mt-5">Data de Cadastro : {{ $member->created_at }}</p>
                             <p>Última Actualização : {{ $member->updated_at }}</p>
                         </div>

@@ -48,7 +48,7 @@ class EmployeeController extends Controller
             'tel' => 'max:12',
             'nif' => 'required|string|max:50',
             'occupation' => 'required|string|max:100',
-            'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS',
+            'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS'
         ]);
 
 
@@ -98,6 +98,7 @@ class EmployeeController extends Controller
             'tel' => 'max:12',
             'nif' => 'required|string|max:50',
             'occupation' => 'required|string|max:50',
+            'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS'
         ]);
 
 
@@ -122,7 +123,7 @@ class EmployeeController extends Controller
         $this->Logger->log('info', 'Editou um Funcionário com o identificador ' . $id);
         return redirect()->route('admin.employees.index')->with('edit', '1');
     }
-    
+
     public function destroy(Request $request)
     {
 

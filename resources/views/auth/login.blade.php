@@ -10,10 +10,10 @@
                         <div class="slide-content bg-1"> </div>
                     </div>
                     <div class="col-12 col-md-5 ">
-                        <div class="auto-form-wrapper d-flex align-items-center justify-content-center flex-column">
+                        <div class="auto-form-wrapper align-items-center justify-content-center flex-column">
 
-                                <a href="{{ route('admin.home') }}">
-                                    <img src="/dashboard/images/logo_blue.png" alt="Logo" width="250">
+                                <a class="align-items-center justify-content-center flex-column d-flex" href="{{ route('admin.home') }}">
+                                    <img src="/dashboard/images/digital.canvas.png" alt="Logo" width="70">
                                 </a>
                 
                             <!-- Session Status -->
@@ -27,7 +27,7 @@
                                 <div class="form-group">
                                     <label class="label" for="email">Email</label>
                                     <div class="input-group">
-                                        <input class="form-control " type="email" name="email" value="{{ old('email') }}"
+                                        <input class="form-control" type="email" name="email" value="{{ old('email') }}"
                                             required autofocus>
                                         <div class="input-group-append">
                                             <span class="input-group-text">
@@ -51,7 +51,7 @@
                                 </div>
 
                                 <!-- Remember Me -->
-                                <div class="form-group d-flex justify-content-between">
+                                <div class="form-group">
                                     <div class="form-check form-check-flat mt-0">
                                         <label class="form-check-label">
                                             <input type="checkbox" id="remember_me" name="remember" class="form-check-input"

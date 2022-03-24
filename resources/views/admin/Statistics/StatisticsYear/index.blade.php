@@ -14,10 +14,10 @@
                     <form method="POST" action="{{ route('admin.StatistiYerar.store') }}">
                         @csrf
                         <div class="form-group col-md-4">
-                            <label for="year">Pesquisar Por Ano</label>
-                            <input type="number" class="form-control" placeholder="digite o ano" id="year" name="year"
-                               required autofocu /><br><br>
-                               <button type="submit" class="btn btn-primary">Pesquisar</button>
+                            <label for="year">Pesquise por Ano</label>
+                            <input type="search" class="form-control" placeholder="Digite o Ano" id="year" name="year"
+                                required autofocu /><br><br>
+
                         </div>
 
                     </form>
@@ -29,6 +29,11 @@
 
                     </div>
                     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
                     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
                     <script>
@@ -410,7 +415,7 @@
                                         showInLegend: true,
                                         visible: true,
                                         yValueFormatString: "##.00KZ",
-                                        name: "Pagamentos Mensais",
+                                        name: "Pagamento Total do Mês",
                                         dataPoints: [{
                                                 label: "Janeiro",
                                                 y: janTotal
