@@ -7,53 +7,59 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fatura de Pagamento-{{ date('d-m-Y') }}</title>
+
     <style>
-        @page {
-            size: 68mm 160mm;
-
-        }
-
-        * {
-            margin: 1%;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 10px;
+        #footer {
+            padding-top: 10px;
+            padding-bottom: 0px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
 
     </style>
 </head>
 
-<body>
+<body style='height:auto; width:100%; background: url("dashboard/images/digital.canvas.png") no-repeat center;'>
 
-    <header class="col-12">
-        <p class="text-center mt-1 h5">DIGITAL.AO</p>
-        <p class="text-left">Luanda, Distrito do Rangel, Bairro dos CTTs, KM-7, Parque do Saber <br>
-            Telefone: [000 000 000] <br>
+    <header class="col-12 mt-2 mb-5">
+
+        <img src="dashboard/images/logo_blue.png" alt="logo digital.ao" width="200">
+
+        <p class="text-left">
+            Luanda, Distrito do Rangel, Bairro dos CTTs, KM-7 <br>
+            Telefone: 222-692-979 <br>
             NIF: [lorem3]<br>
-            Email: geral@digital.ao
+            Email: geral@digital.ao<br>
+
+            UTILIZADOR: {{ Auth::user()->name }}
         </p>
-        <b class="text-center  mt-1">FATURA RECIBO Nº FR [Q{{ date('Y') }}/{id}]</b>
-        <p class="text-left">DATA: {{ date('d-m-Y h:i:s') }}</p>
-        <p class="text-left">CLIENTE: {{ $client }}</p>
-        <p class="text-left">NIF: CONSUMIDOR FINAL</p>
+        <hr>
+        <p class="text-right">
+            CLIENTE: {{ $client }} <br>
+            NIF: CONSUMIDOR FINAL <br>
+            DATA: {{ date('d-m-Y | H:i') }}
+
+        </p>
 
     </header>
-    <section class="col-12 my-1">
+    <section class="col-12 mb-5">
         <p class="text-center border border-dark">
-            VENDA | {{ $client }}
+            <b>FATURA </b> | Serviços Digitais e Encubadoras
         </p>
-        <table class="table ">
+        <table class="table table-striped">
             <thead>
                 <tr class="text-center">
                     <th>DESCRIÇÃO</th>
                     <th>IVA</th>
-                    <th>PREÇO UNI</th>
-                    <th>TOTAL</th>
+                    <th>PREÇO UNITÁRIO</th>
+                    <th>SUBTOTAL</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr class="text-center">
                     <td class="text-left">{{ $service }}</td>
-                    <td>0%</td>
+                    <td>0% - <small> Regime de Exclusão</small></td>
                     <td>{!! number_format($value, 2, ',', '.') . ' ' . 'Kz' !!}</td>
                     <td>{!! number_format($value, 2, ',', '.') . ' ' . 'Kz' !!}</td>
                 </tr>
@@ -62,26 +68,29 @@
     </section>
 
 
-    <footer class="col-12 pb-5">
-        <div class="row">
-            <div class="col-6 text-left">SUBTOTAL</div>
-            <div class="col-6 text-right">{!! number_format($value, 2, ',', '.') . ' ' . 'Kz' !!}</div>
+    <footer class="col-12 mt-2" id="footer">
+        <table class="table table-striped">
+            <tr>
+                <th>SUBTOTAL:</th>
+                <td>{!! number_format($value, 2, ',', '.') . ' ' . 'Kz' !!} </td>
+            </tr>
+            <tr>
+                <th>IVA:</th>
+                <td>0% - <small> Regime de Exclusão</small></td>
+            </tr>
+            <tr>
+                <th>TOTAL GERAL:</th>
+                <td>{!! number_format($value, 2, ',', '.') . ' ' . 'Kz' !!}</td>
+            </tr>
+        </table>
 
-            <div class="col-6 text-left">IVA</div>
-            <div class="col-6 text-right">0%</div>
-
-            <div class="col-6 text-left">TOTAL GERAL</div>
-            <div class="col-6 text-right">{!! number_format($value, 2, ',', '.') . ' ' . 'Kz' !!}</div>
-        </div>
-        <div class="col-12 text-center">
+        <div class="col-12 text-right">
+            <img src="dashboard/images/minttics.jpg" width="350">
 
             <img src="data:image/png;base64,{!! base64_encode($qrcode) !!}" alt="qrcode">
+
         </div>
-        <div class="col-12">
-            <small class="text-left"> UTILIZADOR: {{ Auth::user()->name }}</small> <br>
-            <small class="text-left"> Regime de Exclusão</small>
-        </div>
-        </div>
+
 
     </footer>
 
