@@ -30,9 +30,9 @@
                                 <b> {{ $member->name }}</b>
                             </H5>
                             <p>
-                                <b>OCUPAÇÃO: </b> {{ $member->occupation }}, <br>
-                                <b>EMAIL: </b>{{ $member->email }}, <br>
-                                <b>TELEFONE: </b>{{ $member->tel }}, <br>
+                                <b>OCUPAÇÃO: </b> {{ $member->occupation }} <br>
+                                <b>EMAIL: </b>{{ $member->email }}<br>
+                                <b>TELEFONE: </b>{{ $member->tel }} <br>
                                 <b>NIF: </b>{{ $member->nif }}
        
                             </p>
@@ -62,17 +62,19 @@
                             </H5>
                             <p class="text-right">
 
-                                <b>MODELO DE INCUBAÇÃO: </b>{{ $member->startup->incubatorModel }}, <br>
+                                <b>MODELO DE INCUBAÇÃO: </b>{{ $member->startup->incubatorModel }}<br>
                                 <b>NIF: </b>{{ $member->startup->nif }}
                             </p>
                         </div>
                     </div>
-                    <div class="container-fluid d-flex justify-content-between">
-                        <div class="col-lg-3 pl-0">
+
+                    <div class="container-fluid d-flex justify-content-between w-100">
+                        <div class="col-lg-12 pl-0">
                             <p class="mb-0 mt-5">Data de Cadastro : {{ $member->created_at }}</p>
                             <p>Última Actualização : {{ $member->updated_at }}</p>
                         </div>
                     </div>
+                    
                     <div class="container-fluid mt-5 d-flex justify-content-center w-100">
                         {!! QrCode::size(150)->generate(url('membro/startup/' . $member->nif)) !!}
                     </div>
