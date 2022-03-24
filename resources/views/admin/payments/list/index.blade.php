@@ -6,12 +6,62 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body row">
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <h5><b>Lista de Pagamentos</b></h5>
-                    </div>
-                    <div class="col-md-2 text-center">
 
                     </div>
+
+                    <div class="col-md-3 text-center">
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa fa-file-pdf-o text-white"></i>Imprimir Relatório
+                        </a>
+
+                    </div>
+
+                </div>
+                <hr>
+                <div class="card-body row">
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <i class="mdi mdi-poll-box icon-lg text-primary d-flex align-items-center"></i>
+                                <div class="d-flex flex-column ms-4">
+                                    <span class="d-flex flex-column">
+                                        <p class="mb-0">Quantidade de Status Pago</p>
+                                        <h4 class="font-weight-bold">{{ $paidStatus }}</h4>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <i class="mdi mdi-poll-box icon-lg text-primary d-flex align-items-center"></i>
+                                <div class="d-flex flex-column ms-4">
+                                    <span class="d-flex flex-column">
+                                        <p class="mb-0">Quantidade de Status Não Pago</p>
+                                        <h4 class="font-weight-bold">{{ $unpaidStatus }}</h4>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <i class="mdi mdi-poll-box icon-lg text-primary d-flex align-items-center"></i>
+                                <div class="d-flex flex-column ms-4">
+                                    <span class="d-flex flex-column">
+                                        <p class="mb-0">Valor Total Pagamentos</p>
+                                        <h4 class="font-weight-bold">{!! number_format($totalPayments, 2, ',', '.') . ' ' . 'KZ' !!}</h4>
+                                    </span>
+                                    <small class="text-muted">Valor Total de Pagamentos de Todos os Serviços</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -83,5 +133,5 @@
 
     </div>
 
-
+    @include('admin.extras.modal.payments.index')
 @endsection

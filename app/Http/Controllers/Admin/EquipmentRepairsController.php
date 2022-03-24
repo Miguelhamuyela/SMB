@@ -6,6 +6,7 @@ use App\Classes\Logger;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use App\Models\Department;
 use App\Models\Employee;
 use App\Models\EquipmentRepair;
 use App\Models\Payment;
@@ -31,7 +32,7 @@ class EquipmentRepairsController extends Controller
 
     public function create()
     {
-        $response['employees'] = Employee::where('departament', 'Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados')->get();
+        $response['employees'] = Employee::with('departament')->orderBy('name', 'asc')->get();
         //Logger
         $this->Logger->log('info', 'Entrou em Cadastrar  Reparação de  Equipamentos ');
         return view('admin.equipmentRepair.create.index', $response);
@@ -63,6 +64,8 @@ class EquipmentRepairsController extends Controller
             'image' => 'mimes:jpg,png,gif,SVG,EPS',
             'problemDetails' => 'required',
             'referenceEquipment' => 'required|unique:equipment_repairs',
+            'macAddress' => 'required|string|max:255',
+            'serialNumber' => 'required|string|max:255'
         ]);
 
         $client = Client::create($request->all());
@@ -80,6 +83,8 @@ class EquipmentRepairsController extends Controller
             'image' =>  $file,
             'referenceEquipment' => $request->referenceEquipment,
             'problemDetails' => $request->problemDetails,
+            'macAddress'=> $request->macAddress,
+            'serialNumber'=> $request->serialNumber,
             'fk_Payments_id' => $payment->id,
             'fk_Employees_id' => $request->fk_Employees_id,
             'fk_Clients_id' => $client->id,
@@ -140,9 +145,10 @@ class EquipmentRepairsController extends Controller
             /**EquipmentRepair */
             'equipmentName' => 'required|string|max:50',
             'model' => 'required|string|max:50',
-
             'problemDetails' => 'required',
             'referenceEquipment' => 'required',
+            'macAddress' => 'required|string|max:255',
+            'serialNumber' => 'required|string|max:255'
         ]);
 
         if ($middle = $request->file('image')) {
@@ -164,6 +170,8 @@ class EquipmentRepairsController extends Controller
             'image' =>  $file,
             'referenceEquipment' => $request->referenceEquipment,
             'problemDetails' => $request->problemDetails,
+            'macAddress'=> $request->macAddress,
+            'serialNumber'=> $request->serialNumber,
             'fk_Payments_id' => $EquipmentRepair->fk_Payments_id,
             'fk_Employees_id' => $request->fk_Employees_id,
             'fk_Clients_id' => $EquipmentRepair->fk_Clients_id,

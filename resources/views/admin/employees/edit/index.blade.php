@@ -17,7 +17,7 @@
                         @endif
             <div class="row align-items-center">
 
-                <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST" action="{{ route('admin.employees.update', $employee->id) }}">
+                <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST" action="{{ route('admin.employees.update', $employee->id) }}"  enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -26,14 +26,6 @@
                         <hr>
                         @include('forms._formEmployees.index')
                     </div>
-
-
-
-
-
-
-
-
                     <div class="card-body bg-light">
                         <div class="col-md-12">
                             <div class="form-group text-center">

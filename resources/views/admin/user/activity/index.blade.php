@@ -21,6 +21,7 @@
                             <th class="text-left">CAMINHO</th>
                             <th>IP</th>
                             <th class="text-left">MENSAGEM</th>
+                            <th class="text-center">DATA</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white">
@@ -31,6 +32,7 @@
                                 <td class="text-left">{{ $item->PATH_INFO }} </td>
                                 <td>{{ $item->REMOTE_ADDR }} </td>
                                 <td class="text-left">{{ $item->message }} </td>
+                                <td>{{ $item->created_at }} </td>
 
                             </tr>
                         @endforeach

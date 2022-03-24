@@ -87,36 +87,30 @@
 
             @if ('Gestor' == Auth::user()->level || 'Administrador' == Auth::user()->level)
 
-            <li class="nav-item nav-category mt-2">Pagamentos</li>
-            {{-- paymets --}}
+
+
+            <li class="nav-item nav-category mt-2">Estatísticas</li>
+            {{-- startups --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.generalStatistics.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Gráfico de Pagamentos</span>
+                </a>
+            </li>
+
+            {{-- Clients --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.client.list.index') }}">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Clientes</span>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.payments.index') }}">
                     <i class="menu-icon typcn typcn-document-text"></i>
                     <span class="menu-title">Pagamentos</span>
                 </a>
             </li>
-
-
-            <li class="nav-item nav-category mt-2">Estatisticos de Pagamentos</li>
-            {{-- startups --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.generalStatistics.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Estatística Geral</span>
-                </a>
-            </li>
-             {{-- startups --}}
-             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.statisticsSection.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Estatística de Serviços </span>
-                </a>
-            </li>
-
-
-
-
-
 
         @endif
 

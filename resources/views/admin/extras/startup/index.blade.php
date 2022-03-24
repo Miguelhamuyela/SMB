@@ -2,7 +2,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
     <script>
         var janStartups = JSON.parse('<?php echo $janStartups; ?>');
-
         var fevStartups = JSON.parse('<?php echo $fevStartups; ?>');
         var marStartups = JSON.parse('<?php echo $marStartups; ?>');
         var abrStartups = JSON.parse('<?php echo $abrStartups; ?>');

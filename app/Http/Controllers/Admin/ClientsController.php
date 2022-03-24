@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Classes\Logger;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Http\Controllers\Controller;
 
+use PDF;
+
 class ClientsController extends Controller
 {
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +25,7 @@ class ClientsController extends Controller
     public function index()
     {
         //
-
-        $response['clients'] = Client::get();
+        $response['client'] = Client::get();
         return view('admin.clients.list.index', $response);
     }
 
@@ -32,7 +40,6 @@ class ClientsController extends Controller
         return view('admin.clients.create.index');
     }
 
-
     /**
      * Store a newly created resource in storage.
      *
@@ -41,20 +48,20 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-        
         $request->validate([
             /**Clients informatio */
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:255',
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
-            'address' => 'required|string|max:50'
-           
+            'address' => 'required|string|max:50',
         ]);
 
         $client = Client::create($request->all());
 
-        return redirect()->back()->with('create', '1');
+        return redirect()
+            ->back()
+            ->with('create', '1');
     }
 
     /**
@@ -68,7 +75,6 @@ class ClientsController extends Controller
         //
         $response['client'] = Client::find($id);
         return view('admin.clients.details.index', $response);
-    
     }
 
     /**
@@ -80,10 +86,8 @@ class ClientsController extends Controller
     public function edit($id)
     {
         //
-
         $response['client'] = Client::find($id);
         return view('admin.clients.edit.index', $response);
-
     }
 
     /**
@@ -101,13 +105,33 @@ class ClientsController extends Controller
             'email' => 'required|string|max:255',
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
-            'address' => 'required|string|max:50'
-
+            'address' => 'required|string|max:50',
         ]);
 
         Client::find($id)->update($request->all());
 
-        return redirect()->route('admin.client.list.index')->with('edit', '1');
+        return redirect()
+            ->route('admin.client.list.index')
+            ->with('edit', '1');
+    }
+
+    /**Imprimir Lista de Clientes */
+    public function printClient(Request $request)
+    {
+        $response['checkbox'] = $request->all();
+
+        if ($request->origin == 'all') {
+
+            $response['clients'] = Client::get();
+        } else {
+            $response['clients'] = Client::where('origin', $request->origin)->get();
+        }
+
+        //Logger
+        $this->Logger->log('info', 'Imprimiu lista de Pagamentos');
+        
+        $pdf = PDF::loadview('pdf.client.index', $response);
+        return $pdf->setPaper('a4')->stream('pdf');
     }
 
     /**
@@ -119,6 +143,8 @@ class ClientsController extends Controller
     public function destroy($id)
     {
         Client::find($id)->delete();
-        return redirect()->route('admin.client.list.index')->with('destroy', '1');
+        return redirect()
+            ->route('admin.client.list.index')
+            ->with('destroy', '1');
     }
 }

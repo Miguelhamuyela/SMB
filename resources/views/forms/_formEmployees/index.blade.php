@@ -13,8 +13,8 @@
 
     <div class="col-md-6">
         <div class="form-group">
-            <label for="nif">Telefone <small class="text-danger">*</small></label>
-            <input type="text" name="tel" id="tel" value="{{ isset($employee->nif) ? $employee->nif : old('nif') }}"
+            <label for="Telefone">Telefone <small class="text-danger">*</small></label>
+            <input type="text" name="tel" id="tel" value="{{ isset($employee->tel) ? $employee->tel : old('tel') }}"
                 class="form-control border rounded" placeholder="Nº de Telefone" required>
         </div>
     </div>
@@ -50,8 +50,8 @@
         </div>
     </div>
 
-    
-  
+
+
 
 </div>
 
@@ -59,45 +59,27 @@
 
     <div class="col-md-6">
         <div class="form-group">
-            <label for="departament">Departamento <small class="text-danger">*</small></label>
+            <label for="fk_departament">Departamento <small class="text-danger">*</small></label>
 
-            <select type="text" name="departament" id="departament" class="form-control border rounded" required>
+            <select type="text" name="fk_departament" id="sub_category_name" class="form-control border rounded"
+                required>
 
                 @if (isset($employee->departament))
-                    <option value="{{ $employee->departament }}" class="text-primary h6 bg-primary text-white"
+                    <option value="{{  $employee->departament->id }}" class="text-primary h6 bg-primary text-white"
                         selected>
-                        {{ $employee->departament }}
+                        {{ $employee->departament->department }}
+
                     </option>
                 @else
                     <option disabled selected value="">selecione uma outra opção</option>
                 @endif
-                <option value="Departamento de Administração de Sistemas, Redes e Comunicações">
-                    Departamento de Administração de Sistemas, Redes e Comunicações
-                </option>
 
-                <option value="Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados">
-                    Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados
-                </option>
-                <option value="Departamento de Massificação, Inclusão e Conteúdo Digital">
-                    Departamento de Massificação, Inclusão e Conteúdo Digital
-                </option>
-                <option value="Departamento de Cibersegurança, Chaves Públicas e Carimbo do Tempo">
-                    Departamento de Cibersegurança, Chaves Públicas e Carimbo do Tempo
-                </option>
-                <option value="Departamento de Apoio ao Director Geral">
-                    Departamento de Apoio ao Director Geral
-                </option>
-
-                <option value="Departamento de Administração e Serviços Gerais">
-                    Departamento de Administração e Serviços Gerais
-                </option>
-                <option value="Departamento de Comunicação, Inovação, Tecnologia e Modernização dos Serviços">
-                    Departamento de Comunicação, Inovação, Tecnologia e Modernização dos Serviços
-                </option>
-
-
+                @foreach ($departaments as $item)
+                    <option value="{{ $item->id }}">
+                        {{ $item->department }}
+                    </option>
+                @endforeach
             </select>
-
         </div>
     </div>
 
@@ -105,19 +87,17 @@
         <div class="form-group">
             <label for="Acrónimo">Acrónimo <small class="text-danger">*</small></label>
 
-            <select type="text" name="acronym" id="acronym" class="form-control border rounded" required>
+            <select id="sub_category" type="text" name="acronym" id="acronym" class="form-control border rounded"
+                required>
 
-                @if (isset($employee->acronym))
-                    <option value="{{ $employee->acronym }}" class="text-primary h6 bg-primary text-white"
-                        selected>
-                        {{ $employee->acronym }}
+                @if (isset($employee->departament->department))
+                    <option value="{{ $employee->departament->id }}" class="text-primary h6 bg-primary text-white" selected>
+                        {{  $employee->departament->acronym }}
                     </option>
                 @else
                     <option disabled selected value="">selecione uma outra opção</option>
                 @endif
-                <option value="DMICD">
-                    DMICD
-                </option>
+
 
 
             </select>
@@ -127,14 +107,65 @@
 
 </div>
 
-   
+
 <div class="row">
     <div class="col-md-12">
         <div class="form-group">
             <label for="Foto">Foto <small class="text-danger"></small></label>
-            <input type="file" name="photoEmployee" value="{{ isset($employee->photoEmployee) ? $employee->photoEmployee : old('photoEmployee') }}" id="photoEmployee" class="form-control border rounded">
+            <input type="file" name="photoEmployee"
+                value="{{ isset($employee->photoEmployee) ? $employee->photoEmployee : old('photoEmployee') }}"
+                id="photoEmployee" class="form-control border rounded">
         </div>
     </div>
 
 </div>
- 
+
+@section('jQueryAPI')
+    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+@endsection
+<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="/dashboard/bundles/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        jQuery.support.cors = true;
+        let _token = $('meta[name="csrf-token"]').attr('content');
+        $('#sub_category_name').on('change', function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            jQuery.support.cors = true;
+            $.ajax({
+                // …
+                crossDomain: true,
+            });
+            let id = $(this).val();
+            $('#sub_category').empty();
+            $('#sub_category').append(`<option value="0" disabled selected>Processando...</option>`);
+            $.ajax({
+                data: {
+                    _token: _token
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'GET',
+
+                crossDomain: true,
+                url: 'GetSubCatAgainstMainCatEdit/' +
+                    id,
+                success: function(response) {
+                    var response = JSON.parse(response);
+                    $('#sub_category').empty();
+                    $('#sub_category').append(
+
+                    );
+                    $('#sub_category').append(
+                        `<option selected value="${response['acronym']}">${response['acronym']}</option>`
+                    );
+                }
+            });
+        });
+    });
+</script>

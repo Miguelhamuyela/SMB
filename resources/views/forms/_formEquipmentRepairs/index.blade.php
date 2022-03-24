@@ -35,9 +35,11 @@
                 @endif
 
                 @foreach ($employees as $item)
-                    <option value="{{ $item->id }}" selected>
-                        {{ $item->name }}
-                    </option>
+                    @if ($item->departament->department == 'Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados')
+                        <option value="{{ $item->id }}" selected>
+                            {{ $item->name }}
+                        </option>
+                    @endif
                 @endforeach
 
             </select>
@@ -46,6 +48,27 @@
     </div>
 
 </div>
+<div class="row">
+<div class="col-md-7">
+    <div class="form-group">
+        <label for="Endereço MAC">Endereço MAC </label>
+        <input type="text" name="macAddress" id="macAddress"
+            value="{{ isset($equipmentRepair->macAddress) ? $equipmentRepair->macAddress : old('macAddress') }}"
+            class="form-control border rounded" placeholder="Endereço MAC" required>
+    </div>
+</div>
+
+<div class="col-md-5">
+    <div class="form-group">
+        <label for="Número de série">Número de série </label>
+        <input type="text" name="serialNumber" id="serialNumber"
+            value="{{ isset($equipmentRepair->serialNumber) ? $equipmentRepair->serialNumber : old('serialNumber') }}"
+            class="form-control border rounded" placeholder="Número de série" required>
+    </div>
+</div>
+</div>
+
+
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
@@ -65,6 +88,8 @@
     </div>
 
 </div>
+
+<div class="row">
 <div class="col-md-12">
     <div class="form-group">
         <label for="problemDetails">Detalhes do Equipamento e do Problema <small
@@ -73,4 +98,5 @@
             placeholder="Descrição do curso">{{ isset($equipmentRepair->problemDetails) ? $equipmentRepair->problemDetails : old('problemDetails') }}
         </textarea>
     </div>
+</div>
 </div>
