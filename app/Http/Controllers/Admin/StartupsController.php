@@ -150,7 +150,7 @@ class StartupsController extends Controller
             'email' => 'required|string|max:255',
             'tel' => 'max:50',
             'incubatorModel' => 'required|string|max:50',
-            'nif' => 'required|string|max:50|unique:startups,nif',
+            'nif' => 'required|string|max:50',
             'StartupDetails' => 'required|string|max:255',
 
             /**Payments Information */

@@ -54,6 +54,15 @@
             timer: 2500
         })
     </script>
+
+@elseif(session('NoPermit'))
+<script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Sala Ocupada nesta Data',
+        showConfirmButton: true
+    })
+</script>
 @endif
 
 

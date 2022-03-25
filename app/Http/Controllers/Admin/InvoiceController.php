@@ -26,8 +26,7 @@ class InvoiceController extends Controller
         $response['client'] = $request->client;
         $response['value'] = $request->value;
 
-
-        $response['qrcode'] = QrCode::size(50)->generate(url('Pagamentos/Fatura/'.$request->service.'/'.$request->value.'/'.$request->client));
+        $response['qrcode'] = QrCode::size(100)->generate(url('Pagamentos/Fatura/'.$request->service.'/'.$request->value.'/'.$request->client));
         $pdf = PDF::loadView('pdf/invoice/index', $response);
 
         return $pdf->stream('Fatura de Pagamento-' . date('d-m-Y') . '.pdf');

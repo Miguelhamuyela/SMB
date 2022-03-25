@@ -49,7 +49,7 @@ class CoworksMemberController extends Controller
             'occupation' => '|string|max:255',
             'email' => 'required|string|max:255',
             'tel' => 'max:50',
-            'nif' => 'required|string|max:50',
+            'nif' => 'unique:coworks_member|string|max:50',
             'foto' => 'mimes:jpg,png,gif,SVG,JPEG'
 
         ]);
