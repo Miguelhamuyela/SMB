@@ -51,7 +51,7 @@
 <div class="row">
 <div class="col-md-7">
     <div class="form-group">
-        <label for="Endereço MAC">Endereço MAC </label>
+        <label for="Endereço MAC">Endereço MAC <small class="text-danger">*</small></label>
         <input type="text" name="macAddress" id="macAddress"
             value="{{ isset($equipmentRepair->macAddress) ? $equipmentRepair->macAddress : old('macAddress') }}"
             class="form-control border rounded" placeholder="Endereço MAC" required>
@@ -60,7 +60,7 @@
 
 <div class="col-md-5">
     <div class="form-group">
-        <label for="Número de série">Número de série </label>
+        <label for="Número de série">Número de série <small class="text-danger">*</small></label>
         <input type="text" name="serialNumber" id="serialNumber"
             value="{{ isset($equipmentRepair->serialNumber) ? $equipmentRepair->serialNumber : old('serialNumber') }}"
             class="form-control border rounded" placeholder="Número de série" required>

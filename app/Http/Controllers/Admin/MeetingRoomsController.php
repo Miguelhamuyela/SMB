@@ -52,6 +52,16 @@ class MeetingRoomsController extends Controller
     public function store(Request $request)
     {
         //
+        $validateMeetingRoom=MeetingRoom::where('meetRoom',$request->meetRoom)->count();
+        $validateDate=Scheldule::where('end',$request->end)->count();
+    
+       
+        if($validateMeetingRoom > 0 ||  $validateDate > 0){
+           
+            return redirect()->back()->with('NoPermit', '1');
+
+        }else{
+
         $request->validate([
             /**Clients informatio */
             'title' => 'required|string|max:50',
@@ -65,8 +75,8 @@ class MeetingRoomsController extends Controller
              'started' => 'required|string|max:255',
              'end' => 'required|string|max:255'
         ]);
+     
         $schedule = Scheldule::create($request->all());
-
         $meetingRoom= MeetingRoom::create([
             'title' => $request->title,
             'description' => $request->description,
@@ -77,9 +87,11 @@ class MeetingRoomsController extends Controller
             'fk_Scheldules_id' => $schedule->id
         ]
         );
+    
 
         $this->Logger->log('info', 'Cadastrou Sala de Reunião');
         return redirect()->route('admin.meetingRoom.show', $meetingRoom->id)->with('create', '1');
+    }
     }
 
     /**

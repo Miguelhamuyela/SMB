@@ -11,7 +11,22 @@
                 <div class="card-body">
                     <div class="container-fluid">
 
-                        <img src="/dashboard/images/logo_blue.png">
+                        <img src="/dashboard/images/logo_blue.png"><br>
+                        @if (!isset( $member->foto))
+
+                        <div class="col-lg-4 text-center my-3  mt-4 mb-2">
+                            <img class=" justify-content-center  img-fluid rounded  " src="/dashboard/images/user.png"
+                            width="150" height="150" alt="profile image">
+                        </div>
+                            
+                        @else
+                        <div class="col-lg-4 text-center my-3  mt-4 mb-2">
+                            <img class=" justify-content-center  img-fluid rounded  " src="/storage/{{$member->foto}}"
+                            width="150" height="150" alt="profile image">
+                        </div>
+                            
+                        @endif
+
                         <h4 class="text-left mt-5 mb-2"><b> Credenciamento </b><br>{{ $member->name }}</h4>
                         <hr>
                     </div>
