@@ -15,12 +15,12 @@
                                 <a class="align-items-center justify-content-center flex-column d-flex" href="{{ route('admin.home') }}">
                                     <img src="/dashboard/images/digital.canvas.png" alt="Logo" width="70">
                                 </a>
-                
+
                             <!-- Session Status -->
-                            <x-auth-session-status class="mb-4" :status="session('status')" />
-                
+                            <x-auth-session-status class="mb-4 alert alert-info" :status="session('status')" />
+
                             <!-- Validation Errors -->
-                            <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                            <x-auth-validation-errors class="mb-4 alert alert-" :errors="$errors" />
                             <form method="POST" class="mt-5"  action="{{ route('login') }}">
                                @csrf
                                 <!-- Email Address -->
