@@ -60,7 +60,7 @@
 
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-primary submit-btn btn-block"> {{ __('Log in') }}</button>
+                                    <button class="btn btn-primary submit-btn btn-block"> {{ __('Login') }}</button>
                                 </div>
 
                                 <div class="wrapper mt-2 text-gray">
