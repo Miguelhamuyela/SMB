@@ -1,49 +1,104 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="{{ route('admin.home') }}">
-                  {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
-                <img src="/images/logotipo/logo-vertical.png" alt="Logo" width="150">
-            </a>
-        </x-slot>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@extends('layouts.merge.dashboardWithoutMenu')
+@section('titulo', 'Esqueceu a sua Senha?')
+@section('content')
 
-        <form method="POST" action="{{ route('password.update') }}">
-            @csrf
+    <div class="container-scroller bg-white">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper auth p-0 theme-one">
+                <div class="row d-flex align-items-stretch">
+                    <div class="col-md-7 banner-section d-none d-md-flex align-items-stretch justify-content-center">
+                        <div class="slide-content bg-1"> </div>
+                    </div>
+                    <div class="col-12 col-md-5 ">
+                        <div class="auto-form-wrapper align-items-center justify-content-center flex-column">
 
-            <!-- Password Reset Token -->
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+                            <a class="align-items-center justify-content-center flex-column d-flex"
+                                href="{{ route('admin.home') }}">
+                                <img src="/dashboard/images/digital.canvas.png" alt="Logo" width="70">
+                            </a>
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+                            <!-- Session Status -->
+                            <x-auth-session-status class="my-4 alert alert-success" :status="session('status')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+                            <!-- Validation Errors -->
+                            <x-auth-validation-errors class="my-4 alert alert-danger" :errors="$errors" />
+
+
+                            <form method="POST" class="mt-5" action="{{ route('password.update') }}">
+                                @csrf
+
+                                <!-- Password Reset Token -->
+                                <input type="hidden" name="token" value="{{ $request->route('token') }}">
+
+                                <!-- Email Address -->
+                                <div class="form-group">
+                                    <label class="label" for="email">Email</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="email" name="email"
+                                            value="{{ old('email', $request->email) }}" required autofocus>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="mdi mdi-check-circle-outline"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- password  -->
+                                <div class="form-group">
+                                    <label class="label" for="password">{{ __('Password') }}</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="password" type="password" name="password"
+                                            required>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="mdi mdi-check-circle-outline"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- password_confirmation  -->
+                                <div class="form-group">
+                                    <label class="label"
+                                        for="password_confirmation">{{ __('Confirm Password') }}</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="password_confirmation"
+                                            type="password_confirmation" name="password_confirmation" required>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="mdi mdi-check-circle-outline"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <button class="btn btn-primary submit-btn btn-block">
+                                        {{ __('Reset Password') }}
+                                    </button>
+                                </div>
+
+                                <div class="text-center mt-2 text-gray">
+                                    <small class="text-muted">Todos os Direitos Reservados ao
+                                        <a href="https://www.infosi.gov.ao" target="_blank">
+                                            INFOSI
+                                        </a>
+                                        ©
+                                        {{ date('Y') }}
+                                    </small>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
 
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Reset Password') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+@endsection
