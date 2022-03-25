@@ -56,7 +56,7 @@ class MeetingRoomsController extends Controller
         $validateDate=Scheldule::where('end',$request->end)->count();
     
        
-        if($validateMeetingRoom > 0 ||  $validateDate > 0){
+        if($validateMeetingRoom > 0 and $validateDate > 0){
            
             return redirect()->back()->with('NoPermit', '1');
 
