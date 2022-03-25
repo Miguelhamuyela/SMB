@@ -147,8 +147,8 @@ class EquipmentRepairsController extends Controller
             'model' => 'required|string|max:50',
             'problemDetails' => 'required',
             'referenceEquipment' => 'required',
-            'macAddress' => 'required|string|max:255',
-            'serialNumber' => 'required|string|max:255'
+            'macAddress' => 'string|max:255',
+            'serialNumber' => 'string|max:255'
         ]);
 
         if ($middle = $request->file('image')) {
