@@ -1,4 +1,4 @@
-<form action="{{ url('admin/manufactures/delete/{{ $manufacture->id }}') }}" method="POST">
+<form action="{{ url('admin/manufactures/delete/'.$manufacture->id) }}">
     @csrf
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
