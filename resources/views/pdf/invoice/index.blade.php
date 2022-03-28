@@ -84,10 +84,9 @@
             </tr>
         </table>
 
-        <div class="col-12 text-right">
-            <img src="dashboard/images/minttics.jpg" width="350">
-
-            <img src="data:image/png;base64,{!! base64_encode($qrcode) !!}" alt="qrcode">
+        <div class="col-12 text-left mt-5">
+            <img src="data:image/png;base64,{!! base64_encode($qrcode) !!}" alt="qrcode" width="50">
+            <img src="dashboard/images/minttics.jpg" width="200">
 
         </div>
 
