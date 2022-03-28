@@ -32,7 +32,7 @@ class InvoiceController extends Controller
 
             return $pdf->stream('Fatura de Pagamento-' . date('d-m-Y') . '.pdf');
         }else{
-            return redirect()->back()->with('NoAuth', 1);
+            return redirect('/')->with('NoAuth', 1);
         }
        
     }
