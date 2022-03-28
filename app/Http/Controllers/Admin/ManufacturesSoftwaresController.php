@@ -29,7 +29,7 @@ class ManufacturesSoftwaresController extends Controller
     public function index()
     {
         //
-        $response['manufacture'] = ManufacturesSoftware::get();
+        $response['manufacture'] = ManufacturesSoftware::with('payments', 'clients', 'scheldules')->get();
         $this->Logger->log('info', 'Listar Fábrica de Softwares');
         return view('admin.manufactures.list.index', $response);
     }
