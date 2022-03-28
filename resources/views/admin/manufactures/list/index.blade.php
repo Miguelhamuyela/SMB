@@ -70,8 +70,10 @@
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     <a href='{{ url("admin/manufactures/show/{$item->id}") }}'
                                                         class="dropdown-item">Detalhes</a>
-                                                    <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->origin . '/' . $item->payments->value.'/'.$item->clients->name) }}"
-                                                        class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
+                                                    @if ($item->payments->status == 'Pago')
+                                                        <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->origin . '/' . $item->payments->value . '/' . $item->clients->name. '/' . $item->payments->status) }}"
+                                                            class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </td>

@@ -19,30 +19,30 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                
-                    <div class="table-responsive">
-                  <table id="dataTable-1" class="table table-striped table-bordered mb-3">
-                      <thead class="bg-primary thead-dark">
-                            <tr class="text-center">
-                                <th>#</th>
-                                <th>TÍTULO DA CONFERÊNCIA</th>
-                                <th>NOME DO CLIENTE</th>
-                                <th>NIF</th>
-                                <th>TELEFONE</th>
-                                <th>STATUS</th>
-                                <th class="text-left">ACÇÕES</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($auditoriums as $item)
-                                <tr class="text-center text-dark">
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->titleConference }}</td>
-                                    <td>{{ $item->client->name }} </td>
-                                    <td>{{ $item->client->nif }} </td>
-                                    <td>{{ $item->client->tel }} </td>
 
-                                   @if ($item->payments->status == 'Pago')
+                    <div class="table-responsive">
+                        <table id="dataTable-1" class="table table-striped table-bordered mb-3">
+                            <thead class="bg-primary thead-dark">
+                                <tr class="text-center">
+                                    <th>#</th>
+                                    <th>TÍTULO DA CONFERÊNCIA</th>
+                                    <th>NOME DO CLIENTE</th>
+                                    <th>NIF</th>
+                                    <th>TELEFONE</th>
+                                    <th>STATUS</th>
+                                    <th class="text-left">ACÇÕES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($auditoriums as $item)
+                                    <tr class="text-center text-dark">
+                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->titleConference }}</td>
+                                        <td>{{ $item->client->name }} </td>
+                                        <td>{{ $item->client->nif }} </td>
+                                        <td>{{ $item->client->tel }} </td>
+
+                                        @if ($item->payments->status == 'Pago')
                                             <td>
                                                 <div class="btn btn-success btn-fw btn-rounded text-dark ">
                                                     {{ $item->payments->status }}</div>
@@ -65,28 +65,30 @@
                                         @endif
 
 
-                                    <td>
-                                       
-                                        <div class="dropdown">
-                                            <button class="btn btn-primary text-white btn-sm dropdown-toggle"
-                                                type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <i class="fa fa-navicon text-white" aria-hidden="true"></i>
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a href='{{ url("admin/auditoriums/show/{$item->id}") }}'
-                                                    class="dropdown-item">Detalhes</a>
-                                                <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->origin . '/' . $item->payments->value.'/'.$item->client->name) }}"
-                                                    class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                        <td>
 
-                        </tbody>
-                    </table>
-                </div>
+                                            <div class="dropdown">
+                                                <button class="btn btn-primary text-white btn-sm dropdown-toggle"
+                                                    type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fa fa-navicon text-white" aria-hidden="true"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a href='{{ url("admin/auditoriums/show/{$item->id}") }}'
+                                                        class="dropdown-item">Detalhes</a>
+                                                    @if ($item->payments->status == 'Pago')
+                                                        <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->origin . '/' . $item->payments->value . '/' . $item->client->name. '/' . $item->payments->status) }}"
+                                                            class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
             </div>

@@ -26,12 +26,17 @@ class InvoiceController extends Controller
         $response['client'] = $request->client;
         $response['value'] = $request->value;
 
-        $response['qrcode'] = QrCode::size(100)->generate(url('Pagamentos/Fatura/'.$request->service.'/'.$request->value.'/'.$request->client));
-        $pdf = PDF::loadView('pdf/invoice/index', $response);
+        if($request->status == 'Pago'){
+            $response['qrcode'] = QrCode::size(100)->generate(route('admin.payments.validate'));
+            $pdf = PDF::loadView('pdf/invoice/index', $response);
 
-        return $pdf->stream('Fatura de Pagamento-' . date('d-m-Y') . '.pdf');
+            return $pdf->stream('Fatura de Pagamento-' . date('d-m-Y') . '.pdf');
+        }else{
+            return redirect()->back()->with('NoAuth', 1);
+        }
+       
     }
-    public function qrfind(){
+    public function find(){
 
         echo 'validado';
     }
