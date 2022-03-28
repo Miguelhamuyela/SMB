@@ -176,7 +176,7 @@ Route::middleware(['auth'])->group(function () {
          */
         Route::get('admin/manufactures/create', ['as' => 'admin.manufactures.create', 'uses' => 'Admin\ManufacturesSoftwaresController@create']);
         Route::post('admin/manufactures/store', ['as' => 'admin.manufactures.store', 'uses' => 'Admin\ManufacturesSoftwaresController@store']);
-        Route::post('admin/manufactures/delete', ['as' => 'admin.manufactures.delete', 'uses' => 'Admin\ManufacturesSoftwaresController@destroy']);
+        Route::get('admin/manufactures/delete/{id}', ['as' => 'admin.manufactures.delete', 'uses' => 'Admin\ManufacturesSoftwaresController@destroy']);
         Route::put('admin/manufactures/update/{id}', ['as' => 'admin.manufactures.update', 'uses' => 'Admin\ManufacturesSoftwaresController@update']);
         Route::get('admin/manufactures/edit/{id}', ['as' => 'admin.manufactures.edit', 'uses' => 'Admin\ManufacturesSoftwaresController@edit']);
         Route::get('admin/manufactures/show/{id}', ['as' => 'admin.manufactures.show', 'uses' => 'Admin\ManufacturesSoftwaresController@show']);

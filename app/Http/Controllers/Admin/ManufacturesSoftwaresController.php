@@ -223,12 +223,19 @@ class ManufacturesSoftwaresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $fk_Payments_id=ManufacturesSoftware::find($request->id)->fk_Payments_id;
-        Payment::where('id', $fk_Payments_id)->delete();
-        ManufacturesSoftware::find($request->id)->delete();
-        $this->Logger->log('info', 'Eliminou Fábrica de Softwares');
+        $ms = ManufacturesSoftware::find($id);
+
+        Payment::where('id', $ms->fk_Payments_id)->delete();
+        Client::where('id', $ms->fk_Clients_id)->delete();
+        Scheldule::where('id', $ms->fk_Scheldules_id)->delete();
+        
+        ManufacturesSoftware::find($id)->delete();
+
+
+        $this->Logger->log('info', 'Eliminou um pedido da Fábrica de Softwares');
+
         return redirect()->route('admin.manufactures.list')->with('destroy', '1');
     }
 }
