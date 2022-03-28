@@ -64,8 +64,8 @@ class EquipmentRepairsController extends Controller
             'image' => 'mimes:jpg,png,gif,SVG,EPS',
             'problemDetails' => 'required',
             'referenceEquipment' => 'required|unique:equipment_repairs',
-            'macAddress' => 'required|string|max:255',
-            'serialNumber' => 'required|string|max:255'
+            'macAddress' => 'string|max:255',
+            'serialNumber' => 'string|max:255'
         ]);
 
         $client = Client::create($request->all());
