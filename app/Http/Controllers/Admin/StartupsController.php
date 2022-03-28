@@ -8,6 +8,7 @@ use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
 use App\Models\Cowork;
+use App\Models\Member;
 use App\Models\Payment;
 use App\Models\Scheldule;
 use App\Models\Startup;
@@ -202,13 +203,17 @@ class StartupsController extends Controller
      */
 
 
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $startup=Startup::find($request->id);
-        echo json_encode( $startup);
-        Client::where('nif',$startup->nif)->where('origin','=','Startup')->delete();
-        Payment::where('id', $startup->id)->delete();
-        Startup::find($startup->id)->delete();
+
+        $sp = Startup::find($id);
+
+        Payment::where('id', $sp->fk_Payments_id)->delete();
+        Scheldule::where('id', $sp->fk_Scheldules_id)->delete();
+        Member::where('fk_startups_id', $id)->delete();
+        
+        Startup::find($id)->delete();
+    
         $this->Logger->log('info', 'Eliminou Startups');
         return redirect()->route('admin.startup.list.index')->with('destroy', '1');
     }

@@ -2,39 +2,16 @@
 @section('titulo', ' Detalhes de Reparação de Equipamentos')
 
 @section('content')
-<form action="{{ url('admin/reparação-equipamentos/delete') }}" method="POST">
-    @csrf
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" name="id" id="category_id">
-                    Tem certeza de que deseja excluir este item ?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-danger">Apagar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
+
 
     <div class="card mb-2">
         <div class="card-body">
-            <h2 class="h5 page-title"><b>
-                <a href="{{ url('admin/reparação-equipamentos/list') }}">Listar Reparação de Equipamentos</a>
-                >  Detalhes de Reparação de Equipamentos - {{ $equipmentRepair->title }}
-
-
-            </b></h2>
+            <h2 class="h5 page-title">
+                <b>
+                    <a href="{{ url('admin/reparação-equipamentos/list') }}">Listar Reparação de Equipamentos</a>
+                    > Detalhes de Reparação de Equipamentos - {{ $equipmentRepair->title }}
+                </b>
+            </h2>
         </div>
     </div>
 
@@ -96,8 +73,9 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Imagem</b><br>
-                                            @if(isset($equipmentRepair->image))
-                                            <small> <a  href="/storage/{{$equipmentRepair->image}}" target="_blank">Anexo</a> </small>
+                                            @if (isset($equipmentRepair->image))
+                                                <small> <a href="/storage/{{ $equipmentRepair->image }}"
+                                                        target="_blank">Anexo</a> </small>
                                             @endif
 
                                         </p>
@@ -113,52 +91,52 @@
                                     </div>
 
                                 </div>
-                            <div class="col-12 mt-2">
-                                <h5 class=""><b>Informações do Cliente </b> </h5>
-                                <hr>
-                            </div>
-                            <div class="col-12 mb-5">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Nome do Cliente</b><br>
-                                            <small> {{ $equipmentRepair->clients->name }}</small>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Número de Identificação Fiscal</b><br>
-                                            <small> {{ $equipmentRepair->clients->nif }}</small>
-                                        </p>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Email</b><br>
-                                            <small> {{ $equipmentRepair->clients->email }}</small>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Telefone</b><br>
-                                            <small> {{ $equipmentRepair->clients->tel }}</small>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Tipo de Cliente</b><br>
-                                            <small> {{ $equipmentRepair->clients->clienttype }}</small>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p class="text-dark">
-                                            <b>Endereço</b><br>
-                                            <small> {{ $equipmentRepair->clients->address }}</small>
-                                        </p>
-                                    </div>
-
+                                <div class="col-12 mt-2">
+                                    <h5 class=""><b>Informações do Cliente </b> </h5>
+                                    <hr>
                                 </div>
-                            </div>
+                                <div class="col-12 mb-5">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p class="text-dark">
+                                                <b>Nome do Cliente</b><br>
+                                                <small> {{ $equipmentRepair->clients->name }}</small>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p class="text-dark">
+                                                <b>Número de Identificação Fiscal</b><br>
+                                                <small> {{ $equipmentRepair->clients->nif }}</small>
+                                            </p>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <p class="text-dark">
+                                                <b>Email</b><br>
+                                                <small> {{ $equipmentRepair->clients->email }}</small>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p class="text-dark">
+                                                <b>Telefone</b><br>
+                                                <small> {{ $equipmentRepair->clients->tel }}</small>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p class="text-dark">
+                                                <b>Tipo de Cliente</b><br>
+                                                <small> {{ $equipmentRepair->clients->clienttype }}</small>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p class="text-dark">
+                                                <b>Endereço</b><br>
+                                                <small> {{ $equipmentRepair->clients->address }}</small>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
 
 
                             </div>
@@ -212,7 +190,7 @@
                                             <b>Valores a Pagar</b><br>
                                             <small>
 
-                                                {!! number_format($equipmentRepair->payments->value, 2, ',', '.') . ' '  !!}
+                                                {!! number_format($equipmentRepair->payments->value, 2, ',', '.') . ' ' !!}
                                             </small>
                                         </p>
                                     </div>
@@ -235,25 +213,19 @@
                                         <p class="text-dark">
 
                                             <b>Estado do Pagamento</b> <br>
-                                        @if ($equipmentRepair->payments->status == 'Pago')
-                                            <div class="btn btn-success btn-fw btn-rounded text-dark ">
-                                                {{ $equipmentRepair->payments->status }}</div>
-
-                                        @elseif($equipmentRepair->payments->status == 'Não Pago')
-
-                                            <div class="btn btn-danger btn-fw btn-rounded text-white ">
-                                                {{ $equipmentRepair->payments->status }}</div>
-
-                                        @elseif($equipmentRepair->payments->status == 'Em Validação')
-
-                                            <div class="btn btn-warning btn-fw btn-rounded text-dark ">
-                                                {{ $equipmentRepair->payments->status }}</div>
-
-                                        @else
-
-                                            <div class="btn btn-dark btn-fw btn-rounded text-dark ">
-                                                {{ $equipmentRepair->payments->status }}</div>
-                                        @endif
+                                            @if ($equipmentRepair->payments->status == 'Pago')
+                                                <div class="btn btn-success btn-fw btn-rounded text-dark ">
+                                                    {{ $equipmentRepair->payments->status }}</div>
+                                            @elseif($equipmentRepair->payments->status == 'Não Pago')
+                                                <div class="btn btn-danger btn-fw btn-rounded text-white ">
+                                                    {{ $equipmentRepair->payments->status }}</div>
+                                            @elseif($equipmentRepair->payments->status == 'Em Validação')
+                                                <div class="btn btn-warning btn-fw btn-rounded text-dark ">
+                                                    {{ $equipmentRepair->payments->status }}</div>
+                                            @else
+                                                <div class="btn btn-dark btn-fw btn-rounded text-dark ">
+                                                    {{ $equipmentRepair->payments->status }}</div>
+                                            @endif
                                         </p>
                                     </div>
 
@@ -278,14 +250,16 @@
                                     </div>
 
                                     <div class="col-md-4 text-dark text-right">
-                                        <a type="button" class="btn btn-primary text-left text-white mb-2 btn-fw" href='{{ url("admin/reparação-equipamentos/edit/{$equipmentRepair->id}") }}'>
+                                        <a type="button" class="btn btn-primary text-left text-white mb-2 btn-fw"
+                                            href='{{ url("admin/reparação-equipamentos/edit/{$equipmentRepair->id}") }}'>
                                             <i class="fa fa-edit"></i>
                                             Editar
                                         </a>
                                         <br>
 
 
-                                        <button class="text-left text-white btn btn-danger btn-fw" id="deleteCategoryBtn" value="{{ $equipmentRepair->id }}">
+                                        <button class="text-left text-white btn btn-danger btn-fw" id="deleteCategoryBtn"
+                                            value="{{ $equipmentRepair->id }}">
                                             <i class="fa fa-trash"></i>
                                             Eliminar
                                         </button>
@@ -301,12 +275,10 @@
                 </div>
 
 
-
-
-
             </div> <!-- /.col-12 -->
         </div> <!-- .row -->
+    </div>
 
 
-
-    @endsection
+    @include('admin.extras.modal.delete.equipmentRepair.index')
+@endsection

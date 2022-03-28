@@ -180,13 +180,20 @@ class EquipmentRepairsController extends Controller
         return redirect()->route('admin.equipmentRepair.show', $id)->with('edit', '1');
     }
 
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $fk_Payments_id = EquipmentRepair::find($request->id)->fk_Payments_id;
-        Payment::where('id', $fk_Payments_id)->delete();
+      
+        $er = EquipmentRepair::find($id);
+
+        Payment::where('id', $er->fk_Payments_id)->delete();
+        Client::where('id', $er->fk_Clients_id)->delete();
+        Scheldule::where('id', $er->fk_Scheldules_id)->delete();
+        
+        EquipmentRepair::find($id)->delete();
+        
         //Logger
-        $this->Logger->log('info', 'Eliminou Reparação de Equipamentos com o identificador ' . $request->id);
-        EquipmentRepair::find($request->id)->delete();
+        $this->Logger->log('info', 'Eliminou Reparação de Equipamentos com o identificador ' . $id);
+        
         return redirect('admin/reparação-equipamentos/list')->with('destroy', '1');
     }
 }

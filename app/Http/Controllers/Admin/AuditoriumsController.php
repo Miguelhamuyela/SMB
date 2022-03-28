@@ -29,7 +29,7 @@ class AuditoriumsController extends Controller
     public function index()
     {
         //
-        $response['auditoriums'] = Auditorium::with('client')->get();
+        $response['auditoriums'] = Auditorium::with('clients')->get();
         $this->Logger->log('info', 'Lista de Auditórios');
         return view('admin.auditoriums.list.index', $response);
     }
@@ -206,11 +206,17 @@ class AuditoriumsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $fk_Payments_id = Auditorium::find($request->id)->fk_Payments_id;
-        Payment::where('id', $fk_Payments_id)->delete();
-        Auditorium::find($request->id)->delete();
+        $ms = Auditorium::find($id);
+
+        Payment::where('id', $ms->fk_Payments_id)->delete();
+        Client::where('id', $ms->fk_Clients_id)->delete();
+        Scheldule::where('id', $ms->fk_Scheldules_id)->delete();
+        
+        Auditorium::find($id)->delete();
+
+
         $this->Logger->log('info', 'Eliminou Auditório');
         return redirect()->route('admin.auditoriums.list.index')->with('destroy', '1');
     }

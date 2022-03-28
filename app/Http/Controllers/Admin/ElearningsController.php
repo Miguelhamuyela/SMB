@@ -120,10 +120,15 @@ class ElearningsController extends Controller
     }
 
 
-    public function destroy(Request $request)
-    {
-        //
-        Elearning::find($request->id)->delete();
+    public function destroy($id)
+    {        
+        $ck = Elearning::find($id);
+
+        Client::where('id', $ck->fk_Clients_id)->delete();
+        Scheldule::where('id', $ck->fk_Scheldules_id)->delete();   
+
+        Elearning::find($id)->delete();
+
         $this->Logger->log('info', 'Eliminou Elerning');
         return redirect()->route('admin.elernings.list.index')->with('destroy', '1');
     }
