@@ -178,7 +178,7 @@ class StartupsController extends Controller
         $startup = Startup::find($id);
 
 
-        Client::where('nif',$startup->nif,'origin','=','Startup')->update([
+        Client::where([['nif',$startup->nif],['origin','=','Startup']])->update([
             'name' => $startup->name,
             'email' => $startup->email,
             'tel' => $startup->tel,
@@ -189,7 +189,7 @@ class StartupsController extends Controller
         Payment::find($startup->fk_Payments_id)->update($request->all());
         Scheldule::find($startup->fk_Scheldules_id)->update($request->all());
 
-        $this->Logger->log('info', 'Actoulizou Startups');
+        $this->Logger->log('info', 'Actualizou Startups');
         return redirect()->route('admin.startup.list.index')->with('edit', '1');
     }
 
