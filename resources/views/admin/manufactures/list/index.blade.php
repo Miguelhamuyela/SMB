@@ -10,7 +10,7 @@
                         <h5><b>Pedidos na Fábrica de Softwares</b></h5>
                     </div>
                     <div class="col-md-2 text-center">
-                        <a href="{{ route('admin.manufactures.create.index') }}" class="btn btn-primary">Cadastrar</a>
+                        <a href="{{ route('admin.manufactures.create') }}" class="btn btn-primary">Cadastrar</a>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($manufacture as $item)
+                                @foreach ($manufactures as $item)
                                     <tr class="text-center text-dark">
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->nameSoftware }} </td>
@@ -70,8 +70,10 @@
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     <a href='{{ url("admin/manufactures/show/{$item->id}") }}'
                                                         class="dropdown-item">Detalhes</a>
-                                                    <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->origin . '/' . $item->payments->value.'/'.$item->clients->name) }}"
-                                                        class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
+                                                    @if ($item->payments->status == 'Pago')
+                                                        <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->origin . '/' . $item->payments->value . '/' . $item->clients->name. '/' . $item->payments->status) }}"
+                                                            class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </td>

@@ -68,7 +68,7 @@
                     <div class="card">
                         <div class="card-body pb-0">
                             <div class="d-flex justify-content-between">
-                                <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.manufactures.list.index') }}">Solicitação Fabrica de Software</a>
+                                <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.manufactures.list') }}">Solicitação Fabrica de Software</a>
                                 <p class="font-weight-semibold mb-0">{{ $manufacturesSoftware/100 }}%</p>
                             </div>
                             <h3 class="font-weight-medium mb-4">{{ $manufacturesSoftware }}</h3>

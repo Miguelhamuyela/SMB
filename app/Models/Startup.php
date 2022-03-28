@@ -27,7 +27,6 @@ class Startup extends Model
         return $this->belongsTo(Scheldule::class, 'fk_Scheldules_id', 'id');
     }
 
-
     public function members(){
 
         return $this->hasMany(Member::class, 'fk_startups_id');

@@ -29,7 +29,7 @@ class ManufacturesSoftwaresController extends Controller
     public function index()
     {
         //
-        $response['manufacture'] = ManufacturesSoftware::get();
+        $response['manufactures'] = ManufacturesSoftware::with('payments', 'clients', 'scheldules')->get();
         $this->Logger->log('info', 'Listar Fábrica de Softwares');
         return view('admin.manufactures.list.index', $response);
     }
@@ -214,7 +214,7 @@ class ManufacturesSoftwaresController extends Controller
         Payment::find($manufacture->fk_Payments_id)->update($request->all());
 
         $this->Logger->log('info', 'Actualizou Fábrica de Softwares');
-        return redirect()->route('admin.manufactures.list.index')->with('edit', '1');
+        return redirect()->route('admin.manufactures.list')->with('edit', '1');
     }
 
     /**
@@ -223,12 +223,19 @@ class ManufacturesSoftwaresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $fk_Payments_id=ManufacturesSoftware::find($request->id)->fk_Payments_id;
-        Payment::where('id', $fk_Payments_id)->delete();
-        ManufacturesSoftware::find($request->id)->delete();
-        $this->Logger->log('info', 'Eliminou Fábrica de Softwares');
-        return redirect()->route('admin.manufactures.list.index')->with('destroy', '1');
+        $ms = ManufacturesSoftware::find($id);
+
+        Payment::where('id', $ms->fk_Payments_id)->delete();
+        Client::where('id', $ms->fk_Clients_id)->delete();
+        Scheldule::where('id', $ms->fk_Scheldules_id)->delete();
+        
+        ManufacturesSoftware::find($id)->delete();
+
+
+        $this->Logger->log('info', 'Eliminou um pedido da Fábrica de Softwares');
+
+        return redirect()->route('admin.manufactures.list')->with('destroy', '1');
     }
 }

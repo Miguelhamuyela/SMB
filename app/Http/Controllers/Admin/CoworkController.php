@@ -201,11 +201,16 @@ class CoworkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $fk_Payments_id=Cowork::find($request->id)->fk_Payments_id;
-        Payment::where('id', $fk_Payments_id)->delete();
-        Cowork::find($request->id)->delete();
+       
+        $ck = Cowork::find($id);
+
+        Payment::where('id', $ck->fk_Payments_id)->delete();
+        Client::where('id', $ck->fk_Clients_id)->delete();
+        Scheldule::where('id', $ck->fk_Scheldules_id)->delete();   
+        Cowork::find($id)->delete();
+
         $this->Logger->log('info', 'Eliminou Coworks');
         return redirect()->route('admin.coworks.list.index')->with('destroy', '1');
     }

@@ -175,10 +175,13 @@ class MeetingRoomsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        //
-        MeetingRoom::find($request->id)->delete();
+        $mr = MeetingRoom::find($id);
+
+        Scheldule::where('id', $mr->fk_Scheldules_id)->delete();   
+        MeetingRoom::find($id)->delete();
+        
         $this->Logger->log('info', 'Eliminou Sala de Reunião');
         return redirect()->route('admin.meetingRoom.list.index')->with('destroy', '1');
     }
