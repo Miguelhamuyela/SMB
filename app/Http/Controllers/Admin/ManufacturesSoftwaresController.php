@@ -29,7 +29,7 @@ class ManufacturesSoftwaresController extends Controller
     public function index()
     {
         //
-        $response['manufacture'] = ManufacturesSoftware::with('payments', 'clients', 'scheldules')->get();
+        $response['manufactures'] = ManufacturesSoftware::with('payments', 'clients', 'scheldules')->get();
         $this->Logger->log('info', 'Listar Fábrica de Softwares');
         return view('admin.manufactures.list.index', $response);
     }
@@ -214,7 +214,7 @@ class ManufacturesSoftwaresController extends Controller
         Payment::find($manufacture->fk_Payments_id)->update($request->all());
 
         $this->Logger->log('info', 'Actualizou Fábrica de Softwares');
-        return redirect()->route('admin.manufactures.list.index')->with('edit', '1');
+        return redirect()->route('admin.manufactures.list')->with('edit', '1');
     }
 
     /**
@@ -229,6 +229,6 @@ class ManufacturesSoftwaresController extends Controller
         Payment::where('id', $fk_Payments_id)->delete();
         ManufacturesSoftware::find($request->id)->delete();
         $this->Logger->log('info', 'Eliminou Fábrica de Softwares');
-        return redirect()->route('admin.manufactures.list.index')->with('destroy', '1');
+        return redirect()->route('admin.manufactures.list')->with('destroy', '1');
     }
 }

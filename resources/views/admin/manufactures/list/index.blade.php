@@ -10,7 +10,7 @@
                         <h5><b>Pedidos na Fábrica de Softwares</b></h5>
                     </div>
                     <div class="col-md-2 text-center">
-                        <a href="{{ route('admin.manufactures.create.index') }}" class="btn btn-primary">Cadastrar</a>
+                        <a href="{{ route('admin.manufactures.create') }}" class="btn btn-primary">Cadastrar</a>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($manufacture as $item)
+                                @foreach ($manufactures as $item)
                                     <tr class="text-center text-dark">
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->nameSoftware }} </td>
