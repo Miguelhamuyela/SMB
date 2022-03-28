@@ -178,7 +178,7 @@ class StartupsController extends Controller
         $startup = Startup::find($id);
 
 
-        Client::where('nif',$startup->nif,'origin','=','Startup')->update([
+        Client::where([['nif',$startup->nif],['origin','=','Startup']])->update([
             'name' => $startup->name,
             'email' => $startup->email,
             'tel' => $startup->tel,
