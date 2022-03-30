@@ -36,8 +36,5 @@ class InvoiceController extends Controller
         }
        
     }
-    public function find(){
 
-        echo 'validado';
-    }
 }

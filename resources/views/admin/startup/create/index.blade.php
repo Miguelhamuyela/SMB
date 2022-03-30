@@ -6,7 +6,7 @@
 
         <div class="col-lg-12 grid-margin stretch-card ">
             <div class="card">
-                <form method="POST" action="{{ route('admin.startup.store') }}">
+                <form method="POST" enctype="multipart/form-data" action="{{ route('admin.startup.store') }}">
                     @csrf
                     <div class="card-body bg-light">
                         @if ($errors->any())

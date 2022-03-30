@@ -99,6 +99,7 @@
                                                     href="/storage/{{ $manufacture->file }}">Documento</a></small>
                                         </p>
                                     </div>
+
                                     <div class="col-md-12">
                                         <p class="text-dark">
                                             <b>Descrição</b><br>

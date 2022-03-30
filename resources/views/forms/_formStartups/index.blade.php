@@ -63,31 +63,44 @@
 
 </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="email">Email <small class="text-danger">*</small></label>
-                <input type="email" name="email" id="email"
-                    value="{{ isset($startup->email) ? $startup->email : old('email') }}"
-                    class="form-control border rounded" placeholder="Email" required>
-            </div>
-        </div>
-    
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="site">Site </label>
-                <input type="text" name="site" id="site"
-                    value="{{ isset($startup->site) ? $startup->site : old('site') }}" class="form-control border rounded"
-                    placeholder="Site ">
-            </div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="email">Email <small class="text-danger">*</small></label>
+            <input type="email" name="email" id="email"
+                value="{{ isset($startup->email) ? $startup->email : old('email') }}"
+                class="form-control border rounded" placeholder="Email" required>
         </div>
     </div>
-   
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="site">Site </label>
+            <input type="text" name="site" id="site"
+                value="{{ isset($startup->site) ? $startup->site : old('site') }}" class="form-control border rounded"
+                placeholder="Site ">
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-md-12">
         <div class="form-group">
-            <label for="Detalhes Sobre a Startup">Detalhes Sobre a Startup <small class="text-danger">*</small></label>
+            <label for="Documento">Documentação</label>
+            <input type="file" name="document" value="{{ isset($startup->document) ? $startup->document : old('document') }}"
+                id="file" class="form-control border">
+            <small class="text-danger">Extensões permitidas: excel, word, pdf</small>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="Detalhes Sobre a Startup">Detalhes Sobre a Startup <small
+                    class="text-danger">*</small></label>
             <textarea class="form-control rounded" name="StartupDetails" required
                 style="min-height:70px; min-width:100%">{{ isset($startup->StartupDetails) ? $startup->StartupDetails : old('StartupDetails') }}</textarea>
         </div>
