@@ -67,7 +67,7 @@ Route::middleware(['auth'])->group(function () {
 
         /* fatura de Pagamento de Serviço */
         Route::get('admin/pagamentos/fatura/{service}/{value}/{client}/{status}', ['as' => 'admin.payments.invoice', 'uses' => 'Admin\InvoiceController@index']);
-        Route::get('admin/pagamentos/fatura/validada', ['as' => 'admin.payments.validate', 'uses' => 'Admin\InvoiceController@index']);
+        Route::get('admin/pagamentos/fatura/validada', ['as' => 'admin.payments.validate', 'uses' => 'Admin\InvoiceController@index'])->withoutMiddleware('Administrador');;
         /**End Payments*/
 
 
