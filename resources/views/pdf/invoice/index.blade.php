@@ -88,7 +88,7 @@
         </small>
        
         <div class="col-12 text-left mt-5">
-            <img alt="qrcode" width="50" src="data:image/png;base64, {!! base64_encode(QrCode::size(100)->generate(route('admin.payments.find'))) !!} ">
+            <img alt="qrcode" width="50" src="data:image/png;base64, {!! base64_encode($qrcode) !!} ">
             <img src="dashboard/images/minttics.jpg" width="200">
 
         </div>
