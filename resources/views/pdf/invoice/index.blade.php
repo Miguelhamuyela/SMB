@@ -82,14 +82,9 @@
             </tr>
         </table>
 
-
-            <small class="text-left text-muted">
-                Documento Processado por Computador.
-            </small>
-            <br>
-            <small class="text-left text-muted">
-                OBS: O Pagamento Será Efectuado via RUPE, no Prazo de Trinta Dias (30 dias).
-            </small>
+        <small class="text-left text-muted">
+                Documento Processado por Computador |  OBS: O Pagamento Será Efectuado via RUPE, no Prazo de Trinta Dias (30 dias).
+        </small>
        
         <div class="col-12 text-left mt-5">
             <img alt="qrcode" width="50" src="data:image/png;base64, {!! base64_encode(QrCode::size(100)->generate(route('admin.payments.validate'))) !!} ">
