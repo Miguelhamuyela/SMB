@@ -51,7 +51,6 @@
             <thead>
                 <tr class="text-center">
                     <th>DESCRIÇÃO</th>
-                    <th>IVA</th>
                     <th>PREÇO UNITÁRIO</th>
                     <th>SUBTOTAL</th>
                 </tr>
@@ -59,7 +58,6 @@
             <tbody>
                 <tr class="text-center">
                     <td class="text-left">{{ $service }}</td>
-                    <td>0% - <small> Regime de Exclusão</small></td>
                     <td>{!! number_format($value, 2, ',', '.') . ' ' . 'Kz' !!}</td>
                     <td>{!! number_format($value, 2, ',', '.') . ' ' . 'Kz' !!}</td>
                 </tr>
@@ -84,7 +82,17 @@
             </tr>
         </table>
 
+
+            <small class="text-left text-muted">
+                Documento Processado por Computador.
+            </small>
+            <br>
+            <small class="text-left text-muted">
+                OBS: O Pagamento Será Efectuado via RUPE, no Prazo de Trinta Dias (30 dias).
+            </small>
+       
         <div class="col-12 text-left mt-5">
+           
             <img src="data:image/png;base64,{!! base64_encode($qrcode) !!}" alt="qrcode" width="50">
             <img src="dashboard/images/minttics.jpg" width="200">
 

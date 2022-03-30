@@ -78,6 +78,14 @@
                                     </p>
                                 </div>
 
+                                <div class="col-md-4">
+                                    <p class="text-dark">
+                                        <b>Documentação</b><br>
+                                        <small> <a target="_blank"
+                                                href="/storage/{{ $startup->file }}">Documento</a></small>
+                                    </p>
+                                </div>
+
                                 <div class="col-md-3">
                                     <p class="text-dark">
                                         <b>Detalhes Sobre a Startup</b><br>

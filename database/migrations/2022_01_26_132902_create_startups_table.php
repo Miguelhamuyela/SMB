@@ -21,6 +21,7 @@ class CreateStartupsTable extends Migration
             $table->string('email');
             $table->string('tel');
             $table->string('nif');
+            $table->string('document')->nullable();
             $table->enum('incubatorModel', ['Residente', 'Não Residente']);
             $table->string('StartupDetails');
 

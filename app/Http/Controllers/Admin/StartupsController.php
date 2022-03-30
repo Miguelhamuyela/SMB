@@ -64,9 +64,10 @@ class StartupsController extends Controller
             'site' => 'max:255',
             'email' => 'required|string|max:255',
             'tel' => 'max:50',
-            'nif' => 'required|string|max:50|unique:startups,nif',
+            'nif' => 'required|string|max:50',
             'incubatorModel' => 'required|string|max:50',
             'StartupDetails' => 'required|string|max:255',
+            'document' => 'mimes:pdf,docx,xlsx',
             
 
             /***Payment Information */
@@ -102,6 +103,7 @@ class StartupsController extends Controller
             'tel' => $request->tel,
             'nif' => $request->nif,
             'incubatorModel' => $request->incubatorModel,
+            'document' => $request->document,
             'StartupDetails' => $request->StartupDetails,
             'fk_Payments_id' => $payment->id,
             'fk_Scheldules_id' => $schedule->id
@@ -153,6 +155,7 @@ class StartupsController extends Controller
             'incubatorModel' => 'required|string|max:50',
             'nif' => 'required|string|max:50',
             'StartupDetails' => 'required|string|max:255',
+            'document' => 'mimes:pdf,docx,xlsx',
 
             /**Payments Information */
             'type' => 'required|string|max:255',
@@ -193,6 +196,9 @@ class StartupsController extends Controller
         $this->Logger->log('info', 'Actualizou Startups');
         return redirect()->route('admin.startup.list.index')->with('edit', '1');
     }
+
+
+
 
 
     /**

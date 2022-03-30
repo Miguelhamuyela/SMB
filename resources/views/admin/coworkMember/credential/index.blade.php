@@ -54,9 +54,9 @@
 
 
                         <div class="col-lg-4 pr-0">
-                            <H5 class="mt-5 mb-2 text-right">
+                            <h5 class="mt-5 mb-2 text-right">
                                 <b>COWORK</b>
-                            </H5>
+                            </h5>
                             <p class="text-right">
                                 <b>ACTIVIDADES REALIZADAS: </b>{{ $member->cowork->activities }}<br>
                                 <b>ÁREA DE ACTUAÇÃO DA EMPRESA: </b>{{ $member->cowork->title }}

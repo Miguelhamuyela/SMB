@@ -100,12 +100,7 @@ class CoworksMemberController extends Controller
         return view('admin.coworkMember.credential.index', $response);
     }
 
-    public function qrfind($nif)
-    {
-        $response['member'] = CoworkMember::where('nif', $nif)->with('cowork')->first();
-
-        return view('pdf.credential.cowork.index', $response);
-    }
+    
 
     public function print($nif)
     {
