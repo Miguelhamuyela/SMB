@@ -189,7 +189,7 @@ Route::get('membro/cowork/{id}', ['as' => 'admin.member.cowork', 'uses' => 'Admi
 /* Invoice Payment */
 
 Route::get('admin/pagamentos/fatura/validada', ['as' => 'admin.payments.validate', 'uses' => 'Admin\InvoiceController@index']);
-Route::get('admin/pagamentos/fatura', ['as' => 'admin.payments.find', 'uses' => 'Admin\InvoiceController@find']);
+
        
 /* inclui as rotas de autenticação do ficheiro auth.php */
 require __DIR__ . '/auth.php';
