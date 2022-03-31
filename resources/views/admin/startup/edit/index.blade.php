@@ -17,7 +17,7 @@
                         @endif
             <div class="row align-items-center">
 
-                <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST" action="{{ route('admin.startup.update', $startup->id) }}">
+                <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" enctype="multipart/form-data" method="POST" action="{{ route('admin.startup.update', $startup->id) }}">
                     @csrf
                     @method('PUT')
 

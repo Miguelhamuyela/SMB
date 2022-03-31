@@ -26,6 +26,8 @@ class InvoiceController extends Controller
         $response['client'] = $request->client;
         $response['value'] = $request->value;
         $response['status'] = $request->status;
+        
+
 
         if($request->status == 'Pago'){
             $response['qrcode'] = QrCode::size(100)->generate(route('admin.payments.validate'));
