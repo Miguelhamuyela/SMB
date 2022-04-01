@@ -57,6 +57,9 @@ class StartupsController extends Controller
     public function store(Request $request)
     {
 
+        echo json_encode($request->document);
+        die();
+
         $request->validate([
             /**Startup informatio */
             'name' => 'required|string|max:255',
@@ -94,6 +97,12 @@ class StartupsController extends Controller
 
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
+
+        if ($middle = $request->file('document')) {
+            $file = $middle->storeAs('document', 'document-' . uniqid(rand(1, 5)) . "." . $middle->extension());
+        } else {
+            $file = null;
+        }  
 
         $startup = Startup::create([
             'name' => $request->name,
@@ -177,6 +186,12 @@ class StartupsController extends Controller
             'clienttype' => 'max:50'
 
         ]);
+
+        if ($middle = $request->file('document')) {
+            $file = $middle->storeAs('document', 'document-' . uniqid(rand(1, 5)) . "." . $middle->extension());
+        } else {
+            $file = null;
+        }  
 
         Startup::find($id)->update($request->all());
         $startup = Startup::find($id);

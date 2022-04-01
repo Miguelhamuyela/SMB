@@ -26,7 +26,8 @@ class InvoiceController extends Controller
         $response['client'] = $request->client;
         $response['value'] = $request->value;
         $response['status'] = $request->status;
-        
+        $response['nif'] = $request->nif;
+
 
 
         if($request->status == 'Pago'){
