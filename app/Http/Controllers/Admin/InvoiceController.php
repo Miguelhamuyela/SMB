@@ -30,7 +30,7 @@ class InvoiceController extends Controller
 
 
 
-        if($request->status == 'Pago'){
+        if( $response['status'] == 'Pago'){
             $response['qrcode'] = QrCode::size(100)->generate(route('admin.payments.validate'));
             $pdf = PDF::loadView('pdf/invoice/index', $response);
 
