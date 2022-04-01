@@ -82,7 +82,7 @@
                                     <p class="text-dark">
                                         <b>Documentação</b><br>
                                         <small> <a target="_blank"
-                                                href="/storage/{{ $startup->file }}">Documento</a></small>
+                                                href="/storage/{{$startup->document}}">Documento</a></small>
                                     </p>
                                 </div>
 

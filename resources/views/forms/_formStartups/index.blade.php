@@ -88,7 +88,7 @@
         <div class="form-group">
             <label for="Documento">Documentação</label>
             <input type="file" name="document" value="{{ isset($startup->document) ? $startup->document : old('document') }}"
-                id="file" class="form-control border">
+                id="document" class="form-control border">
             <small class="text-danger">Extensões permitidas: excel, word, pdf</small>
 
         </div>

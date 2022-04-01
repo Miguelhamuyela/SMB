@@ -57,9 +57,6 @@ class StartupsController extends Controller
     public function store(Request $request)
     {
 
-        echo json_encode($request->document);
-        die();
-
         $request->validate([
             /**Startup informatio */
             'name' => 'required|string|max:255',
@@ -112,7 +109,7 @@ class StartupsController extends Controller
             'tel' => $request->tel,
             'nif' => $request->nif,
             'incubatorModel' => $request->incubatorModel,
-            'document' => $request->document,
+            'document' => $file,
             'StartupDetails' => $request->StartupDetails,
             'fk_Payments_id' => $payment->id,
             'fk_Scheldules_id' => $schedule->id
@@ -187,13 +184,26 @@ class StartupsController extends Controller
 
         ]);
 
+       
         if ($middle = $request->file('document')) {
             $file = $middle->storeAs('document', 'document-' . uniqid(rand(1, 5)) . "." . $middle->extension());
         } else {
-            $file = null;
+            $file = Startup::find($id)->document;
         }  
 
-        Startup::find($id)->update($request->all());
+        Startup::find($id)->update([
+
+            'name' =>$request->name,
+            'roomName' => $request->roomName,
+            'site' => $request->site,
+            'email' => $request->email,
+            'tel' => $request->tel,
+            'incubatorModel' => $request->incubatorModel,
+            'nif' => $request->nif,
+            'StartupDetails' => $request->StartupDetails,
+            'document' => $file
+
+        ]);
         $startup = Startup::find($id);
 
 
