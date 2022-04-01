@@ -27,7 +27,6 @@ class InvoiceController extends Controller
         $response['nif'] = $request->nif;
 
 
-
         if($request->status == 'Pago'){
             $response['qrcode'] = QrCode::size(100)->generate(route('admin.payments.scan'));
             $pdf = PDF::loadView('pdf/invoice/index', $response);
@@ -43,7 +42,11 @@ class InvoiceController extends Controller
 
     public function qrscan(){
 
-       echo "pagina imprimida";
+        $response['qrcode'] = QrCode::size(100)->generate(route('admin.payments.scan'));
+            $pdf = PDF::loadView('pdf/invoice/index', $response);
+
+            return $pdf->stream('Fatura de Pagamento-' . date('d-m-Y') . '.pdf');
+            $this->Logger->Log('info', 'Imprimiu uma Fatura do serviço - '.$request->service. ' para o cliente - '.$request->client.' com o valor - '.$request->value.'Kz');
             
     }
   
