@@ -20,7 +20,7 @@ class InvoiceController extends Controller
     public function index(Request $request)
     {
         //Logger
-        $this->Logger->Log('info', 'Imprimiu uma Fatura do serviço - '.$request->service. ' para o cliente - '.$request->client.' com o valor - '.$request->value.'Kz');
+        
 
         $response['service'] = $request->service;
         $response['client'] = $request->client;
@@ -35,9 +35,12 @@ class InvoiceController extends Controller
             $pdf = PDF::loadView('pdf/invoice/index', $response);
 
             return $pdf->stream('Fatura de Pagamento-' . date('d-m-Y') . '.pdf');
+            $this->Logger->Log('info', 'Imprimiu uma Fatura do serviço - '.$request->service. ' para o cliente - '.$request->client.' com o valor - '.$request->value.'Kz');
         }else{
             return redirect('/')->with('NoAuth', 1);
         }
+
+       
        
     }
   
