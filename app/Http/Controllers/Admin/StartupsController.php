@@ -95,6 +95,12 @@ class StartupsController extends Controller
         $payment = Payment::create($request->all());
         $schedule = Scheldule::create($request->all());
 
+        if ($middle = $request->file('document')) {
+            $file = $middle->storeAs('document', 'document-' . uniqid(rand(1, 5)) . "." . $middle->extension());
+        } else {
+            $file = null;
+        }  
+
         $startup = Startup::create([
             'name' => $request->name,
             'roomName' => $request->roomName,
@@ -103,7 +109,7 @@ class StartupsController extends Controller
             'tel' => $request->tel,
             'nif' => $request->nif,
             'incubatorModel' => $request->incubatorModel,
-            'document' => $request->document,
+            'document' => $file,
             'StartupDetails' => $request->StartupDetails,
             'fk_Payments_id' => $payment->id,
             'fk_Scheldules_id' => $schedule->id
@@ -178,7 +184,26 @@ class StartupsController extends Controller
 
         ]);
 
-        Startup::find($id)->update($request->all());
+       
+        if ($middle = $request->file('document')) {
+            $file = $middle->storeAs('document', 'document-' . uniqid(rand(1, 5)) . "." . $middle->extension());
+        } else {
+            $file = Startup::find($id)->document;
+        }  
+
+        Startup::find($id)->update([
+
+            'name' =>$request->name,
+            'roomName' => $request->roomName,
+            'site' => $request->site,
+            'email' => $request->email,
+            'tel' => $request->tel,
+            'incubatorModel' => $request->incubatorModel,
+            'nif' => $request->nif,
+            'StartupDetails' => $request->StartupDetails,
+            'document' => $file
+
+        ]);
         $startup = Startup::find($id);
 
 

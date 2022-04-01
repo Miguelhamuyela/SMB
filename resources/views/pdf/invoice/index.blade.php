@@ -29,7 +29,7 @@
         <p class="text-left">
             Luanda, Distrito do Rangel, Bairro dos CTTs, KM-7 <br>
             Telefone: 222-692-979 <br>
-            NIF: [lorem3]<br>
+            NIF: 5000379263<br>
             Email: geral@digital.ao<br>
 
             UTILIZADOR: {{ Auth::user()->name }}
@@ -37,7 +37,7 @@
         <hr>
         <p class="text-right">
             CLIENTE: {{ $client }} <br>
-            NIF: CONSUMIDOR FINAL <br>
+            NIF: {{$nif}} <br>
             DATA: {{ date('d-m-Y | H:i') }}
 
         </p>
@@ -45,12 +45,12 @@
     </header>
     <section class="col-12 mb-5">
         <p class="text-center border border-dark">
-            <b>FATURA </b> | Serviços Digitais e Encubadoras
+            <b>FATURA </b> | Serviços Digitais e  Incubadoras
         </p>
         <table class="table table-striped">
             <thead>
                 <tr class="text-center">
-                    <th>DESCRIÇÃO</th>
+                    <th class="text-left">DESCRIÇÃO</th>
                     <th>PREÇO UNITÁRIO</th>
                     <th>SUBTOTAL</th>
                 </tr>
@@ -88,11 +88,9 @@
         </small>
        
         <div class="col-12 text-left mt-5">
-            <img alt="qrcode" width="50" src="data:image/png;base64, {!! base64_encode(QrCode::size(100)->generate(url('admin/qrcode/fatura/' .$service.'/'.'/'.$value.'/'.$client.'/'.$status))) !!} ">
+            <img alt="qrcode" width="50" src="data:image/png;base64, {!! base64_encode($qrcode) !!} ">
             <img src="dashboard/images/minttics.jpg" width="200">
-
         </div>
-
 
     </footer>
 

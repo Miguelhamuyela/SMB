@@ -73,7 +73,7 @@
                                                     <a href='{{ url("admin/startup/show/{$item->id}") }}'
                                                         class="dropdown-item">Detalhes</a>
                                                     @if ($item->payments->status == 'Pago')
-                                                        <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->origin . '/' . $item->payments->value . '/' . $item->name. '/' . $item->payments->status) }}"
+                                                        <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->origin . '/' . $item->payments->value . '/' . $item->name. '/' . $item->payments->status.'/'.$item->nif) }}"
                                                             class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
                                                     @endif
                                                 </div>
