@@ -61,7 +61,7 @@ class ManufacturesSoftwaresController extends Controller
             /**ManufactureSoftware information */
             'nameSoftware' => 'required|string|max:255',
             'category' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string',
             'file' => 'mimes:pdf,docx,xlsx',
 
 
@@ -165,7 +165,7 @@ class ManufacturesSoftwaresController extends Controller
             /**ManufactureSoftware information */
             'nameSoftware' => 'required|string|max:255',
             'category' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string',
             'file' => 'mimes:pdf,docx,xlsx',
 
             /**Clients informatio */
