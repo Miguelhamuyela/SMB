@@ -24,10 +24,10 @@
                                 <tr class="text-center">
                                     <th>#</th>
                                     <th>CURSO</th>
-                                    <th>NOME DO CLIENTE</th>
+                                    <th>CLIENTE</th>
                                     <th>TELEFONE</th>
 
-                                    <th class="text-left">ACÇÕES</th>
+                                    <th class="text-center">ACÇÕES</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -31,13 +31,13 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Nome do Cliente</b><br>
+                                            <b>Cliente</b><br>
                                             <small> {{ $elerning->clients->name }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
-                                            <b>Número de Identificação Fiscal</b><br>
+                                            <b>Número de Identificação Fiscal (NIF)</b><br>
                                             <small> {{ $elerning->clients->nif }}</small>
                                         </p>
                                     </div>

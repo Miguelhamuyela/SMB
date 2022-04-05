@@ -77,7 +77,7 @@
                                                     <a href='{{ url("admin/auditoriums/show/{$item->id}") }}'
                                                         class="dropdown-item">Detalhes</a>
                                                     @if ($item->payments->status == 'Pago')
-                                                        <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->origin . '/' . $item->payments->value . '/' . $item->client->name. '/' . $item->payments->status) }}"
+                                                        <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->origin . '/' . $item->payments->value . '/' . $item->client->name. '/' . $item->payments->status. '/' . $item->client->nif) }}"
                                                             class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
                                                     @endif
                                                 </div>

@@ -29,7 +29,7 @@
                                 <th>TELEFONE</th>
                                 <th>EMAIL</th>
                                 <th>SALA</th>
-                                <th class="text-left">ACÇÕES</th>
+                                <th class="text-center">ACÇÕES</th>
                             </tr>
                         </thead>
                         <tbody>

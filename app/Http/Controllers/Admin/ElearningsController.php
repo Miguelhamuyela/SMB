@@ -51,7 +51,7 @@ class ElearningsController extends Controller
             /**Elernings Information */
             'course'=> 'required|string|max:200',
             'timeCourse'=> 'required|string|max:200',
-            'note'=> 'required|string|max:200' ]);
+            'note'=> 'required|string' ]);
 
         $client = Client::create($request->all());
 
@@ -107,7 +107,7 @@ class ElearningsController extends Controller
             /**Elernings Information */
             'course'=> 'required|string|max:200',
             'timeCourse'=> 'required|string|max:200',
-            'note'=> 'required|string|max:200' ]);
+            'note'=> 'required|string' ]);
 
         Elearning::find($id)->update($request->all());
         $cowork =Elearning::find($id);
