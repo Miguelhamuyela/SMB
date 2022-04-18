@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Departament;
+use App\Models\Department;
 use Illuminate\Database\Seeder;
 
 class DepartamentSeeder extends Seeder
@@ -15,16 +15,19 @@ class DepartamentSeeder extends Seeder
     public function run()
     {
 
-        $provincias =
-        [
+        $department =
+            [
+
+                [
+                    'department' => 'Departamento de Massificação, Inclusão e Conteúdo Digital',
+                    'acronym' => 'DMICD'
+                ],
 
 
-            ['department' => 'sigle'],
-            ['department' => 'Huíla'],
+            ];
 
-        ];
-
-        foreach ($provincias as $value) {
-            Departament::create($value);}
+        foreach ($department as $value) {
+            Department::create($value);
+        }
     }
 }
