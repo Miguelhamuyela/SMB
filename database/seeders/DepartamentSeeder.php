@@ -18,8 +18,11 @@ class DepartamentSeeder extends Seeder
         $department =
             [
 
-                ['department' => 'Departamento de Massificação, Inclusão e Conteúdo Digital'],
-                ['acronym' => 'DMICD'],
+                [
+                    'department' => 'Departamento de Massificação, Inclusão e Conteúdo Digital',
+                    'acronym' => 'DMICD'
+                ],
+
 
             ];
 
