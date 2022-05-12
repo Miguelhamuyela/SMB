@@ -38,9 +38,9 @@
                                     <tr class="text-center text-dark">
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->titleConference }}</td>
-                                        <td>{{ $item->client->name }} </td>
-                                        <td>{{ $item->client->nif }} </td>
-                                        <td>{{ $item->client->tel }} </td>
+                                        <td>{{ $item->clients->name }} </td>
+                                        <td>{{ $item->clients->nif }} </td>
+                                        <td>{{ $item->clients->tel }} </td>
 
                                         @if ($item->payments->status == 'Pago')
                                             <td>
@@ -77,7 +77,7 @@
                                                     <a href='{{ url("admin/auditoriums/show/{$item->id}") }}'
                                                         class="dropdown-item">Detalhes</a>
                                                     @if ($item->payments->status == 'Pago')
-                                                        <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->origin . '/' . $item->payments->value . '/' . $item->client->name. '/' . $item->payments->status. '/' . $item->client->nif) }}"
+                                                        <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->code . '/'. $item->payments->origin . '/' . $item->payments->value . '/' . $item->clients->name. '/' . $item->payments->status. '/' . $item->clients->nif) }}"
                                                             class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
                                                     @endif
                                                 </div>

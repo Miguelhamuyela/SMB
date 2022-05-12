@@ -92,7 +92,15 @@ class StartupsController extends Controller
         ]);
 
 
-        $payment = Payment::create($request->all());
+        $payment = Payment::create([
+            'type' => $request->type,
+            'value' => $request->value,
+            'reference' => $request->reference,
+            'currency' => $request->currency,
+            'status' => $request->status,
+            'origin' => "Auditório",
+            'code' =>  'DIGITAL' . "-" . rand() . "-" . date('Y')
+        ]);
         $schedule = Scheldule::create($request->all());
 
         if ($middle = $request->file('document')) {

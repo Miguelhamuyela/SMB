@@ -92,7 +92,9 @@ class CoworkController extends Controller
             'reference' => $request->reference,
             'currency' => $request->currency,
             'status' => $request->status,
-            'origin' => "Cowork"
+            'origin' => "Cowork",
+            'code' =>  'DIGITAL' . "-" . rand() . "-" . date('Y')
+
         ]);
 
         $schedule = Scheldule::create($request->all());
