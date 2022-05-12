@@ -56,17 +56,10 @@
                     <div class="col-md-3">
                         <p class="text-dark">
                             <b>Departamento</b><br>
-                            <small>{{ $Employee->departament->department }} </small>
+                            <small>{{ $Employee->departament }} </small>
                         </p>
                     </div>
-                    <div class="col-md-3">
-                        <p class="text-dark">
-                            <b>Acrónimo</b><br>
-                            <small>{{ $Employee->departament->acronym }} </small>
-                        </p>
-                    </div>
-
-
+               
                     <div class="col-md-3">
                         <p class="text-dark">
                             <b>Foto </b><br>

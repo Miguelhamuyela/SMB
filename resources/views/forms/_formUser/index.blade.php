@@ -72,7 +72,8 @@
         <ul class="small text-dark pl-4 mb-0">
             <li>Mínimo 8 caracteres</li>
             <li>Pelo menos um caracter especial</li>
-            <li>Pelo menos um numero</li>
+            <li>Pelo menos um número</li>
+            <li>Pelo menos uma  letra maiúscula e uma letra minúscula</li>
             <li>Não pode ser igual à senha anterior</li>
         </ul>
     </div>

@@ -37,7 +37,7 @@
                                     <tr class="text-center text-dark">
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->name }} </td>
-                                        <td>{{ $item->departament->department }} </td>
+                                        <td>{{ $item->departament }} </td>
 
                                         <td>{{ $item->tel }} </td>
                                         <td>

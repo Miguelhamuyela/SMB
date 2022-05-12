@@ -20,9 +20,6 @@ class Employee extends Model
      */
     protected $dates = ['deleted_at'];
 
-    public function departament(){
-
-        return $this->belongsTo(Department::class, 'fk_departament');
-    }
+    
 
 }

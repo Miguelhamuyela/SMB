@@ -32,7 +32,7 @@ class EquipmentRepairsController extends Controller
 
     public function create()
     {
-        $response['employees'] = Employee::with('departament')->orderBy('name', 'asc')->get();
+        $response['employees'] = Employee::where('departament', 'Departamento de Gestão de Infra-Estruturas Tecnológicas e Serviços Partilhados')->orderBy('name', 'asc')->get();
         //Logger
         $this->Logger->log('info', 'Entrou em Cadastrar  Reparação de  Equipamentos ');
         return view('admin.equipmentRepair.create.index', $response);
@@ -113,7 +113,7 @@ class EquipmentRepairsController extends Controller
         $response['scheldule'] =  Helper::scheldule($middle->fk_Scheldules_id);
         $response['payment'] =  Helper::payment($middle->fk_Payments_id);
         $response['client'] =  Helper::client($middle->fk_Clients_id);
-        $response['employees'] = Employee::get();
+        $response['employees'] = Employee::where('departament', 'Departamento de Gestão de Infra-Estruturas Tecnológicas e Serviços Partilhados')->get();
         //Logger
         $this->Logger->log('info', 'Entrou em editar Reparação  Equipamento  com o identificador ' . $id);
         return view('admin.equipmentRepair.edit.index', $response);

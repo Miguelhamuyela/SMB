@@ -4,11 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Classes\Logger;
 use App\Http\Controllers\Controller;
-use App\Models\Department;
 use App\Models\Employee;
-use App\Models\EquipmentRepair;
 use Illuminate\Http\Request;
-use PDF;
 
 class EmployeeController extends Controller
 {
@@ -20,23 +17,18 @@ class EmployeeController extends Controller
     }
     public function index()
     {
-        $response['employees'] =  Employee::with('departament')->get();
+        $response['employees'] =  Employee::get();
         //Logger
         $this->Logger->log('info', 'Listou os Funcionários');
         return view('admin.employees.list.index', $response);
     }
 
-    public function GetSubCatAgainstMainCatEdit($id)
-    {
-        echo json_encode(Department::find($id));
-    }
-
+   
     public function create()
     {
         //Logger
-        $response['departaments'] = Department::get();
         $this->Logger->log('info', 'Entrou em Cadastrar Funcionário');
-        return view('admin.employees.create.index', $response);
+        return view('admin.employees.create.index');
     }
 
 
@@ -48,6 +40,7 @@ class EmployeeController extends Controller
             'tel' => 'max:12',
             'nif' => 'required|string|max:50',
             'occupation' => 'required|string|max:100',
+            'departament' => 'required|string|max:255',
             'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS'
         ]);
 
@@ -63,7 +56,7 @@ class EmployeeController extends Controller
             'tel' => $request->tel,
             'photoEmployee' => $file,
             'occupation' => $request->occupation,
-            'fk_departament' => $request->fk_departament,
+            'departament' => $request->departament,
             'nif' => $request->nif
         ]);
 
@@ -75,7 +68,7 @@ class EmployeeController extends Controller
     public function show($id)
     {
 
-        $response['Employee'] =  Employee::with('departament')->find($id);
+        $response['Employee'] =  Employee::find($id);
         //Logger
         $this->Logger->log('info', 'Visualizou um Funcionário com o identificador ' . $id);
         return view('admin.employees.details.index', $response);
@@ -83,8 +76,8 @@ class EmployeeController extends Controller
 
     public function edit($id)
     {
-        $response['employee'] = Employee::with('departament')->find($id);
-        $response['departaments'] = Department::get();
+        $response['employee'] = Employee::find($id);
+
         //Logger
         $this->Logger->log('info', 'Entrou em editar um Funcionário  com o identificador ' . $id);
         return view('admin.employees.edit.index', $response);
@@ -98,6 +91,7 @@ class EmployeeController extends Controller
             'tel' => 'max:12',
             'nif' => 'required|string|max:50',
             'occupation' => 'required|string|max:50',
+            'departament' => 'required|string|max:255',
             'photoEmployee' => 'mimes:jpg,png,gif,SVG,EPS'
         ]);
 
@@ -114,7 +108,7 @@ class EmployeeController extends Controller
             'tel' => $request->tel,
             'photoEmployee' => $file,
             'occupation' => $request->occupation,
-            'fk_departament' => $request->fk_departament,
+            'departament' => $request->departament,
             'nif' => $request->nif
         ]);
 
@@ -132,17 +126,4 @@ class EmployeeController extends Controller
         return  redirect()->route('admin.employees.index')->with('destroy', '1');
     }
 
-    /* public function card($id)
-    {
-        $data = Employee::find($id);
-
-        //Logger
-        $this->Logger->log('info', 'Imprimiu um cartão de Funcionário com o identificador ' . $id);
-        $response['Employee'] = $data;
-
-        $pdf = PDF::loadView('pdf.credential.employees.index', $response);
-
-        return $pdf->stream('credencial de ' . $data->nif . ".pdf");
-    } 
-    */
 }
