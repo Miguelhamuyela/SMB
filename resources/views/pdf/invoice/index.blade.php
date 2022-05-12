@@ -24,28 +24,27 @@
 
     <header class="col-12 mt-2 mb-5">
 
-        <img src="dashboard/images/logo_blue.png" alt="logo digital.ao" width="200">
+        <img src="dashboard/images/logo_blue.png" alt="logo digital.ao" width="250">
 
         <p class="text-left">
-            Luanda, Distrito do Rangel, Bairro dos CTTs, KM-7 <br>
-            Telefone: 222-692-979 <br>
-            NIF: 5000379263<br>
-            Email: geral@digital.ao<br>
-
-            UTILIZADOR: {{ Auth::user()->name }}
+            <b>Luanda, Distrito do Rangel, Bairro dos CTTs, KM-7 </b><br>
+            <b>TELEFONE:</b> 222-692-979 <br>
+            <b>NIF:</b> 5000379263<br>
+            <b>EMAIL:</b> geral@digital.ao<br>
+            <b>UTILIZADOR:</b> {{ Auth::user()->name }}
         </p>
         <hr>
         <p class="text-right">
-            CLIENTE: {{ $client }} <br>
-            NIF: {{$nif}} <br>
-            DATA: {{ date('d-m-Y | H:i') }}
+            <b>CLIENTE:</b> {{ $client }} <br>
+            <b>NIF:</b> {{ $nif }} <br>
+            <b>DATA:</b> {{ date('d-m-Y | H:i') }}
 
         </p>
 
     </header>
     <section class="col-12 mb-5">
         <p class="text-center border border-dark">
-            <b>FATURA </b> | Serviços Digitais e  Incubadoras
+            <b>FATURA: {{ $code }} </b> | Serviços Digitais e Incubadoras
         </p>
         <table class="table table-striped">
             <thead>
@@ -83,10 +82,10 @@
         </table>
 
         <small class="text-left text-muted">
-                Documento Processado por Computador. <br>
-                OBS: O Pagamento Será Efectuado via RUPE, no Prazo de Trinta Dias (30 dias).
+            Documento Processado por Computador. <br>
+            OBS: O Pagamento Será Efectuado via RUPE, no Prazo de Trinta Dias (30 dias).
         </small>
-       
+
         <div class="col-12 text-left mt-5">
             <img alt="qrcode" width="50" src="data:image/png;base64, {!! base64_encode($qrcode) !!} ">
             <img src="dashboard/images/minttics.jpg" width="250">
