@@ -51,7 +51,7 @@
         <select type="text" name="departament" class="form-control border rounded" required>
 
             @isset ($employee->departament)
-                <option value="{{ $employee->departament }}" class="text-primary h6 bg-primary text-white" selected>
+                <option value="{{ $employee->departament }}" class="text-white h6 bg-primary text-white" selected>
                     {{ $employee->departament }}
 
                 </option>

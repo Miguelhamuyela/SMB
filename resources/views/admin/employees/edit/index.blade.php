@@ -1,45 +1,56 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', 'Editar Funcionário ')
+@section('titulo', 'Editar Funcionário')
 @section('content')
 
-    <div class="card shadow">
-        <div class="card-body">
-            <h3 class="my-2 text-center">Editar Funcionário {{ $employee->name }} </h3>
+    <div class="row">
 
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            <div class="row align-items-center">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
 
-                <form class="row" method="POST" action="{{ route('admin.employees.update', $employee->id) }}"
-                    enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
+                <div class="card-body bg-light">
+                    <h4 class="card-title">
+                        <b>
+                            <a href="{{ url('admin/funcionários/list') }}">Listar Funcionários</a> >
+                            Editar Funcionário {{ $employee->name }}
+                        </b>
+                    </h4>
+                    <hr>
 
-                    <div class="card-body bg-light">
-                        <h4 class="card-title"><b>Funcionário </b></h4>
-                        <hr>
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form class="row" method="POST" action="{{ route('admin.employees.update', $employee->id) }}"
+                        enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+
+
+
                         @include('forms._formEmployees.index')
-                    </div>
 
-                    <div class="col-md-12">
-                        <div class="form-group text-center">
-                            <button type="submit" class="btn px-5 col-md-4 btn-primary">
-                                Salvar Alterações
-                            </button>
+
+                        <div class="col-md-12">
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn px-5 col-md-3 btn-primary">
+                                    Salvar Alterações
+                                </button>
+
+                            </div>
 
                         </div>
-                    </div>
-
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
+
     </div>
+
 
 @endsection
