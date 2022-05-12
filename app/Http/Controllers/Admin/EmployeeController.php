@@ -132,7 +132,7 @@ class EmployeeController extends Controller
         return  redirect()->route('admin.employees.index')->with('destroy', '1');
     }
 
-    public function card($id)
+    /* public function card($id)
     {
         $data = Employee::find($id);
 
@@ -143,5 +143,6 @@ class EmployeeController extends Controller
         $pdf = PDF::loadView('pdf.credential.employees.index', $response);
 
         return $pdf->stream('credencial de ' . $data->nif . ".pdf");
-    }
+    } 
+    */
 }
