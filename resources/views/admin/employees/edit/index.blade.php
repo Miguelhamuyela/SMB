@@ -3,7 +3,6 @@
 @section('content')
 
     <div class="row">
-
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
 
@@ -31,10 +30,7 @@
                         @csrf
                         @method('PUT')
 
-
-
                         @include('forms._formEmployees.index')
-
 
                         <div class="col-md-12">
                             <div class="form-group text-center">
@@ -51,6 +47,5 @@
         </div>
 
     </div>
-
 
 @endsection
