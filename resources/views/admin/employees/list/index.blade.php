@@ -51,8 +51,8 @@
 
                                                     <a href='{{ url("admin/funcionários/show/{$item->id}") }}'
                                                         class="dropdown-item">Detalhes</a>
-                                                    <a href='{{ url("admin/funcionários/cartão/{$item->id}") }}'
-                                                        class="dropdown-item mt-2" target="_blank">Cartão</a>
+                                                   {{--  <a href='{{ url("admin/funcionários/cartão/{$item->id}") }}'
+                                                        class="dropdown-item mt-2" target="_blank">Cartão</a> --}}
 
                                                 </div>
                                             </div>
