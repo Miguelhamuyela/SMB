@@ -12,6 +12,7 @@
     <title>Relatório de Pagamentos - {{ date('d-m-Y') }}</title>
 
     <style>
+      
         #footer {
             padding-top: 10px;
             padding-bottom: 0px;
@@ -25,7 +26,6 @@
 
 <body style='height:auto; width:100%; background: url("dashboard/images/digital.canvas.png") no-repeat center;'>
 
-    <header class="col-12 mt-2 mb-5">
 
         <img src="dashboard/images/logo_blue.png" alt="logo digital.ao" width="200">
 
