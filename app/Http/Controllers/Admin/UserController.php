@@ -129,7 +129,7 @@ class UserController extends Controller
                 'name' => 'required|string|max:255',
                 'level' => 'required|string|max:40',
                 'email' => 'required|string|email|max:255',
-                'password' => ['required', 'confirmed',  Rules\Password::min(8)->mixedCase()->symbols()->numbers()],
+                'password' => ['required', 'confirmed',  Rules\Password::min(11)->mixedCase()->symbols()->numbers()],
                 'birthday'    => 'max:40',
                 'phone'  => 'max:16',
                 'genre' => 'max:16',

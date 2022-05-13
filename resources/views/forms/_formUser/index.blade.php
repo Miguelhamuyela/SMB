@@ -70,7 +70,7 @@
         <p class="small text-dark mb-2"> Para criar uma nova senha, você deve atender a todos os seguintes requisitos:
         </p>
         <ul class="small text-dark pl-4 mb-0">
-            <li>Mínimo 8 caracteres</li>
+            <li>Mínimo 11 caracteres</li>
             <li>Pelo menos um caracter especial</li>
             <li>Pelo menos um número</li>
             <li>Pelo menos uma  letra maiúscula e uma letra minúscula</li>
