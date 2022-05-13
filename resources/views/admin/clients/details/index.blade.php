@@ -5,8 +5,13 @@
     <div class="card mb-2">
         <div class="card-body">
             <h2 class="h5 page-title">
-                Detalhes do Cliente {{ $client->name }}
+                
+
             </h2>
+            <h5><b>
+                <a href="{{ route('admin.client.list.index') }}">Listar Clientes</a>
+                > Detalhes do Cliente - {{ $client->name }}
+            </b></h5>
         </div>
     </div>
 
