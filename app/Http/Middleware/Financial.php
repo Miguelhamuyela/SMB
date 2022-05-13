@@ -15,9 +15,11 @@ class Financial
      * @param  \Closure  $next
      * @return mixed
      */
+    
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->level != 'Finanças' && Auth::user()->level != 'Administrador'){
+        if (Auth::user()->level != 'Finanças' && Auth::user()->level != 'Administrador') {
+
             if (Auth::user()->level != 'Gestor') {
                 return redirect()->back()->with('NoAuth', '1');
             }
