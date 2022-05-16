@@ -51,14 +51,14 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" class="form-control" name="password"
-                        autocomplete="new-password" placeholder="Password" required />
+                        autocomplete="new-password" placeholder="Password" />
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="password_confirmation">Confirmar Password</label>
                     <input type="password" class="form-control" id="password_confirmation"
-                        name="password_confirmation" placeholder="Confirmar Password" required />
+                        name="password_confirmation" placeholder="Confirmar Password" />
                 </div>
             </div>
         </div>

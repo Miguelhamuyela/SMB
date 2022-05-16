@@ -17,10 +17,10 @@ class RepEqui
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->level != 'Reparação de Equipamentos' && Auth::user()->level != 'Administrador'){
-            if (Auth::user()->level != 'Gestor') {
-                return redirect()->back()->with('NoAuth', '1');
-            }
+        if(Auth::user()->level == 'Fábrica de Software'){
+       
+            return redirect()->back()->with('NoAuth', '1');
+       
         }
         return $next($request);
     }

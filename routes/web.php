@@ -44,7 +44,7 @@ Route::middleware(['auth'])->group(function () {
 
     });
 
-    Route::middleware(['Financial'])->group(function () {
+    Route::middleware(['ManagerFinancial'])->group(function () {
         /**Statistic */
 
         Route::get('admin/estatísticas-Geral/list', ['as' => 'admin.generalStatistics.index', 'uses' => 'Admin\GeneralStatisticController@index']);
@@ -81,10 +81,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/clients/relatorios', ['as' => 'admin.clients.report', 'uses' => 'Admin\ClientsController@printClient']);
         /**End Clients */
   
-    });
-    
-    Route::middleware(['Gestor'])->group(function () {
-        
 
 
         /**Startups */
@@ -187,7 +183,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-/* QRCODE find */
+/* QRCODE find, startup & cowork */
 Route::get('membro/startup/{id}', ['as' => 'admin.member.qrfind', 'uses' => 'Admin\MembersController@qrfind']);
 Route::get('membro/cowork/{id}', ['as' => 'admin.member.cowork', 'uses' => 'Admin\CoworksMemberController@qrfind']);
 

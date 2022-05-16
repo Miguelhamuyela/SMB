@@ -56,8 +56,7 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'Administrador' => \App\Http\Middleware\Administrador::class,
-        'Gestor' => \App\Http\Middleware\Gestor::class,
-        'Financial' => \App\Http\Middleware\Financial::class,
+        'ManagerFinancial' => \App\Http\Middleware\ManagerFinancial::class,
         'FabSoft' => \App\Http\Middleware\FabSoft::class,
         'RepEqui' => \App\Http\Middleware\RepEqui::class,
 
