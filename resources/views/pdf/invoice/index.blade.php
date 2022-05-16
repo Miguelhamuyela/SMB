@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fatura de Pagamento-{{ date('d-m-Y') }}</title>
+    <title>INFOSI/Fatura de Pagamento-{{ date('d-m-Y') }}</title>
 
     <style>
         #footer {
@@ -32,9 +32,10 @@
 
     <header class="col-12 mt-2 mb-5">
 
-        <img src="dashboard/images/logo_infosi.png" alt="logo INFOSI.GOV.AO" width="350">
+        <img src="dashboard/images/logo_infosi.png" alt="logo INFOSI.GOV.AO" width="250"><br>
+        <img src="dashboard/images/logo_blue.png" alt="logo DIGITAL.AO" width="150" class="mt-3">
 
-        <p class="text-left mt-3">
+        <p class="text-left mt-2">
             Luanda, Angola<br>
             Telef. (+244) 222 693 507<br>
             Email: comercial@infosi.gov.ao<br>
