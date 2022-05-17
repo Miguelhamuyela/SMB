@@ -22,9 +22,8 @@
                 </a>
             </li>
 
-
-            <li class="nav-item nav-category mt-2">Serviços</li>
-            @if ('Gestor' == Auth::user()->level || 'Fábrica de Software' == Auth::user()->level || 'Administrador' == Auth::user()->level)
+            @if ('Finanças' == Auth::user()->level || 'Gestor' == Auth::user()->level || 'Fábrica de Software' == Auth::user()->level || 'Administrador' == Auth::user()->level)
+                <li class="nav-item nav-category mt-2">Serviços</li>
                 {{-- manufactures --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.manufactures.list') }}">
@@ -33,7 +32,7 @@
                     </a>
                 </li>
             @endif
-            @if ('Gestor' == Auth::user()->level || 'Reparação de Equipamentos' == Auth::user()->level || 'Administrador' == Auth::user()->level)
+            @if ('Finanças' == Auth::user()->level || 'Gestor' == Auth::user()->level || 'Reparação de Equipamentos' == Auth::user()->level || 'Administrador' == Auth::user()->level)
                 {{-- equipmentRepair --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.equipmentRepair.list.index') }}">
@@ -42,7 +41,7 @@
                     </a>
                 </li>
             @endif
-            @if ('Gestor' == Auth::user()->level || 'Administrador' == Auth::user()->level)
+            @if ('Finanças' == Auth::user()->level || 'Gestor' == Auth::user()->level || 'Administrador' == Auth::user()->level)
                 {{-- elernings --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.elernings.list.index') }}">
@@ -83,36 +82,30 @@
                         <span class="menu-title">Salas de Reuniões</span>
                     </a>
                 </li>
+           
+                <li class="nav-item nav-category mt-2">Estatísticas</li>
+                {{-- PayChart --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.generalStatistics.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Gráfico de Pagamentos</span>
+                    </a>
+                </li>
+
+                {{-- Clients --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.client.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Clientes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.payments.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Pagamentos</span>
+                    </a>
+                </li>
             @endif
-
-            @if ('Gestor' == Auth::user()->level || 'Administrador' == Auth::user()->level)
-
-
-
-            <li class="nav-item nav-category mt-2">Estatísticas</li>
-            {{-- startups --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.generalStatistics.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Gráfico de Pagamentos</span>
-                </a>
-            </li>
-
-            {{-- Clients --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.client.list.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Clientes</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.payments.index') }}">
-                    <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Pagamentos</span>
-                </a>
-            </li>
-
-        @endif
 
             @if ('Administrador' == Auth::user()->level)
                 {{-- employees --}}
@@ -137,4 +130,3 @@
         </ul>
     </nav>
 @endif
-

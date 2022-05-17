@@ -19,10 +19,9 @@ class CreateEmployeesTable extends Migration
             $table->string('tel',20);
             $table->string('email',30);
             $table->string('nif', 30);
-            $table->string('photoEmployee', 255)->nullable();
-            $table->unsignedBigInteger('fk_departament');
-            $table->foreign('fk_departament')->references('id')->on('departments')->onDelete('CASCADE')->onUpgrade('CASCADE');
-            $table->longText('occupation', 255);
+            $table->string('photoEmployee')->nullable();
+            $table->string('departament');
+            $table->longText('occupation');
             $table->softDeletes();
             $table->timestamps();
         });

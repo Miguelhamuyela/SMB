@@ -8,7 +8,7 @@ use App\Models\Scheldule;
 
 class Helper
 {
-    //lore,m
+
     public static function scheldule($fk_Scheldules_id)
     {
         $scheldule= Scheldule::find($fk_Scheldules_id);

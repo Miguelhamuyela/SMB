@@ -37,7 +37,7 @@
                                     <tr class="text-center text-dark">
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->name }} </td>
-                                        <td>{{ $item->departament->department }} </td>
+                                        <td>{{ $item->departament }} </td>
 
                                         <td>{{ $item->tel }} </td>
                                         <td>
@@ -51,8 +51,8 @@
 
                                                     <a href='{{ url("admin/funcionários/show/{$item->id}") }}'
                                                         class="dropdown-item">Detalhes</a>
-                                                    <a href='{{ url("admin/funcionários/cartão/{$item->id}") }}'
-                                                        class="dropdown-item mt-2" target="_blank">Cartão</a>
+                                                   {{--  <a href='{{ url("admin/funcionários/cartão/{$item->id}") }}'
+                                                        class="dropdown-item mt-2" target="_blank">Cartão</a> --}}
 
                                                 </div>
                                             </div>

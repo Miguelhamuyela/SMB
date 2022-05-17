@@ -129,10 +129,7 @@ class UserController extends Controller
                 'name' => 'required|string|max:255',
                 'level' => 'required|string|max:40',
                 'email' => 'required|string|email|max:255',
-                'password' => ['required', 'confirmed', Rules\Password::defaults()],
-                'birthday'    => 'max:40',
-                'phone'  => 'max:16',
-                'genre' => 'max:16',
+                'password' => ['required', 'confirmed',  Rules\Password::min(11)->mixedCase()->symbols()->numbers()],
                 'photo' => 'mimes:jpg,png,jpeg',
             ]);
 
@@ -148,10 +145,6 @@ class UserController extends Controller
                 'email' => $request->email,
                 'level' => $request->level,
                 'password' => Hash::make($request->password),
-                'birthday' => $request->birthday,
-                'phone' => $request->phone,
-                'genre' => $request->genre,
-                'additionalInformation' => $request->additionalInformation,
                 'photo' => $photo,
 
             ]);

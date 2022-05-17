@@ -51,14 +51,14 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" class="form-control" name="password"
-                        autocomplete="new-password" placeholder="Password" required />
+                        autocomplete="new-password" placeholder="Password" />
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="password_confirmation">Confirmar Password</label>
                     <input type="password" class="form-control" id="password_confirmation"
-                        name="password_confirmation" placeholder="Confirmar Password" required />
+                        name="password_confirmation" placeholder="Confirmar Password" />
                 </div>
             </div>
         </div>
@@ -70,9 +70,10 @@
         <p class="small text-dark mb-2"> Para criar uma nova senha, você deve atender a todos os seguintes requisitos:
         </p>
         <ul class="small text-dark pl-4 mb-0">
-            <li>Mínimo 8 caracteres</li>
+            <li>Mínimo 11 caracteres</li>
             <li>Pelo menos um caracter especial</li>
-            <li>Pelo menos um numero</li>
+            <li>Pelo menos um número</li>
+            <li>Pelo menos uma  letra maiúscula e uma letra minúscula</li>
             <li>Não pode ser igual à senha anterior</li>
         </ul>
     </div>

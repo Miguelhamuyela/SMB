@@ -25,17 +25,15 @@ class InvoiceController extends Controller
         $response['value'] = $request->value;
         $response['status'] = $request->status;
         $response['nif'] = $request->nif;
-        $response['id'] = $request->id;
-        $response['invoice_number']=str_pad($response['id'], 7, '0', STR_PAD_LEFT);
-
+        $response['code'] = $request->code;
 
         if($request->status == 'Pago'){
-            $response['qrcode'] = QrCode::size(150)->generate(url("fatura/{$request->service}/{$request->value}/{$request->client}/{$request->status}/{$request->nif}"));
+            $response['qrcode'] = QrCode::size(150)->generate(url("fatura/{$request->code}/{$request->service}/{$request->value}/{$request->client}/{$request->status}/{$request->nif}"));
             $pdf = PDF::loadView('pdf/invoice/index', $response);
 
             return $pdf->stream('Fatura de Pagamento-' . date('d-m-Y') . '.pdf');
              //Logger
-            $this->Logger->Log('info', 'Imprimiu uma Fatura do serviço - '.$request->service. ' para o cliente - '.$request->client.' com o valor - '.$request->value.'Kz');
+            $this->Logger->Log('info', 'Imprimiu uma Fatura do serviço - '.$request->code. ' - '.$request->service. ' para o cliente - '.$request->client.' com o valor - '.$request->value.'Kz');
         }else{
             return redirect('/')->with('NoAuth', 1);
         }
@@ -51,6 +49,7 @@ class InvoiceController extends Controller
         $response['value'] = $request->value;
         $response['status'] = $request->status;
         $response['nif'] = $request->nif;
+        $response['code'] = $request->code;
 
         return view('site.index', $response);
             

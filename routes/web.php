@@ -38,14 +38,13 @@ Route::middleware(['auth'])->group(function () {
         Route::put('admin/funcionários/update/{id}', ['as' => 'admin.employees.update', 'uses' => 'Admin\EmployeeController@update']);
         Route::get('admin/funcionários/delete/{id}', ['as' => 'admin.employees.delete', 'uses' => 'Admin\EmployeeController@destroy']);
         Route::get('admin/funcionários/show/{id}', ['as' => 'admin.employees.show', 'uses' => 'Admin\EmployeeController@show']);
-        Route::get('admin/funcionários/cartão/{id}', ['as' => 'admin.employees.card', 'uses' => 'Admin\EmployeeController@card']);
-        Route::get('admin/funcionários/GetSubCatAgainstMainCatEdit/{id}', ['as' => 'admin.employees', 'uses' => 'Admin\EmployeeController@GetSubCatAgainstMainCatEdit']);
-        /**End funcionários */
+       /*  Route::get('admin/funcionários/cartão/{id}', ['as' => 'admin.employees.card', 'uses' => 'Admin\EmployeeController@card']);
+         Route::get('admin/funcionários/GetSubCatAgainstMainCatEdit/{id}', ['as' => 'admin.employees', 'uses' => 'Admin\EmployeeController@GetSubCatAgainstMainCatEdit']);
+       */ /**End funcionários */
 
     });
 
-
-    Route::middleware(['Gestor'])->group(function () {
+    Route::middleware(['ManagerFinancial'])->group(function () {
         /**Statistic */
 
         Route::get('admin/estatísticas-Geral/list', ['as' => 'admin.generalStatistics.index', 'uses' => 'Admin\GeneralStatisticController@index']);
@@ -66,8 +65,22 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/pagamentos/relatorios', ['as' => 'admin.payments.report', 'uses' => 'Admin\PaymentsController@printPayment']);
 
         /* fatura de Pagamento de Serviço */
-        Route::get('admin/pagamentos/fatura/{service}/{value}/{client}/{status}/{nif}', ['as' => 'admin.payments.invoice', 'uses' => 'Admin\InvoiceController@index']);
+        Route::get('admin/pagamentos/fatura/{code}/{service}/{value}/{client}/{status}/{nif}', ['as' => 'admin.payments.invoice', 'uses' => 'Admin\InvoiceController@index']);
         /**End Payments*/
+
+        /** Clients */
+        Route::get('admin/client/index', ['as' => 'admin.client.create.index', 'uses' => 'Admin\ClientsController@create']);
+        Route::get('admin/client/list', ['as' => 'admin.client.list.index', 'uses' => 'Admin\ClientsController@index']);
+        Route::post('admin/client/store', ['as' => 'admin.client.store', 'uses' => 'Admin\ClientsController@store']);
+        Route::get('admin/client/show/{id}', ['as' => 'admin.client.show', 'uses' => 'Admin\ClientsController@show']);
+        Route::get('admin/client/edit/{id}', ['as' => 'admin.client.edit.index', 'uses' => 'Admin\ClientsController@edit']);
+        Route::get('admin/client/delete/{id}', ['as' => 'admin.client.delete', 'uses' => 'Admin\ClientsController@destroy']);
+        Route::put('admin/client/update/{id}', ['as' => 'admin.client.update', 'uses' => 'Admin\ClientsController@update']);
+
+        //Relatórios PDF
+        Route::get('admin/clients/relatorios', ['as' => 'admin.clients.report', 'uses' => 'Admin\ClientsController@printClient']);
+        /**End Clients */
+  
 
 
         /**Startups */
@@ -100,19 +113,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/memberCowork/delete/{id}', ['as' => 'admin.memberCowork.delete', 'uses' => 'Admin\CoworksMemberController@destroy']);
         /**End Member Cowork */
 
-        /** Clients */
-        Route::get('admin/client/index', ['as' => 'admin.client.create.index', 'uses' => 'Admin\ClientsController@create']);
-        Route::get('admin/client/list', ['as' => 'admin.client.list.index', 'uses' => 'Admin\ClientsController@index']);
-        Route::post('admin/client/store', ['as' => 'admin.client.store', 'uses' => 'Admin\ClientsController@store']);
-        Route::get('admin/client/show/{id}', ['as' => 'admin.client.show', 'uses' => 'Admin\ClientsController@show']);
-        Route::get('admin/client/edit/{id}', ['as' => 'admin.client.edit.index', 'uses' => 'Admin\ClientsController@edit']);
-        Route::get('admin/client/delete/{id}', ['as' => 'admin.client.delete', 'uses' => 'Admin\ClientsController@destroy']);
-        Route::put('admin/client/update/{id}', ['as' => 'admin.client.update', 'uses' => 'Admin\ClientsController@update']);
-
-        //Relatórios PDF
-        Route::get('admin/clients/relatorios', ['as' => 'admin.clients.report', 'uses' => 'Admin\ClientsController@printClient']);
-        /**End Clients */
-
+      
 
         /**Elernings */
         Route::get('admin/elernings/index', ['as' => 'admin.elernings.create.index', 'uses' => 'Admin\ElearningsController@create']);
@@ -182,12 +183,12 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-/* QRCODE find */
+/* QRCODE find, startup & cowork */
 Route::get('membro/startup/{id}', ['as' => 'admin.member.qrfind', 'uses' => 'Admin\MembersController@qrfind']);
 Route::get('membro/cowork/{id}', ['as' => 'admin.member.cowork', 'uses' => 'Admin\CoworksMemberController@qrfind']);
 
 /* Invoice Payment */
-Route::get('fatura/{service}/{value}/{client}/{status}/{nif}', ['as' => 'admin.payments.validate', 'uses' => 'Admin\InvoiceController@qrscan']);
+Route::get('fatura/{code}/{service}/{value}/{client}/{status}/{nif}', ['as' => 'admin.payments.validate', 'uses' => 'Admin\InvoiceController@qrscan']);
 /**End  */
 
        

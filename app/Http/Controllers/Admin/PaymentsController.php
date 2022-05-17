@@ -111,6 +111,6 @@ class PaymentsController extends Controller
         $this->Logger->log('info', 'Imprimiu lista de Pagamentos');
 
         $pdf = PDF::loadview('pdf.payments.index', $response);
-        return $pdf->setPaper('a4')->stream('pdf');
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf');
     }
 }

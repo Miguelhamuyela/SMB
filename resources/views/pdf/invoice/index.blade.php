@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fatura de Pagamento-{{ date('d-m-Y') }}</title>
+    <title>INFOSI/Fatura de Pagamento-{{ date('d-m-Y') }}</title>
 
     <style>
         #footer {
@@ -17,6 +17,14 @@
             width: 100%;
         }
 
+        .pylarge {
+            padding: 0.5px 0:
+        }
+
+        * {
+            font-size: 10;
+        }
+
     </style>
 </head>
 
@@ -24,71 +32,130 @@
 
     <header class="col-12 mt-2 mb-5">
 
-        <img src="dashboard/images/logo_blue.png" alt="logo digital.ao" width="200">
+        <div class="row">
+            <div class="col">
+                <img src="dashboard/images/logo_infosi.png" alt="logo INFOSI.GOV.AO" width="250"><br>
+            </div>
+            <div class="col">
+                <img src="dashboard/images/logo_blue.png" alt="logo DIGITAL.AO" width="150" class="mt-3">
+            </div>
+        </div>
 
-        <p class="text-left">
-            Luanda, Distrito do Rangel, Bairro dos CTTs, KM-7 <br>
-            Telefone: 222-692-979 <br>
-            NIF: 5000379263<br>
-            Email: geral@digital.ao<br>
-            Factura nº: {{$id}} <br>
-            UTILIZADOR: {{ Auth::user()->name }}
-           
+
+        <p class="text-left mt-2">
+            Luanda, Angola<br>
+            Telef. (+244) 222 693 507<br>
+            Email: comercial@infosi.gov.ao<br>
+            Site: www.infosi.gov.ao<br>
+            NIF: <b>5000379263</b><br>
+
         </p>
-        <hr>
         <p class="text-right">
-            CLIENTE: {{ $client }} <br>
-            NIF: {{$nif}} <br>
-            DATA: {{ date('d-m-Y | H:i') }}
+            Exmo.(s) Sr.(s) <br>
+            {{ $client }} <br>
+            NIF: {{ $nif }} <br>
 
         </p>
 
     </header>
     <section class="col-12 mb-5">
-        <p class="text-center border border-dark">
-            <b>FATURA </b> | Serviços Digitais e  Incubadoras
+        <p class="text-center">
+            <b>Fatura Nº </b>{{ $code }} |
+            <b> Data:</b> {{ date('d/m/Y') }}
+
         </p>
+        <hr class="pylarge bg-dark">
+
         <table class="table table-striped">
             <thead>
                 <tr class="text-center">
-                    <th class="text-left">DESCRIÇÃO</th>
-                    <th>PREÇO UNITÁRIO</th>
-                    <th>SUBTOTAL</th>
+                    <th class="text-left">V/Nº Contrib. </th>
+                    <th>Moeda</th>
+                    <th>Condição de Pagamento</th>
+                    <th>Vencimento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center">
+                    <td class="text-left">{{ $nif }}</td>
+                    <td>AKZ</td>
+                    <td>Factura de 30 dias</td>
+                    <td>{{ date('d/m/Y', strtotime(' + 30 days')) }}</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <hr class="pylarge bg-dark">
+        <table class="table table-striped">
+            <thead>
+                <tr class="text-center">
+                    <th class="text-left">Descrição</th>
+                    <th>Un</th>
+                    <th>Pr. Unitário</th>
+                    <th>Desc.</th>
+                    <th>IVA</th>
+                    <th>Total Líquido</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="text-center">
                     <td class="text-left">{{ $service }}</td>
-                    <td>{!! number_format($value, 2, ',', '.') . ' ' . 'Kz' !!}</td>
-                    <td>{!! number_format($value, 2, ',', '.') . ' ' . 'Kz' !!}</td>
+                    <td>UN</td>
+                    <td>{!! number_format($value, 2, ',', '.') !!}</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>{!! number_format($value, 2, ',', '.') !!}</td>
                 </tr>
             </tbody>
+
         </table>
     </section>
 
+    <footer class="col-12 mt-2 text-center" id="footer">
 
-    <footer class="col-12 mt-2" id="footer">
-        <table class="table table-striped">
-            <tr>
-                <th>SUBTOTAL:</th>
-                <td>{!! number_format($value, 2, ',', '.') . ' ' . 'Kz' !!} </td>
-            </tr>
-            <tr>
-                <th>IVA:</th>
-                <td>0% - <small> Regime de Exclusão</small></td>
-            </tr>
-            <tr>
-                <th>TOTAL GERAL:</th>
-                <td>{!! number_format($value, 2, ',', '.') . ' ' . 'Kz' !!}</td>
-            </tr>
-        </table>
+        <div class="col-6 text-left">
+            <table class="table table-striped">
+                <tr>
+                    <th>Mercadoria/Serviços:</th>
+                    <td class="text-right">{!! number_format($value, 2, ',', '.') !!} </td>
+                </tr>
+                <tr>
+                    <th>Descontos Comerciais:</th>
+                    <td class="text-right">0,00</td>
+                </tr>
+                <tr>
+                    <th>Desconto Financeiro:</th>
+                    <td class="text-right">0,00</td>
+                </tr>
+                <tr>
+                    <th>IVA:</th>
+                    <td class="text-right">0,00</td>
+                </tr>
 
-        <small class="text-left text-muted">
-                Documento Processado por Computador. <br>
-                OBS: O Pagamento Será Efectuado via RUPE, no Prazo de Trinta Dias (30 dias).
+            </table>
+
+            <hr class="pylarge bg-dark">
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        <h4>Total (AKZ):</h4>
+                    </th>
+                    <td>
+                        <h4 class="text-right"> {!! number_format($value, 2, ',', '.') !!}</h4>
+                    </td>
+                </tr>
+
+
+            </table>
+
+        </div>
+
+        <small class="text-left text-dark">
+            Documento Processado por Computador. <br>
+            OBS: O Pagamento Será Efectuado via RUPE, no Prazo de Trinta Dias (30 dias).
         </small>
-       
-        <div class="col-12 text-left mt-5">
+
+        <div class="col-12 mt-5">
             <img alt="qrcode" width="50" src="data:image/png;base64, {!! base64_encode($qrcode) !!} ">
             <img src="dashboard/images/minttics.jpg" width="250">
         </div>
