@@ -31,8 +31,9 @@
             Telefone: 222-692-979 <br>
             NIF: 5000379263<br>
             Email: geral@digital.ao<br>
-
+            Factura nº: {{$id}} <br>
             UTILIZADOR: {{ Auth::user()->name }}
+           
         </p>
         <hr>
         <p class="text-right">
