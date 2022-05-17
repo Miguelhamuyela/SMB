@@ -30,10 +30,12 @@
 
 <body style='height:auto; width:100%; background: url("dashboard/images/digital.canvas.png") no-repeat center;'>
 
-    <header class="col-12 mt-2 mb-5">
+    <header class="col-12 mt-2 row mb-5">
 
-        <img src="dashboard/images/logo_infosi.png" alt="logo INFOSI.GOV.AO" width="250"><br>
-        <img src="dashboard/images/logo_blue.png" alt="logo DIGITAL.AO" width="150" class="mt-3">
+                <div class="col-12">
+                    <img src="dashboard/images/logo_blue.png" alt="logo DIGITAL.AO" width="150" class="mt-3">
+                    <img src="dashboard/images/logo_infosi.png" alt="logo INFOSI.GOV.AO" width="250">
+                </div>
 
         <p class="text-left mt-2">
             Luanda, Angola<br>
