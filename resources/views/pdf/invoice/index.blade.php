@@ -32,12 +32,10 @@
 
     <header class="col-12 mt-2 row mb-5">
 
-            <div class="row">
-                <div class="col-lg-6">
+                <div class="col-12">
                     <img src="dashboard/images/logo_blue.png" alt="logo DIGITAL.AO" width="150" class="mt-3">
                     <img src="dashboard/images/logo_infosi.png" alt="logo INFOSI.GOV.AO" width="250">
                 </div>
-            </div>
 
         <p class="text-left mt-2">
             Luanda, Angola<br>
