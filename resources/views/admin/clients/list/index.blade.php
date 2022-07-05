@@ -44,6 +44,7 @@
                                         <td>{{ $item->origin }} </td>
                                         <td>{{ $item->tel }} </td>
                                         <td>
+
                                             <a href='{{ url("admin/client/show/{$item->id}") }}' type="button"
                                                 class="btn btn-icons btn-rounded btn-primary">
                                                 <i class="mdi mdi-eye"></i>

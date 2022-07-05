@@ -56,7 +56,7 @@
     <section class="col-12 mb-5">
         <p class="text-center">
             <b>Fatura Nº </b>{{ $code }} |
-            <b> Data:</b> {{ date('d/m/Y') }}
+            <b> Data:</b> {{   date('d/m/Y', strtotime($payment->updated_at))    }}
 
         </p>
         <hr class="pylarge bg-dark">
@@ -75,7 +75,10 @@
                     <td class="text-left">{{ $nif }}</td>
                     <td>AKZ</td>
                     <td>Factura de 30 dias</td>
-                    <td>{{ date('d/m/Y', strtotime(' + 30 days')) }}</td>
+                    <td>               @php
+
+                        echo date( "d/m/Y", strtotime($payment->updated_at." + 30 days" ) );
+                     @endphp</td>
                 </tr>
             </tbody>
 
