@@ -15,8 +15,8 @@ class CreateCoworksTable extends Migration
     {
         Schema::create('coworks', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('activities');
+            $table->longText('title');
+            $table->longText('activities');
 
             $table->unsignedBigInteger('fk_Scheldules_id');
             $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules')->onDelete('CASCADE')->onUpgrade('CASCADE');
