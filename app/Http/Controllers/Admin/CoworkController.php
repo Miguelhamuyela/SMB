@@ -77,8 +77,8 @@ class CoworkController extends Controller
 
 
             /**Cowork Information */
-            'title'=> 'required|string|max:300',
-            'activities'=> 'required|string|max:300'
+            'title'=> 'required|string|min:5',
+            'activities'=> 'required|string|min:5'
 
 
         ]);
@@ -181,8 +181,8 @@ class CoworkController extends Controller
              'status' => 'required|string|max:255',
 
              /**Cowork Information */
-             'title'=> 'required|string|max:300',
-             'activities'=> 'required|string|max:50'
+            'title'=> 'required|string|min:5',
+            'activities'=> 'required|string|min:5'
 
         ]);
 
@@ -205,12 +205,12 @@ class CoworkController extends Controller
      */
     public function destroy($id)
     {
-       
+
         $ck = Cowork::find($id);
 
         Payment::where('id', $ck->fk_Payments_id)->delete();
         Client::where('id', $ck->fk_Clients_id)->delete();
-        Scheldule::where('id', $ck->fk_Scheldules_id)->delete();   
+        Scheldule::where('id', $ck->fk_Scheldules_id)->delete();
         Cowork::find($id)->delete();
 
         $this->Logger->log('info', 'Eliminou Coworks');

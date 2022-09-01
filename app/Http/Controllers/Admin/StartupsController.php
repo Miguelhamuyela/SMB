@@ -66,9 +66,9 @@ class StartupsController extends Controller
             'tel' => 'max:50',
             'nif' => 'required|string|max:50',
             'incubatorModel' => 'required|string|max:50',
-            'StartupDetails' => 'required|string|max:255',
+            'StartupDetails' => 'required|string|min:5',
             'document' => 'mimes:pdf,docx,xlsx',
-            
+
 
             /***Payment Information */
             'type' => 'required|string|max:255',
@@ -107,7 +107,7 @@ class StartupsController extends Controller
             $file = $middle->storeAs('document', 'document-' . uniqid(rand(1, 5)) . "." . $middle->extension());
         } else {
             $file = null;
-        }  
+        }
 
         $startup = Startup::create([
             'name' => $request->name,
@@ -168,7 +168,7 @@ class StartupsController extends Controller
             'tel' => 'max:50',
             'incubatorModel' => 'required|string|max:50',
             'nif' => 'required|string|max:50',
-            'StartupDetails' => 'required|string|max:255',
+            'StartupDetails' => 'required|string|min:5',
             'document' => 'mimes:pdf,docx,xlsx',
 
             /**Payments Information */
@@ -192,12 +192,12 @@ class StartupsController extends Controller
 
         ]);
 
-       
+
         if ($middle = $request->file('document')) {
             $file = $middle->storeAs('document', 'document-' . uniqid(rand(1, 5)) . "." . $middle->extension());
         } else {
             $file = Startup::find($id)->document;
-        }  
+        }
 
         Startup::find($id)->update([
 
@@ -249,10 +249,12 @@ class StartupsController extends Controller
 
         Payment::where('id', $sp->fk_Payments_id)->delete();
         Scheldule::where('id', $sp->fk_Scheldules_id)->delete();
+        Client::where('id', $sp->fk_Clients_id)->delete();
         Member::where('fk_startups_id', $id)->delete();
-        
+
+
         Startup::find($id)->delete();
-    
+
         $this->Logger->log('info', 'Eliminou Startups');
         return redirect()->route('admin.startup.list.index')->with('destroy', '1');
     }
