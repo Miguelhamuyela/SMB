@@ -77,8 +77,13 @@ class CoworkController extends Controller
 
 
             /**Cowork Information */
+<<<<<<< HEAD
             'title'=> 'required|string|min:5',
             'activities'=> 'required|string|min:5'
+=======
+            'title'=> 'required|string|max:300',
+            'activities'=> 'required|string'
+>>>>>>> 102dab2432e990857bccbf709e5f791e8fd47191
 
 
         ]);
@@ -181,8 +186,13 @@ class CoworkController extends Controller
              'status' => 'required|string|max:255',
 
              /**Cowork Information */
+<<<<<<< HEAD
             'title'=> 'required|string|min:5',
             'activities'=> 'required|string|min:5'
+=======
+             'title'=> 'required|string|max:300',
+             'activities'=> 'required|string'
+>>>>>>> 102dab2432e990857bccbf709e5f791e8fd47191
 
         ]);
 

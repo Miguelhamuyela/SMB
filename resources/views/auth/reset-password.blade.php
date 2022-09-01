@@ -65,7 +65,7 @@
                                         for="password_confirmation">{{ __('Confirm Password') }}</label>
                                     <div class="input-group">
                                         <input class="form-control" id="password_confirmation"
-                                            type="password_confirmation" name="password_confirmation" required>
+                                            type="password" name="password_confirmation" required>
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="mdi mdi-check-circle-outline"></i>
