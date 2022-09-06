@@ -74,7 +74,7 @@
                                                     <a href='{{ url("admin/cowork/show/{$item->id}") }}'
                                                         class="dropdown-item">Detalhes</a>
                                                     @if ($item->payments->status == 'Pago')
-                                                        <a href="{{ url('admin/pagamentos/fatura/'. $item->payments->code . '/' . $item->payments->origin . '/' . $item->payments->value . '/' . $item->clients->name. '/' . $item->payments->status. '/' . $item->clients->nif) }}"
+                                                        <a href="{{ url('admin/pagamentos/fatura/'. $item->payments->code . '/' . $item->payments->origin . '/' . $item->payments->value . '/' . $item->clients->name. '/' . $item->payments->status. '/' . $item->clients->nif. '/' .$item->updated_at) }}"
                                                             class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
                                                     @endif
                                                 </div>

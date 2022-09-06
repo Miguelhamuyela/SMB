@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>INFOSI/Fatura de Pagamento-{{ date('d-m-Y') }}</title>
+    <title>INFOSI/Fatura de Pagamento-{{ date('d/m/Y', strtotime($lastUpdate)) }}</title>
 
     <style>
         #footer {
@@ -56,7 +56,7 @@
     <section class="col-12 mb-5">
         <p class="text-center">
             <b>Fatura Nº </b>{{ $code }} |
-            <b> Data:</b> {{   date('d/m/Y', strtotime($payment->updated_at))    }}
+            <b> Data:</b> {{   date('d/m/Y', strtotime($lastUpdate))    }}
 
         </p>
         <hr class="pylarge bg-dark">
@@ -77,7 +77,7 @@
                     <td>Factura de 30 dias</td>
                     <td>               @php
 
-                        echo date( "d/m/Y", strtotime($payment->updated_at." + 30 days" ) );
+                        echo date( "d/m/Y", strtotime($lastUpdate." + 30 days" ) );
                      @endphp</td>
                 </tr>
             </tbody>
