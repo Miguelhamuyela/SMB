@@ -249,8 +249,8 @@ class StartupsController extends Controller
 
         Payment::where('id', $sp->fk_Payments_id)->delete();
         Scheldule::where('id', $sp->fk_Scheldules_id)->delete();
-        Client::where('id', $sp->fk_Clients_id)->delete();
         Member::where('fk_startups_id', $id)->delete();
+        Client::where('name', $sp->name)->delete();
 
 
         Startup::find($id)->delete();
