@@ -51,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/estatísticas-por-seccao/list', ['as' => 'admin.statisticsSection.index', 'uses' => 'Admin\StatisticController@index']);
         Route::get('admin/estatísticas-por-seccao/list-2', ['as' => 'admin.statisticsSection1.index', 'uses' => 'Admin\StatisticController@statistic']);
         Route::get('admin/estatísticas-por-seccao/list-3', ['as' => 'admin.statisticsSection2.index', 'uses' => 'Admin\StatisticController@statistic3']);
-       
+
 
         Route::post('admin/estatísticas-ano/list', ['as' => 'admin.StatistiYerar.store', 'uses' => 'Admin\StatistiYerar@store']);
         Route::get('admin/estatísticas-por-ano/{id}', ['as' => 'admin.StatistiYerar.show', 'uses' => 'Admin\StatistiYerar@show']);
@@ -65,7 +65,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/pagamentos/relatorios', ['as' => 'admin.payments.report', 'uses' => 'Admin\PaymentsController@printPayment']);
 
         /* fatura de Pagamento de Serviço */
-        Route::get('admin/pagamentos/fatura/{code}/{service}/{value}/{client}/{status}/{nif}', ['as' => 'admin.payments.invoice', 'uses' => 'Admin\InvoiceController@index']);
+        Route::get('admin/pagamentos/fatura/{code}/{service}/{value}/{client}/{status}/{nif}/{lastUpdate}', ['as' => 'admin.payments.invoice', 'uses' => 'Admin\InvoiceController@index']);
         /**End Payments*/
 
         /** Clients */
@@ -80,7 +80,7 @@ Route::middleware(['auth'])->group(function () {
         //Relatórios PDF
         Route::get('admin/clients/relatorios', ['as' => 'admin.clients.report', 'uses' => 'Admin\ClientsController@printClient']);
         /**End Clients */
-  
+
 
 
         /**Startups */
@@ -113,7 +113,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/memberCowork/delete/{id}', ['as' => 'admin.memberCowork.delete', 'uses' => 'Admin\CoworksMemberController@destroy']);
         /**End Member Cowork */
 
-      
+
 
         /**Elernings */
         Route::get('admin/elernings/index', ['as' => 'admin.elernings.create.index', 'uses' => 'Admin\ElearningsController@create']);
@@ -191,6 +191,6 @@ Route::get('membro/cowork/{id}', ['as' => 'admin.member.cowork', 'uses' => 'Admi
 Route::get('fatura/{code}/{service}/{value}/{client}/{status}/{nif}', ['as' => 'admin.payments.validate', 'uses' => 'Admin\InvoiceController@qrscan']);
 /**End  */
 
-       
+
 /* inclui as rotas de autenticação do ficheiro auth.php */
 require __DIR__ . '/auth.php';
