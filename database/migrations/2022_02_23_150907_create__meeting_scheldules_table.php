@@ -16,7 +16,7 @@ class CreateMeetingScheldulesTable extends Migration
         Schema::create('meeting_scheldules', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->string('phone');
             $table->enum('meetRoom', ['Sala de E-learning', 'Sala de Reunião Piso 2']);
             $table->string('name');
