@@ -7,6 +7,7 @@ use App\Classes\Logger;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\MeetingRoom;
+use App\Models\Payment;
 use App\Models\Scheldule;
 class MeetingRoomsController extends Controller
 {
@@ -65,11 +66,18 @@ class MeetingRoomsController extends Controller
             $request->validate([
                 /**Clients informatio */
                 'title' => 'required|string|max:50',
-                'description' => 'required|string|max:255',
+                'description' => 'required|string|min:5',
                 'phone' => 'max:50',
                 'meetRoom' => 'required|string|max:50',
                 'name' => 'required|string|max:50',
                 'email' => 'required|string|max:255',
+
+                    /***Payment Information */
+                'type' => 'required|string|max:255',
+                'value' =>  'required|numeric|min:2',
+                'reference'  => 'max:255',
+                'currency' => 'required|string|max:255',
+                'status' => 'required|string|max:255',
 
                 /**Scheldules Information */
                 'started' => 'required|string|max:255',
@@ -77,6 +85,16 @@ class MeetingRoomsController extends Controller
             ]);
 
             $schedule = Scheldule::create($request->all());
+            $payment = Payment::create([
+                'type' => $request->type,
+                'value' => $request->value,
+                'reference' => $request->reference,
+                'currency' => $request->currency,
+                'name' => $request->name,
+                'status' => $request->status,
+                'origin' => "Sala de R",
+                'code' =>  'DIGITAL' . "-" . rand() . "-" . date('Y')
+            ]);
             $meetingRoom = MeetingRoom::create([
                 'title' => $request->title,
                 'description' => $request->description,
@@ -86,6 +104,8 @@ class MeetingRoomsController extends Controller
                 'email' => $request->email,
                 'fk_Scheldules_id' => $schedule->id,
             ]);
+
+
 
             $this->Logger->log('info', 'Cadastrou Sala de Reunião');
             return redirect()
@@ -104,7 +124,9 @@ class MeetingRoomsController extends Controller
     {
         //
 
-        $response['meetingRoom'] = MeetingRoom::with('scheldules')->find($id);
+        $response['meetingRoom'] = MeetingRoom::with('payments','scheldules')->find($id);
+        echo json_encode($response['meetingRoom']);
+        die();
         $this->Logger->log('info', 'Detalhes de Salas de Reunião');
         return view('admin.meetingRoom.details.index', $response);
     }
@@ -142,11 +164,18 @@ class MeetingRoomsController extends Controller
         $request->validate([
             /**Clients informatio */
             'title' => 'required|string|max:50',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string|min:5',
             'phone' => 'max:50',
             'meetRoom' => 'required|string|max:50',
             'name' => 'required|string|max:50',
             'email' => 'required|string|max:255',
+
+             /***Payment Information */
+            'type' => 'required|string|max:255',
+            'value' =>  'required|numeric|min:2',
+            'reference'  => 'max:255',
+            'currency' => 'required|string|max:255',
+            'status' => 'required|string|max:255',
 
             /**Scheldules Information */
             'started' => 'required|string|max:255',
@@ -161,10 +190,21 @@ class MeetingRoomsController extends Controller
             'name' => $request->name,
             'email' => $request->email,
         ]);
+
+
         $meetingRoom = MeetingRoom::find($id);
         Scheldule::find($meetingRoom->fk_Scheldules_id)->update(
             $request->all()
         );
+        $payment = Payment::find($meetingRoom->fk_Payments_id)->update([
+            'type' => $request->type,
+            'value' => $request->value,
+            'reference' => $request->reference,
+            'currency' => $request->currency,
+            'status' => $request->status,
+            'origin' => "Sala de R",
+            'code' =>  'DIGITAL' . "-" . rand() . "-" . date('Y')
+        ]);
 
         $this->Logger->log('info', 'Actualizou Sala de Reunião');
         return redirect()
@@ -183,6 +223,7 @@ class MeetingRoomsController extends Controller
         $mr = MeetingRoom::find($id);
 
         Scheldule::where('id', $mr->fk_Scheldules_id)->delete();
+        Payment::where('id', $mr->fk_Payments_id)->delete();
         MeetingRoom::find($id)->delete();
 
         $this->Logger->log('info', 'Eliminou Sala de Reunião');
