@@ -98,7 +98,7 @@ class StartupsController extends Controller
             'reference' => $request->reference,
             'currency' => $request->currency,
             'status' => $request->status,
-            'origin' => "Auditório",
+            'origin' => "Startup",
             'code' =>  'DIGITAL' . "-" . rand() . "-" . date('Y')
         ]);
         $schedule = Scheldule::create($request->all());
