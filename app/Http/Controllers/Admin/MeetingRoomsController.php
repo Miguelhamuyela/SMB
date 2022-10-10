@@ -84,17 +84,18 @@ class MeetingRoomsController extends Controller
                 'end' => 'required|string|max:255',
             ]);
 
-            $schedule = Scheldule::create($request->all());
             $payment = Payment::create([
                 'type' => $request->type,
                 'value' => $request->value,
                 'reference' => $request->reference,
                 'currency' => $request->currency,
-                'name' => $request->name,
                 'status' => $request->status,
                 'origin' => "Sala de R",
                 'code' =>  'DIGITAL' . "-" . rand() . "-" . date('Y')
             ]);
+
+            $schedule = Scheldule::create($request->all());
+
             $meetingRoom = MeetingRoom::create([
                 'title' => $request->title,
                 'description' => $request->description,
@@ -103,6 +104,7 @@ class MeetingRoomsController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'fk_Scheldules_id' => $schedule->id,
+                'fk_Payments_id' => $payment->id
             ]);
 
 
@@ -125,8 +127,6 @@ class MeetingRoomsController extends Controller
         //
 
         $response['meetingRoom'] = MeetingRoom::with('payments','scheldules')->find($id);
-        echo json_encode($response['meetingRoom']);
-        die();
         $this->Logger->log('info', 'Detalhes de Salas de Reunião');
         return view('admin.meetingRoom.details.index', $response);
     }

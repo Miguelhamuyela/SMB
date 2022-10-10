@@ -91,7 +91,7 @@
                                             <small> {{ $manufacture->category }}</small>
                                         </p>
                                     </div>
-                                  
+
                                     <div class="col-md-4">
                                         <p class="text-dark">
                                             <b>Documentação</b><br>
@@ -147,45 +147,45 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Tipo de Pagamento</b><br>
-                                            <small> {{ $manufacture->payments->type }}</small>
+                                            <small> {{ $manufacture->meetingRooms->type }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Valores a Pagar</b><br>
-                                            <small> {{ $manufacture->payments->value }}</small>
+                                            <small> {{ $manufacture->meetingRooms->value }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Referência</b><br>
-                                            <small> {{ $manufacture->payments->reference }}</small>
+                                            <small> {{ $manufacture->meetingRooms->reference }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Moeda</b><br>
-                                            <small> {{ $manufacture->payments->currency }}</small>
+                                            <small> {{ $manufacture->meetingRooms->currency }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Estado do Pagamento</b> <br>
-                                            @if ($manufacture->payments->status == 'Pago')
+                                            @if ($manufacture->meetingRooms->status == 'Pago')
                                                 <div class="btn btn-success btn-fw btn-rounded text-dark ">
-                                                    {{ $manufacture->payments->status }}</div>
-                                            @elseif($manufacture->payments->status == 'Não Pago')
+                                                    {{ $manufacture->meetingRooms->status }}</div>
+                                            @elseif($manufacture->meetingRooms->status == 'Não Pago')
                                                 <div class="btn btn-danger btn-fw btn-rounded text-white ">
-                                                    {{ $manufacture->payments->status }}</div>
-                                            @elseif($manufacture->payments->status == 'Em Validação')
+                                                    {{ $manufacture->meetingRooms->status }}</div>
+                                            @elseif($manufacture->meetingRooms->status == 'Em Validação')
                                                 <div class="btn btn-warning btn-fw btn-rounded text-dark ">
-                                                    {{ $manufacture->payments->status }}</div>
+                                                    {{ $manufacture->meetingRooms->status }}</div>
                                             @else
                                                 <div class="btn btn-dark btn-fw btn-rounded text-dark ">
-                                                    {{ $manufacture->payments->status }}</div>
+                                                    {{ $manufacture->meetingRooms->status }}</div>
                                             @endif
 
                                         </p>

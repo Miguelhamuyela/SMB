@@ -19,10 +19,11 @@ class Startup extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+    
     public function payments(){
         return $this->belongsTo(Payment::class, 'fk_Payments_id', 'id');
     }
-    
+
     public function scheldules(){
         return $this->belongsTo(Scheldule::class, 'fk_Scheldules_id', 'id');
     }
@@ -31,7 +32,7 @@ class Startup extends Model
 
         return $this->hasMany(Member::class, 'fk_startups_id');
     }
-    
-  
+
+
 
 }

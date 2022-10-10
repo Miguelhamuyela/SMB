@@ -22,6 +22,11 @@ class CreateMeetingScheldulesTable extends Migration
             $table->string('name');
             $table->string('email');
 
+
+            $table->unsignedBigInteger('fk_Payments_id');
+            $table->foreign('fk_Payments_id')->references('id')->on('payments')->onDelete('CASCADE')->onUpgrade('CASCADE');
+
+
             $table->unsignedBigInteger('fk_Scheldules_id');
             $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules')->onDelete('CASCADE')->onUpgrade('CASCADE');
 

@@ -32,8 +32,9 @@ class Payment extends Model
         return $this->belongsTo(Startup::class, 'fk_Payments_id');
     }
 
+
     public function payments(){
-        return $this->belongsTo(Payment::class, 'fk_Payments_id');
+        return $this->belongsTo(MeetingRoom::class, 'fk_Payments_id');
     }
 
 
