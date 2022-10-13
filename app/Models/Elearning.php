@@ -29,4 +29,9 @@ class Elearning extends Model
     public function clients(){
         return $this->belongsTo(Client::class, 'fk_Clients_id', 'id');
     }
+
+
+    public function payments(){
+        return $this->belongsTo(Payment::class, 'fk_Payments_id', 'id');
+    }
 }

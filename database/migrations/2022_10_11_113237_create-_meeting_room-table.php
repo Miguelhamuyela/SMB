@@ -4,9 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMeetingRoomsTable extends Migration
+class CreateMeetingRoomTable extends Migration
 {
-    /**
+   /**
      * Run the migrations.
      *
      * @return void
@@ -19,6 +19,8 @@ class CreateMeetingRoomsTable extends Migration
 
             $table->unsignedBigInteger('fk_Scheldules_id');
             $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules')->onDelete('CASCADE')->onUpgrade('CASCADE');
+
+
 
             $table->unsignedBigInteger('fk_Payments_id');
             $table->foreign('fk_Payments_id')->references('id')->on('payments')->onDelete('CASCADE')->onUpgrade('CASCADE');
@@ -42,4 +44,6 @@ class CreateMeetingRoomsTable extends Migration
     {
         Schema::dropIfExists('meeting_rooms');
     }
+
+
 }

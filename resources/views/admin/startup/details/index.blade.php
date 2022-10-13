@@ -6,12 +6,30 @@
     <div class="card">
         <div class="col-lg-12">
             <div class="card-body">
-                <h5><b>
-                        <a href="{{ url('admin/startup/list') }}">Listar Startups</a>
-                        > Detalhes da Startup - {{ $startup->name }}
+                <div class="row">
+                    <div class="col">
+                        <h5><b>
+                            <a href="{{ url('admin/startup/list') }}">Listar Startups</a>
+                            > Detalhes da Startup - {{ $startup->name }}
 
 
-                    </b></h5>
+                        </b></h5>
+                    </div>
+
+                    <div class="col">
+                        <div class="float-right mb-">
+
+                            <a type="button" class="btn btn-sm btn-primary text-white"
+                                href="{{ url("admin/startup/print/{$startup->id}") }}">
+                                <span class="fa fa-print fa-16 mr-3"></span>Imprimir
+                            </a>
+
+                    </div>
+                    </div>
+
+
+                </div>
+
             </div>
         </div>
     </div>
@@ -22,7 +40,11 @@
             <div class="row justify-content-center">
                 <div class="col-12">
 
+
+
+
                     <div class="row  align-items-center">
+
 
                         <div class="col-12 mt-2">
                             <h5 class=""><b>Informações da Startup </b> </h5>

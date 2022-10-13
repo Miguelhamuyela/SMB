@@ -24,6 +24,8 @@ class CreateElearningsTable extends Migration
             $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules')->onDelete('CASCADE')->onUpgrade('CASCADE');
             $table->unsignedBigInteger('fk_Clients_id');
             $table->foreign('fk_Clients_id')->references('id')->on('clients')->onDelete('CASCADE')->onUpgrade('CASCADE');
+            $table->unsignedBigInteger('fk_Payments_id');
+            $table->foreign('fk_Payments_id')->references('id')->on('payments')->onDelete('CASCADE')->onUpgrade('CASCADE');
 
             $table->softDeletes();
             $table->timestamps();

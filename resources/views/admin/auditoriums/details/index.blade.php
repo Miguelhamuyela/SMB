@@ -92,6 +92,30 @@
                                         </p>
                                     </div>
 
+                                    @isset($auditorium->scheduling)
+
+                                    <div class="col-12 mt-2">
+                                        <h5 class=""><b>Agendamento </b> </h5>
+
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Data de Entrada</b><br>
+                                            <small> {{ $auditorium->scheduling->startedSchelduling }}</small>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <p class="text-dark">
+                                            <b>Data de Saída</b><br>
+                                            <small> {{ $auditorium->scheduling->endSchelduling }}</small>
+                                        </p>
+                                    </div>
+
+
+                                    @endisset
+
 
 
                                 </div>

@@ -26,6 +26,8 @@
                         @include('forms._formStartups.index')
                     </div>
 
+                    
+
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Período do Contrato</b></h4>
                         <hr>

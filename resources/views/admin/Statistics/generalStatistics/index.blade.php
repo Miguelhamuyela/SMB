@@ -61,22 +61,18 @@
                             var novEquipament = JSON.parse('<?php echo $novEquipament; ?>');
                             var dezEquipament = JSON.parse('<?php echo $dezEquipament; ?>');
 
-
-
-
-                            var janTotal = JSON.parse('<?php echo $janTotal; ?>');
-                            var fevTotal = JSON.parse('<?php echo $fevTotal; ?>');
-                            var marTotal = JSON.parse('<?php echo $marTotal; ?>');
-                            var abrTotal = JSON.parse('<?php echo $abrTotal; ?>');
-                            var maioTotal = JSON.parse('<?php echo $maioTotal; ?>');
-                            var junTotal = JSON.parse('<?php echo $junTotal; ?>');
-                            var julTotal= JSON.parse('<?php echo $julTotal; ?>');
-                            var agoTotal = JSON.parse('<?php echo $agoTotal; ?>');
-                            var setTotal = JSON.parse('<?php echo $setTotal; ?>');
-                            var outTotal = JSON.parse('<?php echo $outTotal; ?>');
-                            var novTotal = JSON.parse('<?php echo $novTotal; ?>');
-                            var dezTotal = JSON.parse('<?php echo $dezTotal; ?>');
-
+                            var janMeetingRoom = JSON.parse('<?php echo $janMeetingRoom; ?>');
+                            var fevMeetingRoom = JSON.parse('<?php echo $fevMeetingRoom; ?>');
+                            var marMeetingRoom = JSON.parse('<?php echo $marMeetingRoom; ?>');
+                            var abrMeetingRoom = JSON.parse('<?php echo $abrMeetingRoom; ?>');
+                            var maioMeetingRoom = JSON.parse('<?php echo $maioMeetingRoom; ?>');
+                            var junMeetingRoom = JSON.parse('<?php echo $junMeetingRoom; ?>');
+                            var julMeetingRoom = JSON.parse('<?php echo $julMeetingRoom; ?>');
+                            var agoMeetingRoom = JSON.parse('<?php echo $agoMeetingRoom; ?>');
+                            var setMeetingRoom = JSON.parse('<?php echo $setMeetingRoom; ?>');
+                            var outMeetingRoom = JSON.parse('<?php echo $outMeetingRoom; ?>');
+                            var novMeetingRoom = JSON.parse('<?php echo $novMeetingRoom; ?>');
+                            var dezMeetingRoom = JSON.parse('<?php echo $dezMeetingRoom; ?>');
 
 
 
@@ -120,6 +116,24 @@
                             var outAuditoriums = JSON.parse('<?php echo $outAuditoriums; ?>');
                             var novAuditoriums = JSON.parse('<?php echo $novAuditoriums; ?>');
                             var dezAuditoriums = JSON.parse('<?php echo $dezAuditoriums; ?>');
+
+
+
+                            var janTotal = JSON.parse('<?php echo $janTotal; ?>');
+                            var fevTotal = JSON.parse('<?php echo $fevTotal; ?>');
+                            var marTotal = JSON.parse('<?php echo $marTotal; ?>');
+                            var abrTotal = JSON.parse('<?php echo $abrTotal; ?>');
+                            var maioTotal = JSON.parse('<?php echo $maioTotal; ?>');
+                            var junTotal = JSON.parse('<?php echo $junTotal; ?>');
+                            var julTotal= JSON.parse('<?php echo $julTotal; ?>');
+                            var agoTotal = JSON.parse('<?php echo $agoTotal; ?>');
+                            var setTotal = JSON.parse('<?php echo $setTotal; ?>');
+                            var outTotal = JSON.parse('<?php echo $outTotal; ?>');
+                            var novTotal = JSON.parse('<?php echo $novTotal; ?>');
+                            var dezTotal = JSON.parse('<?php echo $dezTotal; ?>');
+
+
+
                             var chart = new CanvasJS.Chart("chartContainer", {
                                 theme: "light2",
                                 animationEnabled: true,
@@ -414,6 +428,62 @@
 
                                         ]
                                     },
+                                        {
+                                        type: "spline",
+                                        showInLegend: true,
+                                        visible: true,
+                                        yValueFormatString: "##.00KZ",
+                                        name: "Salas de Reuniões",
+                                        dataPoints: [{
+                                                label: "Janeiro",
+                                                y: janMeetingRoom
+                                            },
+                                            {
+                                                label: "Fevereiro",
+                                                y: fevMeetingRoom
+                                            },
+                                            {
+                                                label: "Março",
+                                                y: marMeetingRoom
+                                            },
+                                            {
+                                                label: "Abril",
+                                                y: abrMeetingRoom
+                                            },
+                                            {
+                                                label: "Maio",
+                                                y: maioMeetingRoom
+                                            },
+                                            {
+                                                label: "Junho",
+                                                y: junMeetingRoom
+                                            },
+                                            {
+                                                label: "Julho",
+                                                y: julMeetingRoom
+                                            },
+                                            {
+                                                label: "Ago",
+                                                y: agoMeetingRoom
+                                            },
+                                            {
+                                                label: "Setembro",
+                                                y: setMeetingRoom
+                                            },
+                                            {
+                                                label: "Outubro",
+                                                y: outMeetingRoom
+                                            },
+                                            {
+                                                label: "Novembro",
+                                                y: novMeetingRoom
+                                            },
+                                            {
+                                                label: "Dezembro",
+                                                y: dezMeetingRoom
+                                            }
+                                        ]
+                                    },
                                     {
                                         type: "spline",
                                         showInLegend: true,
@@ -469,7 +539,8 @@
                                                 y: dezTotal
                                             }
                                         ]
-                                    },
+                                    }
+
 
 
 

@@ -111,6 +111,34 @@ class StatistiYerar extends Controller
         /* end equipaments/*/
 
 
+        /** Meeting Room */
+        $janMeetingRoom = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->whereMonth('created_at', '=', 01)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reuniões')->sum('value');
+        $response['janMeetingRoom'] = json_encode($janMeetingRoom);
+        $fevMeetingRoom = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->whereMonth('created_at', '=', 02)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reuniões')->sum('value');
+        $response['fevMeetingRoom'] = json_encode($fevMeetingRoom);
+        $marMeetingRoom = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->whereMonth('created_at', '=', 03)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reuniões')->sum('value');
+        $response['marMeetingRoom'] = json_encode($marMeetingRoom);
+        $abrMeetingRoom = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->whereMonth('created_at', '=', 04)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reuniões')->sum('value');
+        $response['abrMeetingRoom'] = json_encode($abrMeetingRoom);
+        $maioMeetingRoom = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->whereMonth('created_at', '=', 05)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reuniões')->sum('value');
+        $response['maioMeetingRoom'] = json_encode($maioMeetingRoom);
+        $junMeetingRoom = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->whereMonth('created_at', '=', 06)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reuniões')->sum('value');
+        $response['junMeetingRoom'] = json_encode($junMeetingRoom);
+        $julMeetingRoom = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->whereMonth('created_at', '=', 07)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reuniões')->sum('value');
+        $response['julMeetingRoom'] = json_encode($julMeetingRoom);
+        $agoMeetingRoom = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->whereMonth('created_at', '=', '08')->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reuniões')->sum('value');
+        $response['agoMeetingRoom'] = json_encode($agoMeetingRoom);
+        $setMeetingRoom = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->whereMonth('created_at', '=', '09')->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reuniões')->sum('value');
+        $response['setMeetingRoom'] = json_encode($setMeetingRoom);
+        $outMeetingRoom = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->whereMonth('created_at', '=', '10')->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reuniões')->sum('value');
+        $response['outMeetingRoom'] = json_encode($outMeetingRoom);
+        $novMeetingRoom = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->whereMonth('created_at', '=', 11)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reuniões')->sum('value');
+        $response['novMeetingRoom'] = json_encode($novMeetingRoom);
+        $dezMeetingRoom = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->whereMonth('created_at', '=', 12)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reuniões')->sum('value');
+        $response['dezMeetingRoom'] = json_encode($dezMeetingRoom);
+        $response['totalMeetingRoom']  = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reuniões')->sum('value');
+        /**end  MeetingRoom */
+
 
         /**startups */
         $janStartups = Payment::whereYear('created_at', '=', $id)->with('startups')->whereMonth('created_at', '=', 01)->where('status', '=', 'Pago')->where('origin', '=', 'Startup')->sum('value');

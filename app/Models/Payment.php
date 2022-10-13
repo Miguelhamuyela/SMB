@@ -52,6 +52,18 @@ class Payment extends Model
         return $this->belongsTo(Auditorium::class, 'fk_Payments_id');
     }
 
+
+
+    public function Elearnings(){
+        return $this->belongsTo(Elearning::class, 'fk_Payments_id');
+    }
+
+
+    public function  MeetingRooms(){
+
+        return $this->belongsTo(MeetingRoom::class, 'fk_Payments_id');
+    }
+
 }
 
 

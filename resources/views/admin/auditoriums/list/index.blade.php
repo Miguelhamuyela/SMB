@@ -26,6 +26,11 @@
                                 <tr class="text-center">
                                     <th>#</th>
                                     <th>TÍTULO DA CONFERÊNCIA</th>
+                                    @foreach ($auditoriums as $item)
+                                    @isset($item->scheduling)
+                                    <th>AGENDAMENTO</th>
+                                    @endisset
+                                    @endforeach
                                     <th>NOME DO CLIENTE</th>
                                     <th>NIF</th>
                                     <th>TELEFONE</th>
@@ -38,6 +43,9 @@
                                     <tr class="text-center text-dark">
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->titleConference }}</td>
+                                        @isset($item->scheduling)
+                                        <td>{{$item->scheduling->startedSchelduling}} - {{$item->scheduling->endSchelduling}}</td>
+                                        @endisset
                                         <td>{{ $item->clients->name }} </td>
                                         <td>{{ $item->clients->nif }} </td>
                                         <td>{{ $item->clients->tel }} </td>

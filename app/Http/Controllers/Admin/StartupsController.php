@@ -12,6 +12,7 @@ use App\Models\Member;
 use App\Models\Payment;
 use App\Models\Scheldule;
 use App\Models\Startup;
+use PDF;
 use Illuminate\Http\Request;
 
 class StartupsController extends Controller
@@ -142,6 +143,20 @@ class StartupsController extends Controller
         $response['startup'] = Startup::with('payments', 'scheldules', 'members')->find($id);
         $this->Logger->log('info', 'Detalhes de Startups');
         return view('admin.startup.details.index', $response);
+    }
+
+    public function print($id){
+
+
+        $this->Logger->Log('info', 'Imprimiu Informações sobre a startup com id ' . $id);
+
+        $data = Startup::where('id', $id)->with('payments', 'scheldules')->first();
+        $response['singleStartup'] = $data;
+
+        $pdf = PDF::loadView('pdf/singleStartup/index', $response);
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->stream('Emitiu informações sobre a startup com id ' . $data->id . ".pdf");
+
     }
 
 

@@ -4,6 +4,7 @@ namespace App\Helpers;
 
 use App\Models\Client;
 use App\Models\Payment;
+use App\Models\Scheduling;
 use App\Models\Scheldule;
 
 class Helper
@@ -13,6 +14,12 @@ class Helper
     {
         $scheldule= Scheldule::find($fk_Scheldules_id);
         return $scheldule;
+    }
+
+    public static function schelduling($fk_Schelduling_id)
+    {
+        $schelduling= Scheduling::find($fk_Schelduling_id);
+        return $schelduling;
     }
     public static function payment($fk_Payments_id)
     {
