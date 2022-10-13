@@ -24,10 +24,10 @@ class UserFactory extends Factory
     {
         return [
             'name' => "Administrador Geral", //$this->faker->name(),
-            'email' => "admin@admin.com", //$this->faker->unique()->safeEmail(),
+            'email' => "infosigov@admin.com", //$this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'level' => 'Administrador',
-            'password' => bcrypt("12345678"), //'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => bcrypt("t;jfN=2z7DIh"), //'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
     }

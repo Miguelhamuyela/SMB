@@ -5,7 +5,7 @@
     <div class="card shadow">
         <div class="card-body">
             <h3 class="my-2 text-center">Editar  {{$auditorium->titleConference}} </h3>
-            
+
             <div class="row align-items-center">
 
                 <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST" action="{{ route('admin.auditoriums.update', $auditorium->id) }}">
@@ -25,12 +25,19 @@
                         <hr>
                         @include('forms._formAuditoriums.index')
                     </div>
-                    
+
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Cliente</b></h4>
                         <hr>
                         @include('forms._formClients.index')
                     </div>
+
+                    <div class="card-body bg-light">
+                        <h4 class="card-title"><b>Agendamento</b></h4>
+                        <hr>
+                        @include('forms._formScheduling.index')
+                    </div>
+
 
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Período do Contrato</b></h4>
@@ -59,6 +66,6 @@
                 </form>
             </div>
         </div>
-   
+
 
 @endsection

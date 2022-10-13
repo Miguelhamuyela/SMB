@@ -91,6 +91,8 @@ Route::middleware(['auth'])->group(function () {
         Route::put('admin/startup/update/{id}', ['as' => 'admin.startup.update', 'uses' => 'Admin\StartupsController@update']);
         Route::get('admin/startup/delete/{id}', ['as' => 'admin.startup.delete', 'uses' => 'Admin\StartupsController@destroy']);
         Route::get('admin/startup/show/{id}', ['as' => 'admin.startup.show', 'uses' => 'Admin\StartupsController@show']);
+
+        Route::get('admin/startup/print/{id}', ['as' => 'admin.startup.print', 'uses' => 'Admin\StartupsController@print']);
         /**End Startups */
 
 

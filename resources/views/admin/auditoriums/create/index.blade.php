@@ -26,11 +26,17 @@
                         <hr>
                         @include('forms._formAuditoriums.index')
                     </div>
-                    
+
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Cliente</b></h4>
                         <hr>
                         @include('forms._formClients.index')
+                    </div>
+
+                    <div class="card-body bg-light">
+                        <h4 class="card-title"><b>Agendamento</b></h4>
+                        <hr>
+                        @include('forms._formScheduling.index')
                     </div>
 
                     <div class="card-body bg-light">

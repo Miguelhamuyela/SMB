@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class MeetingRoom extends Model
+class Scheduling extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = "meeting_scheldules";
+    protected $table = "scheduling";
 
     protected $guarded = ['id'];
 
@@ -19,15 +19,4 @@ class MeetingRoom extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-
-    public function MeetingRooms(){
-        return $this->belongsTo(Payment::class, 'fk_Payments_id', 'id');
-    }
-
-    public function scheldules(){
-        return $this->belongsTo(Scheldule::class, 'fk_Scheldules_id', 'id');
-    }
-
-
-
 }

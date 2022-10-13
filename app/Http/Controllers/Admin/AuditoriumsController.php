@@ -9,6 +9,7 @@ use App\Helpers\Helper;
 use App\Models\Auditorium;
 use App\Models\Client;
 use App\Models\Payment;
+use App\Models\Scheduling;
 use App\Models\Scheldule;
 
 class AuditoriumsController extends Controller
@@ -77,14 +78,17 @@ class AuditoriumsController extends Controller
             'currency' => 'required|string|max:255',
             'status' => 'required|string|max:255',
 
-
             /**Auditoriums Information */
-            'titleConference' => 'required|string|max:200'
+            'titleConference' => 'required|string|max:200',
+
+            'startedSchelduling' => 'string|max:255',
+            'endSchelduling' => 'string|max:255',
 
 
         ]);
 
         $client = Client::create($request->all());
+        $scheduling = Scheduling::create($request->all());
         $payment = Payment::create([
             'type' => $request->type,
             'value' => $request->value,
@@ -95,13 +99,13 @@ class AuditoriumsController extends Controller
             'code' =>  'DIGITAL' . "-" . rand() . "-" . date('Y')
         ]);
         $schedule = Scheldule::create($request->all());
-
         $auditorium = Auditorium::create(
             [
                 'titleConference' => $request->titleConference,
                 'fk_Payments_id' => $payment->id,
                 'fk_Scheldules_id' => $schedule->id,
-                'fk_Clients_id' => $client->id
+                'fk_Clients_id' => $client->id,
+                'fk_Schelduling_id'=> $scheduling->id
             ]
         );
 
@@ -119,7 +123,7 @@ class AuditoriumsController extends Controller
     public function show($id)
     {
         //
-        $response['auditorium'] = Auditorium::with('payments', 'scheldules', 'clients')->find($id);
+        $response['auditorium'] = Auditorium::with('payments','scheldules','clients','scheduling')->find($id);
         $this->Logger->log('info', 'Detalhes de Auditório');
         return view('admin.auditoriums.details.index', $response);
     }
@@ -138,6 +142,7 @@ class AuditoriumsController extends Controller
         $response['auditorium'] = $middle;
 
         $response['scheldule'] =  Helper::scheldule($middle->fk_Scheldules_id);
+        $response['scheduling'] =  Helper::schelduling($middle->fk_Schelduling_id);
         $response['payment'] =  Helper::payment($middle->fk_Payments_id);
         $response['client'] =  Helper::client($middle->fk_Clients_id);
 
@@ -178,7 +183,10 @@ class AuditoriumsController extends Controller
             'status' => 'required|string|max:255',
 
             /**Auditoriums Information */
-            'titleConference' => 'required|string|max:200'
+            'titleConference' => 'required|string|max:200',
+
+            'startedSchelduling' => 'string|max:255',
+            'endSchelduling' => 'string|max:255',
 
 
         ]);
@@ -187,6 +195,7 @@ class AuditoriumsController extends Controller
         $cowork = Auditorium::find($id);
 
         Client::find($cowork->fk_Clients_id)->update($request->all());
+        Scheduling::find($cowork->fk_Schelduling_id)->update($request->all());
         Scheldule::find($cowork->fk_Scheldules_id)->update($request->all());
         Payment::find($id)->update([
             'type' => $request->type,
@@ -214,7 +223,8 @@ class AuditoriumsController extends Controller
         Payment::where('id', $ms->fk_Payments_id)->delete();
         Client::where('id', $ms->fk_Clients_id)->delete();
         Scheldule::where('id', $ms->fk_Scheldules_id)->delete();
-        
+        Scheduling::where('id',$ms->fk_Schelduling_id)->delete();
+
         Auditorium::find($id)->delete();
 
 

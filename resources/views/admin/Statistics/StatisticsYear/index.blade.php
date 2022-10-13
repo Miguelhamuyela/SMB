@@ -104,6 +104,8 @@
                             var novcowork = JSON.parse('<?php echo $novcowork; ?>');
                             var dezcowork = JSON.parse('<?php echo $dezcowork; ?>');
 
+
+
                             var janAuditoriums = JSON.parse('<?php echo $janAuditoriums; ?>');
                             var feAuditoriums = JSON.parse('<?php echo $feAuditoriums; ?>');
                             var marAuditoriums = JSON.parse('<?php echo $marAuditoriums; ?>');
@@ -116,6 +118,21 @@
                             var outAuditoriums = JSON.parse('<?php echo $outAuditoriums; ?>');
                             var novAuditoriums = JSON.parse('<?php echo $novAuditoriums; ?>');
                             var dezAuditoriums = JSON.parse('<?php echo $dezAuditoriums; ?>');
+
+                            var janMeetingRoom = JSON.parse('<?php echo $janMeetingRoom;?>');
+                            var feMeetingRoom = JSON.parse('<?php echo $feMeetingRoom; ?>');
+                            var marMeetingRoom = JSON.parse('<?php echo $marMeetingRoom; ?>');
+                            var abrMeetingRoom = JSON.parse('<?php echo $abrMeetingRoom; ?>');
+                            var maioMeetingRoom = JSON.parse('<?php echo $maioMeetingRoom; ?>');
+                            var junMeetingRoom = JSON.parse('<?php echo $junMeetingRoom; ?>');
+                            var julMeetingRoom = JSON.parse('<?php echo $julMeetingRoom; ?>');
+                            var agoMeetingRoom = JSON.parse('<?php echo $agoMeetingRoom; ?>');
+                            var setMeetingRoom = JSON.parse('<?php echo $setMeetingRoom; ?>');
+                            var outMeetingRoom = JSON.parse('<?php echo $outMeetingRoom; ?>');
+                            var novMeetingRoom = JSON.parse('<?php echo $novMeetingRoom; ?>');
+                            var dezMeetingRoom = JSON.parse('<?php echo $dezMeetingRoom; ?>');
+
+
                             var chart = new CanvasJS.Chart("chartContainer", {
                                 theme: "light2",
                                 animationEnabled: true,
@@ -412,6 +429,61 @@
                                     },
                                     {
                                         type: "spline",
+                                        visible: true,
+                                        showInLegend: true,
+                                        yValueFormatString: "##.00kz",
+                                        name: "Salas de Reuniões",
+                                        dataPoints: [{
+                                                label: "Janeiro",
+                                                y: janMeetingRoom
+                                            },
+                                            {
+                                                label: "Fevereiro",
+                                                y: fevMeetingRoom
+                                            },
+                                            {
+                                                label: "Março",
+                                                y: marMeetingRoom
+                                            },
+                                            {
+                                                label: "Abril",
+                                                y: abrMeetingRoom
+                                            },
+                                            {
+                                                label: "Maio",
+                                                y: maioMeetingRoom
+                                            },
+                                            {
+                                                label: "Junho",
+                                                y: junMeetingRoom
+                                            },
+                                            {
+                                                label: "Julho",
+                                                y: julMeetingRoom
+                                            },
+                                            {
+                                                label: "Ago",
+                                                y: agoMeetingRoom
+                                            },
+                                            {
+                                                label: "Setembro",
+                                                y: setMeetingRoom
+                                            },
+                                            {
+                                                label: "Outubro",
+                                                y: outMeetingRoom
+                                            },
+                                            {
+                                                label: "Novembro",
+                                                y: novMeetingRoom
+                                            }, {
+                                                label: "Dezembro",
+                                                y: dezMeetingRoom
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        type: "spline",
                                         showInLegend: true,
                                         visible: true,
                                         yValueFormatString: "##.00KZ",
@@ -465,10 +537,7 @@
                                                 y: dezTotal
                                             }
                                         ]
-                                    },
-
-
-
+                                    }
                                 ]
                             });
                             chart.render();

@@ -21,6 +21,10 @@ class CreateAuditoriumsTable extends Migration
             $table->unsignedBigInteger('fk_Scheldules_id');
             $table->foreign('fk_Scheldules_id')->references('id')->on('scheldules')->onDelete('CASCADE')->onUpgrade('CASCADE');
 
+            $table->unsignedBigInteger('fk_Schelduling_id');
+            $table->foreign('fk_Schelduling_id')->references('id')->on('scheduling')->onDelete('CASCADE')->onUpgrade('CASCADE');
+
+
             $table->unsignedBigInteger('fk_Payments_id');
             $table->foreign('fk_Payments_id')->references('id')->on('payments')->onDelete('CASCADE')->onUpgrade('CASCADE');
 

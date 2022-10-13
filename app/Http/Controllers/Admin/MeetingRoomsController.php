@@ -73,15 +73,18 @@ class MeetingRoomsController extends Controller
                 'email' => 'required|string|max:255',
 
                     /***Payment Information */
-                'type' => 'required|string|max:255',
-                'value' =>  'required|numeric|min:2',
+                'type' => 'string|max:255',
+                'value' =>  'max:255',
                 'reference'  => 'max:255',
-                'currency' => 'required|string|max:255',
-                'status' => 'required|string|max:255',
+                'currency' => 'string|max:255',
+                'status' => 'string|max:255',
 
                 /**Scheldules Information */
                 'started' => 'required|string|max:255',
                 'end' => 'required|string|max:255',
+
+
+
             ]);
 
             $payment = Payment::create([
@@ -90,12 +93,11 @@ class MeetingRoomsController extends Controller
                 'reference' => $request->reference,
                 'currency' => $request->currency,
                 'status' => $request->status,
-                'origin' => "Sala de R",
+                'origin' => "Sala de Reuniões",
                 'code' =>  'DIGITAL' . "-" . rand() . "-" . date('Y')
             ]);
 
             $schedule = Scheldule::create($request->all());
-
             $meetingRoom = MeetingRoom::create([
                 'title' => $request->title,
                 'description' => $request->description,
@@ -106,6 +108,8 @@ class MeetingRoomsController extends Controller
                 'fk_Scheldules_id' => $schedule->id,
                 'fk_Payments_id' => $payment->id
             ]);
+
+
 
 
 
@@ -126,7 +130,7 @@ class MeetingRoomsController extends Controller
     {
         //
 
-        $response['meetingRoom'] = MeetingRoom::with('payments','scheldules')->find($id);
+        $response['meetingRoom'] = MeetingRoom::with('MeetingRooms','scheldules')->find($id);
         $this->Logger->log('info', 'Detalhes de Salas de Reunião');
         return view('admin.meetingRoom.details.index', $response);
     }
@@ -171,15 +175,16 @@ class MeetingRoomsController extends Controller
             'email' => 'required|string|max:255',
 
              /***Payment Information */
-            'type' => 'required|string|max:255',
-            'value' =>  'required|numeric|min:2',
+            'type' => 'string|max:255',
+            'value' =>  'numeric',
             'reference'  => 'max:255',
-            'currency' => 'required|string|max:255',
-            'status' => 'required|string|max:255',
+            'currency' => 'string|max:255',
+            'status' => 'string|max:255',
 
             /**Scheldules Information */
             'started' => 'required|string|max:255',
             'end' => 'required|string|max:255',
+
         ]);
 
         MeetingRoom::find($id)->update([
@@ -196,13 +201,15 @@ class MeetingRoomsController extends Controller
         Scheldule::find($meetingRoom->fk_Scheldules_id)->update(
             $request->all()
         );
+
+
         $payment = Payment::find($meetingRoom->fk_Payments_id)->update([
             'type' => $request->type,
             'value' => $request->value,
             'reference' => $request->reference,
             'currency' => $request->currency,
             'status' => $request->status,
-            'origin' => "Sala de R",
+            'origin' => "Sala de Reuniões",
             'code' =>  'DIGITAL' . "-" . rand() . "-" . date('Y')
         ]);
 

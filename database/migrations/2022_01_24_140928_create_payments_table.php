@@ -15,13 +15,13 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->double('value');
+            $table->string('type')->nullable();
+            $table->double('value')->nullable();
             $table->string('origin')->nullable();
             $table->string('reference')->nullable();
             $table->string('code')->nullable();
-            $table->string('currency', 10);
-            $table->enum('status', ['Pago', 'Não Pago', 'Em Validação', 'Negado']);
+            $table->string('currency', 10)->nullable();
+            $table->enum('status', ['Pago', 'Não Pago', 'Em Validação', 'Negado'])->nullable();
 
             $table->softDeletes();
             $table->timestamps();

@@ -26,6 +26,8 @@
                         @include('forms._formMeetingRoom.index')
                     </div>
 
+
+
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Período de Agendamento</b></h4>
                         <hr>
@@ -35,7 +37,7 @@
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Pagamentos</b></h4>
                         <hr>
-                        @include('forms._formPayments.index')
+                        @include('forms._formPaymentMeet.index')
                     </div>
 
 
