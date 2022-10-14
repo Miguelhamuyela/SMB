@@ -67,8 +67,8 @@ class AuditoriumsController extends Controller
             'clienttype' => 'required|string|max:50',
 
             /**Scheldules Information */
-            'started' => 'required|string|max:255',
-            'end' => 'required|string|max:255',
+            'started' => 'max:255',
+            'end' => 'max:255',
 
 
             /***Payment Information */
@@ -171,8 +171,8 @@ class AuditoriumsController extends Controller
             'clienttype' => 'required|string|max:50',
 
             /**Scheldules Information */
-            'started' => 'required|string|max:255',
-            'end' => 'required|string|max:255',
+            'started' => 'max:255',
+            'end' => 'max:255',
 
 
             /***Payment Information */

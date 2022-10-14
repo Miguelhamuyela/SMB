@@ -25,11 +25,12 @@
                             <tr class="text-center">
                                 <th>#</th>
                                 <th>TÍTULO DA REUNIÃO</th>
+                                <th>AGENDAMENTO</th>
                                 <th>NOME DO SOLICITANTE</th>
                                 <th>TELEFONE</th>
                                 <th>EMAIL</th>
                                 <th>SALA</th>
-                                <th>AGENDAMENTO</th>
+
                                 <th class="text-center">ACÇÕES</th>
                             </tr>
                         </thead>
@@ -38,11 +39,12 @@
                                 <tr class="text-center text-dark">
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->title }} </td>
+                                    <td>{{ $item->scheldules->started }} - {{ $item->scheldules->end }} </td>
                                     <td>{{ $item->name }} </td>
                                     <td>{{ $item->phone }} </td>
                                     <td>{{ $item->email }} </td>
                                     <td>{{ $item->meetRoom }} </td>
-                                    <td>{{ $item->scheldules->started }} - {{ $item->scheldules->end }} </td>
+
 
                                     <td>
                                         <a href='{{ url("admin/sala-de-reunião/show/{$item->id}") }}' type="button"

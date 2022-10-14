@@ -16,8 +16,8 @@ class CreateScheldulesTable extends Migration
         Schema::create('scheldules', function (Blueprint $table) {
 
             $table->id();
-            $table->dateTime('started');
-            $table->dateTime('end');
+            $table->dateTime('started')->nullable();
+            $table->dateTime('end')->nullable();
             $table->dateTime('prespective')->nullable();
             $table->softDeletes();
             $table->timestamps();
