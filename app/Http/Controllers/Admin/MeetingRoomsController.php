@@ -93,7 +93,7 @@ class MeetingRoomsController extends Controller
                 'reference' => $request->reference,
                 'currency' => $request->currency,
                 'status' => $request->status,
-                'origin' => "Sala de Reuniões",
+                'origin' => "Sala de Reunioes",
                 'code' =>  'DIGITAL' . "-" . rand() . "-" . date('Y')
             ]);
 
@@ -209,7 +209,7 @@ class MeetingRoomsController extends Controller
             'reference' => $request->reference,
             'currency' => $request->currency,
             'status' => $request->status,
-            'origin' => "Sala de Reuniões",
+            'origin' => "Sala de Reunioes",
             'code' =>  'DIGITAL' . "-" . rand() . "-" . date('Y')
         ]);
 

@@ -119,18 +119,18 @@
                             var novAuditoriums = JSON.parse('<?php echo $novAuditoriums; ?>');
                             var dezAuditoriums = JSON.parse('<?php echo $dezAuditoriums; ?>');
 
-                            var janMeetingRoom = JSON.parse('<?php echo $janMeetingRoom;?>');
-                            var feMeetingRoom = JSON.parse('<?php echo $feMeetingRoom; ?>');
-                            var marMeetingRoom = JSON.parse('<?php echo $marMeetingRoom; ?>');
-                            var abrMeetingRoom = JSON.parse('<?php echo $abrMeetingRoom; ?>');
-                            var maioMeetingRoom = JSON.parse('<?php echo $maioMeetingRoom; ?>');
-                            var junMeetingRoom = JSON.parse('<?php echo $junMeetingRoom; ?>');
-                            var julMeetingRoom = JSON.parse('<?php echo $julMeetingRoom; ?>');
-                            var agoMeetingRoom = JSON.parse('<?php echo $agoMeetingRoom; ?>');
-                            var setMeetingRoom = JSON.parse('<?php echo $setMeetingRoom; ?>');
-                            var outMeetingRoom = JSON.parse('<?php echo $outMeetingRoom; ?>');
-                            var novMeetingRoom = JSON.parse('<?php echo $novMeetingRoom; ?>');
-                            var dezMeetingRoom = JSON.parse('<?php echo $dezMeetingRoom; ?>');
+                            var janMeeting = JSON.parse('<?php echo $janMeeting;?>');
+                            var feMeeting = JSON.parse('<?php echo $feMeeting; ?>');
+                            var marMeeting = JSON.parse('<?php echo $marMeeting; ?>');
+                            var abrMeeting = JSON.parse('<?php echo $abrMeeting; ?>');
+                            var maioMeeting = JSON.parse('<?php echo $maioMeeting; ?>');
+                            var junMeeting = JSON.parse('<?php echo $junMeeting; ?>');
+                            var julMeeting = JSON.parse('<?php echo $julMeeting; ?>');
+                            var agoMeeting = JSON.parse('<?php echo $agoMeeting; ?>');
+                            var setMeeting = JSON.parse('<?php echo $setMeeting; ?>');
+                            var outMeeting = JSON.parse('<?php echo $outMeeting; ?>');
+                            var novMeeting = JSON.parse('<?php echo $novMeeting; ?>');
+                            var dezMeeting = JSON.parse('<?php echo $dezMeeting; ?>');
 
 
                             var chart = new CanvasJS.Chart("chartContainer", {
@@ -435,50 +435,50 @@
                                         name: "Salas de Reuniões",
                                         dataPoints: [{
                                                 label: "Janeiro",
-                                                y: janMeetingRoom
+                                                y: janMeeting
                                             },
                                             {
                                                 label: "Fevereiro",
-                                                y: fevMeetingRoom
+                                                y: fevMeeting
                                             },
                                             {
                                                 label: "Março",
-                                                y: marMeetingRoom
+                                                y: marMeeting
                                             },
                                             {
                                                 label: "Abril",
-                                                y: abrMeetingRoom
+                                                y: abrMeeting
                                             },
                                             {
                                                 label: "Maio",
-                                                y: maioMeetingRoom
+                                                y: maioMeeting
                                             },
                                             {
                                                 label: "Junho",
-                                                y: junMeetingRoom
+                                                y: junMeeting
                                             },
                                             {
                                                 label: "Julho",
-                                                y: julMeetingRoom
+                                                y: julMeeting
                                             },
                                             {
                                                 label: "Ago",
-                                                y: agoMeetingRoom
+                                                y: agoMeeting
                                             },
                                             {
                                                 label: "Setembro",
-                                                y: setMeetingRoom
+                                                y: setMeeting
                                             },
                                             {
                                                 label: "Outubro",
-                                                y: outMeetingRoom
+                                                y: outMeeting
                                             },
                                             {
                                                 label: "Novembro",
-                                                y: novMeetingRoom
+                                                y: novMeeting
                                             }, {
                                                 label: "Dezembro",
-                                                y: dezMeetingRoom
+                                                y: dezMeeting
                                             }
                                         ]
                                     },
