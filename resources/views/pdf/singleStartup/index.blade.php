@@ -32,61 +32,145 @@
         <br>
 
         <p>
-        <h2 class="text-center">{{$singleStartup->name}}</h2>
-        <hr>
+        <h2 class="text-center mb-2">{{$singleStartup->name}}</h2>
 
         </p>
     </header>
 
-    <section class="container-fluid">
-        <table class="table table-striped">
-            <thead>
-                <tr class="text-center">
-                    <th>NOME DA STARTUP</th>
-                    <th>NIF</th>
-                    <th>SALA</th>
-                    <th>EMAIL</th>
-                    <th>TELEFONE</th>
-                    <th>MODELO DE INCUBADORA</th>
-                    <th>PERÍODO DO CONTRATO</th>
-                    <th>STATUS</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="text-center">
+    <section class="">
 
-                    <td>{{$singleStartup->name}}</td>
-                    <td>{{$singleStartup->nif}}</td>
-                    <td>{{$singleStartup->roomName}}</td>
-                    <td>{{$singleStartup->email}}</td>
-                    <td>{{$singleStartup->tel}}</td>
-                    <td>{{$singleStartup->incubatorModel}}</td>
-                    <td>{{$singleStartup->scheldules->started}} - {{$singleStartup->scheldules->end}}</td>
-                    @if ($singleStartup->payments->status == 'Pago')
-                    <td>
-                        <div class="btn btn-success btn-fw btn-rounded text-dark ">
-                            {{ $singleStartup->payments->status }}</div>
-                    </td>
-                @elseif($singleStartup->payments->status == 'Não Pago')
-                    <td>
-                        <div class="btn btn-danger btn-fw btn-rounded text-white ">
-                            {{ $singleStartup->payments->status }}</div>
-                    </td>
-                @elseif($singleStartup->payments->status == 'Em Validação')
-                    <td>
-                        <div class="btn btn-warning btn-fw btn-rounded text-dark ">
-                            {{ $singleStartup->payments->status }}</div>
-                    </td>
-                @else
-                    <td>
-                        <div class="btn btn-dark btn-fw btn-rounded text-dark ">
-                            {{ $singleStartup->payments->status }}</div>
-                    </td>
-                @endif
-                </tr>
-            </tbody>
+        <div class="container-fluid">
+                <div class="row">
 
-        </table>
+                    <div class="col-12 mt-2">
+                        <h5 class=""><b>Informações da Startup </b> </h5>
+                        <hr>
+                    </div>
+
+                    <div style="" class="col-12 mb-5">
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b>Nome da Startup</b>
+                        <p>{{$singleStartup->name}}</p>
+
+                        </div>
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b>Número de Identificação Fiscal</b>
+                        <p>{{$singleStartup->nif}}</p>
+                        </div>
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b>Telefone</b>
+                            <p>{{$singleStartup->tel}}</p>
+                        </div>
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b>Email</b>
+                            <p>{{$singleStartup->email}}</p>
+                        </div>
+
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b>Sala</b>
+                            <p>{{$singleStartup->roomName}}</p>
+                        </div>
+
+
+
+
+                        @isset($singleStartup->site)
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b>Site</b>
+                            <p>{{$singleStartup->site}}</p>
+                        </div>
+
+                        @endisset
+
+
+
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b>Modelo de Incubadora</b>
+                            <p>{{$singleStartup->incubatorModel}}</p>
+                        </div>
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b> Detalhes Sobre a Startup</b>
+                            <p>{{$singleStartup->StartupDetails }}</p>
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="col-12 mt-2">
+                        <h5 class=""><b>Período Do Contrato </b> </h5>
+                        <hr>
+                    </div>
+
+                    <div class="col-12 mb-5">
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b> Inicio do Contracto</b>
+                            <p>{{$singleStartup->scheldules->started }}</p>
+                        </div>
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b> Fim do Contracto</b>
+                            <p>{{$singleStartup->scheldules->started }}</p>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="col-12 mt-2">
+                        <h5 class=""><b>Informações de Pagamento </b> </h5>
+                        <hr>
+                    </div>
+
+                    <div class="col-12">
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b>Tipo de Pagamento</b>
+                            <p>{{ $singleStartup->payments->type }}</p>
+                        </div>
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b>Valores a Pagar</b>
+                            <p>{{ $singleStartup->payments->value }}</p>
+                        </div>
+
+
+                        @isset($singleStartup->payments->reference)
+                        <div style="display: inline-block;" class="mr-4">
+                            <b>Referência</b>
+                            <p>{{ $singleStartup->payments->reference }}</p>
+                        </div>
+                        @endisset
+
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b>Moeda</b>
+                            <p>{{ $singleStartup->payments->currency }}</p>
+                        </div>
+
+
+                        <div style="display: inline-block;" class="mr-4">
+                            <b>Estado do Pagamento</b>
+                            <p>{{ $singleStartup->payments->status }}</p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+        </div>
     </section>
 
     <footer class="col-12 mt-2" id="footer">
