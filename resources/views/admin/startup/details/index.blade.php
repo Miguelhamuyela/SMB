@@ -19,7 +19,7 @@
                     <div class="col">
                         <div class="float-right mb-">
 
-                            <a type="button" class="btn btn-sm btn-primary text-white"
+                            <a target="_blank" type="button" class="btn btn-sm btn-primary text-white"
                                 href="{{ url("admin/startup/print/{$startup->id}") }}">
                                 <span class="fa fa-print fa-16 mr-3"></span>Imprimir
                             </a>

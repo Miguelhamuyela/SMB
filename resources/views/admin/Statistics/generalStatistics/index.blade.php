@@ -61,18 +61,18 @@
                             var novEquipament = JSON.parse('<?php echo $novEquipament; ?>');
                             var dezEquipament = JSON.parse('<?php echo $dezEquipament; ?>');
 
-                            var janMeetingRoom = JSON.parse('<?php echo $janMeetingRoom; ?>');
-                            var fevMeetingRoom = JSON.parse('<?php echo $fevMeetingRoom; ?>');
-                            var marMeetingRoom = JSON.parse('<?php echo $marMeetingRoom; ?>');
-                            var abrMeetingRoom = JSON.parse('<?php echo $abrMeetingRoom; ?>');
-                            var maioMeetingRoom = JSON.parse('<?php echo $maioMeetingRoom; ?>');
-                            var junMeetingRoom = JSON.parse('<?php echo $junMeetingRoom; ?>');
-                            var julMeetingRoom = JSON.parse('<?php echo $julMeetingRoom; ?>');
-                            var agoMeetingRoom = JSON.parse('<?php echo $agoMeetingRoom; ?>');
-                            var setMeetingRoom = JSON.parse('<?php echo $setMeetingRoom; ?>');
-                            var outMeetingRoom = JSON.parse('<?php echo $outMeetingRoom; ?>');
-                            var novMeetingRoom = JSON.parse('<?php echo $novMeetingRoom; ?>');
-                            var dezMeetingRoom = JSON.parse('<?php echo $dezMeetingRoom; ?>');
+                            var janMeeting = JSON.parse('<?php echo $janMeeting; ?>');
+                            var fevMeeting = JSON.parse('<?php echo $fevMeeting; ?>');
+                            var marMeeting = JSON.parse('<?php echo $marMeeting; ?>');
+                            var abrMeeting = JSON.parse('<?php echo $abrMeeting; ?>');
+                            var maioMeeting = JSON.parse('<?php echo $maioMeeting; ?>');
+                            var junMeeting = JSON.parse('<?php echo $junMeeting; ?>');
+                            var julMeeting = JSON.parse('<?php echo $julMeeting; ?>');
+                            var agoMeeting = JSON.parse('<?php echo $agoMeeting; ?>');
+                            var setMeeting = JSON.parse('<?php echo $setMeeting; ?>');
+                            var outMeeting = JSON.parse('<?php echo $outMeeting; ?>');
+                            var novMeeting = JSON.parse('<?php echo $novMeeting; ?>');
+                            var dezMeeting = JSON.parse('<?php echo $dezMeeting; ?>');
 
 
 
@@ -116,6 +116,20 @@
                             var outAuditoriums = JSON.parse('<?php echo $outAuditoriums; ?>');
                             var novAuditoriums = JSON.parse('<?php echo $novAuditoriums; ?>');
                             var dezAuditoriums = JSON.parse('<?php echo $dezAuditoriums; ?>');
+
+
+                            var janElerning = JSON.parse('<?php echo $janElerning; ?>');
+                            var fevElerning = JSON.parse('<?php echo $fevElerning; ?>');
+                            var marElerning = JSON.parse('<?php echo $marElerning; ?>');
+                            var abrElerning = JSON.parse('<?php echo $abrElerning; ?>');
+                            var maioElerning = JSON.parse('<?php echo $maioElerning; ?>');
+                            var junElerning = JSON.parse('<?php echo $junElerning; ?>');
+                            var julElerning = JSON.parse('<?php echo $julElerning; ?>');
+                            var agoElerning = JSON.parse('<?php echo $agoElerning; ?>');
+                            var setElerning = JSON.parse('<?php echo $setElerning; ?>');
+                            var outElerning = JSON.parse('<?php echo $outElerning; ?>');
+                            var novElerning = JSON.parse('<?php echo $novElerning; ?>');
+                            var dezElerning = JSON.parse('<?php echo $dezElerning; ?>');
 
 
 
@@ -377,53 +391,53 @@
                                         type: "spline",
                                         showInLegend: true,
                                         yValueFormatString: "##.00KZ",
-                                        name: "Auditório",
+                                        name: "E-learning",
                                         dataPoints: [{
                                                 label: "Janeiro",
-                                                y: janAuditoriums
+                                                y: janElerning
                                             },
                                             {
                                                 label: "Fevereiro",
-                                                y: feAuditoriums
+                                                y: fevElerning
                                             },
                                             {
                                                 label: "Março",
-                                                y: marAuditoriums
+                                                y: marElerning
                                             },
                                             {
                                                 label: "Abril",
-                                                y: abrAuditoriums
+                                                y: abrElerning
                                             },
                                             {
                                                 label: "Maio",
-                                                y: maioAuditoriums
+                                                y: maioElerning
                                             },
                                             {
                                                 label: "Junho",
-                                                y: junAuditoriums
+                                                y: junElerning
                                             },
                                             {
                                                 label: "Julho",
-                                                y: julAuditoriums
+                                                y: julElerning
                                             },
                                             {
                                                 label: "Ago",
-                                                y:agoAuditoriums
+                                                y:agoElerning
                                             },
                                             {
                                                 label: "Setembro",
-                                                y:  setAuditoriums
+                                                y:  setElerning
                                             },
                                             {
                                                 label: "Outubro",
-                                                y: outAuditoriums
+                                                y: outElerning
                                             },
                                             {
                                                 label: "Novembro",
-                                                y:novAuditoriums
+                                                y:novElerning
                                             },  {
                                                 label: "Dezembro",
-                                                y: dezAuditoriums
+                                                y: dezElerning
                                             }
 
                                         ]
@@ -436,51 +450,107 @@
                                         name: "Salas de Reuniões",
                                         dataPoints: [{
                                                 label: "Janeiro",
-                                                y: janMeetingRoom
+                                                y: janMeeting
                                             },
                                             {
                                                 label: "Fevereiro",
-                                                y: fevMeetingRoom
+                                                y: fevMeeting
                                             },
                                             {
                                                 label: "Março",
-                                                y: marMeetingRoom
+                                                y: marMeeting
                                             },
                                             {
                                                 label: "Abril",
-                                                y: abrMeetingRoom
+                                                y: abrMeeting
                                             },
                                             {
                                                 label: "Maio",
-                                                y: maioMeetingRoom
+                                                y: maioMeeting
                                             },
                                             {
                                                 label: "Junho",
-                                                y: junMeetingRoom
+                                                y: junMeeting
                                             },
                                             {
                                                 label: "Julho",
-                                                y: julMeetingRoom
+                                                y: julMeeting
                                             },
                                             {
                                                 label: "Ago",
-                                                y: agoMeetingRoom
+                                                y: agoMeeting
                                             },
                                             {
                                                 label: "Setembro",
-                                                y: setMeetingRoom
+                                                y: setMeeting
                                             },
                                             {
                                                 label: "Outubro",
-                                                y: outMeetingRoom
+                                                y: outMeeting
                                             },
                                             {
                                                 label: "Novembro",
-                                                y: novMeetingRoom
+                                                y: novMeeting
                                             },
                                             {
                                                 label: "Dezembro",
-                                                y: dezMeetingRoom
+                                                y: dezMeeting
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        type: "spline",
+                                        showInLegend: true,
+                                        visible: true,
+                                        yValueFormatString: "##.00KZ",
+                                        name: "Salas de Reuniões",
+                                        dataPoints: [{
+                                                label: "Janeiro",
+                                                y: janMeeting
+                                            },
+                                            {
+                                                label: "Fevereiro",
+                                                y: fevMeeting
+                                            },
+                                            {
+                                                label: "Março",
+                                                y: marMeeting
+                                            },
+                                            {
+                                                label: "Abril",
+                                                y: abrMeeting
+                                            },
+                                            {
+                                                label: "Maio",
+                                                y: maioMeeting
+                                            },
+                                            {
+                                                label: "Junho",
+                                                y: junMeeting
+                                            },
+                                            {
+                                                label: "Julho",
+                                                y: julMeeting
+                                            },
+                                            {
+                                                label: "Ago",
+                                                y: agoMeeting
+                                            },
+                                            {
+                                                label: "Setembro",
+                                                y: setMeeting
+                                            },
+                                            {
+                                                label: "Outubro",
+                                                y: outMeeting
+                                            },
+                                            {
+                                                label: "Novembro",
+                                                y: novMeeting
+                                            },
+                                            {
+                                                label: "Dezembro",
+                                                y: dezMeeting
                                             }
                                         ]
                                     },

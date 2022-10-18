@@ -150,6 +150,64 @@ $data=date('Y');
         /**end  startup */
 
 
+        /** Meeting Room */
+        $janMeeting = Payment::whereYear('created_at', '=', $data)->with('MeetingRooms')->whereMonth('created_at', '=', 01)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
+        $response['janMeeting'] = json_encode($janMeeting);
+        $fevMeeting = Payment::whereYear('created_at', '=', $data)->with('MeetingRooms')->whereMonth('created_at', '=', 02)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
+        $response['fevMeeting'] = json_encode($fevMeeting);
+        $marMeeting = Payment::whereYear('created_at', '=', $data)->with('MeetingRooms')->whereMonth('created_at', '=', 03)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
+        $response['marMeeting'] = json_encode($marMeeting);
+        $abrMeeting = Payment::whereYear('created_at', '=', $data)->with('MeetingRooms')->whereMonth('created_at', '=', 04)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
+        $response['abrMeeting'] = json_encode($abrMeeting);
+        $maioMeeting = Payment::whereYear('created_at', '=', $data)->with('MeetingRooms')->whereMonth('created_at', '=', 05)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
+        $response['maioMeeting'] = json_encode($maioMeeting);
+        $junMeeting = Payment::whereYear('created_at', '=', $data)->with('MeetingRooms')->whereMonth('created_at', '=', 06)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
+        $response['junMeeting'] = json_encode($junMeeting);
+        $julMeeting = Payment::whereYear('created_at', '=', $data)->with('MeetingRooms')->whereMonth('created_at', '=', 07)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
+        $response['julMeeting'] = json_encode($julMeeting);
+        $agoMeeting = Payment::whereYear('created_at', '=', $data)->with('MeetingRooms')->whereMonth('created_at', '=', '08')->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
+        $response['agoMeeting'] = json_encode($agoMeeting);
+        $setMeeting = Payment::whereYear('created_at', '=', $data)->with('MeetingRooms')->whereMonth('created_at', '=', '09')->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
+        $response['setMeeting'] = json_encode($setMeeting);
+        $outMeeting = Payment::whereYear('created_at', '=', $data)->with('MeetingRooms')->whereMonth('created_at', '=', '10')->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
+        $response['outMeeting'] = json_encode($outMeeting);
+        $novMeeting = Payment::whereYear('created_at', '=', $data)->with('MeetingRooms')->whereMonth('created_at', '=', 11)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
+        $response['novMeeting'] = json_encode($novMeeting);
+        $dezMeeting = Payment::whereYear('created_at', '=', $data)->with('MeetingRooms')->whereMonth('created_at', '=', 12)->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
+        $response['dezMeeting'] = json_encode($dezMeeting);
+        $response['totalMeeting']  = Payment::whereYear('created_at', '=', $data)->with('MeetingRooms')->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
+        /**end  Meeting */
+
+
+        /** Meeting Room */
+        $janElerning = Payment::whereYear('created_at', '=', $data)->with('Elearnings')->whereMonth('created_at', '=', 01)->where('status', '=', 'Pago')->where('origin', '=', 'E-Learning')->sum('value');
+        $response['janElerning'] = json_encode($janElerning);
+        $fevElerning = Payment::whereYear('created_at', '=', $data)->with('Elearnings')->whereMonth('created_at', '=', 02)->where('status', '=', 'Pago')->where('origin', '=', 'E-Learning')->sum('value');
+        $response['fevElerning'] = json_encode($fevElerning);
+        $marElerning = Payment::whereYear('created_at', '=', $data)->with('Elearnings')->whereMonth('created_at', '=', 03)->where('status', '=', 'Pago')->where('origin', '=', 'E-Learning')->sum('value');
+        $response['marElerning'] = json_encode($marElerning);
+        $abrElerning = Payment::whereYear('created_at', '=', $data)->with('Elearnings')->whereMonth('created_at', '=', 04)->where('status', '=', 'Pago')->where('origin', '=', 'E-Learning')->sum('value');
+        $response['abrElerning'] = json_encode($abrElerning);
+        $maioElerning = Payment::whereYear('created_at', '=', $data)->with('Elearnings')->whereMonth('created_at', '=', 05)->where('status', '=', 'Pago')->where('origin', '=', 'E-Learning')->sum('value');
+        $response['maioElerning'] = json_encode($maioElerning);
+        $junElerning = Payment::whereYear('created_at', '=', $data)->with('Elearnings')->whereMonth('created_at', '=', 06)->where('status', '=', 'Pago')->where('origin', '=', 'E-Learning')->sum('value');
+        $response['junElerning'] = json_encode($junElerning);
+        $julElerning = Payment::whereYear('created_at', '=', $data)->with('Elearnings')->whereMonth('created_at', '=', 07)->where('status', '=', 'Pago')->where('origin', '=', 'E-Learning')->sum('value');
+        $response['julElerning'] = json_encode($julElerning);
+        $agoElerning = Payment::whereYear('created_at', '=', $data)->with('Elearnings')->whereMonth('created_at', '=', '08')->where('status', '=', 'Pago')->where('origin', '=', 'E-Learning')->sum('value');
+        $response['agoElerning'] = json_encode($agoElerning);
+        $setElerning = Payment::whereYear('created_at', '=', $data)->with('Elearnings')->whereMonth('created_at', '=', '09')->where('status', '=', 'Pago')->where('origin', '=', 'E-Learning')->sum('value');
+        $response['setElerning'] = json_encode($setElerning);
+        $outElerning = Payment::whereYear('created_at', '=', $data)->with('Elearnings')->whereMonth('created_at', '=', '10')->where('status', '=', 'Pago')->where('origin', '=', 'E-Learning')->sum('value');
+        $response['outElerning'] = json_encode($outElerning);
+        $novElerning = Payment::whereYear('created_at', '=', $data)->with('Elearnings')->whereMonth('created_at', '=', 11)->where('status', '=', 'Pago')->where('origin', '=', 'E-Learning')->sum('value');
+        $response['novElerning'] = json_encode($novElerning);
+        $dezElerning = Payment::whereYear('created_at', '=', $data)->with('Elearnings')->whereMonth('created_at', '=', 12)->where('status', '=', 'Pago')->where('origin', '=', 'E-Learning')->sum('value');
+        $response['dezElerning'] = json_encode($dezElerning);
+        $response['totalElerning']  = Payment::whereYear('created_at', '=', $data)->with('Elearnings')->where('status', '=', 'Pago')->where('origin', '=', 'E-Learning')->sum('value');
+        /**end  Meeting */
+
+
         /**cowork  */
         $jancowork = Payment::whereYear('created_at', '=', $data)->with('Cowork')->whereMonth('created_at', '=', 01)->where('status', '=', 'Pago')->where('origin', '=', 'Cowork')->sum('value');
         $response['jancowork'] = json_encode($jancowork);
