@@ -139,6 +139,8 @@ class StatistiYerar extends Controller
         $response['totalMeeting']  = Payment::whereYear('created_at', '=', $id)->with('MeetingRooms')->where('status', '=', 'Pago')->where('origin', '=', 'Sala de Reunioes')->sum('value');
         /**end  Meeting */
 
+    
+
 
         /**startups */
         $janStartups = Payment::whereYear('created_at', '=', $id)->with('startups')->whereMonth('created_at', '=', 01)->where('status', '=', 'Pago')->where('origin', '=', 'Startup')->sum('value');
