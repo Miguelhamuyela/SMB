@@ -153,7 +153,10 @@
             OBS: O Pagamento Será Efectuado via RUPE, no Prazo de Trinta Dias (30 dias).
         </small>
 
+        <div class="col-12 mt-5">
 
+            <img src="dashboard/images/minttics.jpg" width="250">
+        </div>
 
     </footer>
 
