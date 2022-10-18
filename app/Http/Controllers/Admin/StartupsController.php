@@ -154,7 +154,7 @@ class StartupsController extends Controller
         $response['singleStartup'] = $data;
 
         $pdf = PDF::loadView('pdf/singleStartup/index', $response);
-        $pdf->setPaper('A4', 'landscape');
+        $pdf->setPaper('A3', 'landscape');
         return $pdf->stream('Emitiu informações sobre a startup com id ' . $data->id . ".pdf");
 
     }
