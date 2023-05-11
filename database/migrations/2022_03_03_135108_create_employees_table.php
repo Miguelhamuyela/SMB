@@ -17,7 +17,7 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('tel',20);
-            $table->string('email',30);
+            $table->longText('email',30);
             $table->string('nif', 30);
             $table->string('photoEmployee')->nullable();
             $table->string('departament');

@@ -23,7 +23,7 @@ class EmployeeController extends Controller
         return view('admin.employees.list.index', $response);
     }
 
-   
+
     public function create()
     {
         //Logger
@@ -36,7 +36,7 @@ class EmployeeController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|max:200',
+            'email' => 'required|string|email',
             'tel' => 'max:12',
             'nif' => 'required|string|max:50',
             'occupation' => 'required|string|max:100',
@@ -87,7 +87,7 @@ class EmployeeController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
+            'email' => 'required|string|email',
             'tel' => 'max:12',
             'nif' => 'required|string|max:50',
             'occupation' => 'required|string|max:50',
@@ -121,7 +121,7 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         Employee::find($id)->delete();
-        
+
         $this->Logger->log('info', 'Eliminou um Funcionário com o identificador ' . $id);
         return  redirect()->route('admin.employees.index')->with('destroy', '1');
     }

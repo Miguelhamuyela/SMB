@@ -147,45 +147,45 @@
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Tipo de Pagamento</b><br>
-                                            <small> {{ $manufacture->meetingRooms->type }}</small>
+                                            <small> {{ $manufacture->payments->type }}</small>
                                         </p>
                                     </div>
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Valores a Pagar</b><br>
-                                            <small> {{ $manufacture->meetingRooms->value }}</small>
+                                            <small> {{ $manufacture->payments->value }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Referência</b><br>
-                                            <small> {{ $manufacture->meetingRooms->reference }}</small>
+                                            <small> {{ $manufacture->payments->reference }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Moeda</b><br>
-                                            <small> {{ $manufacture->meetingRooms->currency }}</small>
+                                            <small> {{ $manufacture->payments->currency }}</small>
                                         </p>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p class="text-dark">
                                             <b>Estado do Pagamento</b> <br>
-                                            @if ($manufacture->meetingRooms->status == 'Pago')
+                                            @if ($manufacture->payments->status == 'Pago')
                                                 <div class="btn btn-success btn-fw btn-rounded text-dark ">
-                                                    {{ $manufacture->meetingRooms->status }}</div>
-                                            @elseif($manufacture->meetingRooms->status == 'Não Pago')
+                                                    {{ $manufacture->payments->status }}</div>
+                                            @elseif($manufacture->payments->status == 'Não Pago')
                                                 <div class="btn btn-danger btn-fw btn-rounded text-white ">
-                                                    {{ $manufacture->meetingRooms->status }}</div>
-                                            @elseif($manufacture->meetingRooms->status == 'Em Validação')
+                                                    {{ $manufacture->payments->status }}</div>
+                                            @elseif($manufacture->payments->status == 'Em Validação')
                                                 <div class="btn btn-warning btn-fw btn-rounded text-dark ">
-                                                    {{ $manufacture->meetingRooms->status }}</div>
+                                                    {{ $manufacture->payments->status }}</div>
                                             @else
                                                 <div class="btn btn-dark btn-fw btn-rounded text-dark ">
-                                                    {{ $manufacture->meetingRooms->status }}</div>
+                                                    {{ $manufacture->payments->status }}</div>
                                             @endif
 
                                         </p>
