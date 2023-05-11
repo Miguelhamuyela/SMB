@@ -197,7 +197,7 @@ class AuditoriumsController extends Controller
         Client::find($cowork->fk_Clients_id)->update($request->all());
         Scheduling::find($cowork->fk_Schelduling_id)->update($request->all());
         Scheldule::find($cowork->fk_Scheldules_id)->update($request->all());
-        Payment::find($id)->update([
+        Payment::find($cowork->fk_Payments_id)->update([
             'type' => $request->type,
             'value' => $request->value,
             'reference' => $request->reference,

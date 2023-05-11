@@ -75,7 +75,7 @@ class EquipmentRepairsController extends Controller
             'reference' => $request->reference,
             'currency' => $request->currency,
             'status' => $request->status,
-            'origin' => "Auditório",
+            'origin' => "Reparação de Equipamentos",
             'code' =>  'DIGITAL' . "-" . rand() . "-" . date('Y')
         ]);
         $schedule = Scheldule::create($request->all());
@@ -190,18 +190,18 @@ class EquipmentRepairsController extends Controller
 
     public function destroy($id)
     {
-      
+
         $er = EquipmentRepair::find($id);
 
         Payment::where('id', $er->fk_Payments_id)->delete();
         Client::where('id', $er->fk_Clients_id)->delete();
         Scheldule::where('id', $er->fk_Scheldules_id)->delete();
-        
+
         EquipmentRepair::find($id)->delete();
-        
+
         //Logger
         $this->Logger->log('info', 'Eliminou Reparação de Equipamentos com o identificador ' . $id);
-        
+
         return redirect('admin/reparação-equipamentos/list')->with('destroy', '1');
     }
 }

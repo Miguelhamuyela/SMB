@@ -94,7 +94,7 @@ class ManufacturesSoftwaresController extends Controller
             'reference' => $request->reference,
             'currency' => $request->currency,
             'status' => $request->status,
-            'origin' => "Auditório",
+            'origin' => "Fábrica de Software",
             'code' =>  'DIGITAL' . "-" . rand() . "-" . date('Y')
         ]);
         $schedule = Scheldule::create($request->all());
@@ -196,7 +196,7 @@ class ManufacturesSoftwaresController extends Controller
             'status' => 'required|string|max:255',
 
 
-            
+
 
         ]);
 
@@ -238,7 +238,7 @@ class ManufacturesSoftwaresController extends Controller
         Payment::where('id', $ms->fk_Payments_id)->delete();
         Client::where('id', $ms->fk_Clients_id)->delete();
         Scheldule::where('id', $ms->fk_Scheldules_id)->delete();
-        
+
         ManufacturesSoftware::find($id)->delete();
 
 
