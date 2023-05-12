@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', 'Lista de Utilizadores')
+@section('titulo', 'Cadastrar Startup')
 
 @section('content')
     <div class="row">
@@ -26,7 +26,7 @@
                         @include('forms._formStartups.index')
                     </div>
 
-                    
+
 
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Período do Contrato</b></h4>

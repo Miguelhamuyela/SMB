@@ -67,7 +67,7 @@
                                             </td>
                                         @else
                                             <td>
-                                                <div class="btn btn-dark btn-fw btn-rounded text-dark ">
+                                                <div class="btn btn-dark btn-fw btn-rounded text-white ">
                                                     {{ $item->payments->status }}</div>
                                             </td>
                                         @endif
