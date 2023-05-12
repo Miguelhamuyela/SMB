@@ -100,6 +100,9 @@
                                     </p>
                                 </div>
 
+
+                                @isset($startup->document)
+
                                 <div class="col-md-4">
                                     <p class="text-dark">
                                         <b>Documentação</b><br>
@@ -107,6 +110,9 @@
                                                 href="/storage/{{$startup->document}}">Documento</a></small>
                                     </p>
                                 </div>
+
+
+                                @endisset
 
                                 <div class="col-md-3">
                                     <p class="text-dark">
