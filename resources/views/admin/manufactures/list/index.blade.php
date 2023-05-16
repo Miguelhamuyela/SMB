@@ -68,12 +68,8 @@
                                                     <i class="fa fa-navicon text-white" aria-hidden="true"></i>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    @if (!($item->payments->status == 'Pago'))
                                                     <a href='{{ url("admin/manufactures/show/{$item->id}") }}'
                                                         class="dropdown-item">Detalhes</a>
-                                                    @endif
-
-
                                                     @if ($item->payments->status == 'Pago')
                                                         <a href="{{ url('admin/pagamentos/fatura/'. $item->payments->code . '/' . $item->payments->origin . '/' . $item->payments->value . '/' . $item->clients->name. '/' . $item->payments->status.'/'.$item->clients->nif.'/'.$item->updated_at) }}"
                                                             class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
