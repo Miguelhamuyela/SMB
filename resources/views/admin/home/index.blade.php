@@ -7,31 +7,31 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-2 col-md-6">
                             <div class="d-flex">
                                 <div class="wrapper">
                                     <h3 class="mb-0 font-weight-semibold">{{ $user }}</h3>
                                     <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.user.index') }}">Utilizadores</a>
                                     <p class="mb-0 text-muted">{{ $user/100 }}%</p>
                                 </div>
-                                <div class="wrapper my-auto ml-auto ml-lg-4">
+                                <div class="wrapper my-auto ml-auto ml-lg-2">
                                     <canvas height="50" width="100" id="stats-line-graph-1"></canvas>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
+                        <div class="col-lg-2 col-md-6 mt-md-0 mt-4">
                             <div class="d-flex">
                                 <div class="wrapper">
                                     <h3 class="mb-0 font-weight-semibold">{{ $startup }}</h3>
                                     <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.startup.list.index') }}">Startups</a>
                                     <p class="mb-0 text-muted">{{ $startup/100 }}%</p>
                                 </div>
-                                <div class="wrapper my-auto ml-auto ml-lg-4">
+                                <div class="wrapper my-auto ml-auto ml-lg-2">
                                     <canvas height="50" width="100" id="stats-line-graph-2"></canvas>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
+                        <div class="col-lg-2 col-md-6 mt-md-0 mt-4">
                             <div class="d-flex">
                                 <div class="wrapper">
                                     <h3 class="mb-0 font-weight-semibold">{{ $employee }}</h3>
@@ -43,18 +43,49 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
+
+                        <div class="col-lg-2 col-md-6 mt-md-0 mt-4">
                             <div class="d-flex">
                                 <div class="wrapper">
-                                    <h3 class="mb-0 font-weight-semibold">{{ $client }}</h3>
-                                    <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.client.list.index') }}">Clientes</a>
-                                    <p class="mb-0 text-muted">{{ $client/100 }}%</p>
+                                    <h3 class="mb-0 font-weight-semibold">{{ $auditorium }}</h3>
+                                    <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.auditoriums.list.index') }}">Auditório</a>
+                                    <p class="mb-0 text-muted">{{ $auditorium/100 }}%</p>
                                 </div>
                                 <div class="wrapper my-auto ml-auto ml-lg-4">
                                     <canvas height="50" width="100" id="stats-line-graph-4"></canvas>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-lg-2 col-md-6 mt-md-0 mt-4">
+                            <div class="d-flex">
+                                <div class="wrapper">
+                                    <h3 class="mb-0 font-weight-semibold">{{ $cowork }}</h3>
+                                    <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.coworks.list.index') }}">Coworks</a>
+                                    <p class="mb-0 text-muted">{{ $cowork/100 }}%</p>
+                                </div>
+                                <div class="wrapper my-auto ml-auto ml-lg-2">
+                                    <canvas height="50" width="100" id="stats-line-graph-5"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6 mt-md-0 mt-4">
+                            <div class="d-flex">
+                                <div class="wrapper">
+                                    <h3 class="mb-0 font-weight-semibold">{{ $client }}</h3>
+                                    <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.client.list.index') }}">Clientes</a>
+                                    <p class="mb-0 text-muted">{{ $client/100 }}%</p>
+                                </div>
+                                <div class="wrapper my-auto ml-auto ml-lg-2">
+                                    <canvas height="50" width="100" id="stats-line-graph-6"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -64,7 +95,33 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
+                <div class="col-md-3 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body pb-0">
+                            <div class="d-flex justify-content-between">
+                                <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.elernings.list.index') }}">E-learning</a>
+                                <p class="font-weight-semibold mb-0">{{ $elearning/100 }}%</p>
+                            </div>
+                            <h3 class="font-weight-medium mb-4">{{ $elearning }}</h3>
+                        </div>
+                        <canvas class="mt-n4" height="90" id="total-revenue"></canvas>
+                    </div>
+                </div>
+
+                <div class="col-md-3 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body pb-0">
+                            <div class="d-flex justify-content-between">
+                                <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.meetingRoom.list.index') }}">Salas de Reuniões</a>
+                                <p class="font-weight-semibold mb-0">{{ $meetingRoom/100 }}%</p>
+                            </div>
+                            <h3 class="font-weight-medium mb-4">{{ $meetingRoom }}</h3>
+                        </div>
+                        <canvas class="mt-n4" height="90" id="total-revenue"></canvas>
+                    </div>
+                </div>
+
+                <div class="col-md-3 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body pb-0">
                             <div class="d-flex justify-content-between">
@@ -76,7 +133,7 @@
                         <canvas class="mt-n4" height="90" id="total-revenue"></canvas>
                     </div>
                 </div>
-                <div class="col-md-6 grid-margin stretch-card">
+                <div class="col-md-3 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body pb-0">
                             <div class="d-flex justify-content-between">
