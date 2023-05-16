@@ -109,7 +109,7 @@
                                             </td>
                                         @else
                                             <td>
-                                                <div class="btn btn-dark btn-fw btn-rounded text-dark ">
+                                                <div class="btn btn-dark btn-fw btn-rounded text-white ">
                                                     {{ $item->status }}</div>
                                             </td>
                                         @endif

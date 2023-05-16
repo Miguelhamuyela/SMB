@@ -48,7 +48,7 @@ class MembersController extends Controller
             'occupation' => '|string|max:255',
             'email' => 'required|string|max:255',
             'tel' => 'max:50',
-            'nif' => 'unique:members|string|max:50',
+            'nif' => 'string|max:50',
             'foto' => 'mimes:jpg,png,gif,SVG,JPEG',
         ]);
 

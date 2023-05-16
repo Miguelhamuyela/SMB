@@ -4,11 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Classes\Logger;
 use App\Http\Controllers\Controller;
+use App\Models\Auditorium;
 use App\Models\Client;
+use App\Models\Cowork;
+use App\Models\Elearning;
 use App\Models\Employee;
 use App\Models\EquipmentRepair;
 use App\Models\Log;
 use App\Models\ManufacturesSoftware;
+use App\Models\MeetingRoom;
 use App\Models\Startup;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -26,6 +30,10 @@ class DashboardController extends Controller
     {
         /* contadores */
         $response['user'] = User::count();
+        $response['elearning'] = Elearning::count();
+        $response['cowork'] = Cowork::count();
+        $response['auditorium'] = Auditorium::count();
+        $response['meetingRoom'] = MeetingRoom::count();
         $response['startup'] = Startup::count();
         $response['employee'] = Employee::count();
         $response['client'] = Client::count();
