@@ -26,11 +26,7 @@
                                 <tr class="text-center">
                                     <th>#</th>
                                     <th>TÍTULO DA CONFERÊNCIA</th>
-                                    @foreach ($auditoriums as $item)
-                                        @isset($item->scheduling)
-                                            <th>AGENDAMENTO</th>
-                                        @endisset
-                                    @endforeach
+                                    <th>AGENDAMENTO</th>
                                     <th>NOME DO CLIENTE</th>
                                     <th>NIF</th>
                                     <th>TELEFONE</th>
