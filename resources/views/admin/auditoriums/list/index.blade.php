@@ -27,9 +27,9 @@
                                     <th>#</th>
                                     <th>TÍTULO DA CONFERÊNCIA</th>
                                     @foreach ($auditoriums as $item)
-                                    @isset($item->scheduling)
-                                    <th>AGENDAMENTO</th>
-                                    @endisset
+                                        @isset($item->scheduling)
+                                            <th>AGENDAMENTO</th>
+                                        @endisset
                                     @endforeach
                                     <th>NOME DO CLIENTE</th>
                                     <th>NIF</th>
@@ -44,7 +44,8 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->titleConference }}</td>
                                         @isset($item->scheduling)
-                                        <td>{{$item->scheduling->startedSchelduling}} - {{$item->scheduling->endSchelduling}}</td>
+                                            <td>{{ $item->scheduling->startedSchelduling }} -
+                                                {{ $item->scheduling->endSchelduling }}</td>
                                         @endisset
                                         <td>{{ $item->clients->name }} </td>
                                         <td>{{ $item->clients->nif }} </td>
@@ -85,12 +86,13 @@
                                                     <a href='{{ url("admin/auditoriums/show/{$item->id}") }}'
                                                         class="dropdown-item">Detalhes</a>
                                                     @if ($item->payments->status == 'Pago')
-                                                        <a href="{{ url('admin/pagamentos/fatura/'. $item->payments->code . '/' . $item->payments->origin . '/' . $item->payments->value . '/' . $item->clients->name. '/' . $item->payments->status.'/'.$item->clients->nif.'/'.$item->updated_at) }}"
+                                                        <a href="{{ url('admin/pagamentos/fatura/' . $item->payments->code . '/' . $item->payments->origin . '/' . $item->payments->value . '/' . $item->clients->name . '/' . $item->payments->status . '/' . $item->clients->nif . '/' . $item->updated_at) }}"
                                                             class="dropdown-item mt-2" target="_blank">Emitir Fatura</a>
                                                     @endif
                                                 </div>
                                             </div>
                                         </td>
+
                                     </tr>
                                 @endforeach
 
