@@ -149,6 +149,7 @@ class MeetingRoomsController extends Controller
         $response['meetingRoom'] = $middle;
 
         $response['scheldule'] = Helper::scheldule($middle->fk_Scheldules_id);
+        $response['payment'] =  Helper::payment($middle->fk_Payments_id);
 
         $this->Logger->log('info', 'Editar Salas de Reunião');
         return view('admin.meetingRoom.edit.index', $response);
@@ -173,13 +174,6 @@ class MeetingRoomsController extends Controller
             'meetRoom' => 'required|string|max:50',
             'name' => 'required|string|max:50',
             'email' => 'required|string|max:255',
-
-             /***Payment Information */
-            'type' => 'string|max:255',
-            'value' =>  'numeric',
-            'reference'  => 'max:255',
-            'currency' => 'string|max:255',
-            'status' => 'string|max:255',
 
             /**Scheldules Information */
             'started' => 'required|string|max:255',

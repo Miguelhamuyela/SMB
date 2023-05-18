@@ -105,6 +105,7 @@ class ElearningsController extends Controller
         $response['elerning'] = $middle;
         $response['scheldule'] =  Helper::scheldule($middle->fk_Scheldules_id);
         $response['client'] =  Helper::client($middle->fk_Clients_id);
+        $response['payment'] =  Helper::payment($middle->fk_Payments_id);
 
         $this->Logger->log('info', 'Entrou em Editar Elerning');
         return view('admin.elernings.edit.index', $response);
@@ -131,11 +132,7 @@ class ElearningsController extends Controller
             'note'=> 'required|string',
 
             /***Payment Information */
-            'type' => 'string|max:255',
-            'value' =>  'max:255',
-            'reference'  => 'max:255',
-            'currency' => 'string|max:255',
-            'status' => 'string|max:255'
+
          ]);
 
         Elearning::find($id)->update($request->all());

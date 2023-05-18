@@ -49,12 +49,22 @@
                         @include('forms._formFabricaPeriodo.index')
                     </div>
 
-
+                    @if ($manufacture->payments->status == 'Pago')
+                    <div class="card-body bg-light">
+                        <h4 class="card-title"><b>Pagamentos</b></h4>
+                        <hr>
+                        @include('forms._formPaymentsPaid.index')
+                    </div>
+                    @else
                     <div class="card-body bg-light">
                         <h4 class="card-title"><b>Pagamentos</b></h4>
                         <hr>
                         @include('forms._formPayments.index')
                     </div>
+
+                    @endif
+
+
 
 
 

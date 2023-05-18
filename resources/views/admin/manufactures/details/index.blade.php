@@ -213,7 +213,7 @@
                                         </small>
                                     </div>
 
-                                    @if (!($manufacture->payments->status == 'Pago'))
+
 
                                     <div class="col-md-4 text-dark text-right">
                                         <a type="button" class="btn btn-primary text-left text-white mb-2 btn-fw"
@@ -232,7 +232,7 @@
 
                                     </div>
 
-                                    @endif
+
 
                                 </div>
 
