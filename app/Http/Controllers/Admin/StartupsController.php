@@ -187,11 +187,7 @@ class StartupsController extends Controller
             'document' => 'mimes:pdf,docx,xlsx',
 
             /**Payments Information */
-            'type' => 'required|string|max:255',
-            'value' =>  'required|numeric|min:2',
-            'reference'  => 'max:255',
-            'currency' => 'required|string|max:255',
-            'status' => 'required|string|max:255',
+
 
             /**Payments Information End */
             'started' => 'required|string|max:255',
