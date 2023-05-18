@@ -38,6 +38,7 @@
                                     <a class="mb-0 font-weight-medium text-primary h5" href="{{ route('admin.employees.index') }}">Funcionários</a>
                                     <p class="mb-0 text-muted">{{ $employee/100 }}%</p>
                                 </div>
+
                                 <div class="wrapper my-auto ml-auto ml-lg-4">
                                     <canvas height="50" width="100" id="stats-line-graph-3"></canvas>
                                 </div>
@@ -84,8 +85,6 @@
                         </div>
 
 
-
-
                     </div>
                 </div>
             </div>
@@ -117,7 +116,7 @@
                             </div>
                             <h3 class="font-weight-medium mb-4">{{ $meetingRoom }}</h3>
                         </div>
-                        <canvas class="mt-n4" height="90" id="total-revenue"></canvas>
+                        <canvas class="mt-n4" height="90" id="total-meetingRoom"></canvas>
                     </div>
                 </div>
 
@@ -130,7 +129,7 @@
                             </div>
                             <h3 class="font-weight-medium mb-4">{{ $manufacturesSoftware }}</h3>
                         </div>
-                        <canvas class="mt-n4" height="90" id="total-revenue"></canvas>
+                        <canvas class="mt-n4" height="90" id="total-manufactures"></canvas>
                     </div>
                 </div>
                 <div class="col-md-3 grid-margin stretch-card">
@@ -142,7 +141,9 @@
                             </div>
                             <h3 class="font-weight-medium">{{ $equipmentRepair }}</h3>
                         </div>
-                        <canvas class="mt-n3" height="90" id="total-transaction"></canvas>
+                        <canvas class="mt-n3" height="90" id="total-equipment">
+
+                        </canvas>
                     </div>
                 </div>
 
