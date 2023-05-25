@@ -82,7 +82,7 @@
                         <span class="menu-title">Salas de Reuniões</span>
                     </a>
                 </li>
-           
+
                 <li class="nav-item nav-category mt-2">Estatísticas</li>
                 {{-- PayChart --}}
                 <li class="nav-item">
@@ -94,7 +94,7 @@
 
                 {{-- Clients --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.client.list.index') }}">
+                    <a class="nav-link" href="{{ route('admin.client.create.index') }}">
                         <i class="menu-icon typcn typcn-document-text"></i>
                         <span class="menu-title">Clientes</span>
                     </a>
@@ -116,6 +116,30 @@
                         <span class="menu-title">Funcionários </span>
                     </a>
                 </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Curso</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.provinces.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Província</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.registrations.create.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Inscrição</span>
+                    </a>
+                </li>
+
 
 
                 <li class="nav-item mb-5">

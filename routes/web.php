@@ -38,9 +38,24 @@ Route::middleware(['auth'])->group(function () {
         Route::put('admin/funcionários/update/{id}', ['as' => 'admin.employees.update', 'uses' => 'Admin\EmployeeController@update']);
         Route::get('admin/funcionários/delete/{id}', ['as' => 'admin.employees.delete', 'uses' => 'Admin\EmployeeController@destroy']);
         Route::get('admin/funcionários/show/{id}', ['as' => 'admin.employees.show', 'uses' => 'Admin\EmployeeController@show']);
-       /*  Route::get('admin/funcionários/cartão/{id}', ['as' => 'admin.employees.card', 'uses' => 'Admin\EmployeeController@card']);
+        /*  Route::get('admin/funcionários/cartão/{id}', ['as' => 'admin.employees.card', 'uses' => 'Admin\EmployeeController@card']);
          Route::get('admin/funcionários/GetSubCatAgainstMainCatEdit/{id}', ['as' => 'admin.employees', 'uses' => 'Admin\EmployeeController@GetSubCatAgainstMainCatEdit']);
-       */ /**End funcionários */
+       */
+        /**End funcionários */
+
+        /**funcionários */
+        Route::get('admin/cursos/list', ['as' => 'admin.courses.index', 'uses' => 'Admin\CourseController@index']);
+        Route::get('admin/cursos/create', ['as' => 'admin.courses.create', 'uses' => 'Admin\CourseController@create']);
+        Route::post('admin/cursos/store', ['as' => 'admin.courses.store', 'uses' => 'Admin\CourseController@store']);
+        Route::get('admin/cursos/edit/{id}', ['as' => 'admin.courses.edit.index', 'uses' => 'Admin\CourseController@edit']);
+        Route::put('admin/cursos/update/{id}', ['as' => 'admin.courses.update', 'uses' => 'Admin\CourseController@update']);
+        Route::get('admin/cursos/delete/{id}', ['as' => 'admin.courses.delete', 'uses' => 'Admin\CourseController@destroy']);
+        Route::get('admin/cursos/show/{id}', ['as' => 'admin.courses.show', 'uses' => 'Admin\CourseController@show']);
+        /*  Route::get('admin/funcionários/cartão/{id}', ['as' => 'admin.employees.card', 'uses' => 'Admin\EmployeeController@card']);
+         Route::get('admin/funcionários/GetSubCatAgainstMainCatEdit/{id}', ['as' => 'admin.employees', 'uses' => 'Admin\EmployeeController@GetSubCatAgainstMainCatEdit']);
+       */
+        /**End funcionários */
+
 
     });
 
@@ -82,6 +97,29 @@ Route::middleware(['auth'])->group(function () {
         /**End Clients */
 
 
+        /*-----------------------------------------------------------* inscrição -----------------------------------------*/
+        Route::get('admin/inscrição/index', ['as' => 'admin.registrations.create.index', 'uses' => 'Admin\RegistrationController@create']);
+        Route::get('admin/inscrição/list', ['as' => 'admin.registrations.list.index', 'uses' => 'Admin\RegistrationController@index']);
+        Route::post('admin/inscrição/store', ['as' => 'admin.registrations.store', 'uses' => 'Admin\RegistrationController@store']);
+        Route::get('admin/inscrição/show/{id}', ['as' => 'admin.registrations.show', 'uses' => 'Admin\RegistrationController@show']);
+        Route::get('admin/inscrição/edit/{id}', ['as' => 'admin.registrations.edit.index', 'uses' => 'Admin\RegistrationController@edit']);
+        Route::get('admin/inscrição/delete/{id}', ['as' => 'admin.registrations.delete', 'uses' => 'Admin\RegistrationController@destroy']);
+        Route::put('admin/inscrição/update/{id}', ['as' => 'admin.registrations.update', 'uses' => 'Admin\RegistrationController@update']);
+        //Relatórios PDF
+        Route::get('admin/inscrição/relatorios', ['as' => 'admin.registrations.report', 'uses' => 'Admin\RegistrationController@printClient']);
+        /**End Clients */
+
+        /*-----------------------------------------------------------* provincia -----------------------------------------*/
+        Route::get('admin/provincia/index', ['as' => 'admin.provinces.create.index', 'uses' => 'Admin\ProvinceController@create']);
+        Route::get('admin/provincia/list', ['as' => 'admin.provinces.list.index', 'uses' => 'Admin\ProvinceController@index']);
+        Route::post('admin/provincia/store', ['as' => 'admin.provinces.store', 'uses' => 'Admin\ProvinceController@store']);
+        Route::get('admin/provincia/show/{id}', ['as' => 'admin.provinces.show', 'uses' => 'Admin\ProvinceController@show']);
+        Route::get('admin/provincia/edit/{id}', ['as' => 'admin.provinces.edit.index', 'uses' => 'Admin\ProvinceController@edit']);
+        Route::get('admin/provincia/delete/{id}', ['as' => 'admin.provinces.delete', 'uses' => 'Admin\ProvinceController@destroy']);
+        Route::put('admin/provincia/update/{id}', ['as' => 'admin.provinces.update', 'uses' => 'Admin\ProvinceController@update']);
+        //Relatórios PDF
+        Route::get('admin/provincia/relatorios', ['as' => 'admin.provinces.report', 'uses' => 'Admin\ProvinceController@printClient']);
+        /**End Clients */
 
         /**Startups */
         Route::get('admin/startup/index', ['as' => 'admin.startup.create.index', 'uses' => 'Admin\StartupsController@create']);
@@ -165,7 +203,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/reparação-equipamentos/delete/{id}', ['as' => 'admin.equipmentRepair.delete', 'uses' => 'Admin\EquipmentRepairsController@destroy']);
         Route::put('admin/reparação-equipamentos/update/{id}', ['as' => 'admin.equipmentRepair.update', 'uses' => 'Admin\EquipmentRepairsController@update']);
         Route::get('admin/reparação-equipamentos/edit/{id}', ['as' => 'admin.equipmentRepair.edit.index', 'uses' => 'Admin\EquipmentRepairsController@edit']);
-       /**End equipmentRepair */
+        /**End equipmentRepair */
     });
 
 
