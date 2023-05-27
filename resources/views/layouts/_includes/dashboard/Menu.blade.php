@@ -94,7 +94,7 @@
 
                 {{-- Clients --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.client.create.index') }}">
+                    <a class="nav-link" href="{{ route('admin.client.list.index') }}">
                         <i class="menu-icon typcn typcn-document-text"></i>
                         <span class="menu-title">Clientes</span>
                     </a>
@@ -117,9 +117,29 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.student_years.create.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">AAAAAAAAAASSSSSQQQ</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.students.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">REGISTO</span>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="#">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">CursoAAAA</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.courses.list.index') }}">
                         <i class="menu-icon typcn typcn-document-text"></i>
                         <span class="menu-title">Curso</span>
                     </a>
@@ -134,7 +154,7 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.registrations.create.index') }}">
+                    <a class="nav-link" href="{{ route('admin.registrations.list.index') }}">
                         <i class="menu-icon typcn typcn-document-text"></i>
                         <span class="menu-title">Inscrição</span>
                     </a>

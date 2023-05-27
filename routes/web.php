@@ -41,22 +41,7 @@ Route::middleware(['auth'])->group(function () {
         /*  Route::get('admin/funcionários/cartão/{id}', ['as' => 'admin.employees.card', 'uses' => 'Admin\EmployeeController@card']);
          Route::get('admin/funcionários/GetSubCatAgainstMainCatEdit/{id}', ['as' => 'admin.employees', 'uses' => 'Admin\EmployeeController@GetSubCatAgainstMainCatEdit']);
        */
-        /**End funcionários */
-
-        /**funcionários */
-        Route::get('admin/cursos/list', ['as' => 'admin.courses.index', 'uses' => 'Admin\CourseController@index']);
-        Route::get('admin/cursos/create', ['as' => 'admin.courses.create', 'uses' => 'Admin\CourseController@create']);
-        Route::post('admin/cursos/store', ['as' => 'admin.courses.store', 'uses' => 'Admin\CourseController@store']);
-        Route::get('admin/cursos/edit/{id}', ['as' => 'admin.courses.edit.index', 'uses' => 'Admin\CourseController@edit']);
-        Route::put('admin/cursos/update/{id}', ['as' => 'admin.courses.update', 'uses' => 'Admin\CourseController@update']);
-        Route::get('admin/cursos/delete/{id}', ['as' => 'admin.courses.delete', 'uses' => 'Admin\CourseController@destroy']);
-        Route::get('admin/cursos/show/{id}', ['as' => 'admin.courses.show', 'uses' => 'Admin\CourseController@show']);
-        /*  Route::get('admin/funcionários/cartão/{id}', ['as' => 'admin.employees.card', 'uses' => 'Admin\EmployeeController@card']);
-         Route::get('admin/funcionários/GetSubCatAgainstMainCatEdit/{id}', ['as' => 'admin.employees', 'uses' => 'Admin\EmployeeController@GetSubCatAgainstMainCatEdit']);
-       */
-        /**End funcionários */
-
-
+        /**End funcionários *
     });
 
     Route::middleware(['ManagerFinancial'])->group(function () {
@@ -109,6 +94,54 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/inscrição/relatorios', ['as' => 'admin.registrations.report', 'uses' => 'Admin\RegistrationController@printClient']);
         /**End Clients */
 
+
+
+
+
+
+
+        /*-----------------------------------------------------------* students -----------------------------------------*/
+        Route::get('admin/estudantes/index', ['as' => 'admin.students.create.index', 'uses' => 'Admin\StudentController@create']);
+        Route::get('admin/estudantes/list', ['as' => 'admin.students.list.index', 'uses' => 'Admin\StudentController@index']);
+        Route::post('admin/estudantes/store', ['as' => 'admin.students.store', 'uses' => 'Admin\StudentController@store']);
+        Route::get('admin/estudantes/show/{id}', ['as' => 'admin.students.show', 'uses' => 'Admin\StudentController@show']);
+        Route::get('admin/estudantes/edit/{id}', ['as' => 'admin.students.edit.index', 'uses' => 'Admin\StudentController@edit']);
+        Route::get('admin/estudantes/delete/{id}', ['as' => 'admin.students.delete', 'uses' => 'Admin\StudentController@destroy']);
+        Route::put('admin/estudantes/update/{id}', ['as' => 'admin.students.update', 'uses' => 'Admin\StudentController@update']);
+        //Relatórios PDF
+        Route::get('admin/estudantes/relatorios', ['as' => 'admin.students.report', 'uses' => 'Admin\StudentController@printClient']);
+        /**End Clients */
+
+
+
+        Route::post('admin/estudantes/search', ['as' => 'admin.students_seach', 'uses' => 'Admin\StudentController@students_seach']);
+        Route::get('admin/estudantes/seachResult/{startYear}', ['as' => 'admin.students.seachResult', 'uses' => 'Admin\StudentController@seachResult']);
+        Route::get('admin/estudantes/recibo', ['as' => 'admin.students.report.print', 'uses' => 'Admin\StudentController@print']);
+        Route::get('admin/estudantes/estudantes/{id}', ['as' => 'admin.students.student', 'uses' => 'Admin\StudentController@GetSubCatAgainstMain']);
+        /**Print  */
+        Route::post('admin/estudantes/recibo/', ['as' => 'admin.students.print', 'uses' => 'Admin\StudentController@sendStartYear']);
+        Route::get('admin/estudantes/recibo/{startYear}', ['as' => 'admin.students.report', 'uses' => 'Admin\StudentController@print']);
+        /**end print */
+
+        /*-----------------------------------------------------------* courses -----------------------------------------*/
+
+
+
+
+
+
+        /*-----------------------------------------------------------* courses -----------------------------------------*/
+        Route::get('admin/curso/index', ['as' => 'admin.courses.create.index', 'uses' => 'Admin\CourseController@create']);
+        Route::get('admin/curso/list', ['as' => 'admin.courses.list.index', 'uses' => 'Admin\CourseController@index']);
+        Route::post('admin/curso/store', ['as' => 'admin.courses.store', 'uses' => 'Admin\CourseController@store']);
+        Route::get('admin/curso/show/{id}', ['as' => 'admin.courses.show', 'uses' => 'Admin\CourseController@show']);
+        Route::get('admin/curso/edit/{id}', ['as' => 'admin.courses.edit.index', 'uses' => 'Admin\CourseController@edit']);
+        Route::get('admin/curso/delete/{id}', ['as' => 'admin.courses.delete', 'uses' => 'Admin\CourseController@destroy']);
+        Route::put('admin/curso/update/{id}', ['as' => 'admin.courses.update', 'uses' => 'Admin\CourseController@update']);
+        //Relatórios PDF
+        Route::get('admin/curso/relatorios', ['as' => 'admin.courses.report', 'uses' => 'Admin\CourseController@printClient']);
+        /**-----------------------------------------------------------End courses ---------------------------------------------*/
+
         /*-----------------------------------------------------------* provincia -----------------------------------------*/
         Route::get('admin/provincia/index', ['as' => 'admin.provinces.create.index', 'uses' => 'Admin\ProvinceController@create']);
         Route::get('admin/provincia/list', ['as' => 'admin.provinces.list.index', 'uses' => 'Admin\ProvinceController@index']);
@@ -121,6 +154,18 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/provincia/relatorios', ['as' => 'admin.provinces.report', 'uses' => 'Admin\ProvinceController@printClient']);
         /**End Clients */
 
+        /*-----------------------------------------------------------* courses -----------------------------------------*/
+        Route::get('admin/ano_estudante/index', ['as' => 'admin.student_years.create.index', 'uses' => 'Admin\StudentYearController@create']);
+        Route::get('admin/ano_estudante/list', ['as' => 'admin.student_years.list.index', 'uses' => 'Admin\StudentYearController@index']);
+        Route::post('admin/ano_estudante/store', ['as' => 'admin.student_years.store', 'uses' => 'Admin\StudentYearController@store']);
+        Route::get('admin/ano_estudante/show/{id}', ['as' => 'admin.student_years.show', 'uses' => 'Admin\StudentYearController@show']);
+        Route::get('admin/ano_estudante/edit/{id}', ['as' => 'admin.student_years.edit.index', 'uses' => 'Admin\StudentYearController@edit']);
+        Route::get('admin/ano_estudante/delete/{id}', ['as' => 'admin.student_years.delete', 'uses' => 'Admin\StudentYearController@destroy']);
+        Route::put('admin/ano_estudante/update/{id}', ['as' => 'admin.student_years.update', 'uses' => 'Admin\StudentYearController@update']);
+        //Relatórios PDF
+        Route::get('admin/ano_estudante/relatorios', ['as' => 'admin.student_years.report', 'uses' => 'Admin\StudentYearController@printClient']);
+        /**-----------------------------------------------------------End courses ---------------------------------------------*/
+
         /**Startups */
         Route::get('admin/startup/index', ['as' => 'admin.startup.create.index', 'uses' => 'Admin\StartupsController@create']);
         Route::get('admin/startup/list', ['as' => 'admin.startup.list.index', 'uses' => 'Admin\StartupsController@index']);
@@ -132,8 +177,6 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('admin/startup/print/{id}', ['as' => 'admin.startup.print', 'uses' => 'Admin\StartupsController@print']);
         /**End Startups */
-
-
         /**Cowork */
         Route::get('admin/cowork/index', ['as' => 'admin.coworks.create.index', 'uses' => 'Admin\CoworkController@create']);
         Route::get('admin/cowork/list', ['as' => 'admin.coworks.list.index', 'uses' => 'Admin\CoworkController@index']);
@@ -152,8 +195,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('admin/memberCowork/store/{id}', ['as' => 'admin.memberCowork.store', 'uses' => 'Admin\CoworksMemberController@store']);
         Route::get('admin/memberCowork/delete/{id}', ['as' => 'admin.memberCowork.delete', 'uses' => 'Admin\CoworksMemberController@destroy']);
         /**End Member Cowork */
-
-
 
         /**Elernings */
         Route::get('admin/elernings/index', ['as' => 'admin.elernings.create.index', 'uses' => 'Admin\ElearningsController@create']);
@@ -219,6 +260,20 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/manufactures/show/{id}', ['as' => 'admin.manufactures.show', 'uses' => 'Admin\ManufacturesSoftwaresController@show']);
         Route::get('admin/manufactures/list', ['as' => 'admin.manufactures.list', 'uses' => 'Admin\ManufacturesSoftwaresController@index']);
         /**End ManufacturesSoftware */
+        /* rota de  ano-academico-estudantes */
+        Route::get('admin/ano-academico-estudantes/index', ['as' => 'admin.student_academic_years.index', 'uses' => 'Admin\StudentAcademicYear@index']);
+        Route::get('admin/ano-academico-estudantes/show/{id}', ['as' => 'admin.student_academic_years.show', 'uses' => 'Admin\StudentAcademicYear@show']);
+        Route::get('admin/ano-academico-estudantes/create', ['as' => 'admin.student_academic_years.create', 'uses' => 'Admin\StudentAcademicYear@create']);
+        Route::post('admin/ano-academico-estudantes/store', ['as' => 'admin.student_academic_years.store', 'uses' => 'Admin\StudentAcademicYear@store']);
+        Route::get('admin/ano-academico-estudantes/edit/{id}', ['as' => 'admin.student_academic_years.edit', 'uses' => 'Admin\StudentAcademicYear@edit']);
+        Route::put('admin/ano-academico-estudantes/update/{id}', ['as' => 'admin.student_academic_years.update', 'uses' => 'Admin\StudentAcademicYear@update']);
+        Route::get('admin/ano-academico-estudantes/delete/{id}', ['as' => 'admin.student_academic_years.delete', 'uses' => 'Admin\StudentAcademicYear@destroy']);
+        Route::post('admin/ano-academico-estudantes/search', ['as' => 'admin.student_academic_years_seach', 'uses' => 'Admin\StudentAcademicYear@student_academic_years_seach']);
+        Route::get('admin/ano-academico-estudantes/seachResult/{startYear}', ['as' => 'admin.student_academic_years.seachResult', 'uses' => 'Admin\StudentAcademicYear@seachResult']);
+        Route::get('admin/ano-academico-estudantes/recibo', ['as' => 'admin.student_academic_years.report', 'uses' => 'Admin\StudentAcademicYear@print']);
+        Route::get('admin/ano-academico-estudantes/estudantes/{id}', ['as' => 'admin.student_academic_years.student', 'uses' => 'Admin\StudentAcademicYear@GetSubCatAgainstMain']);
+        Route::get('admin/ano-academico-estudantes/recibo', ['as' => 'admin.student_academic_years.report', 'uses' => 'Admin\StudentAcademicYear@print']);
+        /* rota de  estudante-transferido */
     });
 });
 

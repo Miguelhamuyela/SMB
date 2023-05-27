@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Classes\Logger;
 use App\Http\Controllers\Controller;
+use App\Models\Course;
+use App\Models\Province;
 use App\Models\Registration;
 use Illuminate\Http\Request;
 
@@ -23,9 +25,7 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-       // $response['registrations'] = Registration::get();
-      //  return view('admin.registration.list.index', $response);
-
+    
         $response['registrations'] = Registration::get();
         return view("admin.registration.list.index", $response)->with('destroy',1);
     }
@@ -37,8 +37,8 @@ class RegistrationController extends Controller
      */
     public function create()
     {
-       // $response['registrations'] = Registration::get();
-      //  $response['provinces'] = Province::get();
+        $response['courses'] = Course::get();
+        $response['provinces'] = Province::get();
         $response['registrations'] = Registration::get();
         return view('admin.registration.create.index',$response);
     }
@@ -64,6 +64,8 @@ class RegistrationController extends Controller
             'municipeName' => 'required|string|max:50',
             'startYear' => 'required|string|max:50',
             'address' => 'required|string|max:255',
+            'fk_course_id' => 'required|string|max:50',
+            'fk_provinces_id' => 'required|string|max:255',
         ]);
 
         $registrations = Registration::create($request->all());
@@ -119,6 +121,8 @@ class RegistrationController extends Controller
             'municipeName' => 'required|string|max:50',
             'startYear' => 'required|string|max:50',
             'address' => 'required|string|max:255',
+            'fk_course_id' => 'required|string|max:50',
+            'fk_provinces_id' => 'required|string|max:255',
         ]);
 
         Registration::find($id)->update($request->all());

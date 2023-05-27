@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('courseName');
             $table->string("start");
             $table->string("duration");
+            $table->string("depart");
           //  $table->unsignedBigInteger('fk_users_id');
           //  $table->foreign('fk_users_id')->references('id')->on('users')->onDelete('CASCADE')->onUpgrade('CASCADE');
           //  $table->unsignedBigInteger('fk_departaments_id');

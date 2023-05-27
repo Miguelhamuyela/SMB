@@ -4,18 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\Classes\Logger;
 use App\Http\Controllers\Controller;
-use App\Models\Course;
+use App\Models\Student;
 use Illuminate\Http\Request;
-
-class CourseController extends Controller
+use PDF;
+class StudentController extends Controller
 {
-
     private $Logger;
 
     public function __construct()
     {
-        $this->Logger = new Logger();
+        $this->Logger = new Logger;
     }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -23,8 +24,9 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $response['courses'] = Course::get();
-        return view("admin.course.list.index", $response)->with('destroy',1);
+        //
+        $response['students'] = Student::get();
+        return view('admin.student.list.index', $response);
     }
 
     /**
@@ -32,10 +34,17 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
+
     public function create()
     {
-        $response['courses'] = Course::get();
-        return view('admin.course.create.index',$response);
+
+        //Logger
+        $this->Logger->log('info', 'Entrou em Cadastrar hack');
+        return view('admin.student.create.index');
+
     }
 
     /**
@@ -46,19 +55,14 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'courseName' => 'required|string|max:255',
-            'start' => 'required|string|max:255',
-            'duration' => 'max:50',
-            'depart' => 'required|string|max:50',
-
+        Student::create([
+            'name' => $request->name,
+            'father' => $request->father,
+            'startYear' => $request->startYear,
         ]);
 
-        $courses = Course::create($request->all());
+        return redirect()->route('admin.students.create.index')->with('create', 1);
 
-        return redirect()
-            ->back()
-            ->with('create', '1');
 
     }
 
@@ -70,8 +74,10 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        $response['courses'] = Course::find($id);
-        return view('admin.course.details.index', $response);
+        $response['students'] = Student::find($id);
+        //Logger
+        $this->Logger->log('info', 'Visualizou uma Hack  com o identificador ' . $id);
+        return view('admin.student.details.index', $response);
     }
 
     /**
@@ -82,8 +88,25 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        $response['courses'] = Course::find($id);
-        return view('admin.course.edit.index', $response);
+        $response['students'] = Student::find($id);
+
+        //Logger
+        $this->Logger->log('info', 'Entrou em editar um hack com o identificador ' . $id);
+        return view('admin.student.edit.index', $response);
+    }
+
+
+    public function sendStartYear(Request $request)
+    {
+        return redirect("admin/estudantes/recibo/{$request->startYear}");
+    }
+
+
+    public function print($startYear)
+    {
+        $response['students'] = Student::with('students')->where('startYear', $startYear)->get();
+        $pdf = PDF::loadview('admin.pdf.student.index', $response);
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf');
     }
 
     /**
@@ -95,17 +118,10 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'courseName' => 'required|string|max:255',
-            'start' => 'required|string|max:255',
-            'duration' => 'max:50',
-            'depart' => 'required|string|max:50',
-        ]);
-
-        Course::find($id)->update($request->all());
+        Student::find($id)->update($request->all());
 
         return redirect()
-            ->route('admin.courses.list.index')
+            ->route('admin.students.list.index')
             ->with('edit', '1');
     }
 
@@ -117,9 +133,9 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        Course::find($id)->delete();
+        Student::find($id)->delete();
         return redirect()
-            ->route('admin.courses.list.index')
+            ->route('admin.students.list.index')
             ->with('destroy', '1');
     }
 }

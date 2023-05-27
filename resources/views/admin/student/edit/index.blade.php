@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', 'Editar Curso')
+@section('titulo', 'Editar Rack')
 @section('content')
 
     <div class="row">
@@ -9,8 +9,8 @@
                 <div class="card-body bg-light">
                     <h4 class="card-title">
                         <b>
-                            <a href="{{ url('admin/curso/list') }}">Listar Curso</a> >
-                            Editar Rack {{ $courses->name }}
+                            <a href="{{ url('admin/estudantes/list') }}">Listar Rack</a> >
+                            Editar Rack {{ $students->name }}
                         </b>
                     </h4>
                     <hr>
@@ -25,12 +25,12 @@
                             </ul>
                         </div>
                     @endif
-                    <form class="row" method="POST" action="{{ route('admin.courses.update', $courses->id) }}"
+                    <form class="row" method="POST" action="{{ route('admin.students.update', $students->id) }}"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
-                        @include('forms._formCourse.index')
+                        @include('forms._formStudent.index')
 
                         <div class="col-md-12">
                             <div class="form-group text-center">
@@ -49,3 +49,4 @@
     </div>
 
 @endsection
+

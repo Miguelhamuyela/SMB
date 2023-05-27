@@ -26,14 +26,10 @@ class CreateRegistrationsTable extends Migration
             $table->string('municipeName');
             $table->string('startYear');
             $table->string('address')->nullable();
-
-
-          //  $table->unsignedBigInteger('fk_course_id');
-           // $table->foreign('fk_course_id')->references('id')->on('courses')->onDelete('CASCADE')->onUpgrade('CASCADE');
-          //  $table->unsignedBigInteger('fk_provinces_id');
-          //  $table->foreign('fk_provinces_id')->references('id')->on('provinces')->onDelete('CASCADE')->onUpgrade('CASCADE');
-           
-
+            $table->unsignedBigInteger('fk_course_id');
+            $table->foreign('fk_course_id')->references('id')->on('courses')->onDelete('CASCADE')->onUpgrade('CASCADE');
+            $table->unsignedBigInteger('fk_provinces_id');
+            $table->foreign('fk_provinces_id')->references('id')->on('provinces')->onDelete('CASCADE')->onUpgrade('CASCADE');
             $table->softDeletes();
             $table->timestamps();
         });

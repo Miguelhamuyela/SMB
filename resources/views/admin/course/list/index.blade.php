@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body row">
                     <div class="col-md-10">
-                        <h5><b>Lista de Rack </b></h5>
+                        <h5><b>Lista de Curso </b></h5>
                     </div>
                     <div class="col-md-2 text-center">
                         <a href="{{ route('admin.courses.create.index') }}" class="btn btn-primary">Cadastrar</a>
@@ -22,17 +22,22 @@
                         <table id="dataTable-1" class="table table-striped table-bordered mb-3">
                             <thead class="bg-primary thead-dark">
                                 <tr class="text-center ">
-                                    <th>ID</th>
-                                    <th>NOME DA PROVINCIA</th>
-                                    <th>DESCRIÇÃO</th>
+                                    <th>#</th>
+                                    <th>NOME DO CURSO</th>
+                                    <th>INÍCIO</th>
+                                    <th>DURAÇÃO</th>
+                                    <th>SECÇÃO</th>
+                                    <th>ACÇÕES</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($courses as $item)
                                     <tr class="text-center text-dark">
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->id }} </td>
-                                        <td>{{ $item->obs }} </td>
+                                        <td>{{ $item->courseName }} </td>
+                                        <td>{{ $item->start }} </td>
+                                        <td>{{ $item->duration }} </td>
+                                        <td>{{ $item->depart }} </td>
                                         <td>
                                             <a href='{{ url("admin/curso/show/{$item->id}") }}' type="button"
                                                 class="btn btn-icons btn-rounded btn-primary">
