@@ -94,11 +94,17 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/inscrição/relatorios', ['as' => 'admin.registrations.report', 'uses' => 'Admin\RegistrationController@printClient']);
         /**End Clients */
 
-
-
-
-
-
+        /*-----------------------------------------------------------* professor -----------------------------------------*/
+        Route::get('admin/professor/index', ['as' => 'admin.teachers.create.index', 'uses' => 'Admin\TeacherController@create']);
+        Route::get('admin/professor/list', ['as' => 'admin.teachers.list.index', 'uses' => 'Admin\TeacherController@index']);
+        Route::post('admin/professor/store', ['as' => 'admin.teachers.store', 'uses' => 'Admin\TeacherController@store']);
+        Route::get('admin/professor/show/{id}', ['as' => 'admin.teachers.show', 'uses' => 'Admin\TeacherController@show']);
+        Route::get('admin/professor/edit/{id}', ['as' => 'admin.teachers.edit.index', 'uses' => 'Admin\TeacherController@edit']);
+        Route::get('admin/professor/delete/{id}', ['as' => 'admin.teachers.delete', 'uses' => 'Admin\TeacherController@destroy']);
+        Route::put('admin/professor/update/{id}', ['as' => 'admin.teachers.update', 'uses' => 'Admin\TeacherController@update']);
+        //Relatórios PDF
+        Route::get('admin/professor/relatorios', ['as' => 'admin.teachers.report', 'uses' => 'Admin\TeacherController@printClient']);
+        /**-----------------------------------------------------------------End professor-------------------------------------------- */
 
         /*-----------------------------------------------------------* students -----------------------------------------*/
         Route::get('admin/estudantes/index', ['as' => 'admin.students.create.index', 'uses' => 'Admin\StudentController@create']);

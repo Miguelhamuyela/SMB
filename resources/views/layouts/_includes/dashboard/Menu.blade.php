@@ -126,7 +126,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.students.list.index') }}">
                         <i class="menu-icon typcn typcn-document-text"></i>
-                        <span class="menu-title">Inscrição</span>
+                        <span class="menu-title">Inscrição de Candidato</span>
                     </a>
                 </li>
 
@@ -170,7 +170,12 @@
                     </a>
                 </li>
 
-
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.teachers.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Inscrição de Professor</span>
+                    </a>
+                </li>
 
                 <li class="nav-item mb-5">
                     <a class="nav-link" href="{{ route('admin.user.index') }}">

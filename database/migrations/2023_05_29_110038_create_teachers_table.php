@@ -22,6 +22,8 @@ class CreateTeachersTable extends Migration
             $table->string('email');
             $table->string('address');
             $table->string('genro');
+            $table->string('biPasst');
+            $table->string('arquiv');
             $table->string('birthDate');
             $table->longText('experience');
             $table->string('country');
