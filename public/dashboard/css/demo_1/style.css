@@ -349,7 +349,7 @@
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #2A3F8E;
+    background: #18113c;
     width: 270px;
     height: 63px;
 }
@@ -544,7 +544,7 @@
 
 .sidebar {
     min-height: calc(100vh - 63px);
-    background: linear-gradient(to top, black, black);
+    background: linear-gradient(to top, #18113c, #18113c);
     font-family: "roboto", sans-serif;
     padding: 0;
     width: 270px;

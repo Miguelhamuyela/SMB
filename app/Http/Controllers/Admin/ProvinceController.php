@@ -60,12 +60,7 @@ class ProvinceController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
      //   $response['provinces'] = Province::find($id);
@@ -74,7 +69,7 @@ class ProvinceController extends Controller
 
         $response['provinces'] = Province::find($id);
         //Logger
-        $this->Logger->log('info', 'Visualizou uma Hack  com o identificador ' . $id);
+        $this->Logger->log('info', 'Visualizou uma Província  com o identificador ' . $id);
         return view('admin.province.details.index', $response);
 
 
@@ -88,29 +83,15 @@ class ProvinceController extends Controller
      */
     public function edit($id)
     {
-       // $response['provinces'] = Province::find($id);
-      //  return view('admin.province.edit.index', $response);
+
         $response['provinces'] = Province::find($id);
-
         //Logger
-        $this->Logger->log('info', 'Entrou em editar um hack com o identificador ' . $id);
+        $this->Logger->log('info', 'Entrou em editar uma Província com o identificador ' . $id);
         return view('admin.province.edit.index', $response);
-
-
-
-
-
-
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -125,17 +106,11 @@ class ProvinceController extends Controller
             ->with('edit', '1');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         Province::find($id)->delete();
 
-        $this->Logger->log('info', 'Eliminou um hack com o identificador ' . $id);
+        $this->Logger->log('info', 'Eliminou uma Província com o identificador ' . $id);
         return  redirect()->route('admin.provinces.list.index')->with('destroy', '1');
     }
 }

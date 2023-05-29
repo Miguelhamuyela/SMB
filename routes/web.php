@@ -126,10 +126,6 @@ Route::middleware(['auth'])->group(function () {
         /*-----------------------------------------------------------* courses -----------------------------------------*/
 
 
-
-
-
-
         /*-----------------------------------------------------------* courses -----------------------------------------*/
         Route::get('admin/curso/index', ['as' => 'admin.courses.create.index', 'uses' => 'Admin\CourseController@create']);
         Route::get('admin/curso/list', ['as' => 'admin.courses.list.index', 'uses' => 'Admin\CourseController@index']);
@@ -165,6 +161,47 @@ Route::middleware(['auth'])->group(function () {
         //Relatórios PDF
         Route::get('admin/ano_estudante/relatorios', ['as' => 'admin.student_years.report', 'uses' => 'Admin\StudentYearController@printClient']);
         /**-----------------------------------------------------------End courses ---------------------------------------------*/
+        /*-----------------------------------------------------------* provincia -----------------------------------------*/
+        Route::get('admin/dormitorio-anual/index', ['as' => 'admin.room_academic_years.create.index', 'uses' => 'Admin\RoomAcademicYearController@create']);
+        Route::get('admin/dormitorio-anual/list', ['as' => 'admin.room_academic_years.list.index', 'uses' => 'Admin\RoomAcademicYearController@index']);
+        Route::post('admin/dormitorio-anual/store', ['as' => 'admin.room_academic_years.store', 'uses' => 'Admin\RoomAcademicYearController@store']);
+        Route::get('admin/dormitorio-anual/show/{id}', ['as' => 'admin.room_academic_years.show', 'uses' => 'Admin\RoomAcademicYearController@show']);
+        Route::get('admin/dormitorio-anual/edit/{id}', ['as' => 'admin.room_academic_years.edit.index', 'uses' => 'Admin\RoomAcademicYearController@edit']);
+        Route::get('admin/dormitorio-anual/delete/{id}', ['as' => 'admin.room_academic_years.delete', 'uses' => 'Admin\RoomAcademicYearController@destroy']);
+        Route::put('admin/dormitorio-anual/update/{id}', ['as' => 'admin.room_academic_years.update', 'uses' => 'Admin\RoomAcademicYearController@update']);
+        //Relatórios PDF
+        Route::get('admin/dormitorio-anual/relatorios', ['as' => 'admin.room_academic_years.report', 'uses' => 'Admin\RoomAcademicYearController@printClient']);
+        /**End Clients */
+
+        Route::post('admin/dormitorio-anual/search', ['as' => 'admin.room_academic_years_seach', 'uses' => 'Admin\RoomAcademicYearController@room_academic_years_seach']);
+        Route::get('admin/dormitorio-anual/seachResult/{startYear}', ['as' => 'admin.room_academic_years.seachResult', 'uses' => 'Admin\RoomAcademicYearController@seachResult']);
+        Route::get('admin/dormitorio-anual/recibo', ['as' => 'admin.room_academic_years.report', 'uses' => 'Admin\RoomAcademicYearController@print']);
+        Route::get('admin/dormitorio-anual/estudantes/{id}', ['as' => 'admin.room_academic_years.student', 'uses' => 'Admin\RoomAcademicYearController@GetSubCatAgainstMain']);
+        /**Print  */
+        Route::post('admin/dormitorio-anual/recibo/', ['as' => 'admin.room_academic_years.print', 'uses' => 'Admin\RoomAcademicYearController@sendStartYear']);
+        Route::get('admin/dormitorio-anual/recibo/{startYear}', ['as' => 'admin.room_academic_years.report', 'uses' => 'Admin\RoomAcademicYearController@print']);
+        /**end print */
+
+        /*-----------------------------------------------------------* provincia -----------------------------------------*/
+        Route::get('admin/ano_estudante/index', ['as' => 'admin.student_years.create.index', 'uses' => 'Admin\StudentYearController@create']);
+        Route::get('admin/ano_estudante/list', ['as' => 'admin.student_years.list.index', 'uses' => 'Admin\StudentYearController@index']);
+        Route::post('admin/ano_estudante/store', ['as' => 'admin.student_years.store', 'uses' => 'Admin\StudentYearController@store']);
+        Route::get('admin/ano_estudante/show/{id}', ['as' => 'admin.student_years.show', 'uses' => 'Admin\StudentYearController@show']);
+        Route::get('admin/ano_estudante/edit/{id}', ['as' => 'admin.student_years.edit.index', 'uses' => 'Admin\StudentYearController@edit']);
+        Route::get('admin/ano_estudante/delete/{id}', ['as' => 'admin.student_years.delete', 'uses' => 'Admin\StudentYearController@destroy']);
+        Route::put('admin/ano_estudante/update/{id}', ['as' => 'admin.student_years.update', 'uses' => 'Admin\StudentYearController@update']);
+        //Relatórios PDF
+        Route::get('admin/ano_estudante/relatorios', ['as' => 'admin.student_years.report', 'uses' => 'Admin\StudentYearController@printClient']);
+        /**End Clients */
+
+        Route::post('admin/ano_estudante/search', ['as' => 'admin.student_years_seach', 'uses' => 'Admin\StudentYearController@student_years_seach']);
+        Route::get('admin/ano_estudante/seachResult/{startYear}', ['as' => 'admin.student_years.seachResult', 'uses' => 'Admin\StudentYearController@seachResult']);
+        Route::get('admin/ano_estudante/recibo', ['as' => 'admin.student_years.report', 'uses' => 'Admin\StudentYearController@print']);
+        Route::get('admin/ano_estudante/estudantes/{id}', ['as' => 'admin.student_years.student', 'uses' => 'Admin\StudentYearController@GetSubCatAgainstMain']);
+        /**Print  */
+        Route::post('admin/ano_estudante/recibo/', ['as' => 'admin.student_years.print', 'uses' => 'Admin\StudentYearController@sendStartYear']);
+        Route::get('admin/ano_estudante/recibo/{startYear}', ['as' => 'admin.student_years.report', 'uses' => 'Admin\StudentYearController@print']);
+        /**end print */
 
         /**Startups */
         Route::get('admin/startup/index', ['as' => 'admin.startup.create.index', 'uses' => 'Admin\StartupsController@create']);

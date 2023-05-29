@@ -126,14 +126,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.students.list.index') }}">
                         <i class="menu-icon typcn typcn-document-text"></i>
-                        <span class="menu-title">REGISTO</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="menu-icon typcn typcn-document-text"></i>
-                        <span class="menu-title">CursoAAAA</span>
+                        <span class="menu-title">Inscrição</span>
                     </a>
                 </li>
 
@@ -156,7 +149,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.registrations.list.index') }}">
                         <i class="menu-icon typcn typcn-document-text"></i>
-                        <span class="menu-title">Inscrição</span>
+                        <span class="menu-title">SADSADSADSADASD</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.room_academic_years.create.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">IrrRRRG</span>
+                    </a>
+                </li>
+
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.student_years.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Matricula</span>
                     </a>
                 </li>
 

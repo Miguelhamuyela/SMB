@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', 'Editar Rack')
+@section('titulo', 'Editar a Provincia')
 @section('content')
 
     <div class="row">
@@ -9,8 +9,8 @@
                 <div class="card-body bg-light">
                     <h4 class="card-title">
                         <b>
-                            <a href="{{ url('admin/racks/list') }}">Listar Rack</a> >
-                            Editar Rack {{ $hacks->name }}
+                            <a href="{{ url('admin/provincia/list') }}">Listar Província</a> >
+                            Editar Rack {{ $provinces->name }}
                         </b>
                     </h4>
                     <hr>
@@ -25,12 +25,12 @@
                             </ul>
                         </div>
                     @endif
-                    <form class="row" method="POST" action="{{ route('admin.hacks.update', $hacks->id) }}"
+                    <form class="row" method="POST" action="{{ route('admin.provinces.update', $provinces->id) }}"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
-                        @include('forms._formHack.index')
+                        @include('forms._formProvince.index')
 
                         <div class="col-md-12">
                             <div class="form-group text-center">

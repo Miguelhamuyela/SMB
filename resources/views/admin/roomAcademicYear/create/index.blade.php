@@ -1,17 +1,22 @@
+
 @extends('layouts.merge.dashboard')
-@section('titulo', 'Cadastrar Cadidatos')
+@section('titulo', 'Cadastrar Curso')
+
 @section('content')
     <div class="row">
+
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
 
                 <div class="card-body bg-light">
                     <h4 class="card-title">
                         <b>
-                            <a href="{{ url('admin/estudantes/list') }}">Listar Cadidatos</a> >Cadastrar
+                            <a href="{{ url('admin/dormitorio-anual/list') }}">Listar Curso</a> >Cadastrar
                         </b>
                     </h4>
                     <hr>
+
+
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -21,10 +26,15 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="POST" class="row" action="{{ route('admin.students.store') }}"
+                    <form method="POST" class="row" action="{{ route('admin.room_academic_years.store') }}"
                         enctype="multipart/form-data">
                         @csrf
-                        @include('forms._formStudent.index')
+
+
+
+                        @include('forms._formRoomAcademicYear.index')
+
+
                         <div class="col-md-12">
                             <div class="form-group text-center">
                                 <button type="submit" class="btn px-5 col-md-3 btn-primary">

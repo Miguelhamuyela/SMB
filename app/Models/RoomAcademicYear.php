@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class StudentYear extends Model
+class RoomAcademicYear extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
-    protected $table = 'student_years';
+    protected $table = 'room_academic_years';
     public $guarded = ['id'];
 
     public function students()
