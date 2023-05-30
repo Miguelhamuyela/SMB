@@ -100,7 +100,10 @@ class TeacherController extends Controller
      */
     public function show($id)
     {
-        //
+        $response['teachers'] = Teacher::find($id);
+        //Logger
+        $this->Logger->log('info', 'Visualizou um Professor  com o identificador ' . $id);
+        return view('admin.teacher.details.index', $response);
     }
 
     /**
@@ -111,29 +114,19 @@ class TeacherController extends Controller
      */
     public function edit($id)
     {
+
         $response['teachers']= Teacher::find($id);
         return view('admin.teacher.edit.index',$response);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         Teacher::find($id)->update($request->all());
-        return redirect()->route('admin.teachers.index')->with('edit',1);
+        return redirect()->route('admin.teachers.list.index')->with('edit',1);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function destroy($id)
     {
         Teacher::find($id)->delete();

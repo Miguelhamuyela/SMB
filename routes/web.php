@@ -94,7 +94,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/inscrição/relatorios', ['as' => 'admin.registrations.report', 'uses' => 'Admin\RegistrationController@printClient']);
         /**End Clients */
 
-        /*-----------------------------------------------------------* professor -----------------------------------------*/
+        /*-----------------------------------------------------------* provincia -----------------------------------------*/
         Route::get('admin/professor/index', ['as' => 'admin.teachers.create.index', 'uses' => 'Admin\TeacherController@create']);
         Route::get('admin/professor/list', ['as' => 'admin.teachers.list.index', 'uses' => 'Admin\TeacherController@index']);
         Route::post('admin/professor/store', ['as' => 'admin.teachers.store', 'uses' => 'Admin\TeacherController@store']);
@@ -104,7 +104,66 @@ Route::middleware(['auth'])->group(function () {
         Route::put('admin/professor/update/{id}', ['as' => 'admin.teachers.update', 'uses' => 'Admin\TeacherController@update']);
         //Relatórios PDF
         Route::get('admin/professor/relatorios', ['as' => 'admin.teachers.report', 'uses' => 'Admin\TeacherController@printClient']);
-        /**-----------------------------------------------------------------End professor-------------------------------------------- */
+        /**----------------------------------------------------------------End ---------------------------------------------------- */
+        /*-----------------------------------------------------------* professor admitido -----------------------------------------*/
+        Route::get('admin/professor_ano/index', ['as' => 'admin.teacher_years.create.index', 'uses' => 'Admin\TeacherYearController@create']);
+        Route::get('admin/professor_ano/list', ['as' => 'admin.teacher_years.list.index', 'uses' => 'Admin\TeacherYearController@index']);
+        Route::post('admin/professor_ano/store', ['as' => 'admin.teacher_years.store', 'uses' => 'Admin\TeacherYearController@store']);
+        Route::get('admin/professor_ano/show/{id}', ['as' => 'admin.teacher_years.show', 'uses' => 'Admin\TeacherYearController@show']);
+        Route::get('admin/professor_ano/edit/{id}', ['as' => 'admin.teacher_years.edit.index', 'uses' => 'Admin\TeacherYearController@edit']);
+        Route::get('admin/professor_ano/delete/{id}', ['as' => 'admin.teacher_years.delete', 'uses' => 'Admin\TeacherYearController@destroy']);
+        Route::put('admin/professor_ano/update/{id}', ['as' => 'admin.teacher_years.update', 'uses' => 'Admin\TeacherYearController@update']);
+        //Relatórios PDF
+        Route::get('admin/professor_ano/relatorios', ['as' => 'admin.teacher_years.report', 'uses' => 'Admin\TeacherYearController@printClient']);
+        Route::post('admin/professor_ano/search', ['as' => 'admin.teacher_years_seach', 'uses' => 'Admin\TeacherYearController@teacher_years_seach']);
+        Route::get('admin/professor_ano/seachResult/{startYear}', ['as' => 'admin.teacher_years.seachResult', 'uses' => 'Admin\TeacherYearController@seachResult']);
+        Route::get('admin/professor_ano/recibo', ['as' => 'admin.teacher_years.report.show', 'uses' => 'Admin\TeacherYearController@print']);
+        Route::get('admin/professor_ano/estudantes/{id}', ['as' => 'admin.teacher_years.student', 'uses' => 'Admin\TeacherYearController@GetSubCatAgainstMain']);
+
+        /**----------------------------------------------------------------End ---------------------------------------------------- */
+
+ /* rota de  estudante-transferido */
+ //Route::get('admin/ano-academico-professor/index', ['as' => 'admin.teacher_years.index', 'uses' => 'Admin\TeacherAcademicYearController@index']);
+// Route::get('admin/ano-academico-professor/show/{id}', ['as' => 'admin.teacher_years.show', 'uses' => 'Admin\TeacherAcademicYearController@show']);
+// Route::get('admin/ano-academico-professor/create', ['as' => 'admin.teacher_academic_years.create', 'uses' => 'Admin\TeacherAcademicYearController@create']);
+/// Route::post('admin/ano-academico-professor/store', ['as' => 'admin.teacher_academic_years.store', 'uses' => 'Admin\TeacherAcademicYearController@store']);
+// Route::get('admin/ano-academico-professor/edit/{id}', ['as' => 'admin.teacher_academic_years.edit', 'uses' => 'Admin\TeacherAcademicYearController@edit']);
+// Route::put('admin/ano-academico-professor/update/{id}', ['as' => 'admin.teacher_academic_years.update', 'uses' => 'Admin\TeacherAcademicYearController@update']);
+ //Route::get('admin/ano-academico-professor/delete/{id}', ['as' => 'admin.teacher_academic_years.delete', 'uses' => 'Admin\TeacherAcademicYearController@destroy']);
+ //Route::post('admin/ano-academico-professor/search', ['as' => 'admin.teacher_academic_years_seach', 'uses' => 'Admin\TeacherAcademicYearController@teacher_academic_years_seach']);
+ //Route::get('admin/ano-academico-professor/seachResult/{startYear}', ['as' => 'admin.teacher_academic_years.seachResult', 'uses' => 'Admin\TeacherAcademicYearController@seachResult']);
+// Route::get('admin/ano-academico-professor/recibo', ['as' => 'admin.teacher_academic_years.report.show', 'uses' => 'Admin\TeacherAcademicYearController@print']);
+// Route::get('admin/ano-academico-professor/estudantes/{id}', ['as' => 'admin.teacher_academic_years.student', 'uses' => 'Admin\TeacherAcademicYearController@GetSubCatAgainstMain']);
+
+ /**Print  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         /*-----------------------------------------------------------* students -----------------------------------------*/
         Route::get('admin/estudantes/index', ['as' => 'admin.students.create.index', 'uses' => 'Admin\StudentController@create']);
@@ -116,9 +175,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('admin/estudantes/update/{id}', ['as' => 'admin.students.update', 'uses' => 'Admin\StudentController@update']);
         //Relatórios PDF
         Route::get('admin/estudantes/relatorios', ['as' => 'admin.students.report', 'uses' => 'Admin\StudentController@printClient']);
-        /**End Clients */
-
-
+        /**--------------------------------------------------------------End ---------------------------------------------------------*/
 
         Route::post('admin/estudantes/search', ['as' => 'admin.students_seach', 'uses' => 'Admin\StudentController@students_seach']);
         Route::get('admin/estudantes/seachResult/{startYear}', ['as' => 'admin.students.seachResult', 'uses' => 'Admin\StudentController@seachResult']);
@@ -154,7 +211,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('admin/provincia/update/{id}', ['as' => 'admin.provinces.update', 'uses' => 'Admin\ProvinceController@update']);
         //Relatórios PDF
         Route::get('admin/provincia/relatorios', ['as' => 'admin.provinces.report', 'uses' => 'Admin\ProvinceController@printClient']);
-        /**End Clients */
+        /**----------------------------------------------------------------End ---------------------------------------------------- */
 
         /*-----------------------------------------------------------* courses -----------------------------------------*/
         Route::get('admin/ano_estudante/index', ['as' => 'admin.student_years.create.index', 'uses' => 'Admin\StudentYearController@create']);

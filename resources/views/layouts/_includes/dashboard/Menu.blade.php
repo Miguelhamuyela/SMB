@@ -161,8 +161,6 @@
                 </li>
 
 
-
-
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.student_years.list.index') }}">
                         <i class="menu-icon typcn typcn-document-text"></i>
@@ -177,6 +175,12 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.teachers.list.index') }}">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Professores Admitidos</span>
+                    </a>
+                </li>
                 <li class="nav-item mb-5">
                     <a class="nav-link" href="{{ route('admin.user.index') }}">
                         <i class="menu-icon typcn typcn-document-text"></i>

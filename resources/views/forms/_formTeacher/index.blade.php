@@ -40,7 +40,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="arquiv">Arquivo de Identificação<small class="text-danger"></small></label>
-            <input required value="{{ isset($teachers->arquiv) ? $students->arquiv : old('arquiv') }}" type="text"
+            <input required value="{{ isset($teachers->arquiv) ? $teachers->arquiv : old('arquiv') }}" type="text"
                 name="arquiv"class="form-control" />
         </div>
     </div>
@@ -136,8 +136,8 @@
 </div>
 
 <div class="col-md-12">
-    <label for="Detalhes Sobre a Startup">Detalhes Sobre a Startup <small
-            class="text-danger">*bbbbbbb</small></label>
+    <label for="Detalhes Sobre a Startup">Experiência<small
+            class="text-danger"></small></label>
     <textarea class="form-control rounded" name="experience" required
         style="min-height:70px; min-width:100%">{{ isset($teachers->experience) ? $teachers->experience : old('obs') }}</textarea>
 </div>

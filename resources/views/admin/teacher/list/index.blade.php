@@ -23,8 +23,11 @@
                             <thead class="bg-primary thead-dark">
                                 <tr class="text-center ">
                                     <th>ID</th>
-                                    <th>NOME DA PROVINCIA</th>
-                                    <th>DESCRIÇÃO</th>
+                                    <th>PROFESSOR</th>
+                                    <th>GRAU ACADÉMICO</th>
+                                    <th>ESPECIALIDADE</th>
+                                    <th>TELEFONE</th>
+                                    <th>ANO LECTIVO</th>
                                     <th>ACÇÃO</th>
                                 </tr>
                             </thead>
@@ -33,7 +36,10 @@
                                     <tr class="text-center text-dark">
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->name }} </td>
-                                        <td>{{ $item->obs }} </td>
+                                        <td>{{ $item->academicGrau }} </td>
+                                        <td>{{ $item->especiality }} </td>
+                                        <td>{{ $item->tel }} </td>
+                                        <td>{{ $item->startYear }} </td>
 
                                         <td>
                                             <a href='{{ url("admin/professor/show/{$item->id}") }}' type="button"
